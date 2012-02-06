@@ -11,9 +11,33 @@ published: true
   {% include JB/categories_list %}
 </ul>
 
-{% assign firstPost = site.posts.first %}
-{{ firstPost.content | truncatehtml: 450 }}
-<a id="more" href="{{ firstPost.url }}">Read More &raquo;</a>
+{% for currentPost in site.posts limit:5 %}
+  {% assign currentPost = site.posts.first %}
+  <div class="row">
+    <div class="span10">
+      <div>
+        <h2>{{ currentPost.title }} <small>{{ currentPost.tagline }}</small></h2>
+      </div>
+      {{ currentPost.content | truncatehtml: 500 }}
+      <a id="more" href="{{ currentPost.url }}">Read More &raquo;</a>
+    </div>
+    
+    <div class="span4">
+      <h4>Published</h4>
+      <div class="date"><span>{{ currentPost.date | date_to_long_string }}</span></div>
+
+    {% unless currentPost.tags == empty %}
+      <h4>Tags</h4>
+      <ul class="tag_box">
+      {% assign tags_list = currentPost.tags %}
+      {% include JB/tags_list %}
+      </ul>
+    {% endunless %}  
+    </div>
+  </div>
+{% endfor %}
+
+<hr/>
 
 ## Recent posts:
 
