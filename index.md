@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Welcome to MetalElf0 weblog
-tagline: sed 's/boring\_stuff/ruby/g'
+tagline: sed 's/boring_stuff/ruby/g'
 published: true
 ---
 {% include JB/setup %}
@@ -18,8 +18,9 @@ published: true
       <div>
         <h2>{{ currentPost.title }} <small>{{ currentPost.tagline }}</small></h2>
       </div>
-      {{ currentPost.content | truncatehtml: 500 }}
-      <a id="more" href="{{ currentPost.url }}">Read More &raquo;</a>
+      {{ currentPost.content }}
+      <a id="more" href="{{ currentPost.url }}">See article &raquo;</a>
+      <hr/>
     </div>
     
     <div class="span4">
