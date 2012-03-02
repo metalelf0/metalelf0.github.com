@@ -23,7 +23,7 @@ published: true
       <hr/>
     </div>
     
-    <div class="span4">
+    <div class="span2">
       <h4>Published</h4>
       <div class="date"><span>{{ currentPost.date | date_to_long_string }}</span></div>
 
