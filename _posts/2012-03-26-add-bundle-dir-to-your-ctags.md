@@ -25,9 +25,9 @@ The setup needed is the following:
 
 3. Now, from within vim, you can use the following shortcuts:
 
-      C-]     => jump to definition
-      C-T     => jump back from the definition
-      C-W C-] => Open the definition in an horizontal split.
+        C-]     => jump to definition
+        C-T     => jump back from the definition
+        C-W C-] => Open the definition in an horizontal split.
 
 Additional tricks can be found
 [here](http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks).
@@ -43,11 +43,11 @@ Then you can do this:
 
 2. copy the path including the rvm gem dir, like
 
-      /Users/metalelf0/.rvm/gems/ruby-1.9.3-p0@my_project
+        /Users/metalelf0/.rvm/gems/ruby-1.9.3-p0@my_project
 
-3. now run the ctags command passing also this dir as an argument:
+3. now run the ctags command passing this dir as an additional argument:
 
-      ctags -R . /Users/metalelf0/.rvm/gems/ruby-1.9.3-p0@my_project
+        ctags -R . /Users/metalelf0/.rvm/gems/ruby-1.9.3-p0@my_project
 
 Now from within vim you'll be able to jump to the source of the gems
 your project is using. Cool, right? :)
