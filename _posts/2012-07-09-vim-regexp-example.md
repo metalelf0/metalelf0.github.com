@@ -15,7 +15,7 @@ are:
 Let's explain it briefly:
 
 * the first part, `:'<,'>s/`, is the vim command to substitute a pattern
-   (or a regexp) with another one. The `<.'>` part tells vim to operate
+   (or a regexp) with another one. The `<,'>` part tells vim to operate
    on the visually selected text.
 
 * the second part is the trickiest one. Let's see it part to part:
