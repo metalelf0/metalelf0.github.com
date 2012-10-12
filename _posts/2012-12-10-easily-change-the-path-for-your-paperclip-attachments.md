@@ -13,8 +13,8 @@ in my production.log file:
 
     [paperclip] Duplicate URL for round_image with /system/:attachment/:id/:style/:filename. This will clash with attachment defined in PageElements::FranchisingCarouselEntry class
 
-This happens because in two different models I defined an attachment
-with the same name, and the default strategy Paperclip uses to choose
+This happens because I defined an attachment with the same name in two
+different models, and the default strategy Paperclip uses to choose
 attachment locations could lead to filename clashing.
 
 Here is a more detailed example:
