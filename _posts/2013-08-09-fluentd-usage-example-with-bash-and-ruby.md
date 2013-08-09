@@ -26,7 +26,7 @@ sources and output destinations; for the scope of this example, we will use:
 * [fluent-logger rubygem](https://github.com/fluent/fluent-logger-ruby);
 * the built-in tcp input and stdout output.
 
-## Installing fluentd server
+### Installing fluentd server
 
 The first thing to do is installing the fluentd server. You can easily do this
 via rubygems (beware it requires at least ruby 1.9.2):
@@ -39,7 +39,7 @@ When you're done you can create a setup file:
 
 This will create the file `~/.fluentd/fluent.conf` and setup the `~/.fluent/plugins` folder.
 
-## The fluentd.conf file
+### The fluentd.conf file
 
 Edit the configuration file with your favourite editor (which is vim, of
 course), and make it look like this:
@@ -61,7 +61,7 @@ incoming messages:
 
     $ fluentd -c ~/.fluent/fluent.conf
 
-## Logging from bash to STDOUT
+### Logging from bash to STDOUT
 
 Now, let's prepare a sample bash script to log things to `fluentd`. Open
 another terminal, create a bash script and paste the following content:
@@ -79,7 +79,7 @@ like this in your server:
 This is telling us that `fluentd` is accepting input from the `fluent-cat` command
 and it is redirecting it to standard output, according to the first rule.
 
-## Logging from bash to MongoDB
+### Logging from bash to MongoDB
 
 To go on in our test, we need to install MongoDB. Use the best way depending on
 your system (I used `homebrew` on my mac), run it and connect to its console via
@@ -95,7 +95,7 @@ This time you should see an entry in the `test` collection:
 
     { "_id" : ObjectId("5204dfee9f60b167da000004"), "project" : "Library", "script_name" : "Reload books", "message" : "Started", "time" : ISODate("2013-08-09T12:26:22Z") }
 
-## Logging from bash to MongoDB
+### Logging from bash to MongoDB
 
 Let's see how to achieve the same result in a ruby script. Install the fluent-logger
 rubygem with 
@@ -111,7 +111,7 @@ Run it, rerun the query in the MongoDB console, and a new entry should be presen
 
     { "_id" : ObjectId("5204dfee9f60b167da000005"), "project" : "Library", "script_name" : "Reload books", "message" : "Completed", "time" : ISODate("2013-08-09T12:46:32Z") }
 
-## Final considerations
+### Final considerations
 
 The ease of use of `fluentd` allows to quickly setup a centralized log system in
 just a few hours. You could use any tool you want to browse data in the MongoDB
