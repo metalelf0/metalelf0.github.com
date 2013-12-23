@@ -10,3 +10,8 @@ img.fluentd-example {
   margin-right: auto;
   width: 400px;
 }
+
+p {
+  margin: 10px 0;
+  line-height: 150%;
+}

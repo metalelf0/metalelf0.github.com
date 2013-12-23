@@ -22,7 +22,7 @@ published: true
       <a id="more" href="{{ currentPost.url }}">See article &raquo;</a>
       <hr/>
     </div>
-    
+
     <div class="span2">
       <h4>Published</h4>
       <div class="date"><span>{{ currentPost.date | date_to_long_string }}</span></div>
@@ -33,7 +33,7 @@ published: true
       {% assign tags_list = currentPost.tags %}
       {% include JB/tags_list %}
       </ul>
-    {% endunless %}  
+    {% endunless %}
     </div>
   </div>
 {% endfor %}
