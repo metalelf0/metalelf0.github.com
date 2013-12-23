@@ -64,8 +64,7 @@ build an abstraction layer around your `user.privacy` relation.
   has_one :_privacy
 
   def privacy
-    return _privacy if self._privacy
-    return NullPrivacy.new
+    _privacy || NullPrivacy.new
   end
 
   def privacy= privacy
