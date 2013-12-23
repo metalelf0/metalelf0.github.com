@@ -17,6 +17,8 @@ databases (both RDBMS and NoSQL ones). Also, it allows to parse logs and to
 extract only the significative parts from each of them; saving this
 structured information on a DB allows much easier log searching and analysis.
 
+<!--more-->
+
 <img class="fluentd-example" src="http://docs.fluentd.org/images/apache-to-mongodb.png" alt="fluentd-example"/>
 
 The fluentd architecture can be extended with ruby plugins to support input

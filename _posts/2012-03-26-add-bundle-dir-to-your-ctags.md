@@ -13,6 +13,8 @@ definition with just a keystroke - `C-]`. Adding your bundle dir when
 generating the tags file will allow jumping to the internals of the ruby
 gems you are using. Let's see how to do this.
 
+<!--more-->
+
 The setup needed is the following:
 
 1. install [Exuberant Ctags](http://http://ctags.sourceforge.net). I

@@ -17,8 +17,11 @@ This happens because I defined an attachment with the same name in two
 different models, and the default strategy Paperclip uses to choose
 attachment locations could lead to filename clashing.
 
+<!--more-->
+
 Here is a more detailed example:
 
+{% highlight ruby %}
     class Foo
       has_attached_file :image
     end
@@ -26,6 +29,7 @@ Here is a more detailed example:
     class Bar
       has_attached_file :image
     end
+{% endhighlight %}
 
 The default strategy Paperclip uses to store attachments relies on this
 path: `/system/:attachment/:id/:style/:filename`.
@@ -38,7 +42,9 @@ The solution is quite easy; if we add the following line to our
 `config/environment.rb` file, Paperclip will add an extra directory
 level to separate files across different models:
 
+{% highlight ruby %}
     Paperclip::Attachment.default_options[:url] = "/system/:class/:attachment/:id/:style/:filename"
+{% endhighlight %}
 
 From now on Paperclip will search for files in the
 `system/foo/image/1/original/image.png` and
@@ -46,7 +52,7 @@ From now on Paperclip will search for files in the
 move our previously uploaded files to the new path. We can do this with
 this rake task:
 
-
+{% highlight ruby %}
     desc "Copy paperclip data"
     task :copy_paperclip_data => :environment do
 
@@ -74,6 +80,7 @@ this rake task:
       move_images Bar, 'image'
 
     end
+{% endhighlight %}
 
 This script is a slightly modified version of the one by Fernando
 Marcelo you can see [here](http://fernandomarcelo.com/2012/05/paperclip-how-to-move-existing-attachments-to-a-new-path/).

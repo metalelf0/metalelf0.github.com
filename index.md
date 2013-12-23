@@ -22,8 +22,7 @@ published: true
       <div>
         <h2>{{ currentPost.title }} <small>{{ currentPost.tagline }}</small></h2>
       </div>
-      {{ currentPost.content }}
-      <a id="more" href="{{ currentPost.url }}">See article &raquo;</a>
+      {{ currentPost.content | postmorefilter: currentPost.url, "Read the rest of this entry &raquo;" }}
       <hr/>
     </div>
 

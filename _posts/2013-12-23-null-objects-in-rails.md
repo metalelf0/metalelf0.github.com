@@ -30,6 +30,8 @@ if user.privacy.enables_page?(...)
 Hiding the responsibility inside the user class? It would be much cleaner and
 follow the __Tell, don't ask__ principle.
 
+<!--more-->
+
 ### How to get there
 
 There are many ways to achieve this behaviour, but most of them will be based
