@@ -6,15 +6,19 @@ published: true
 ---
 {% include JB/setup %}
 
-<ul class="tag_box inline">
-  {% assign categories_list = site.categories %}
-  {% include JB/categories_list %}
-</ul>
+<div class="row">
+  <div class="col-md-10 col-md-offset-2">
+    <ul class="nav nav-pills">
+      {% assign categories_list = site.categories %}
+      {% include JB/categories_list %}
+    </ul>
+  </div>
+</div>
 
 {% for currentPost in site.posts limit:5 %}
   {% assign currentPost = site.posts.first %}
-  <div class="row">
-    <div class="span10">
+  <div class="row post">
+    <div class="col-md-8 col-md-offset-2">
       <div>
         <h2>{{ currentPost.title }} <small>{{ currentPost.tagline }}</small></h2>
       </div>
@@ -23,7 +27,7 @@ published: true
       <hr/>
     </div>
 
-    <div class="span2">
+    <div class="col-md-2">
       <h4>Published</h4>
       <div class="date"><span>{{ currentPost.date | date_to_long_string }}</span></div>
 
