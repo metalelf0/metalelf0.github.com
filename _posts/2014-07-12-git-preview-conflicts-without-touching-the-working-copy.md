@@ -21,15 +21,15 @@ But what could you do if you didn't use Github, or you were just too lazy to ope
 
 The best solution I found [here on StackOverflow](http://stackoverflow.com/questions/501407/is-there-a-git-merge-dry-run-option) is this: create the following git aliases in your `~/.gitconfig` file:
 
-```
+{% highlight text %}
 [alias]
   dry = "!f() { git merge-tree `git merge-base $2 $1` $2 $1; }; f" # check how the merge of dev into master will go: git dry dev master
   conflicts = "!f() { git merge-tree `git merge-base $2 $1` $2 $1 | grep -A3 'changed in both'; }; f" # see if there will be any conflicts merging dev into master: git conflicts dev master
-```
+{% endhighlight %}
 
 The first command will show the changelog for the merge of your feature branch into master:
 
-```
+{% highlight %}
 ╰─$ git dry feature_two staging
 changed in both
   base   100644 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 first_file
@@ -41,19 +41,19 @@ changed in both
 +=======
 well, something else?
 +>>>>>>> .their
-```
+{% endhighlight %}
 
 This is showing us there will be a conflict when trying to merge the `feature_two` branch into `staging`: the file `first_file` is changed in both the branches, and this will generate a conflict.
 
 The second command is just a shorthand that will limit the output to the lines related to the changed files, without the full changelog.
 
-```
+{% highlight text %}
 ╰─$ git conflicts feature_two staging
 changed in both
   base   100644 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 first_file
   our    100644 deba01fc8d98200761c46eb139f11ac244cf6eb5 first_file
   their  100644 dc1ff7f95ac4812480edad5ec13d4c1a20066377 first_file
-```
+{% endhighlight %}
 
 I hope you found this interesting, feel free to comment if you think it's still improvable!
 
