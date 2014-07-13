@@ -29,7 +29,7 @@ The best solution I found [here on StackOverflow](http://stackoverflow.com/quest
 
 The first command will show the changelog for the merge of your feature branch into master:
 
-{% highlight %}
+{% highlight text %}
 ╰─$ git dry feature_two staging
 changed in both
   base   100644 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 first_file
