@@ -23,8 +23,13 @@ The best solution I found [here on StackOverflow](http://stackoverflow.com/quest
 
 {% highlight text %}
 [alias]
-  dry = "!f() { git merge-tree `git merge-base $2 $1` $2 $1; }; f" # check how the merge of dev into master will go: git dry dev master
-  conflicts = "!f() { git merge-tree `git merge-base $2 $1` $2 $1 | grep -A3 'changed in both'; }; f" # see if there will be any conflicts merging dev into master: git conflicts dev master
+  # check how the merge of dev into master will go:
+  # git dry dev master
+  dry = "!f() { git merge-tree `git merge-base $2 $1` $2 $1; }; f" 
+
+  # see if there will be any conflicts merging dev into master: 
+  # git conflicts dev master
+  conflicts = "!f() { git merge-tree `git merge-base $2 $1` $2 $1 | grep -A3 'changed in both'; }; f" 
 {% endhighlight %}
 
 The first command will show the changelog for the merge of your feature branch into master:
