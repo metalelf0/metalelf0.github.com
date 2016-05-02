@@ -4,7 +4,6 @@ permalink: /:categories/:year/:month/:day/:title
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 auto: true
-highlighter: pygments
 markdown: kramdown
 
 # Themes are encouraged to use these universal variables
@@ -23,7 +22,6 @@ gems:
   - jekyll-paginate
   - redcarpet
   - jekyll-gist
-  - pygments.rb
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt
