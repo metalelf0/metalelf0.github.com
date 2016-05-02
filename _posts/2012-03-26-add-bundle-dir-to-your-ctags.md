@@ -4,6 +4,8 @@ title: "Add bundle dir to your ctags"
 tagline: "Your vim is magic"
 category: vim
 tags: [vim, rails, ctags, ruby]
+theme:
+  name: journal
 ---
 {% include JB/setup %}
 

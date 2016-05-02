@@ -4,6 +4,8 @@ title: "Git: preview conflicts"
 tagline: "git merge --dry-run? Kind of :)"
 category: git
 tags: [git]
+theme:
+  name: journal
 ---
 {% include JB/setup %}
 

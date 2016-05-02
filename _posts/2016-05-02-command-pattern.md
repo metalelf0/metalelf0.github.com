@@ -1,9 +1,11 @@
 ---
 layout: post
 title: "Command pattern in ruby and rails"
-description: ""
-category:
+tagline: "wear your refactoring hat!"
+category: rails
 tags: [rails, ruby, oo, design, hexagonal, hanami]
+theme:
+  name: journal
 ---
 {% include JB/setup %}
 

@@ -4,6 +4,8 @@ title: "Rails 3 scopes with HABTM (has and belongs to many) relations"
 tagline: "a simple example"
 category: rails
 tags: [rails, rails3, activerecord, habtm, scopes]
+theme:
+  name: journal
 ---
 {% include JB/setup %}
 

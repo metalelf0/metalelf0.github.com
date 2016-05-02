@@ -4,6 +4,8 @@ title: "Vim for Rails Developers, by Ben Orenstein"
 tagline: "Screencast review"
 category: vim
 tags: [vim, rails, screencast, textmate, review, ben orentsein]
+theme:
+  name: journal
 ---
 {% include JB/setup %}
 

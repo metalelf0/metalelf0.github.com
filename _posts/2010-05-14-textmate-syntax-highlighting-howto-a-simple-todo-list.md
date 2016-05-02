@@ -4,6 +4,8 @@ title: "TextMate Syntax Highlighting Howto: A simple todo list"
 category: textmate
 tagline: step by step
 tags: [textmate, syntax, todo, howto]
+theme:
+  name: journal
 ---
 {% include JB/setup %}
 

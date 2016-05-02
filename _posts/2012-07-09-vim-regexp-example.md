@@ -4,6 +4,8 @@ title: "Vim regexp example: make a variable out of params"
 tagline: "Vim is good"
 category: vim
 tags: [vim, rails, ruby, regexp]
+theme:
+  name: journal
 ---
 {% include JB/setup %}
 

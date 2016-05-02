@@ -4,6 +4,8 @@ title: "Ruby Mixin and monkey patching examples"
 tagline: Hardcore ruby for hardcore people
 category: ruby
 tags: [examples, metaprogramming, mixin, ruby, monkey-patching]
+theme:
+  name: journal
 ---
 {% include JB/setup %}
 

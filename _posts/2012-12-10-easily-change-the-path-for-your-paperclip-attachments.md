@@ -4,6 +4,8 @@ title: "Easily change the path for your Paperclip attachments"
 tagline: "And prevent filename clashes"
 category: rails
 tags: [rails, ruby, paperclip]
+theme:
+  name: journal
 ---
 {% include JB/setup %}
 

@@ -4,6 +4,8 @@ title: "Machinist vs Factory Girl: Machinist win!"
 tagline: "leave the DB alone"
 category: rails
 tags: [db, factorygirl, machinist, rails, rspec, test]
+theme:
+  name: journal
 ---
 {% include JB/setup %}
 

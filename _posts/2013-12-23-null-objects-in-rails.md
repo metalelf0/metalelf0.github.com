@@ -4,6 +4,8 @@ title: "Null objects in Rails"
 tagline: "a clean way"
 category: rails
 tags: [rails, ruby, oo, design]
+theme:
+  name: journal
 ---
 {% include JB/setup %}
 

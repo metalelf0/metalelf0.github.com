@@ -4,6 +4,8 @@ title: "Fluentd usage example with bash and ruby"
 tagline: "Json logging for everyone"
 category: tools
 tags: [ruby, logging, json, fluentd, bash, shell]
+theme:
+  name: journal
 ---
 {% include JB/setup %}
 

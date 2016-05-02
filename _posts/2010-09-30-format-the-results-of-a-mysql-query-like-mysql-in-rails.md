@@ -4,6 +4,8 @@ title: "Format the results of a MySQL query like MySQL! In Rails!"
 category: rails
 tagline: good old ascii tables
 tags: [ruby, mysql, rails, table, terminal-table]
+theme:
+  name: journal
 ---
 {% include JB/setup %}
 

@@ -4,6 +4,8 @@ title: "Using virtual attributes for multi parameter form helpers in Rails"
 tagline: "tricky tricky"
 category: rails 
 tags: [rails, ruby]
+theme:
+  name: journal
 ---
 {% include JB/setup %}
 

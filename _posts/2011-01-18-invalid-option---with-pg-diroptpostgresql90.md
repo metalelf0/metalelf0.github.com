@@ -4,6 +4,8 @@ title: "invalid option:   with pg dir=/opt/PostgreSQL/9.0"
 tagline: "just need two dashes more"
 category: tricks 
 tags: [postgresql, ruby, gem, rubygems, pg, tricks, tips]
+theme:
+  name: journal
 ---
 {% include JB/setup %}
 

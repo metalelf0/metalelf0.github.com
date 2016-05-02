@@ -4,6 +4,8 @@ title: "Howto share Spree authentication/authorization engine"
 tagline: ""
 category: rails
 tags: [spree, ruby, rails, devise, cancan]
+theme:
+  name: journal
 ---
 {% include JB/setup %}
 

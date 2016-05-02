@@ -4,6 +4,8 @@ title: "Howto run a rake task in sandbox mode"
 tagline: "And stop messing data"
 category: rails
 tags: [rake, rails, db, rollback, activerecord]
+theme:
+  name: journal
 ---
 {% include JB/setup %}
 

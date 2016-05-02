@@ -4,6 +4,8 @@ title: "The right colors for your VIM"
 tagline: "cause style matters"
 category: tools
 tags: [vim, colorschemes, ruby]
+theme:
+  name: journal
 ---
 {% include JB/setup %}
 
