@@ -9,7 +9,7 @@ theme:
 {% include JB/setup %}
 
 <div class="row">
-  <div class="col-md-10 col-md-offset-2">
+  <div class="well col-md-10 col-md-offset-2">
     <ul class="nav nav-pills">
       {% assign categories_list = site.categories %}
       {% include JB/categories_list %}
@@ -30,15 +30,27 @@ theme:
     </div>
 
     <div class="col-md-2">
-      <h4>Published</h4>
-      <div class="date"><span>{{ currentPost.date | date_to_long_string }}</span></div>
+      <div class='panel panel-default panel-small'>
+        <div class='panel-heading'>
+          <h4>Published</h4>
+        </div>
+        <div class='panel-body'>
+          <div class="date"><span>{{ currentPost.date | date_to_long_string }}</span></div>
+        </div>
+      </div>
 
     {% unless currentPost.tags == empty %}
-      <h4>Tags</h4>
-      <ul class="tag_box">
-      {% assign tags_list = currentPost.tags %}
-      {% include JB/tags_list %}
-      </ul>
+      <div class='panel panel-default panel-small'>
+        <div class='panel-heading'>
+          <h4>Tags</h4>
+        </div>
+        <div class='panel-body'>
+          <ul class="tag_box nav nav-pills">
+            {% assign tags_list = currentPost.tags %}
+            {% include JB/tags_list_as_badges %}
+          </ul>
+        </div>
+      </div>
     {% endunless %}
     </div>
   </div>
