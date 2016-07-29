@@ -4,8 +4,6 @@ title: "Vim - sort ruby methods by name"
 tagline: "Another vim trick"
 category: vim
 tags: [vim, ruby]
-theme:
-  name: journal
 ---
 {% include JB/setup %}
 
@@ -26,9 +24,11 @@ to multi-line.
 
 These are the three commands, we'll explain them in detail later:
 
+```vimscript
       :'<,'>g/\vdef\ /,/\v^\s*end$/ s/$\n/@@@
       :'<,'>sort
       :'<,'>s/@@@/\r/g
+```
 
 Let's do it step by step.
 
@@ -37,7 +37,7 @@ Let's do it step by step.
 First, we visually select the methods we want to sort,
 and issue this command:
 
-```
+```vimscript
 :'<,'>g/\vdef\ /,/\v^\s*end$/ s/$\n/@@@
 ```
 
@@ -67,7 +67,7 @@ line ending with our defined pattern, `@@@`.
 
 This is easy. Just visually select the collapsed lines and issue
 
-```
+```vimscript
 :'<,'>sort
 ```
 
@@ -76,7 +76,7 @@ This is easy. Just visually select the collapsed lines and issue
 Again, select the sorted lines (you can use `gv` to redo the last visual selection) and
 issue this command:
 
-```
+```vimscript
 :'<,'>s/@@@/\r/g
 ```
 
