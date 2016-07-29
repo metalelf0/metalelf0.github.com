@@ -3,6 +3,8 @@ layout: page
 title: Welcome to MetalElf0 weblog
 tagline: sed 's/boring_stuff/ruby/g'
 published: true
+theme:
+  name: bootstrap-3
 ---
 {% include JB/setup %}
 
