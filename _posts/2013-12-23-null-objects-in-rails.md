@@ -4,8 +4,7 @@ title: "Null objects in Rails"
 tagline: "a clean way"
 category: rails
 tags: [rails, ruby, oo, design]
-theme:
-  name: journal
+excerpt_separator: <!--more-->
 ---
 {% include JB/setup %}
 
@@ -31,6 +30,8 @@ if user.privacy.enables_page?(...)
 
 Hiding the responsibility inside the user class? It would be much cleaner and
 follow the __Tell, don't ask__ principle.
+
+<!--more-->
 
 ### How to get there
 

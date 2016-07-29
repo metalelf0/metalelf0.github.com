@@ -4,8 +4,7 @@ title: "Command pattern in ruby and rails"
 tagline: "wear your refactoring hat!"
 category: rails
 tags: [rails, ruby, oo, design, hexagonal, hanami]
-theme:
-  name: journal
+excerpt_separator: <!--more-->
 ---
 {% include JB/setup %}
 
@@ -27,6 +26,8 @@ request involves:
 This is gonna tangle a lot of the domain logic to your model (scopes to
 retrieve objects, validations, and in the worst case even some presentation
 logic).
+
+<!--more-->
 
 ### The solutions
 

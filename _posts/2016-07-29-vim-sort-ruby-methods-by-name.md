@@ -4,6 +4,7 @@ title: "Vim - sort ruby methods by name"
 tagline: "Another vim trick"
 category: vim
 tags: [vim, ruby]
+excerpt_separator: <!--more-->
 ---
 {% include JB/setup %}
 
@@ -31,6 +32,8 @@ These are the three commands, we'll explain them in detail later:
 ```
 
 Let's do it step by step.
+
+<!--more-->
 
 ### 1. Collapsing on a single line
 

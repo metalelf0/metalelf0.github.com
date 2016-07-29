@@ -71,3 +71,12 @@ body {
 .panel.panel-small .panel-heading {
   padding: 1px 15px;
 }
+
+.sidebar {
+  margin-top: 25px;
+}
+
+
+.page-header {
+  margin-bottom: 25px;
+}

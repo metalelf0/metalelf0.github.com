@@ -21,37 +21,39 @@ theme:
   {% assign currentPost = site.posts.first %}
   <div class="row post">
     <div class="col-md-8 col-md-offset-2">
-      <div>
-        <h2>{{ currentPost.title }} <small>{{ currentPost.tagline }}</small></h2>
+      <div class="page-header">
+        <h2>{{ currentPost.title }} {% if currentPost.tagline %}<small>{{currentPost.tagline}}</small>{% endif %}</h2>
       </div>
-      {{ currentPost.content }}
+      {{ currentPost.excerpt }}
       <a id="more" href="{{ currentPost.url }}">See article &raquo;</a>
       <hr/>
     </div>
 
     <div class="col-md-2">
-      <div class='panel panel-default panel-small'>
-        <div class='panel-heading'>
-          <h4>Published</h4>
+      <div class='sidebar'>
+        <div class='panel panel-default panel-small'>
+          <div class='panel-heading'>
+            <h4>Published</h4>
+          </div>
+          <div class='panel-body'>
+            <div class="date"><span>{{ currentPost.date | date_to_long_string }}</span></div>
+          </div>
         </div>
-        <div class='panel-body'>
-          <div class="date"><span>{{ currentPost.date | date_to_long_string }}</span></div>
-        </div>
-      </div>
 
-    {% unless currentPost.tags == empty %}
-      <div class='panel panel-default panel-small'>
-        <div class='panel-heading'>
-          <h4>Tags</h4>
+      {% unless currentPost.tags == empty %}
+        <div class='panel panel-default panel-small'>
+          <div class='panel-heading'>
+            <h4>Tags</h4>
+          </div>
+          <div class='panel-body'>
+            <ul class="tag_box nav nav-pills">
+              {% assign tags_list = currentPost.tags %}
+              {% include JB/tags_list_as_badges %}
+            </ul>
+          </div>
         </div>
-        <div class='panel-body'>
-          <ul class="tag_box nav nav-pills">
-            {% assign tags_list = currentPost.tags %}
-            {% include JB/tags_list_as_badges %}
-          </ul>
-        </div>
+      {% endunless %}
       </div>
-    {% endunless %}
     </div>
   </div>
 {% endfor %}

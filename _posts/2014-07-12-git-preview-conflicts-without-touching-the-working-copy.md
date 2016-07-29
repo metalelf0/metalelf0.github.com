@@ -4,8 +4,7 @@ title: "Git: preview conflicts"
 tagline: "git merge --dry-run? Kind of :)"
 category: git
 tags: [git]
-theme:
-  name: journal
+excerpt_separator: <!--more-->
 ---
 {% include JB/setup %}
 
@@ -20,6 +19,8 @@ If you're using Github, you can simply open the Pull Request page for your featu
 This is informing you there will be no conflicts and a merge will run smooth.
 
 But what could you do if you didn't use Github, or you were just too lazy to open it? Creating a new branch just to do the merge is a solution, but I was pretty sure git had something better to offer `;)`
+
+<!--more-->
 
 The best solution I found [here on StackOverflow](http://stackoverflow.com/questions/501407/is-there-a-git-merge-dry-run-option) is this: create the following git aliases in your `~/.gitconfig` file:
 

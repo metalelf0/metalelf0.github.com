@@ -4,8 +4,7 @@ title: "Mocked - a minitest pattern"
 tagline: "mocking stuff has never been so fun!"
 category: rails
 tags: [rails, ruby, oo, test, minitest]
-theme:
-  name: journal
+excerpt_separator: <!--more-->
 ---
 {% include JB/setup %}
 
@@ -17,6 +16,8 @@ supports both a test-unit like syntax and a spec engine with Rspec like syntax.
 
 Still, when it comes to mocking, it can be a little painful. You have to
 initialize mocks and verify them manually after running the code under test.
+
+<!--more-->
 
 A typical unit test with mocks looks something like this:
 
@@ -50,6 +51,7 @@ I'm correctly mocking all the dependencies and collaborators of the method under
 test.
 
 What I came up with is `Mocked`, a small module to streamline these operations.
+
 
 {% highlight ruby %}
 # test/utils/mocked.rb
