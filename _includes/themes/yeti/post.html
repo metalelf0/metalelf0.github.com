@@ -11,22 +11,36 @@
       {{ content }}
     </div>
 
+  <hr style='margin-top: 100px;' />
+
   {% unless page.categories == empty %}
-    <ul class="tag_box inline">
-      <li><i class="glyphicon glyphicon-open"></i></li>
-      {% assign categories_list = page.categories %}
-      {% include JB/categories_list %}
-    </ul>
-  {% endunless %}  
+    <div class='panel panel-default panel-small'>
+      <div class='panel-heading'>
+        <h4>Categories</h4>
+      </div>
+      <div class='panel-body'>
+        <ul class="tag_box nav nav-pills">
+          {% assign categories_list = page.categories %}
+          {% include JB/categories_list_as_tags %}
+        </ul>
+      </div>
+    </div>
+  {% endunless %}
 
   {% unless page.tags == empty %}
-    <ul class="tag_box inline nav nav-pills">
-      <li><i class="glyphicon glyphicon-tags"></i></li>
-      {% assign tags_list = page.tags %}
-      {% include JB/tags_list_as_badges %}
-    </ul>
-  {% endunless %}  
-  
+    <div class='panel panel-default panel-small'>
+      <div class='panel-heading'>
+        <h4>Tags</h4>
+      </div>
+      <div class='panel-body'>
+        <ul class="tag_box nav nav-pills">
+          {% assign tags_list = page.tags %}
+          {% include JB/tags_list_as_badges %}
+        </ul>
+      </div>
+    </div>
+  {% endunless %}
+
     <hr>
     <ul class="pagination">
     {% if page.previous %}
