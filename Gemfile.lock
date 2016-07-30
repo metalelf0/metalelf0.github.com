@@ -17,8 +17,10 @@ GEM
       pathutil (~> 0.9)
       rouge (~> 1.7)
       safe_yaml (~> 1.0)
+    jekyll-feed (0.6.0)
     jekyll-gist (1.4.0)
       octokit (~> 4.2)
+    jekyll-paginate (1.1.0)
     jekyll-sass-converter (1.4.0)
       sass (~> 3.4)
     jekyll-sitemap (0.11.0)
@@ -62,7 +64,9 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll (~> 3.1)
+  jekyll-feed
   jekyll-gist
+  jekyll-paginate
   jekyll-sitemap
   nokogiri
   pygments.rb

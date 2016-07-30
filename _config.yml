@@ -4,9 +4,11 @@ permalink: /:categories/:year/:month/:day/:title
 header-img: assets/themes/yeti/img/home-bg-5.jpg
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
+header-img: assets/themes/clean-blog/img/home-bg.jpg
 auto: true
 markdown: kramdown
 highlighter: rouge
+paginate: 5
 
 kramdown:
   input: GFM
@@ -28,6 +30,7 @@ gems:
   - jekyll-paginate
   - redcarpet
   - jekyll-gist
+  - jekyll-feed
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt
