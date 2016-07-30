@@ -9,18 +9,16 @@ theme:
 {% include JB/setup %}
 
 <div class="row">
-  <div class="well col-md-10 col-md-offset-2">
-    <ul class="nav nav-pills">
-      {% assign categories_list = site.categories %}
-      {% include JB/categories_list %}
-    </ul>
-  </div>
+  <ul class="nav nav-pills">
+    {% assign categories_list = site.categories %}
+    {% include JB/categories_list %}
+  </ul>
 </div>
 
 {% for currentPost in site.posts limit:5 %}
   {% assign currentPost = site.posts.first %}
   <div class="row post">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-10">
       <div class="page-header">
         <h2>{{ currentPost.title }} {% if currentPost.tagline %}<small>{{currentPost.tagline}}</small>{% endif %}</h2>
       </div>

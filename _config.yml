@@ -1,6 +1,7 @@
 # This is the default format.
 # For more see: https://github.com/mojombo/jekyll/wiki/Permalinks
 permalink: /:categories/:year/:month/:day/:title
+header-img: assets/themes/yeti/img/home-bg-4.jpg
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 auto: true
@@ -106,7 +107,7 @@ JB :
       colorscheme: light
     duoshuo :
       short_name : jekyllbootstrap
-   
+
   # Settings for analytics helper
   # Set 'provider' to the analytics provider you want to use.
   # Set 'provider' to false to turn analytics off globally.
@@ -115,7 +116,7 @@ JB :
     provider : google
     gauges :
         site_id : 'SITE ID'
-    google : 
+    google :
         tracking_id : 'UA-123-12'
     getclicky :
       site_id :
