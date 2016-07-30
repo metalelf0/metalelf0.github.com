@@ -95,7 +95,7 @@ JB :
   comments :
     provider : disqus
     disqus :
-      short_name : jekyllbootstrap
+      short_name : metalelf0-github-io
     livefyre :
       site_id : 123
     intensedebate :
