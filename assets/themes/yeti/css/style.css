@@ -205,7 +205,7 @@
     font-family: 'Coda', cursive;
     font-weight: 800;
     margin-top: 0;
-    font-size: 50px;
+    font-size: 36px;
   }
   .intro-header .site-heading .subheading,
   .intro-header .page-heading .subheading {
@@ -219,7 +219,7 @@
   @media only screen and (min-width: 768px) {
     .intro-header .site-heading h1,
     .intro-header .page-heading h1 {
-      font-size: 80px;
+      font-size: 50px;
     }
   }
   .intro-header .post-heading h1 {
@@ -255,3 +255,28 @@
       font-size: 30px;
     }
   }
+
+/* boxes */
+
+.box-title a, .box-title a:hover {
+  font-weight: bold;
+  color: #222222;
+  text-decoration: none;
+}
+
+.box-title {
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 32px;
+}
+
+/*.section-title a, .section-title a:hover {
+  color: #222222;
+  text-decoration: none;
+}
+*/
+.row.margin-bottom {
+  margin-bottom: 32px;
+}
