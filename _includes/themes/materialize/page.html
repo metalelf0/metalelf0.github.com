@@ -1,0 +1,18 @@
+<!-- Page Header -->
+<header>
+    <div class="container">
+      <br/><br/>
+      <h1 class="header center teal-text">{{ page.title }}</h1>
+        {% if page.tagline %}
+          <div class="row center">
+            <h5 class="header col s12 teal-text light">{{ page.tagline }}</h5>
+          </div>
+        {% endif %}
+      <br/><br/><br/><br/>
+    </div>
+</header>
+<div class="row">
+  <div class="col s12 m10 push-m1">
+      {{ content }}
+  </div>
+</div>

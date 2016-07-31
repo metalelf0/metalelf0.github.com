@@ -16,16 +16,17 @@ theme:
   {% for currentPost in site.posts limit:8 %}
       {% assign loopindex = forloop.index | modulo: 4 %}
 
-      <div class="col-sm-12 col-md-3">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <div class="box-title">
-              <a href="{{ currentPost.url }}">{{ currentPost.title }}</a>
-            </div>
+      <div class="col s12 m3">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">{{ currentPost.title }}</span>
 
             {% if currentPost.tagline %}
-              <div class="box-tagline"><span>{{currentPost.tagline}}</span></div>
+              <p>{{currentPost.tagline}}</p>
             {% endif %}
+          </div>
+          <div class="card-action">
+            <a href="{{ currentPost.url }}">Read article</a>
           </div>
         </div>
       </div>

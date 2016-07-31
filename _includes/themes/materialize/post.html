@@ -1,0 +1,68 @@
+  <!-- Post Header -->
+<header>
+    <div class="container">
+      <br/><br/>
+      <h1 class="header center teal-text">{{ page.title }}</h1>
+        {% if page.tagline %}
+          <div class="row center">
+            <h5 class="header col s12 teal-text light">{{ page.tagline }}</h5>
+          </div>
+        {% endif %}
+      <br/><br/><br/><br/>
+    </div>
+</header>
+<span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
+<div class="row post-full">
+  <div class="col s8 push-s2">
+    <div class="content">
+      {{ content }}
+    </div>
+
+<!--   <hr style='margin-top: 100px;' />
+
+  {% unless page.categories == empty %}
+    <div class='panel panel-default panel-small'>
+      <div class='panel-heading'>
+        <h4>Categories</h4>
+      </div>
+      <div class='panel-body'>
+        <ul class="tag_box nav nav-pills">
+          {% assign categories_list = page.categories %}
+          {% include JB/categories_list_as_tags %}
+        </ul>
+      </div>
+    </div>
+  {% endunless %}
+
+  {% unless page.tags == empty %}
+    <div class='panel panel-default panel-small'>
+      <div class='panel-heading'>
+        <h4>Tags</h4>
+      </div>
+      <div class='panel-body'>
+        <ul class="tag_box nav nav-pills">
+          {% assign tags_list = page.tags %}
+          {% include JB/tags_list_as_badges %}
+        </ul>
+      </div>
+    </div>
+  {% endunless %} -->
+
+    <hr>
+    <ul class="pagination">
+    {% if page.previous %}
+      <li class="prev"><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&laquo; Previous</a></li>
+    {% else %}
+      <li class="prev disabled"><a>&larr; Previous</a></li>
+    {% endif %}
+      <li><a href="{{ BASE_PATH }}{{ site.JB.archive_path }}">Archive</a></li>
+    {% if page.next %}
+      <li class="next"><a href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">Next &raquo;</a></li>
+    {% else %}
+      <li class="next disabled"><a>Next &rarr;</a>
+    {% endif %}
+    </ul>
+    <hr>
+    {% include JB/comments %}
+  </div>
+</div>
