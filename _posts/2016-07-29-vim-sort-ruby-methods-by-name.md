@@ -56,10 +56,10 @@ our visual selection. Look at the documentation inside vim for global commands (
 So, our _range_ is `'<,'>` (this means from `<` mark to `>` mark, in other words
 from the beginning of the visual selection to its end); our _pattern_ is
 `\vdef\ /,/\v^\s*end$/`. This means everything from `def\ ` (a def followed
-by a space) to `\^s*end$` (a line starting with any number of spaces, followed by `end`
+by a space) to `\^\s*end$` (a line starting with any number of spaces, followed by `end`
 and the end of line).
 
-`/,/` is how range beginning and end are separated; the `\v` is used to toggle the `very magic` 
+`/,/` is how range beginning and end are separated; the `\v` is used to toggle the `very magic`
 mode, which allows a less verbose regexp syntax (see `:help \v` for more info).
 
 Finally, our Ex command _cmd_ is `s/$\n/@@@`. It's a simple substitution: replace each
@@ -87,5 +87,3 @@ This is a simple substitution: it replaces our defined pattern, `@@@`, with a li
 
 I hope you've learnt something from this article, I love that even after many years of vim usage I'm
 still surprised by its powerfulness every day. Have a good day!
-
-
