@@ -1,0 +1,42 @@
+# visit https://github.com/mojombo/jekyll/wiki/Configuration for more settings
+
+paginate: 10 # pagination based on number of posts
+paginate_path: "page:num"
+exclude: ["README.md"] # files to exclude
+highlighter: pygments
+markdown: kramdown
+disqus: metalelf0-github-io
+google_analytics: ga-123-12
+title: metalelf0 blog
+
+defaults:
+  -
+    scope:
+      path: "" # empty string for all files
+    values:
+      title: MetalElf0 blog
+
+description: MetalElf0 Blog
+author:
+  name : Andrea Schiavini
+  email : metalelf0@gmail.com
+  github : metalelf0
+  twitter : metalelf0
+  feedburner : metalelf0
+  # pinterest: metalelf0
+  linkedin: andrea-schiavini-a977183
+  bio: Andrea Schiavini is a Milan based ruby developer
+  email_md5: e147a07bdeb1567782210bda7c9294f9
+
+rss_path: feed.xml
+categories_path: categories.html
+tags_path: tags.html
+
+# set it as url of an image
+# sidebar_background_image: https://www.dropbox.com/s/g9h23zrycedxtk5/sky.png?raw=1
+
+BASE_PATH:
+
+gems:
+  - jekyll-paginate
+  - jekyll-gist

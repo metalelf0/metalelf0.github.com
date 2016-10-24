@@ -1,0 +1,922 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>metalelf0 blog</title>
+		<description>MetalElf0 Blog</description>
+		<link>/</link>
+		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>Vim - sort ruby methods by name</title>
+				<description>&lt;p&gt;Yesterday I had to refactor a very large ruby class. It had a lot of methods
+and, to make it cleaner, I decided to sort methods alphabetically.&lt;/p&gt;
+
+&lt;p&gt;Is there a way to do this in vim? Of course there is, and it’s quite tricky -
+so let’s see how we can do it.&lt;/p&gt;
+
+&lt;p&gt;The basic idea is taken from
+&lt;a href=&quot;https://wincent.com/wiki/Sorting_functions_by_name_in_Vim&quot;&gt;this post on wincent.com&lt;/a&gt;,
+I just adapted it for ruby. All credits to this guy for his work :)&lt;/p&gt;
+
+&lt;p&gt;We’ll use the same approach of the original post: first we’ll collapse each
+ruby method on a single line, using a defined pattern to replace line terminators.
+We’ll proceed sorting the one-lined methods, and finally we’ll expand them back
+to multi-line.&lt;/p&gt;
+
+&lt;p&gt;These are the three commands, we’ll explain them in detail later:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-vimscript&quot;&gt;      :'&amp;lt;,'&amp;gt;g/\vdef\ /,/\v^\s*end$/ s/$\n/@@@
+      :'&amp;lt;,'&amp;gt;sort
+      :'&amp;lt;,'&amp;gt;s/@@@/\r/g
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Let’s do it step by step.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h3 id=&quot;collapsing-on-a-single-line&quot;&gt;1. Collapsing on a single line&lt;/h3&gt;
+
+&lt;p&gt;First, we visually select the methods we want to sort,
+and issue this command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-vimscript&quot;&gt;:'&amp;lt;,'&amp;gt;g/\vdef\ /,/\v^\s*end$/ s/$\n/@@@
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will apply a global command on every instance of a defined pattern inside
+our visual selection. Look at the documentation inside vim for global commands (&lt;code&gt;:help :g&lt;/code&gt;):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    *:g* *:global* *E147* *E148*
+
+    :[range]g[lobal]/{pattern}/[cmd]
+    Execute the Ex command [cmd] (default &quot;:p&quot;) on the
+    lines within [range] where {pattern} matches.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So, our &lt;em&gt;range&lt;/em&gt; is &lt;code&gt;'&amp;lt;,'&amp;gt;&lt;/code&gt; (this means from &lt;code&gt;&amp;lt;&lt;/code&gt; mark to &lt;code&gt;&amp;gt;&lt;/code&gt; mark, in other words
+from the beginning of the visual selection to its end); our &lt;em&gt;pattern&lt;/em&gt; is
+&lt;code&gt;\vdef\ /,/\v^\s*end$/&lt;/code&gt;. This means everything from &lt;code&gt;def\ &lt;/code&gt; (a def followed
+by a space) to &lt;code&gt;\^\s*end$&lt;/code&gt; (a line starting with any number of spaces, followed by &lt;code&gt;end&lt;/code&gt;
+and the end of line).&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/,/&lt;/code&gt; is how range beginning and end are separated; the &lt;code&gt;\v&lt;/code&gt; is used to toggle the &lt;code&gt;very magic&lt;/code&gt;
+mode, which allows a less verbose regexp syntax (see &lt;code&gt;:help \v&lt;/code&gt; for more info).&lt;/p&gt;
+
+&lt;p&gt;Finally, our Ex command &lt;em&gt;cmd&lt;/em&gt; is &lt;code&gt;s/$\n/@@@&lt;/code&gt;. It’s a simple substitution: replace each
+line ending with our defined pattern, &lt;code&gt;@@@&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;sorting-collapsed-lines&quot;&gt;2. Sorting collapsed lines&lt;/h3&gt;
+
+&lt;p&gt;This is easy. Just visually select the collapsed lines and issue&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-vimscript&quot;&gt;:'&amp;lt;,'&amp;gt;sort
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;expand-lines-back-with-line-returns&quot;&gt;3. Expand lines back with line returns&lt;/h3&gt;
+
+&lt;p&gt;Again, select the sorted lines (you can use &lt;code&gt;gv&lt;/code&gt; to redo the last visual selection) and
+issue this command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-vimscript&quot;&gt;:'&amp;lt;,'&amp;gt;s/@@@/\r/g
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is a simple substitution: it replaces our defined pattern, &lt;code&gt;@@@&lt;/code&gt;, with a line return (&lt;code&gt;\r&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;I hope you’ve learnt something from this article, I love that even after many years of vim usage I’m
+still surprised by its powerfulness every day. Have a good day!&lt;/p&gt;
+</description>
+				<pubDate>Fri, 29 Jul 2016 00:00:00 +0200</pubDate>
+				<link>/vim/2016/07/29/vim-sort-ruby-methods-by-name.html</link>
+				<guid isPermaLink="true">/vim/2016/07/29/vim-sort-ruby-methods-by-name.html</guid>
+			</item>
+		
+			<item>
+				<title>Mocked - a minitest pattern</title>
+				<description>&lt;h3 id=&quot;minitest-is-good-for-mocking-right-well&quot;&gt;Minitest is good for mocking, right? Well…&lt;/h3&gt;
+
+&lt;p&gt;Minitest is gaining a lot of popularity and can actually be a 100% replacement
+for RSpec. It’s a pure ruby testing framework, it’s fast, light weight, and it
+supports both a test-unit like syntax and a spec engine with Rspec like syntax.&lt;/p&gt;
+
+&lt;p&gt;Still, when it comes to mocking, it can be a little painful. You have to
+initialize mocks and verify them manually after running the code under test.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;A typical unit test with mocks looks something like this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;a pause can be completed&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;datetime_service&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MiniTest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Mock&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;pause&lt;/span&gt;            &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MiniTest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Mock&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;success&lt;/span&gt;          &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MiniTest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Mock&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;failure&lt;/span&gt;          &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MiniTest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Mock&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;now&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;datetime_service&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:datetime_now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;pause&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:completed_at&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;pause&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:update_attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;completed_at&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;success&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Pause completed&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pause&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;UseCases&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Pauses&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Complete&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pause&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime_service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;success&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;failure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;datetime_service&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;verify&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;failure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;verify&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;success&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;verify&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;pause&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;verify&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;What I don’t like in the code above is the verbosity in the setup (and
+verification) of mock objects. I’m relying quite heavily on mocks, as I don’t
+want to pass real objects to my unit tests, and this kind of repetition is not
+good.&lt;/p&gt;
+
+&lt;p&gt;Also I want to have a way to distinguish mock objects from “real” objects.
+This could help seeing if there is too much “real” stuff inside the test, or if
+I’m correctly mocking all the dependencies and collaborators of the method under
+test.&lt;/p&gt;
+
+&lt;p&gt;What I came up with is &lt;code&gt;Mocked&lt;/code&gt;, a small module to streamline these operations.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# test/utils/mocked.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Mocked&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;add_mocks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;add_mock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;add_mock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@mocks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MiniTest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Mock&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;mocked&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@mocks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;verify_mocks&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@mocks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mock&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;mock&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;verify&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setup_mocks&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@mocks&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# test/test_helper.rb&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;#...&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;utils/mocked&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ActiveSupport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;TestCase&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Mocked&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;setup&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:setup_mocks&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;teardown&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:verify_mocks&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;We are just keeping an hash of mock objects, and verifying them on teardown of
+the test; we are also giving a &lt;code&gt;mocked(mock_name)&lt;/code&gt; accessor to retrieve mock
+objects.&lt;/p&gt;
+
+&lt;p&gt;With this we can rewrite the test above like this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;a pause can be completed&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;add_mocks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:datetime_service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:pause&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:success&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:failure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;now&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;mocked&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:datetime_service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:datetime_now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;mocked&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:pause&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:completed_at&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;mocked&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:pause&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:update_attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;completed_at&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;mocked&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:success&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Pause completed&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mocked&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:pause&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;UseCases&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Pauses&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Complete&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;mocked&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:pause&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;mocked&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:datetime_service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;mocked&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:success&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;mocked&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:failure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The code looks better IMHO, and I like that if I decided - i.e. - to replace
+the &lt;code&gt;pause&lt;/code&gt; mock with a real object it would read like:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;a pause can be completed&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;add_mocks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:datetime_service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:success&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:failure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;now&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;mocked&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:datetime_service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:datetime_now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;pause&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;FactoryGirl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:pause&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;completed_at&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;mocked&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:success&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Pause completed&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pause&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;UseCases&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Pauses&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Complete&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pause&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;mocked&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:datetime_service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;mocked&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:success&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;mocked&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:failure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;assert_equal&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pause&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;completed_at&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Here you can clearly see at a first glance that the only real object is &lt;code&gt;pause&lt;/code&gt;,
+whereas other objects are all mocked. It also really helps when refactoring
+tests.&lt;/p&gt;
+
+&lt;p&gt;What do you think about this? Would you like to be built into a gem, do you have
+any suggestions or criticism on this? Let me know and have a great day!&lt;/p&gt;
+</description>
+				<pubDate>Wed, 11 May 2016 00:00:00 +0200</pubDate>
+				<link>/rails/2016/05/11/mocked-a-minitest-pattern.html</link>
+				<guid isPermaLink="true">/rails/2016/05/11/mocked-a-minitest-pattern.html</guid>
+			</item>
+		
+			<item>
+				<title>Command pattern in ruby and rails</title>
+				<description>&lt;h3 id=&quot;the-problem&quot;&gt;The problem&lt;/h3&gt;
+
+&lt;p&gt;If you have a growing Rails application and you feel your models are getting too
+fat you might have a problem. We’ve all been educated with the “fat models, thin
+controllers” dogma - but sometimes putting all the domain logic inside the
+models has its downsides.&lt;/p&gt;
+
+&lt;p&gt;As an example, the typical flow of an &lt;code&gt;ActiveRecord&lt;/code&gt; object through a Rails
+request involves:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;fetching the object from the DB based on the params you receive (controller);&lt;/li&gt;
+  &lt;li&gt;doing something with the object inside the model (model);&lt;/li&gt;
+  &lt;li&gt;when something goes wrong, you set errors onto the model attributes (model);&lt;/li&gt;
+  &lt;li&gt;you finally return the object to the view, and present it accordingly (view).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This is gonna tangle a lot of the domain logic to your model (scopes to
+retrieve objects, validations, and in the worst case even some presentation
+logic).&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h3 id=&quot;the-solutions&quot;&gt;The solutions&lt;/h3&gt;
+
+&lt;p&gt;You may be tempted at some point to throw it all away and just start over with a
+new solution. &lt;code&gt;@jodosha&lt;/code&gt; is doing a great work with
+&lt;a href=&quot;https://github.com/hanami/hanami&quot;&gt;Hanami&lt;/a&gt;, (formerly Lotus), and it’s a great
+solution that you should consider if you’re starting a new project from scratch.
+&lt;a href=&quot;https://github.com/apotonick/trailblazer&quot;&gt;Trailblazer&lt;/a&gt; is another project built
+on top of Rails with the aim of decoupling dependencies; however I found its
+documentation very lacking compared to the Hanami guides, but I didn’t buy their
+sponsored book, so YMMV.&lt;/p&gt;
+
+&lt;p&gt;Anyway, if your Rails application is already in production, and you can’t afford
+a full rewrite, there is still hope - wear your refactoring hat and follow me.&lt;/p&gt;
+
+&lt;p&gt;I’ll show you a little piece of code to introduce a useful pattern:
+the command (or use case) pattern. This is gonna help you separating concerns
+in your application. Let’s take a look at some example code:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MultipleUseCase&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;attr_reader&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dividend&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dividend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@dividend&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dividend&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;success&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;failure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dividend&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;success&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dividend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;failure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dividend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dividend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fancy_puts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;upcase!&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;MultipleUseCase&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;267434&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;345&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dividend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;            
+      &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fancy_puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; is an exact multiple of &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dividend&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dividend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;remainder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fancy_puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; isn&amp;#39;t an exact multiple of &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dividend&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;                   (remainder is &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;remainder&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;)&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;What we have here is a &lt;code&gt;MultipleUseCase&lt;/code&gt; class implementing the command pattern.
+It has a single public method - &lt;code&gt;MultipleUseCase#run&lt;/code&gt; - which accepts two
+arguments: a success procedure and a failure procedure.&lt;/p&gt;
+
+&lt;p&gt;As you see in the last block, we are passing two lambdas as arguments to the
+run method; one that will be called on a success scenario, and one that will be
+called in a failure scenario. This introduces a clear separation between
+domain logic (in the use case) and presentation logic.&lt;/p&gt;
+
+&lt;p&gt;The latter, in this example, involves just building a simple string with some
+parameter interpolation; but it’s not inside the use case object. This allows us
+to reuse the use case anywhere and inject any presentation logic we want, like
+the &lt;code&gt;fancy_puts&lt;/code&gt; method defined outside of the use case.&lt;/p&gt;
+
+&lt;p&gt;Think about it: when you’re unit testing the use case, you can pass a mock
+object for each of the functions, and just ensure they are getting called with
+the correct parameters; if you are using the logic in a Rails controller, you
+can instead use - i.e. - the &lt;code&gt;format&lt;/code&gt; methods to switch presentation logic
+depending on the requested format:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# somewhere in a Rails controller&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;respond_to&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;MultipleUseCase&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:dividend&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:divisor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dividend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dividend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;remainder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;what-else&quot;&gt;What else?&lt;/h3&gt;
+
+&lt;p&gt;This strategy won’t solve all your problems; if you have a lot of dependencies
+between AR models, you will still find a lot of framework-dependent code inside
+your use cases. If you wanna refactor further, you can consider introducing
+Repository objects to wrap all the persistency related logic.&lt;/p&gt;
+
+&lt;p&gt;Also, you might decide to extract some reusable logic from the use cases into
+Service Objects.&lt;/p&gt;
+
+&lt;p&gt;If this is not gonna be enough, well, maybe Rails is not the right tool for your
+job. I would suggest taking a look at the other frameworks I mentioned above
+instead of trying to force Rails to do something different. A heavily patched
+Rails application won’t be a Rails application anymore, and it will require a
+lot of tinkering to work with any gem built for Rails. Also, any Rails developer
+will need to learn how to use “your Rails”, instead of just using Rails.
+Using a framework like Hanami would be a far better solution, and you could
+also contribute to the development of a very promising ruby project.&lt;/p&gt;
+
+&lt;p&gt;Let me know what you think and thanks for reading! &lt;code&gt;:)&lt;/code&gt;&lt;/p&gt;
+</description>
+				<pubDate>Mon, 02 May 2016 00:00:00 +0200</pubDate>
+				<link>/rails/2016/05/02/command-pattern.html</link>
+				<guid isPermaLink="true">/rails/2016/05/02/command-pattern.html</guid>
+			</item>
+		
+			<item>
+				<title>Git: preview conflicts</title>
+				<description>&lt;p&gt;Hi everyone!&lt;/p&gt;
+
+&lt;p&gt;What we’re trying to tackle today is a very common problem, that I’m sure all of you encountered. Suppose you’re on your git feature branch, you want to merge it into another branch (being it master, staging, production, whatever) and you’re asking yourself: &lt;em&gt;will there be conflicts?&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you’re using Github, you can simply open the Pull Request page for your feature branch and look for the following box:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/metalelf0/metalelf0.github.com/master/images/github-safe-merge.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This is informing you there will be no conflicts and a merge will run smooth.&lt;/p&gt;
+
+&lt;p&gt;But what could you do if you didn’t use Github, or you were just too lazy to open it? Creating a new branch just to do the merge is a solution, but I was pretty sure git had something better to offer &lt;code&gt;;)&lt;/code&gt;&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;The best solution I found &lt;a href=&quot;http://stackoverflow.com/questions/501407/is-there-a-git-merge-dry-run-option&quot;&gt;here on StackOverflow&lt;/a&gt; is this: create the following git aliases in your &lt;code&gt;~/.gitconfig&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;[alias]
+  # check how the merge of dev into master will go:
+  # git dry dev master
+  dry = &amp;quot;!f() { git merge-tree `git merge-base $2 $1` $2 $1; }; f&amp;quot;
+
+  # see if there will be any conflicts merging dev into master:
+  # git conflicts dev master
+  conflicts = &amp;quot;!f() { git merge-tree `git merge-base $2 $1` $2 $1 | grep -A3 &amp;#39;changed in both&amp;#39;; }; f&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The first command will show the changelog for the merge of your feature branch into master:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;╰─$ git dry feature_two staging
+changed in both
+  base   100644 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 first_file
+  our    100644 deba01fc8d98200761c46eb139f11ac244cf6eb5 first_file
+  their  100644 dc1ff7f95ac4812480edad5ec13d4c1a20066377 first_file
+@@ -1 +1,5 @@
++&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; .our
+ something
++=======
+well, something else?
++&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; .their&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This is showing us there will be a conflict when trying to merge the &lt;code&gt;feature_two&lt;/code&gt; branch into &lt;code&gt;staging&lt;/code&gt;: the file &lt;code&gt;first_file&lt;/code&gt; is changed in both the branches, and this will generate a conflict.&lt;/p&gt;
+
+&lt;p&gt;The second command is just a shorthand that will limit the output to the lines related to the changed files, without the full changelog.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;╰─$ git conflicts feature_two staging
+changed in both
+  base   100644 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 first_file
+  our    100644 deba01fc8d98200761c46eb139f11ac244cf6eb5 first_file
+  their  100644 dc1ff7f95ac4812480edad5ec13d4c1a20066377 first_file&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;I hope you found this interesting, feel free to comment if you think it’s still improvable!&lt;/p&gt;
+</description>
+				<pubDate>Sat, 12 Jul 2014 00:00:00 +0200</pubDate>
+				<link>/git/2014/07/12/git-preview-conflicts-without-touching-the-working-copy.html</link>
+				<guid isPermaLink="true">/git/2014/07/12/git-preview-conflicts-without-touching-the-working-copy.html</guid>
+			</item>
+		
+			<item>
+				<title>Null objects in Rails</title>
+				<description>&lt;h3 id=&quot;the-problem&quot;&gt;The problem&lt;/h3&gt;
+
+&lt;p&gt;Recently I’ve seen in a project I work on a lot of occurrences of this code:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;privacy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;privacy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;enables_page?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The first part of the condition above is a bad practice in object oriented
+design. It forces collaborators of &lt;code&gt;user&lt;/code&gt; to know a part of its implementation&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;it could have a &lt;code&gt;privacy&lt;/code&gt; or it couldn’t.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;what-we-want&quot;&gt;What we want&lt;/h3&gt;
+
+&lt;p&gt;Wouldn’t it be much better to just write this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;privacy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;enables_page?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Hiding the responsibility inside the user class? It would be much cleaner and
+follow the &lt;strong&gt;Tell, don’t ask&lt;/strong&gt; principle.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h3 id=&quot;how-to-get-there&quot;&gt;How to get there&lt;/h3&gt;
+
+&lt;p&gt;There are many ways to achieve this behaviour, but most of them will be based
+on &lt;a href=&quot;http://en.wikipedia.org/wiki/Null_Object_pattern&quot;&gt;&lt;strong&gt;The null object
+pattern&lt;/strong&gt;&lt;/a&gt;. We want
+&lt;code&gt;user.privacy&lt;/code&gt; to return an object which responds &lt;em&gt;falsey&lt;/em&gt; to all the method of
+the original &lt;code&gt;Privacy&lt;/code&gt; class.&lt;/p&gt;
+
+&lt;h4 id=&quot;first-solution&quot;&gt;First solution&lt;/h4&gt;
+
+&lt;p&gt;A trivial implementation could look like this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# null_privacy.rb&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NullPrivacy&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;enables_page?&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;any_page&lt;/span&gt;
+    &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;But how we are going to tie this class to our &lt;code&gt;User&lt;/code&gt; class? Strategies may
+change depending on your persistence layer. A one-fits-all solution is this:
+build an abstraction layer around your &lt;code&gt;user.privacy&lt;/code&gt; relation.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# user.rb&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;has_one&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:_privacy&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;privacy&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;_privacy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;NullPrivacy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;privacy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;privacy&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_privacy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;privacy&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;What we’re doing here is renaming the original &lt;code&gt;privacy&lt;/code&gt; field to &lt;code&gt;_privacy&lt;/code&gt;,
+so that we won’t call it directly, and we’re building two accessor methods to
+use &lt;code&gt;User#privacy&lt;/code&gt; and &lt;code&gt;User#privacy=&lt;/code&gt; as usual.&lt;/p&gt;
+
+&lt;h4 id=&quot;another-solution&quot;&gt;Another solution&lt;/h4&gt;
+
+&lt;p&gt;If you want to keep things even simpler, you can model your &lt;code&gt;Privacy&lt;/code&gt; class so
+that a new instance of this class behaves exactly like a &lt;code&gt;NullPrivacy&lt;/code&gt;, and
+thus avoid the need of a &lt;code&gt;NullPrivacy&lt;/code&gt;. Just keep in mind that things could
+change in your code in the future, so nail this down with a test before
+proceeding to avoid nasty surprises in the future.&lt;/p&gt;
+
+&lt;h4 id=&quot;and-mongoid&quot;&gt;… and Mongoid&lt;/h4&gt;
+
+&lt;p&gt;Finally, if you are using &lt;code&gt;Mongoid&lt;/code&gt; and you can model your &lt;code&gt;Privacy&lt;/code&gt; class as
+described above, there’s a one-line solution:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;c1&quot;&gt;# user.rb&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;has_one&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:privacy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;autobuild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+</description>
+				<pubDate>Mon, 23 Dec 2013 00:00:00 +0100</pubDate>
+				<link>/rails/2013/12/23/null-objects-in-rails.html</link>
+				<guid isPermaLink="true">/rails/2013/12/23/null-objects-in-rails.html</guid>
+			</item>
+		
+			<item>
+				<title>Fluentd usage example with bash and ruby</title>
+				<description>&lt;p&gt;&lt;img class=&quot;fluentd-example&quot; src=&quot;https://raw.github.com/fluent/website/master/logos/fluentd2.png&quot; alt=&quot;fluentd-logo&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://fluentd.org/&quot;&gt;Fluentd&lt;/a&gt; is an open source tool to collect events and
+logs. Its architecture allows to easily collect logs from different input
+sources and redirect them to different output sinks. Some input examples are
+HTTP, syslog, or apache logs, and some output sinks are files, mail, and
+databases (both RDBMS and NoSQL ones). Also, it allows to parse logs and to
+extract only the significative parts from each of them; saving this
+structured information on a DB allows much easier log searching and analysis.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;fluentd-example&quot; src=&quot;http://docs.fluentd.org/images/apache-to-mongodb.png&quot; alt=&quot;fluentd-example&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The fluentd architecture can be extended with ruby plugins to support input
+sources and output destinations; for the scope of this example, we will use:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/fluent/fluent-plugin-mongo&quot;&gt;MongoDB plugin for Fluent event collector&lt;/a&gt;;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/fluent/fluent-logger-ruby&quot;&gt;fluent-logger rubygem&lt;/a&gt;;&lt;/li&gt;
+  &lt;li&gt;the built-in tcp input and stdout output.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;installing-fluentd-server&quot;&gt;Installing fluentd server&lt;/h3&gt;
+
+&lt;p&gt;The first thing to do is installing the fluentd server. You can easily do this
+via rubygems (beware it requires at least ruby 1.9.2):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ gem install fluentd
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;When you’re done you can create a setup file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ fluentd -s ~/.fluentd
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will create the file &lt;code&gt;~/.fluentd/fluent.conf&lt;/code&gt; and setup the &lt;code&gt;~/.fluent/plugins&lt;/code&gt; folder.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-fluentdconf-file&quot;&gt;The fluentd.conf file&lt;/h3&gt;
+
+&lt;p&gt;Edit the configuration file with your favourite editor (which is vim, of
+course), and make it look like this:&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;400: Invalid request
+&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/6193677.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;You can see it’s made of three parts:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The first one is the default HTTP source input. It listens for JSON messages
+on port &lt;code&gt;24224&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;The second one is the default standard output. The &lt;code&gt;match fluentd.test.**&lt;/code&gt;
+line tells fluentd to forward all messages matching the given pattern to the
+chosen standard output.&lt;/li&gt;
+  &lt;li&gt;The third block is the MongoDB output. It requires the MongoDB plugin cited
+above to be installed, but we’ll talk about this later.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Let’s start the server and keep it running in foreground, to easily see
+incoming messages:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ fluentd -c ~/.fluent/fluent.conf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;logging-from-bash-to-stdout&quot;&gt;Logging from bash to STDOUT&lt;/h3&gt;
+
+&lt;p&gt;Now, let’s prepare a sample bash script to log things to &lt;code&gt;fluentd&lt;/code&gt;. Open
+another terminal, create a bash script and paste the following content:&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;400: Invalid request
+&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/6194294.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;As you can see I created a wrapper function to make it easier to redirect logs
+to &lt;code&gt;fluentd&lt;/code&gt;. Save the file, make it executable and run it. You should see output
+like this in your server:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;2013-08-09 17:01:06 +0200 [trace]: plugin/in_forward.rb:150:initialize: accepted fluent socket object_id=70144024060720
+2013-08-09 17:01:06 +0200 fluentd.test.log: {&quot;project&quot;:&quot;Library&quot;,&quot;script_name&quot;:&quot;Reload books&quot;,&quot;message&quot;:&quot;Started&quot;}
+2013-08-09 17:01:06 +0200 [trace]: plugin/in_forward.rb:191:on_close: closed fluent socket object_id=70144024060720
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is telling us that &lt;code&gt;fluentd&lt;/code&gt; is accepting input from the &lt;code&gt;fluent-cat&lt;/code&gt; command
+and it is redirecting it to standard output, according to the first rule.&lt;/p&gt;
+
+&lt;h3 id=&quot;logging-from-bash-to-mongodb&quot;&gt;Logging from bash to MongoDB&lt;/h3&gt;
+
+&lt;p&gt;To go on in our test, we need to install MongoDB. Use the best way depending on
+your system (I used &lt;code&gt;homebrew&lt;/code&gt; on my mac), run it and connect to its console via
+the &lt;code&gt;mongo&lt;/code&gt; command.&lt;/p&gt;
+
+&lt;p&gt;Now, in the previous bash script, change the target of &lt;code&gt;fluent-cat&lt;/code&gt; from
+&lt;code&gt;fluentd.test.log&lt;/code&gt; to &lt;code&gt;mongo.log&lt;/code&gt;. Save it, run it again, and type this in your
+MongoDB console:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ db.test.find()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This time you should see an entry in the &lt;code&gt;test&lt;/code&gt; collection:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{ &quot;_id&quot; : ObjectId(&quot;5204dfee9f60b167da000004&quot;), &quot;project&quot; : &quot;Library&quot;, &quot;script_name&quot; : &quot;Reload books&quot;, &quot;message&quot; : &quot;Started&quot;, &quot;time&quot; : ISODate(&quot;2013-08-09T12:26:22Z&quot;) }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;logging-from-bash-to-mongodb-1&quot;&gt;Logging from bash to MongoDB&lt;/h3&gt;
+
+&lt;p&gt;Let’s see how to achieve the same result in a ruby script. Install the fluent-logger
+rubygem with&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ gem install fluent-logger
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then create a ruby script with the following content:&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;400: Invalid request
+&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/6194505.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;Run it, rerun the query in the MongoDB console, and a new entry should be present.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{ &quot;_id&quot; : ObjectId(&quot;5204dfee9f60b167da000005&quot;), &quot;project&quot; : &quot;Library&quot;, &quot;script_name&quot; : &quot;Reload books&quot;, &quot;message&quot; : &quot;Completed&quot;, &quot;time&quot; : ISODate(&quot;2013-08-09T12:46:32Z&quot;) }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;final-considerations&quot;&gt;Final considerations&lt;/h3&gt;
+
+&lt;p&gt;The ease of use of &lt;code&gt;fluentd&lt;/code&gt; allows to quickly setup a centralized log system in
+just a few hours. You could use any tool you want to browse data in the MongoDB
+database. You can make elaborate statistics, build charts, and do everything you
+want with it. According to the &lt;code&gt;fluentd&lt;/code&gt; website, its simple architecture allows
+it to run with very good performances:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&quot;Fluentd’s performance has been proven in the field: its largest user
+currently collects logs from 5000+ servers, 5 TB of daily data, handling
+50,000 msgs/sec at peak time.&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So, I hope this post helped you to understand what this tool is about. I
+suggest you to check out the &lt;a href=&quot;http://docs.fluentd.org/articles/quickstart&quot;&gt;fluentd
+documentation&lt;/a&gt; to know more, it’s
+really complete and clear. If you found this post useful, feel free to drop me
+a line :)&lt;/p&gt;
+
+</description>
+				<pubDate>Fri, 09 Aug 2013 00:00:00 +0200</pubDate>
+				<link>/tools/2013/08/09/fluentd-usage-example-with-bash-and-ruby.html</link>
+				<guid isPermaLink="true">/tools/2013/08/09/fluentd-usage-example-with-bash-and-ruby.html</guid>
+			</item>
+		
+			<item>
+				<title>Easily change the path for your Paperclip attachments</title>
+				<description>&lt;p&gt;Today after releasing an app to production environment I saw a couple of
+&lt;a href=&quot;https://github.com/thoughtbot/paperclip&quot;&gt;paperclip&lt;/a&gt; warnings like this 
+in my production.log file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[paperclip] Duplicate URL for round_image with /system/:attachment/:id/:style/:filename. This will clash with attachment defined in PageElements::FranchisingCarouselEntry class
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This happens because I defined an attachment with the same name in two
+different models, and the default strategy Paperclip uses to choose
+attachment locations could lead to filename clashing.&lt;/p&gt;
+
+&lt;p&gt;Here is a more detailed example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Foo
+  has_attached_file :image
+end
+
+class Bar
+  has_attached_file :image
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The default strategy Paperclip uses to store attachments relies on this
+path: &lt;code&gt;/system/:attachment/:id/:style/:filename&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;So, considering our example, if we uploaded two files called &lt;code&gt;image.png&lt;/code&gt;
+for the first &lt;code&gt;Foo&lt;/code&gt; instance and the first &lt;code&gt;Bar&lt;/code&gt; instance, they would
+have the same path, &lt;code&gt;/system/image/1/original/image.png&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The solution is quite easy; if we add the following line to our
+&lt;code&gt;config/environment.rb&lt;/code&gt; file, Paperclip will add an extra directory
+level to separate files across different models:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Paperclip::Attachment.default_options[:url] = &quot;/system/:class/:attachment/:id/:style/:filename&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;From now on Paperclip will search for files in the
+&lt;code&gt;system/foo/image/1/original/image.png&lt;/code&gt; and
+&lt;code&gt;system/bar/image/1/original/image.png&lt;/code&gt; locations. But we still need to
+move our previously uploaded files to the new path. We can do this with
+this rake task:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;desc &quot;Copy paperclip data&quot;
+task :copy_paperclip_data =&amp;gt; :environment do
+
+  def move_images klass, attachment_name
+    print &quot;Moving #{attachment_name.pluralize} for #{klass}: &quot;
+    instances = klass.find :all
+    instances.each do |instance|
+      file_name_method = attachment_name + &quot;_file_name&quot;
+      unless instance.send(file_name_method).blank?
+        filename = Rails.root.join('public', 'system', attachment_name.pluralize, instance.id.to_s, 'original', instance.send(file_name_method))
+        if File.exists? filename
+          old_attachment_file = File.new filename
+          instance.send(attachment_name + &quot;=&quot;, old_attachment_file)
+          instance.save
+          old_attachment_file.close
+          print &quot;.&quot;
+        end
+      end
+    end
+    print &quot; [DONE]&quot;
+    puts
+  end
+
+  move_images Foo, 'image'
+  move_images Bar, 'image'
+
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This script is a slightly modified version of the one by Fernando
+Marcelo you can see &lt;a href=&quot;http://fernandomarcelo.com/2012/05/paperclip-how-to-move-existing-attachments-to-a-new-path/&quot;&gt;here&lt;/a&gt;.
+I changed it a little to make it more verbose and reusable, but big
+credits go to him for his original work.&lt;/p&gt;
+
+&lt;p&gt;Running this rake task with &lt;code&gt;rake copy_paperclip_data&lt;/code&gt; will copy all the
+original files from their old location to the new one.&lt;/p&gt;
+
+&lt;p&gt;You will still see the warning messages in your &lt;code&gt;production.log&lt;/code&gt; file,
+because so far Paperclip is not smart enough to check your custom path
+and understand it is enough to prevent conflicts. This will probably be
+fixed in future releases of Paperclip gem.&lt;/p&gt;
+
+</description>
+				<pubDate>Mon, 10 Dec 2012 00:00:00 +0100</pubDate>
+				<link>/rails/2012/12/10/easily-change-the-path-for-your-paperclip-attachments.html</link>
+				<guid isPermaLink="true">/rails/2012/12/10/easily-change-the-path-for-your-paperclip-attachments.html</guid>
+			</item>
+		
+			<item>
+				<title>Vim regexp example: make a variable out of params</title>
+				<description>&lt;p&gt;Today I wrote a regexp to change &lt;code&gt;params[:page]&lt;/code&gt; into &lt;code&gt;page&lt;/code&gt;. Here you
+are:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;:'&amp;lt;,'&amp;gt;s/params\[:\(\p\{-}\)\]/\1/g
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Let’s explain it briefly:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;the first part, &lt;code&gt;:'&amp;lt;,'&amp;gt;s/&lt;/code&gt;, is the vim command to substitute a pattern
+ (or a regexp) with another one. The &lt;code&gt;&amp;lt;,'&amp;gt;&lt;/code&gt; part tells vim to operate
+ on the visually selected text.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;the second part is the trickiest one. Let’s see it part to part:&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code&gt;params\[:&lt;/code&gt; is the first part of the string we want to match. the &lt;code&gt;\&lt;/code&gt;
+ is used to escape the &lt;code&gt;[&lt;/code&gt; character.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code&gt;\(\p\{-}\)&lt;/code&gt; is the content between &lt;code&gt;params[:&lt;/code&gt; and &lt;code&gt;]&lt;/code&gt;. It consists
+ of a sequence of printable characters (&lt;code&gt;\p&lt;/code&gt;). The &lt;code&gt;\(&lt;/code&gt; and &lt;code&gt;\)&lt;/code&gt;
+characters around the sequence make it accessible to commands like
+substitute.  I used the &lt;code&gt;\{-}&lt;/code&gt; quantifier instead of the &lt;code&gt;\+&lt;/code&gt; because it
+is the non-greedy version; so, for example, if I had&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;params[:page] = [ &quot;a&quot;, &quot;b&quot;, &quot;c&quot; ]
+&lt;/code&gt;&lt;/pre&gt;
+
+    &lt;p&gt;Then &lt;code&gt;\p\{-}&lt;/code&gt; would match only &lt;code&gt;:page&lt;/code&gt;, while &lt;code&gt;\p\+&lt;/code&gt; would match 
+&lt;code&gt;:page] = [ &quot;a&quot;, &quot;b&quot;, &quot;c&quot; &lt;/code&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;the &lt;code&gt;\]&lt;/code&gt; part of the second block instructs the regexp parser to stop
+matching characters when it finds a &lt;code&gt;]&lt;/code&gt; char.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The third part, &lt;code&gt;\1&lt;/code&gt;, tells vim what to replace with: the first match
+of the previous regexp. So, vim searches for the first &lt;code&gt;\(&lt;/code&gt; and reads
+until &lt;code&gt;\)&lt;/code&gt;, matches this and uses it for the substitution.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Finally, &lt;code&gt;g&lt;/code&gt; tells vim to make a global change and not to stop after
+ the first occurrence.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+				<pubDate>Mon, 09 Jul 2012 00:00:00 +0200</pubDate>
+				<link>/vim/2012/07/09/vim-regexp-example.html</link>
+				<guid isPermaLink="true">/vim/2012/07/09/vim-regexp-example.html</guid>
+			</item>
+		
+			<item>
+				<title>Add bundle dir to your ctags</title>
+				<description>&lt;p&gt;Ctags are a great way to improve navigation between large codebases.
+Used together with vim they allow to quickly jump to any method
+definition with just a keystroke - &lt;code&gt;C-]&lt;/code&gt;. Adding your bundle dir when
+generating the tags file will allow jumping to the internals of the ruby
+gems you are using. Let’s see how to do this.&lt;/p&gt;
+
+&lt;p&gt;The setup needed is the following:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;install &lt;a href=&quot;http://http://ctags.sourceforge.net&quot;&gt;Exuberant Ctags&lt;/a&gt;. I
+suggest using &lt;code&gt;brew install ctags&lt;/code&gt;, and remember to fix your &lt;code&gt;$PATH&lt;/code&gt; 
+so that running &lt;code&gt;ctags --version&lt;/code&gt; shows &lt;code&gt;Exuberant Ctags&lt;/code&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;From your project root directory build the tags file with &lt;code&gt;ctags -R
+.&lt;/code&gt;. This will create a &lt;code&gt;tags&lt;/code&gt; file in your dir. You can also run this
+command inside vim with &lt;code&gt;:!ctags -R .&lt;/code&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now, from within vim, you can use the following shortcuts:&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt; C-]     =&amp;gt; jump to definition
+ C-T     =&amp;gt; jump back from the definition
+ C-W C-] =&amp;gt; Open the definition in an horizontal split.
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Additional tricks can be found
+&lt;a href=&quot;http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now, to add the bundle dir, you have to ensure that you’re working with
+a rvm gemset for each project (sorry Ruby Rogues). Otherwise you could
+end up with different versions of each gem in your rvm gemset dir, and
+choosing the one to jump to would require a call to bundler.&lt;/p&gt;
+
+&lt;p&gt;Then you can do this:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;run &lt;code&gt;bundle show a_gem_in_your_project&lt;/code&gt;, e.g. &lt;code&gt;bundle show rake&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;copy the path including the rvm gem dir, like&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt; /Users/metalelf0/.rvm/gems/ruby-1.9.3-p0@my_project
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;now run the ctags command passing this dir as an additional argument:&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt; ctags -R . /Users/metalelf0/.rvm/gems/ruby-1.9.3-p0@my_project
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Now from within vim you’ll be able to jump to the source of the gems
+your project is using. Cool, right? :)&lt;/p&gt;
+
+</description>
+				<pubDate>Mon, 26 Mar 2012 00:00:00 +0200</pubDate>
+				<link>/vim/2012/03/26/add-bundle-dir-to-your-ctags.html</link>
+				<guid isPermaLink="true">/vim/2012/03/26/add-bundle-dir-to-your-ctags.html</guid>
+			</item>
+		
+			<item>
+				<title>Howto share Spree authentication/authorization engine</title>
+				<description>&lt;p&gt;In a project I’m working on I’m using spree as a mountable engine. The
+host application has its own administration area, and I wanted to share
+the spree authentication with my app.&lt;/p&gt;
+
+&lt;p&gt;Spree uses devise to handle authentication. The code which is
+responsible for the authentication part of the app is in the auth module
+of Spree.&lt;/p&gt;
+
+&lt;p&gt;To share authentication with your application you have to:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;setup devise in your routes.rb file. I copied this code from the
+routes.rb file included in the spree/auth module:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script src=&quot;https://gist.github.com/1956909.js&quot;&gt; &lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;add &lt;code&gt;before_filter :authenticate_user!&lt;/code&gt; to the controller you want to
+be protected.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This way you’re setup with authentication; it’s time to move on with
+authorization.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;add &lt;code&gt;load_and_authorize_resource!&lt;/code&gt; to the controller you want to be protected.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;register new abilities to the Spree CanCan configuration using the
+&lt;code&gt;register_ability&lt;/code&gt; method. Here is an example:&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script src=&quot;https://gist.github.com/1957141.js&quot;&gt; &lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;add to your &lt;code&gt;application_controller.rb&lt;/code&gt; file the code needed to handle
+authorization exceptions:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script src=&quot;https://gist.github.com/1957179.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;And you’re done!&lt;/p&gt;
+</description>
+				<pubDate>Fri, 02 Mar 2012 00:00:00 +0100</pubDate>
+				<link>/rails/2012/03/02/howto-share-spree-authenticationauthorization-engine.html</link>
+				<guid isPermaLink="true">/rails/2012/03/02/howto-share-spree-authenticationauthorization-engine.html</guid>
+			</item>
+		
+	</channel>
+</rss>
