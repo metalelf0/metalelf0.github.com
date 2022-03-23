@@ -18,7 +18,7 @@ params:
   keywords: [Blog, Development]
   author: metalelf0
   DateFormat: "January 2, 2006"
-  defaultTheme: light # dark, light
+  defaultTheme: auto # dark, light
   disableThemeToggle: false
 
   ShowReadingTime: true
