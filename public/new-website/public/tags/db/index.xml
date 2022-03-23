@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>db on MetalElf0 weblog</title>
+    <link>http://example.org/tags/db/</link>
+    <description>Recent content in db on MetalElf0 weblog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 19 Jun 2011 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/tags/db/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Machinist vs Factory Girl: Machinist win!</title>
+      <link>http://example.org/post/2011-06-19-machinist-vs-factory-girl-machinist-win/</link>
+      <pubDate>Sun, 19 Jun 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2011-06-19-machinist-vs-factory-girl-machinist-win/</guid>
+      <description>
+Today I decided to verify if Machinist could be a good replacement for Factory Girl. In our project, we have a big problem with Factory Girl: even if you tell her not to hit the database, using the Factory.build method, if an object has associations, these are saved on the DB. And this causes a huge slowdown in specs using factories. We&amp;rsquo;ve been using Factory Girl for nearly two years, and if we could find a way to stop him hitting the DB, we could really have a huge improvent in our test suite running time.</description>
+    </item>
+    
+    <item>
+      <title>Howto run a rake task in sandbox mode</title>
+      <link>http://example.org/post/2011-03-10-howto-run-a-rake-task-in-sandbox-mode/</link>
+      <pubDate>Thu, 10 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2011-03-10-howto-run-a-rake-task-in-sandbox-mode/</guid>
+      <description>
+If you have a Rails rake task that somehow changes your DB data, but you want to be sure that the DB will be rolled back to its previous state after the rake task has completed, you can simply include this snippet right after your task definition:
+If you wonder where is this code coming from, it&amp;rsquo;s directly from the rails console code.</description>
+    </item>
+    
+  </channel>
+</rss>

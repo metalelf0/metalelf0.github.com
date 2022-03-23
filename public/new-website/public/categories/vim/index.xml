@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vim on MetalElf0 weblog</title>
+    <link>http://example.org/categories/vim/</link>
+    <description>Recent content in vim on MetalElf0 weblog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 29 Jul 2016 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/categories/vim/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vim - sort ruby methods by name</title>
+      <link>http://example.org/post/2016-07-29-vim-sort-ruby-methods-by-name/</link>
+      <pubDate>Fri, 29 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2016-07-29-vim-sort-ruby-methods-by-name/</guid>
+      <description>
+Yesterday I had to refactor a very large ruby class. It had a lot of methods and, to make it cleaner, I decided to sort methods alphabetically.
+Is there a way to do this in vim? Of course there is, and it&amp;rsquo;s quite tricky - so let&amp;rsquo;s see how we can do it.
+The basic idea is taken from this post on wincent.com, I just adapted it for ruby.</description>
+    </item>
+    
+    <item>
+      <title>Vim regexp example: make a variable out of params</title>
+      <link>http://example.org/post/2012-07-09-vim-regexp-example/</link>
+      <pubDate>Mon, 09 Jul 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2012-07-09-vim-regexp-example/</guid>
+      <description>
+Today I wrote a regexp to change params[:page] into page. Here you are:
+:&#39;&amp;lt;,&#39;&amp;gt;s/params\[:\(\p\{-}\)\]/\1/g  Let&amp;rsquo;s explain it briefly:
+  the first part, :&#39;&amp;lt;,&#39;&amp;gt;s/, is the vim command to substitute a pattern (or a regexp) with another one. The &amp;lt;,&#39;&amp;gt; part tells vim to operate on the visually selected text.
+  the second part is the trickiest one. Let&amp;rsquo;s see it part to part:</description>
+    </item>
+    
+    <item>
+      <title>Add bundle dir to your ctags</title>
+      <link>http://example.org/post/2012-03-26-add-bundle-dir-to-your-ctags/</link>
+      <pubDate>Mon, 26 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2012-03-26-add-bundle-dir-to-your-ctags/</guid>
+      <description>
+Ctags are a great way to improve navigation between large codebases. Used together with vim they allow to quickly jump to any method definition with just a keystroke - C-]. Adding your bundle dir when generating the tags file will allow jumping to the internals of the ruby gems you are using. Let&amp;rsquo;s see how to do this.
+The setup needed is the following:
+  install Exuberant Ctags.</description>
+    </item>
+    
+    <item>
+      <title>Vim for Rails Developers, by Ben Orenstein</title>
+      <link>http://example.org/post/2010-07-02-screencast-review-vim-for-rails-developers-by-ben-orenstein/</link>
+      <pubDate>Fri, 02 Jul 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2010-07-02-screencast-review-vim-for-rails-developers-by-ben-orenstein/</guid>
+      <description>
+Codeulate Screencasts
+In the last months I&amp;rsquo;ve been working on a Rails project in an Agile team. I worked mostly on TextMate, and its speed is really amazing. It has a full set of features, with snippets, bundles, syntaxes and so on. It has many shortcuts, and apparently there&amp;rsquo;s no need to switch away from TextMate.
+But, it has its drawbacks: it&amp;rsquo;s a Mac only application, so I can&amp;rsquo;t use it on my Linux box.</description>
+    </item>
+    
+  </channel>
+</rss>

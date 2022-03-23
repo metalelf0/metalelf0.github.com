@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>regexp on MetalElf0 weblog</title>
+    <link>http://example.org/tags/regexp/</link>
+    <description>Recent content in regexp on MetalElf0 weblog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 09 Jul 2012 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/tags/regexp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vim regexp example: make a variable out of params</title>
+      <link>http://example.org/post/2012-07-09-vim-regexp-example/</link>
+      <pubDate>Mon, 09 Jul 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2012-07-09-vim-regexp-example/</guid>
+      <description>
+Today I wrote a regexp to change params[:page] into page. Here you are:
+:&#39;&amp;lt;,&#39;&amp;gt;s/params\[:\(\p\{-}\)\]/\1/g  Let&amp;rsquo;s explain it briefly:
+  the first part, :&#39;&amp;lt;,&#39;&amp;gt;s/, is the vim command to substitute a pattern (or a regexp) with another one. The &amp;lt;,&#39;&amp;gt; part tells vim to operate on the visually selected text.
+  the second part is the trickiest one. Let&amp;rsquo;s see it part to part:</description>
+    </item>
+    
+  </channel>
+</rss>

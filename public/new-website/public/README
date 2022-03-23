@@ -1,0 +1,39 @@
+While the bootstrap doesn't really support upgrading, git provides a way. I believe this is how I set up my site, but I can't remember every command exactly, so I can't guarantee this is correct.
+
+First, you will want to make a branch of your blog repository that contains your actual site.
+
+Make sure you are on the master of your current blog repo.
+
+Run git checkout -b myblog
+
+That makes a branch for just your stuff. You will have to set your repositories default branch to this new branch in the admin settings in github.
+
+Run git checkout master
+
+Then clean up the master branch and bring it back in sync with the bootstrap master branch by resetting it. You will have to find out the commit id of the last commit jade did by running
+
+git log
+
+git reset --hard <last_commit_id>
+
+Assuming you have an origin branch pointing to your github blog, you must now create and upstream that points to the original bootstrap.
+
+git remote add upstream git://github.com/plusjade/jekyll-bootstrap.git
+
+Then point your local master branch to the remote master.
+
+git branch --set-upstream upstream/master master
+
+At this point you should be able to:
+
+git fetch upstream
+
+and
+
+git merge upstream/master to get your master branch in synch with the bootstrap.
+
+Finally, you can then merge your local master into your blog branch to update your site.
+
+git checkout myblog
+
+git merge master

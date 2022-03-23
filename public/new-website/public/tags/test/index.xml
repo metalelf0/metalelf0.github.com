@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>test on MetalElf0 weblog</title>
+    <link>http://example.org/tags/test/</link>
+    <description>Recent content in test on MetalElf0 weblog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 11 May 2016 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/tags/test/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mocked - a minitest pattern</title>
+      <link>http://example.org/post/2016-05-11-mocked-a-minitest-pattern/</link>
+      <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2016-05-11-mocked-a-minitest-pattern/</guid>
+      <description>
+Minitest is good for mocking, right? Well&amp;hellip; Minitest is gaining a lot of popularity and can actually be a 100% replacement for RSpec. It&amp;rsquo;s a pure ruby testing framework, it&amp;rsquo;s fast, light weight, and it supports both a test-unit like syntax and a spec engine with Rspec like syntax.
+Still, when it comes to mocking, it can be a little painful. You have to initialize mocks and verify them manually after running the code under test.</description>
+    </item>
+    
+    <item>
+      <title>Machinist vs Factory Girl: Machinist win!</title>
+      <link>http://example.org/post/2011-06-19-machinist-vs-factory-girl-machinist-win/</link>
+      <pubDate>Sun, 19 Jun 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2011-06-19-machinist-vs-factory-girl-machinist-win/</guid>
+      <description>
+Today I decided to verify if Machinist could be a good replacement for Factory Girl. In our project, we have a big problem with Factory Girl: even if you tell her not to hit the database, using the Factory.build method, if an object has associations, these are saved on the DB. And this causes a huge slowdown in specs using factories. We&amp;rsquo;ve been using Factory Girl for nearly two years, and if we could find a way to stop him hitting the DB, we could really have a huge improvent in our test suite running time.</description>
+    </item>
+    
+  </channel>
+</rss>
