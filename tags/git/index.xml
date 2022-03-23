@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>git on metalelf0.github.io</title>
+    <link>https://metalelf0.github.io/tags/git/</link>
+    <description>Recent content in git on metalelf0.github.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 12 Jul 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://metalelf0.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git: preview conflicts</title>
+      <link>https://metalelf0.github.io/posts/old-website/2014-07-12-git-preview-conflicts-without-touching-the-working-copy/</link>
+      <pubDate>Sat, 12 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://metalelf0.github.io/posts/old-website/2014-07-12-git-preview-conflicts-without-touching-the-working-copy/</guid>
+      <description>Hi everyone!
+What we&amp;rsquo;re trying to tackle today is a very common problem, that I&amp;rsquo;m sure all of you encountered. Suppose you&amp;rsquo;re on your git feature branch, you want to merge it into another branch (being it master, staging, production, whatever) and you&amp;rsquo;re asking yourself: will there be conflicts?.
+If you&amp;rsquo;re using Github, you can simply open the Pull Request page for your feature branch and look for the following box:</description>
+    </item>
+    
+  </channel>
+</rss>
