@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>design on MetalElf0 weblog</title>
+    <link>http://example.org/tags/design/</link>
+    <description>Recent content in design on MetalElf0 weblog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 02 May 2016 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/tags/design/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Command pattern in ruby and rails</title>
+      <link>http://example.org/post/2016-05-02-command-pattern/</link>
+      <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2016-05-02-command-pattern/</guid>
+      <description>
+The problem If you have a growing Rails application and you feel your models are getting too fat you might have a problem. We&amp;rsquo;ve all been educated with the &amp;ldquo;fat models, thin controllers&amp;rdquo; dogma - but sometimes putting all the domain logic inside the models has its downsides.
+As an example, the typical flow of an ActiveRecord object through a Rails request involves:
+ fetching the object from the DB based on the params you receive (controller); doing something with the object inside the model (model); when something goes wrong, you set errors onto the model attributes (model); you finally return the object to the view, and present it accordingly (view).</description>
+    </item>
+    
+    <item>
+      <title>Null objects in Rails</title>
+      <link>http://example.org/post/2013-12-23-null-objects-in-rails/</link>
+      <pubDate>Mon, 23 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2013-12-23-null-objects-in-rails/</guid>
+      <description>
+The problem Recently I&amp;rsquo;ve seen in a project I work on a lot of occurrences of this code:
+if user.privacy &amp;amp;&amp;amp; user.privacy.enables_page?(...) The first part of the condition above is a bad practice in object oriented design. It forces collaborators of user to know a part of its implementation
+ it could have a privacy or it couldn&amp;rsquo;t.  What we want Wouldn&amp;rsquo;t it be much better to just write this:</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>screencast on MetalElf0 weblog</title>
+    <link>http://example.org/tags/screencast/</link>
+    <description>Recent content in screencast on MetalElf0 weblog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 02 Jul 2010 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/tags/screencast/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vim for Rails Developers, by Ben Orenstein</title>
+      <link>http://example.org/post/2010-07-02-screencast-review-vim-for-rails-developers-by-ben-orenstein/</link>
+      <pubDate>Fri, 02 Jul 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2010-07-02-screencast-review-vim-for-rails-developers-by-ben-orenstein/</guid>
+      <description>
+Codeulate Screencasts
+In the last months I&amp;rsquo;ve been working on a Rails project in an Agile team. I worked mostly on TextMate, and its speed is really amazing. It has a full set of features, with snippets, bundles, syntaxes and so on. It has many shortcuts, and apparently there&amp;rsquo;s no need to switch away from TextMate.
+But, it has its drawbacks: it&amp;rsquo;s a Mac only application, so I can&amp;rsquo;t use it on my Linux box.</description>
+    </item>
+    
+  </channel>
+</rss>

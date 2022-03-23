@@ -1,0 +1,67 @@
+baseURL: https://metalelf0.github.io
+disablePathToLower: true
+languageCode: en-us
+title: metalelf0.github.io
+theme: PaperMod
+
+paginate: 5
+minify:
+  disableXML: true
+  minifyOutput: true
+
+disqusShortname: metalelf0-github-io
+
+params:
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  title: metalelf0.github.com
+  description: "Andrea Schiavini is a ruby developer based in Milan, Italy"
+  keywords: [Blog, Development]
+  author: metalelf0
+  DateFormat: "January 2, 2006"
+  defaultTheme: light # dark, light
+  disableThemeToggle: false
+
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: true
+  hidemeta: false
+  hideSummary: false
+  showtoc: false
+  tocopen: false
+
+  assets:
+    # disableHLJS: true # to disable highlight.js
+    # disableFingerprinting: true
+    favicon: "<link / abs url>"
+    favicon16x16: "<link / abs url>"
+    favicon32x32: "<link / abs url>"
+    apple_touch_icon: "<link / abs url>"
+    safari_pinned_tab: "<link / abs url>"
+
+  profileMode:
+    enabled: true # needs to be explicitly set
+    title: metalelf0.github.io
+    subtitle: "Andrea Schiavini is a ruby developer based in Milan, Italy"
+    imageUrl: metalelf0.jpg
+    imageWidth: 240
+    imageHeight: 240
+    imageTitle: Andrea Schiavini
+    buttons:
+      - name: Posts
+        url: posts
+      - name: Tags
+        url: tags
+  socialIcons:
+    - name: stackoverflow
+      url: "https://stackoverflow.com/users/165339/metalelf0"
+    - name: flickr
+      url: "https://flickr.com/metalelf0"
+    - name: github
+      url: "https://github.com/metalelf0"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/metalelf0/"

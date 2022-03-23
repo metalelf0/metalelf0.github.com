@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>colorschemes on MetalElf0 weblog</title>
+    <link>http://example.org/tags/colorschemes/</link>
+    <description>Recent content in colorschemes on MetalElf0 weblog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Feb 2012 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/tags/colorschemes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The right colors for your VIM</title>
+      <link>http://example.org/post/2012-02-06-the-right-colors-for-your-vim/</link>
+      <pubDate>Mon, 06 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2012-02-06-the-right-colors-for-your-vim/</guid>
+      <description>
+I have a lot of Vim colorschemes, and I like to change them very often, reflecting my mood. I needed a way to showcase them all and quickly pick one.
+The original Vim Color Scheme Test script by maverick.woo is written in Perl and the build works on Windows systems. I wanted to add some new features, and to test it with my own colorschemes, but as I&amp;rsquo;m not very confident with Perl, I preferred to start over with a new Ruby version instead of forking his project.</description>
+    </item>
+    
+  </channel>
+</rss>
