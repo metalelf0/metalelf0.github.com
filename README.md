@@ -19,7 +19,6 @@ Demo: http://dbtek.github.io/dbyll/
 - Disqus comments.
 - :new: Custom sidebar background image.
 
-
 ### Download
 * [Download dbyll](https://github.com/dbtek/dbyll/archive/master.zip)
 
