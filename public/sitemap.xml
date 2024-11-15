@@ -2,256 +2,256 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://metalelf0.github.io/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2016-12-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/posts/</loc>
+    <loc>http://localhost:1313/posts/</loc>
     <lastmod>2016-12-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2016-12-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/vim/</loc>
+    <loc>http://localhost:1313/tags/vim/</loc>
     <lastmod>2016-12-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/posts/old-website/change-vim-colorscheme-based-on-iterm/</loc>
+    <loc>http://localhost:1313/posts/old-website/change-vim-colorscheme-based-on-iterm/</loc>
     <lastmod>2016-12-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
     <lastmod>2016-07-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/ruby/</loc>
+    <loc>http://localhost:1313/tags/ruby/</loc>
     <lastmod>2016-07-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/categories/vim/</loc>
+    <loc>http://localhost:1313/categories/vim/</loc>
     <lastmod>2016-07-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/posts/old-website/2016-07-29-vim-sort-ruby-methods-by-name/</loc>
+    <loc>http://localhost:1313/posts/old-website/2016-07-29-vim-sort-ruby-methods-by-name/</loc>
     <lastmod>2016-07-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/minitest/</loc>
+    <loc>http://localhost:1313/tags/minitest/</loc>
     <lastmod>2016-05-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/posts/old-website/2016-05-11-mocked-a-minitest-pattern/</loc>
+    <loc>http://localhost:1313/posts/old-website/2016-05-11-mocked-a-minitest-pattern/</loc>
     <lastmod>2016-05-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/oo/</loc>
+    <loc>http://localhost:1313/tags/oo/</loc>
     <lastmod>2016-05-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/rails/</loc>
+    <loc>http://localhost:1313/tags/rails/</loc>
     <lastmod>2016-05-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/categories/rails/</loc>
+    <loc>http://localhost:1313/categories/rails/</loc>
     <lastmod>2016-05-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/test/</loc>
+    <loc>http://localhost:1313/tags/test/</loc>
     <lastmod>2016-05-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/posts/old-website/2016-05-02-command-pattern/</loc>
+    <loc>http://localhost:1313/posts/old-website/2016-05-02-command-pattern/</loc>
     <lastmod>2016-05-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/design/</loc>
+    <loc>http://localhost:1313/tags/design/</loc>
     <lastmod>2016-05-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/hanami/</loc>
+    <loc>http://localhost:1313/tags/hanami/</loc>
     <lastmod>2016-05-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/hexagonal/</loc>
+    <loc>http://localhost:1313/tags/hexagonal/</loc>
     <lastmod>2016-05-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/git/</loc>
+    <loc>http://localhost:1313/tags/git/</loc>
     <lastmod>2014-07-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/categories/git/</loc>
+    <loc>http://localhost:1313/categories/git/</loc>
     <lastmod>2014-07-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/posts/old-website/2014-07-12-git-preview-conflicts-without-touching-the-working-copy/</loc>
+    <loc>http://localhost:1313/posts/old-website/2014-07-12-git-preview-conflicts-without-touching-the-working-copy/</loc>
     <lastmod>2014-07-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/posts/old-website/2013-12-23-null-objects-in-rails/</loc>
+    <loc>http://localhost:1313/posts/old-website/2013-12-23-null-objects-in-rails/</loc>
     <lastmod>2013-12-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/bash/</loc>
+    <loc>http://localhost:1313/tags/bash/</loc>
     <lastmod>2013-08-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/fluentd/</loc>
+    <loc>http://localhost:1313/tags/fluentd/</loc>
     <lastmod>2013-08-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/posts/old-website/2013-08-09-fluentd-usage-example-with-bash-and-ruby/</loc>
+    <loc>http://localhost:1313/posts/old-website/2013-08-09-fluentd-usage-example-with-bash-and-ruby/</loc>
     <lastmod>2013-08-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/json/</loc>
+    <loc>http://localhost:1313/tags/json/</loc>
     <lastmod>2013-08-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/logging/</loc>
+    <loc>http://localhost:1313/tags/logging/</loc>
     <lastmod>2013-08-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/shell/</loc>
+    <loc>http://localhost:1313/tags/shell/</loc>
     <lastmod>2013-08-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/categories/tools/</loc>
+    <loc>http://localhost:1313/categories/tools/</loc>
     <lastmod>2013-08-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/posts/old-website/2012-12-10-easily-change-the-path-for-your-paperclip-attachments/</loc>
+    <loc>http://localhost:1313/posts/old-website/2012-12-10-easily-change-the-path-for-your-paperclip-attachments/</loc>
     <lastmod>2012-12-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/paperclip/</loc>
+    <loc>http://localhost:1313/tags/paperclip/</loc>
     <lastmod>2012-12-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/regexp/</loc>
+    <loc>http://localhost:1313/tags/regexp/</loc>
     <lastmod>2012-07-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/posts/old-website/2012-07-09-vim-regexp-example/</loc>
+    <loc>http://localhost:1313/posts/old-website/2012-07-09-vim-regexp-example/</loc>
     <lastmod>2012-07-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/posts/old-website/2012-03-26-add-bundle-dir-to-your-ctags/</loc>
+    <loc>http://localhost:1313/posts/old-website/2012-03-26-add-bundle-dir-to-your-ctags/</loc>
     <lastmod>2012-03-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/ctags/</loc>
+    <loc>http://localhost:1313/tags/ctags/</loc>
     <lastmod>2012-03-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/cancan/</loc>
+    <loc>http://localhost:1313/tags/cancan/</loc>
     <lastmod>2012-03-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/devise/</loc>
+    <loc>http://localhost:1313/tags/devise/</loc>
     <lastmod>2012-03-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/posts/old-website/2012-03-02-howto-share-spree-authenticationauthorization-engine/</loc>
+    <loc>http://localhost:1313/posts/old-website/2012-03-02-howto-share-spree-authenticationauthorization-engine/</loc>
     <lastmod>2012-03-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/spree/</loc>
+    <loc>http://localhost:1313/tags/spree/</loc>
     <lastmod>2012-03-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/colorschemes/</loc>
+    <loc>http://localhost:1313/tags/colorschemes/</loc>
     <lastmod>2012-02-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/posts/old-website/2012-02-06-the-right-colors-for-your-vim/</loc>
+    <loc>http://localhost:1313/posts/old-website/2012-02-06-the-right-colors-for-your-vim/</loc>
     <lastmod>2012-02-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/posts/old-website/2011-10-28-using-virtual-attributes-for-multi-parameter-form-helpers-in-rails/</loc>
+    <loc>http://localhost:1313/posts/old-website/2011-10-28-using-virtual-attributes-for-multi-parameter-form-helpers-in-rails/</loc>
     <lastmod>2011-10-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/db/</loc>
+    <loc>http://localhost:1313/tags/db/</loc>
     <lastmod>2011-06-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/factorygirl/</loc>
+    <loc>http://localhost:1313/tags/factorygirl/</loc>
     <lastmod>2011-06-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/machinist/</loc>
+    <loc>http://localhost:1313/tags/machinist/</loc>
     <lastmod>2011-06-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/posts/old-website/2011-06-19-machinist-vs-factory-girl-machinist-win/</loc>
+    <loc>http://localhost:1313/posts/old-website/2011-06-19-machinist-vs-factory-girl-machinist-win/</loc>
     <lastmod>2011-06-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/rspec/</loc>
+    <loc>http://localhost:1313/tags/rspec/</loc>
     <lastmod>2011-06-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/activerecord/</loc>
+    <loc>http://localhost:1313/tags/activerecord/</loc>
     <lastmod>2011-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/posts/old-website/2011-03-10-howto-run-a-rake-task-in-sandbox-mode/</loc>
+    <loc>http://localhost:1313/posts/old-website/2011-03-10-howto-run-a-rake-task-in-sandbox-mode/</loc>
     <lastmod>2011-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/rake/</loc>
+    <loc>http://localhost:1313/tags/rake/</loc>
     <lastmod>2011-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/rollback/</loc>
+    <loc>http://localhost:1313/tags/rollback/</loc>
     <lastmod>2011-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/habtm/</loc>
+    <loc>http://localhost:1313/tags/habtm/</loc>
     <lastmod>2011-01-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/posts/old-website/2011-01-28-rails-3-scopes-with-habtm-has-and-belongs-to-many-relations/</loc>
+    <loc>http://localhost:1313/posts/old-website/2011-01-28-rails-3-scopes-with-habtm-has-and-belongs-to-many-relations/</loc>
     <lastmod>2011-01-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/rails3/</loc>
+    <loc>http://localhost:1313/tags/rails3/</loc>
     <lastmod>2011-01-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/scopes/</loc>
+    <loc>http://localhost:1313/tags/scopes/</loc>
     <lastmod>2011-01-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/gem/</loc>
+    <loc>http://localhost:1313/tags/gem/</loc>
     <lastmod>2011-01-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/posts/old-website/2011-01-18-invalid-option---with-pg-diroptpostgresql90/</loc>
+    <loc>http://localhost:1313/posts/old-website/2011-01-18-invalid-option---with-pg-diroptpostgresql90/</loc>
     <lastmod>2011-01-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/pg/</loc>
+    <loc>http://localhost:1313/tags/pg/</loc>
     <lastmod>2011-01-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/postgresql/</loc>
+    <loc>http://localhost:1313/tags/postgresql/</loc>
     <lastmod>2011-01-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/rubygems/</loc>
+    <loc>http://localhost:1313/tags/rubygems/</loc>
     <lastmod>2011-01-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/tips/</loc>
+    <loc>http://localhost:1313/tags/tips/</loc>
     <lastmod>2011-01-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/tricks/</loc>
+    <loc>http://localhost:1313/tags/tricks/</loc>
     <lastmod>2011-01-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/categories/tricks/</loc>
+    <loc>http://localhost:1313/categories/tricks/</loc>
     <lastmod>2011-01-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/posts/old-website/2010-09-30-format-the-results-of-a-mysql-query-like-mysql-in-rails/</loc>
+    <loc>http://localhost:1313/posts/old-website/2010-09-30-format-the-results-of-a-mysql-query-like-mysql-in-rails/</loc>
     <lastmod>2010-09-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/mysql/</loc>
+    <loc>http://localhost:1313/tags/mysql/</loc>
     <lastmod>2010-09-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/table/</loc>
+    <loc>http://localhost:1313/tags/table/</loc>
     <lastmod>2010-09-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/terminal-table/</loc>
+    <loc>http://localhost:1313/tags/terminal-table/</loc>
     <lastmod>2010-09-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/ben-orentsein/</loc>
+    <loc>http://localhost:1313/tags/ben-orentsein/</loc>
     <lastmod>2010-07-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/review/</loc>
+    <loc>http://localhost:1313/tags/review/</loc>
     <lastmod>2010-07-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/screencast/</loc>
+    <loc>http://localhost:1313/tags/screencast/</loc>
     <lastmod>2010-07-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/textmate/</loc>
+    <loc>http://localhost:1313/tags/textmate/</loc>
     <lastmod>2010-07-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/posts/old-website/2010-07-02-screencast-review---vim-for-rails-developers-by-ben-orenstein/</loc>
+    <loc>http://localhost:1313/posts/old-website/2010-07-02-screencast-review---vim-for-rails-developers-by-ben-orenstein/</loc>
     <lastmod>2010-07-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/howto/</loc>
+    <loc>http://localhost:1313/tags/howto/</loc>
     <lastmod>2010-05-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/syntax/</loc>
+    <loc>http://localhost:1313/tags/syntax/</loc>
     <lastmod>2010-05-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/categories/textmate/</loc>
+    <loc>http://localhost:1313/categories/textmate/</loc>
     <lastmod>2010-05-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/posts/old-website/2010-05-14-textmate-syntax-highlighting-howto-a-simple-todo-list/</loc>
+    <loc>http://localhost:1313/posts/old-website/2010-05-14-textmate-syntax-highlighting-howto-a-simple-todo-list/</loc>
     <lastmod>2010-05-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/todo/</loc>
+    <loc>http://localhost:1313/tags/todo/</loc>
     <lastmod>2010-05-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/examples/</loc>
+    <loc>http://localhost:1313/tags/examples/</loc>
     <lastmod>2010-04-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/metaprogramming/</loc>
+    <loc>http://localhost:1313/tags/metaprogramming/</loc>
     <lastmod>2010-04-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/mixin/</loc>
+    <loc>http://localhost:1313/tags/mixin/</loc>
     <lastmod>2010-04-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/tags/monkey-patching/</loc>
+    <loc>http://localhost:1313/tags/monkey-patching/</loc>
     <lastmod>2010-04-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/categories/ruby/</loc>
+    <loc>http://localhost:1313/categories/ruby/</loc>
     <lastmod>2010-04-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://metalelf0.github.io/posts/old-website/2010-04-23-ruby-mixin-and-monkey-patching-examples/</loc>
+    <loc>http://localhost:1313/posts/old-website/2010-04-23-ruby-mixin-and-monkey-patching-examples/</loc>
     <lastmod>2010-04-23T00:00:00+00:00</lastmod>
   </url>
 </urlset>
