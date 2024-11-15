@@ -4,476 +4,373 @@
     <title>Tags on metalelf0.github.io</title>
     <link>https://metalelf0.github.io/tags/</link>
     <description>Recent content in Tags on metalelf0.github.io</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.138.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 19 Dec 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://metalelf0.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Dec 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://metalelf0.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>vim</title>
+      <title>Vim</title>
       <link>https://metalelf0.github.io/tags/vim/</link>
       <pubDate>Mon, 19 Dec 2016 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/vim/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>ruby</title>
+      <title>Ruby</title>
       <link>https://metalelf0.github.io/tags/ruby/</link>
       <pubDate>Fri, 29 Jul 2016 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/ruby/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>minitest</title>
+      <title>Minitest</title>
       <link>https://metalelf0.github.io/tags/minitest/</link>
       <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/minitest/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>oo</title>
+      <title>Oo</title>
       <link>https://metalelf0.github.io/tags/oo/</link>
       <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/oo/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>rails</title>
+      <title>Rails</title>
       <link>https://metalelf0.github.io/tags/rails/</link>
       <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/rails/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>test</title>
+      <title>Test</title>
       <link>https://metalelf0.github.io/tags/test/</link>
       <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/test/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>design</title>
+      <title>Design</title>
       <link>https://metalelf0.github.io/tags/design/</link>
       <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/design/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>hanami</title>
+      <title>Hanami</title>
       <link>https://metalelf0.github.io/tags/hanami/</link>
       <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/hanami/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>hexagonal</title>
+      <title>Hexagonal</title>
       <link>https://metalelf0.github.io/tags/hexagonal/</link>
       <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/hexagonal/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>git</title>
+      <title>Git</title>
       <link>https://metalelf0.github.io/tags/git/</link>
       <pubDate>Sat, 12 Jul 2014 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/git/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>bash</title>
+      <title>Bash</title>
       <link>https://metalelf0.github.io/tags/bash/</link>
       <pubDate>Fri, 09 Aug 2013 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/bash/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>fluentd</title>
+      <title>Fluentd</title>
       <link>https://metalelf0.github.io/tags/fluentd/</link>
       <pubDate>Fri, 09 Aug 2013 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/fluentd/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>json</title>
+      <title>Json</title>
       <link>https://metalelf0.github.io/tags/json/</link>
       <pubDate>Fri, 09 Aug 2013 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/json/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>logging</title>
+      <title>Logging</title>
       <link>https://metalelf0.github.io/tags/logging/</link>
       <pubDate>Fri, 09 Aug 2013 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/logging/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>shell</title>
+      <title>Shell</title>
       <link>https://metalelf0.github.io/tags/shell/</link>
       <pubDate>Fri, 09 Aug 2013 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/shell/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>paperclip</title>
+      <title>Paperclip</title>
       <link>https://metalelf0.github.io/tags/paperclip/</link>
       <pubDate>Mon, 10 Dec 2012 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/paperclip/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>regexp</title>
+      <title>Regexp</title>
       <link>https://metalelf0.github.io/tags/regexp/</link>
       <pubDate>Mon, 09 Jul 2012 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/regexp/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>ctags</title>
+      <title>Ctags</title>
       <link>https://metalelf0.github.io/tags/ctags/</link>
       <pubDate>Mon, 26 Mar 2012 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/ctags/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>cancan</title>
+      <title>Cancan</title>
       <link>https://metalelf0.github.io/tags/cancan/</link>
       <pubDate>Fri, 02 Mar 2012 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/cancan/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>devise</title>
+      <title>Devise</title>
       <link>https://metalelf0.github.io/tags/devise/</link>
       <pubDate>Fri, 02 Mar 2012 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/devise/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>spree</title>
+      <title>Spree</title>
       <link>https://metalelf0.github.io/tags/spree/</link>
       <pubDate>Fri, 02 Mar 2012 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/spree/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>colorschemes</title>
+      <title>Colorschemes</title>
       <link>https://metalelf0.github.io/tags/colorschemes/</link>
       <pubDate>Mon, 06 Feb 2012 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/colorschemes/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>db</title>
+      <title>Db</title>
       <link>https://metalelf0.github.io/tags/db/</link>
       <pubDate>Sun, 19 Jun 2011 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/db/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>factorygirl</title>
+      <title>Factorygirl</title>
       <link>https://metalelf0.github.io/tags/factorygirl/</link>
       <pubDate>Sun, 19 Jun 2011 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/factorygirl/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>machinist</title>
+      <title>Machinist</title>
       <link>https://metalelf0.github.io/tags/machinist/</link>
       <pubDate>Sun, 19 Jun 2011 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/machinist/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>rspec</title>
+      <title>Rspec</title>
       <link>https://metalelf0.github.io/tags/rspec/</link>
       <pubDate>Sun, 19 Jun 2011 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/rspec/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>activerecord</title>
+      <title>Activerecord</title>
       <link>https://metalelf0.github.io/tags/activerecord/</link>
       <pubDate>Thu, 10 Mar 2011 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/activerecord/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>rake</title>
+      <title>Rake</title>
       <link>https://metalelf0.github.io/tags/rake/</link>
       <pubDate>Thu, 10 Mar 2011 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/rake/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>rollback</title>
+      <title>Rollback</title>
       <link>https://metalelf0.github.io/tags/rollback/</link>
       <pubDate>Thu, 10 Mar 2011 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/rollback/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>habtm</title>
+      <title>Habtm</title>
       <link>https://metalelf0.github.io/tags/habtm/</link>
       <pubDate>Fri, 28 Jan 2011 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/habtm/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>rails3</title>
+      <title>Rails3</title>
       <link>https://metalelf0.github.io/tags/rails3/</link>
       <pubDate>Fri, 28 Jan 2011 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/rails3/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>scopes</title>
+      <title>Scopes</title>
       <link>https://metalelf0.github.io/tags/scopes/</link>
       <pubDate>Fri, 28 Jan 2011 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/scopes/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>gem</title>
+      <title>Gem</title>
       <link>https://metalelf0.github.io/tags/gem/</link>
       <pubDate>Tue, 18 Jan 2011 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/gem/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>pg</title>
+      <title>Pg</title>
       <link>https://metalelf0.github.io/tags/pg/</link>
       <pubDate>Tue, 18 Jan 2011 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/pg/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>postgresql</title>
+      <title>Postgresql</title>
       <link>https://metalelf0.github.io/tags/postgresql/</link>
       <pubDate>Tue, 18 Jan 2011 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/postgresql/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>rubygems</title>
+      <title>Rubygems</title>
       <link>https://metalelf0.github.io/tags/rubygems/</link>
       <pubDate>Tue, 18 Jan 2011 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/rubygems/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>tips</title>
+      <title>Tips</title>
       <link>https://metalelf0.github.io/tags/tips/</link>
       <pubDate>Tue, 18 Jan 2011 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/tips/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>tricks</title>
+      <title>Tricks</title>
       <link>https://metalelf0.github.io/tags/tricks/</link>
       <pubDate>Tue, 18 Jan 2011 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/tricks/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>mysql</title>
+      <title>Mysql</title>
       <link>https://metalelf0.github.io/tags/mysql/</link>
       <pubDate>Thu, 30 Sep 2010 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/mysql/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>table</title>
+      <title>Table</title>
       <link>https://metalelf0.github.io/tags/table/</link>
       <pubDate>Thu, 30 Sep 2010 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/table/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>terminal-table</title>
+      <title>Terminal-Table</title>
       <link>https://metalelf0.github.io/tags/terminal-table/</link>
       <pubDate>Thu, 30 Sep 2010 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/terminal-table/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>ben orentsein</title>
+      <title>Ben Orentsein</title>
       <link>https://metalelf0.github.io/tags/ben-orentsein/</link>
       <pubDate>Fri, 02 Jul 2010 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/ben-orentsein/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>review</title>
+      <title>Review</title>
       <link>https://metalelf0.github.io/tags/review/</link>
       <pubDate>Fri, 02 Jul 2010 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/review/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>screencast</title>
+      <title>Screencast</title>
       <link>https://metalelf0.github.io/tags/screencast/</link>
       <pubDate>Fri, 02 Jul 2010 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/screencast/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>textmate</title>
+      <title>Textmate</title>
       <link>https://metalelf0.github.io/tags/textmate/</link>
       <pubDate>Fri, 02 Jul 2010 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/textmate/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>howto</title>
+      <title>Howto</title>
       <link>https://metalelf0.github.io/tags/howto/</link>
       <pubDate>Fri, 14 May 2010 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/howto/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>syntax</title>
+      <title>Syntax</title>
       <link>https://metalelf0.github.io/tags/syntax/</link>
       <pubDate>Fri, 14 May 2010 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/syntax/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>todo</title>
+      <title>Todo</title>
       <link>https://metalelf0.github.io/tags/todo/</link>
       <pubDate>Fri, 14 May 2010 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/todo/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>examples</title>
+      <title>Examples</title>
       <link>https://metalelf0.github.io/tags/examples/</link>
       <pubDate>Fri, 23 Apr 2010 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/examples/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>metaprogramming</title>
+      <title>Metaprogramming</title>
       <link>https://metalelf0.github.io/tags/metaprogramming/</link>
       <pubDate>Fri, 23 Apr 2010 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/metaprogramming/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>mixin</title>
+      <title>Mixin</title>
       <link>https://metalelf0.github.io/tags/mixin/</link>
       <pubDate>Fri, 23 Apr 2010 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/mixin/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>monkey-patching</title>
+      <title>Monkey-Patching</title>
       <link>https://metalelf0.github.io/tags/monkey-patching/</link>
       <pubDate>Fri, 23 Apr 2010 00:00:00 +0000</pubDate>
-      
       <guid>https://metalelf0.github.io/tags/monkey-patching/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>
