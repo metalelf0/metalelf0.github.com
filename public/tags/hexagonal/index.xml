@@ -1,34 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hexagonal on metalelf0.github.io</title>
-    <link>http://localhost:1313/tags/hexagonal/</link>
+    <link>https://metalelf0.github.io/tags/hexagonal/</link>
     <description>Recent content in Hexagonal on metalelf0.github.io</description>
-    <generator>Hugo -- 0.138.0</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 02 May 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/hexagonal/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://metalelf0.github.io/tags/hexagonal/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Command pattern in ruby and rails</title>
-      <link>http://localhost:1313/posts/old-website/2016-05-02-command-pattern/</link>
+      <link>https://metalelf0.github.io/posts/old-website/2016-05-02-command-pattern/</link>
       <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/old-website/2016-05-02-command-pattern/</guid>
-      <description>&lt;h3 id=&#34;the-problem&#34;&gt;The problem&lt;/h3&gt;
-&lt;p&gt;If you have a growing Rails application and you feel your models are getting too
-fat you might have a problem. We&amp;rsquo;ve all been educated with the &amp;ldquo;fat models, thin
-controllers&amp;rdquo; dogma - but sometimes putting all the domain logic inside the
-models has its downsides.&lt;/p&gt;
-&lt;p&gt;As an example, the typical flow of an &lt;code&gt;ActiveRecord&lt;/code&gt; object through a Rails
-request involves:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;fetching the object from the DB based on the params you receive (controller);&lt;/li&gt;
-&lt;li&gt;doing something with the object inside the model (model);&lt;/li&gt;
-&lt;li&gt;when something goes wrong, you set errors onto the model attributes (model);&lt;/li&gt;
-&lt;li&gt;you finally return the object to the view, and present it accordingly (view).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;This is gonna tangle a lot of the domain logic to your model (scopes to
-retrieve objects, validations, and in the worst case even some presentation
-logic).&lt;/p&gt;</description>
+      <guid>https://metalelf0.github.io/posts/old-website/2016-05-02-command-pattern/</guid>
+      <description>&lt;h3 id=&#34;the-problem&#34;&gt;The problem&lt;/h3&gt;&#xA;&lt;p&gt;If you have a growing Rails application and you feel your models are getting too&#xA;fat you might have a problem. We&amp;rsquo;ve all been educated with the &amp;ldquo;fat models, thin&#xA;controllers&amp;rdquo; dogma - but sometimes putting all the domain logic inside the&#xA;models has its downsides.&lt;/p&gt;&#xA;&lt;p&gt;As an example, the typical flow of an &lt;code&gt;ActiveRecord&lt;/code&gt; object through a Rails&#xA;request involves:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;fetching the object from the DB based on the params you receive (controller);&lt;/li&gt;&#xA;&lt;li&gt;doing something with the object inside the model (model);&lt;/li&gt;&#xA;&lt;li&gt;when something goes wrong, you set errors onto the model attributes (model);&lt;/li&gt;&#xA;&lt;li&gt;you finally return the object to the view, and present it accordingly (view).&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This is gonna tangle a lot of the domain logic to your model (scopes to&#xA;retrieve objects, validations, and in the worst case even some presentation&#xA;logic).&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -1,375 +1,375 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on metalelf0.github.io</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://metalelf0.github.io/tags/</link>
     <description>Recent content in Tags on metalelf0.github.io</description>
-    <generator>Hugo -- 0.138.0</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 19 Dec 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://metalelf0.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Vim</title>
-      <link>http://localhost:1313/tags/vim/</link>
+      <link>https://metalelf0.github.io/tags/vim/</link>
       <pubDate>Mon, 19 Dec 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/vim/</guid>
+      <guid>https://metalelf0.github.io/tags/vim/</guid>
       <description></description>
     </item>
     <item>
       <title>Ruby</title>
-      <link>http://localhost:1313/tags/ruby/</link>
+      <link>https://metalelf0.github.io/tags/ruby/</link>
       <pubDate>Fri, 29 Jul 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/ruby/</guid>
+      <guid>https://metalelf0.github.io/tags/ruby/</guid>
       <description></description>
     </item>
     <item>
       <title>Minitest</title>
-      <link>http://localhost:1313/tags/minitest/</link>
+      <link>https://metalelf0.github.io/tags/minitest/</link>
       <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/minitest/</guid>
+      <guid>https://metalelf0.github.io/tags/minitest/</guid>
       <description></description>
     </item>
     <item>
       <title>Oo</title>
-      <link>http://localhost:1313/tags/oo/</link>
+      <link>https://metalelf0.github.io/tags/oo/</link>
       <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/oo/</guid>
+      <guid>https://metalelf0.github.io/tags/oo/</guid>
       <description></description>
     </item>
     <item>
       <title>Rails</title>
-      <link>http://localhost:1313/tags/rails/</link>
+      <link>https://metalelf0.github.io/tags/rails/</link>
       <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/rails/</guid>
+      <guid>https://metalelf0.github.io/tags/rails/</guid>
       <description></description>
     </item>
     <item>
       <title>Test</title>
-      <link>http://localhost:1313/tags/test/</link>
+      <link>https://metalelf0.github.io/tags/test/</link>
       <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/test/</guid>
+      <guid>https://metalelf0.github.io/tags/test/</guid>
       <description></description>
     </item>
     <item>
       <title>Design</title>
-      <link>http://localhost:1313/tags/design/</link>
+      <link>https://metalelf0.github.io/tags/design/</link>
       <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/design/</guid>
+      <guid>https://metalelf0.github.io/tags/design/</guid>
       <description></description>
     </item>
     <item>
       <title>Hanami</title>
-      <link>http://localhost:1313/tags/hanami/</link>
+      <link>https://metalelf0.github.io/tags/hanami/</link>
       <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/hanami/</guid>
+      <guid>https://metalelf0.github.io/tags/hanami/</guid>
       <description></description>
     </item>
     <item>
       <title>Hexagonal</title>
-      <link>http://localhost:1313/tags/hexagonal/</link>
+      <link>https://metalelf0.github.io/tags/hexagonal/</link>
       <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/hexagonal/</guid>
+      <guid>https://metalelf0.github.io/tags/hexagonal/</guid>
       <description></description>
     </item>
     <item>
       <title>Git</title>
-      <link>http://localhost:1313/tags/git/</link>
+      <link>https://metalelf0.github.io/tags/git/</link>
       <pubDate>Sat, 12 Jul 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/git/</guid>
+      <guid>https://metalelf0.github.io/tags/git/</guid>
       <description></description>
     </item>
     <item>
       <title>Bash</title>
-      <link>http://localhost:1313/tags/bash/</link>
+      <link>https://metalelf0.github.io/tags/bash/</link>
       <pubDate>Fri, 09 Aug 2013 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/bash/</guid>
+      <guid>https://metalelf0.github.io/tags/bash/</guid>
       <description></description>
     </item>
     <item>
       <title>Fluentd</title>
-      <link>http://localhost:1313/tags/fluentd/</link>
+      <link>https://metalelf0.github.io/tags/fluentd/</link>
       <pubDate>Fri, 09 Aug 2013 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/fluentd/</guid>
+      <guid>https://metalelf0.github.io/tags/fluentd/</guid>
       <description></description>
     </item>
     <item>
       <title>Json</title>
-      <link>http://localhost:1313/tags/json/</link>
+      <link>https://metalelf0.github.io/tags/json/</link>
       <pubDate>Fri, 09 Aug 2013 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/json/</guid>
+      <guid>https://metalelf0.github.io/tags/json/</guid>
       <description></description>
     </item>
     <item>
       <title>Logging</title>
-      <link>http://localhost:1313/tags/logging/</link>
+      <link>https://metalelf0.github.io/tags/logging/</link>
       <pubDate>Fri, 09 Aug 2013 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/logging/</guid>
+      <guid>https://metalelf0.github.io/tags/logging/</guid>
       <description></description>
     </item>
     <item>
       <title>Shell</title>
-      <link>http://localhost:1313/tags/shell/</link>
+      <link>https://metalelf0.github.io/tags/shell/</link>
       <pubDate>Fri, 09 Aug 2013 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/shell/</guid>
+      <guid>https://metalelf0.github.io/tags/shell/</guid>
       <description></description>
     </item>
     <item>
       <title>Paperclip</title>
-      <link>http://localhost:1313/tags/paperclip/</link>
+      <link>https://metalelf0.github.io/tags/paperclip/</link>
       <pubDate>Mon, 10 Dec 2012 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/paperclip/</guid>
+      <guid>https://metalelf0.github.io/tags/paperclip/</guid>
       <description></description>
     </item>
     <item>
       <title>Regexp</title>
-      <link>http://localhost:1313/tags/regexp/</link>
+      <link>https://metalelf0.github.io/tags/regexp/</link>
       <pubDate>Mon, 09 Jul 2012 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/regexp/</guid>
+      <guid>https://metalelf0.github.io/tags/regexp/</guid>
       <description></description>
     </item>
     <item>
       <title>Ctags</title>
-      <link>http://localhost:1313/tags/ctags/</link>
+      <link>https://metalelf0.github.io/tags/ctags/</link>
       <pubDate>Mon, 26 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/ctags/</guid>
+      <guid>https://metalelf0.github.io/tags/ctags/</guid>
       <description></description>
     </item>
     <item>
       <title>Cancan</title>
-      <link>http://localhost:1313/tags/cancan/</link>
+      <link>https://metalelf0.github.io/tags/cancan/</link>
       <pubDate>Fri, 02 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/cancan/</guid>
+      <guid>https://metalelf0.github.io/tags/cancan/</guid>
       <description></description>
     </item>
     <item>
       <title>Devise</title>
-      <link>http://localhost:1313/tags/devise/</link>
+      <link>https://metalelf0.github.io/tags/devise/</link>
       <pubDate>Fri, 02 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/devise/</guid>
+      <guid>https://metalelf0.github.io/tags/devise/</guid>
       <description></description>
     </item>
     <item>
       <title>Spree</title>
-      <link>http://localhost:1313/tags/spree/</link>
+      <link>https://metalelf0.github.io/tags/spree/</link>
       <pubDate>Fri, 02 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/spree/</guid>
+      <guid>https://metalelf0.github.io/tags/spree/</guid>
       <description></description>
     </item>
     <item>
       <title>Colorschemes</title>
-      <link>http://localhost:1313/tags/colorschemes/</link>
+      <link>https://metalelf0.github.io/tags/colorschemes/</link>
       <pubDate>Mon, 06 Feb 2012 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/colorschemes/</guid>
+      <guid>https://metalelf0.github.io/tags/colorschemes/</guid>
       <description></description>
     </item>
     <item>
       <title>Db</title>
-      <link>http://localhost:1313/tags/db/</link>
+      <link>https://metalelf0.github.io/tags/db/</link>
       <pubDate>Sun, 19 Jun 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/db/</guid>
+      <guid>https://metalelf0.github.io/tags/db/</guid>
       <description></description>
     </item>
     <item>
       <title>Factorygirl</title>
-      <link>http://localhost:1313/tags/factorygirl/</link>
+      <link>https://metalelf0.github.io/tags/factorygirl/</link>
       <pubDate>Sun, 19 Jun 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/factorygirl/</guid>
+      <guid>https://metalelf0.github.io/tags/factorygirl/</guid>
       <description></description>
     </item>
     <item>
       <title>Machinist</title>
-      <link>http://localhost:1313/tags/machinist/</link>
+      <link>https://metalelf0.github.io/tags/machinist/</link>
       <pubDate>Sun, 19 Jun 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/machinist/</guid>
+      <guid>https://metalelf0.github.io/tags/machinist/</guid>
       <description></description>
     </item>
     <item>
       <title>Rspec</title>
-      <link>http://localhost:1313/tags/rspec/</link>
+      <link>https://metalelf0.github.io/tags/rspec/</link>
       <pubDate>Sun, 19 Jun 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/rspec/</guid>
+      <guid>https://metalelf0.github.io/tags/rspec/</guid>
       <description></description>
     </item>
     <item>
       <title>Activerecord</title>
-      <link>http://localhost:1313/tags/activerecord/</link>
+      <link>https://metalelf0.github.io/tags/activerecord/</link>
       <pubDate>Thu, 10 Mar 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/activerecord/</guid>
+      <guid>https://metalelf0.github.io/tags/activerecord/</guid>
       <description></description>
     </item>
     <item>
       <title>Rake</title>
-      <link>http://localhost:1313/tags/rake/</link>
+      <link>https://metalelf0.github.io/tags/rake/</link>
       <pubDate>Thu, 10 Mar 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/rake/</guid>
+      <guid>https://metalelf0.github.io/tags/rake/</guid>
       <description></description>
     </item>
     <item>
       <title>Rollback</title>
-      <link>http://localhost:1313/tags/rollback/</link>
+      <link>https://metalelf0.github.io/tags/rollback/</link>
       <pubDate>Thu, 10 Mar 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/rollback/</guid>
+      <guid>https://metalelf0.github.io/tags/rollback/</guid>
       <description></description>
     </item>
     <item>
       <title>Habtm</title>
-      <link>http://localhost:1313/tags/habtm/</link>
+      <link>https://metalelf0.github.io/tags/habtm/</link>
       <pubDate>Fri, 28 Jan 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/habtm/</guid>
+      <guid>https://metalelf0.github.io/tags/habtm/</guid>
       <description></description>
     </item>
     <item>
       <title>Rails3</title>
-      <link>http://localhost:1313/tags/rails3/</link>
+      <link>https://metalelf0.github.io/tags/rails3/</link>
       <pubDate>Fri, 28 Jan 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/rails3/</guid>
+      <guid>https://metalelf0.github.io/tags/rails3/</guid>
       <description></description>
     </item>
     <item>
       <title>Scopes</title>
-      <link>http://localhost:1313/tags/scopes/</link>
+      <link>https://metalelf0.github.io/tags/scopes/</link>
       <pubDate>Fri, 28 Jan 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/scopes/</guid>
+      <guid>https://metalelf0.github.io/tags/scopes/</guid>
       <description></description>
     </item>
     <item>
       <title>Gem</title>
-      <link>http://localhost:1313/tags/gem/</link>
+      <link>https://metalelf0.github.io/tags/gem/</link>
       <pubDate>Tue, 18 Jan 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/gem/</guid>
+      <guid>https://metalelf0.github.io/tags/gem/</guid>
       <description></description>
     </item>
     <item>
       <title>Pg</title>
-      <link>http://localhost:1313/tags/pg/</link>
+      <link>https://metalelf0.github.io/tags/pg/</link>
       <pubDate>Tue, 18 Jan 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/pg/</guid>
+      <guid>https://metalelf0.github.io/tags/pg/</guid>
       <description></description>
     </item>
     <item>
       <title>Postgresql</title>
-      <link>http://localhost:1313/tags/postgresql/</link>
+      <link>https://metalelf0.github.io/tags/postgresql/</link>
       <pubDate>Tue, 18 Jan 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/postgresql/</guid>
+      <guid>https://metalelf0.github.io/tags/postgresql/</guid>
       <description></description>
     </item>
     <item>
       <title>Rubygems</title>
-      <link>http://localhost:1313/tags/rubygems/</link>
+      <link>https://metalelf0.github.io/tags/rubygems/</link>
       <pubDate>Tue, 18 Jan 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/rubygems/</guid>
+      <guid>https://metalelf0.github.io/tags/rubygems/</guid>
       <description></description>
     </item>
     <item>
       <title>Tips</title>
-      <link>http://localhost:1313/tags/tips/</link>
+      <link>https://metalelf0.github.io/tags/tips/</link>
       <pubDate>Tue, 18 Jan 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/tips/</guid>
+      <guid>https://metalelf0.github.io/tags/tips/</guid>
       <description></description>
     </item>
     <item>
       <title>Tricks</title>
-      <link>http://localhost:1313/tags/tricks/</link>
+      <link>https://metalelf0.github.io/tags/tricks/</link>
       <pubDate>Tue, 18 Jan 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/tricks/</guid>
+      <guid>https://metalelf0.github.io/tags/tricks/</guid>
       <description></description>
     </item>
     <item>
       <title>Mysql</title>
-      <link>http://localhost:1313/tags/mysql/</link>
+      <link>https://metalelf0.github.io/tags/mysql/</link>
       <pubDate>Thu, 30 Sep 2010 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/mysql/</guid>
+      <guid>https://metalelf0.github.io/tags/mysql/</guid>
       <description></description>
     </item>
     <item>
       <title>Table</title>
-      <link>http://localhost:1313/tags/table/</link>
+      <link>https://metalelf0.github.io/tags/table/</link>
       <pubDate>Thu, 30 Sep 2010 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/table/</guid>
+      <guid>https://metalelf0.github.io/tags/table/</guid>
       <description></description>
     </item>
     <item>
       <title>Terminal-Table</title>
-      <link>http://localhost:1313/tags/terminal-table/</link>
+      <link>https://metalelf0.github.io/tags/terminal-table/</link>
       <pubDate>Thu, 30 Sep 2010 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/terminal-table/</guid>
+      <guid>https://metalelf0.github.io/tags/terminal-table/</guid>
       <description></description>
     </item>
     <item>
       <title>Ben Orentsein</title>
-      <link>http://localhost:1313/tags/ben-orentsein/</link>
+      <link>https://metalelf0.github.io/tags/ben-orentsein/</link>
       <pubDate>Fri, 02 Jul 2010 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/ben-orentsein/</guid>
+      <guid>https://metalelf0.github.io/tags/ben-orentsein/</guid>
       <description></description>
     </item>
     <item>
       <title>Review</title>
-      <link>http://localhost:1313/tags/review/</link>
+      <link>https://metalelf0.github.io/tags/review/</link>
       <pubDate>Fri, 02 Jul 2010 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/review/</guid>
+      <guid>https://metalelf0.github.io/tags/review/</guid>
       <description></description>
     </item>
     <item>
       <title>Screencast</title>
-      <link>http://localhost:1313/tags/screencast/</link>
+      <link>https://metalelf0.github.io/tags/screencast/</link>
       <pubDate>Fri, 02 Jul 2010 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/screencast/</guid>
+      <guid>https://metalelf0.github.io/tags/screencast/</guid>
       <description></description>
     </item>
     <item>
       <title>Textmate</title>
-      <link>http://localhost:1313/tags/textmate/</link>
+      <link>https://metalelf0.github.io/tags/textmate/</link>
       <pubDate>Fri, 02 Jul 2010 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/textmate/</guid>
+      <guid>https://metalelf0.github.io/tags/textmate/</guid>
       <description></description>
     </item>
     <item>
       <title>Howto</title>
-      <link>http://localhost:1313/tags/howto/</link>
+      <link>https://metalelf0.github.io/tags/howto/</link>
       <pubDate>Fri, 14 May 2010 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/howto/</guid>
+      <guid>https://metalelf0.github.io/tags/howto/</guid>
       <description></description>
     </item>
     <item>
       <title>Syntax</title>
-      <link>http://localhost:1313/tags/syntax/</link>
+      <link>https://metalelf0.github.io/tags/syntax/</link>
       <pubDate>Fri, 14 May 2010 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/syntax/</guid>
+      <guid>https://metalelf0.github.io/tags/syntax/</guid>
       <description></description>
     </item>
     <item>
       <title>Todo</title>
-      <link>http://localhost:1313/tags/todo/</link>
+      <link>https://metalelf0.github.io/tags/todo/</link>
       <pubDate>Fri, 14 May 2010 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/todo/</guid>
+      <guid>https://metalelf0.github.io/tags/todo/</guid>
       <description></description>
     </item>
     <item>
       <title>Examples</title>
-      <link>http://localhost:1313/tags/examples/</link>
+      <link>https://metalelf0.github.io/tags/examples/</link>
       <pubDate>Fri, 23 Apr 2010 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/examples/</guid>
+      <guid>https://metalelf0.github.io/tags/examples/</guid>
       <description></description>
     </item>
     <item>
       <title>Metaprogramming</title>
-      <link>http://localhost:1313/tags/metaprogramming/</link>
+      <link>https://metalelf0.github.io/tags/metaprogramming/</link>
       <pubDate>Fri, 23 Apr 2010 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/metaprogramming/</guid>
+      <guid>https://metalelf0.github.io/tags/metaprogramming/</guid>
       <description></description>
     </item>
     <item>
       <title>Mixin</title>
-      <link>http://localhost:1313/tags/mixin/</link>
+      <link>https://metalelf0.github.io/tags/mixin/</link>
       <pubDate>Fri, 23 Apr 2010 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/mixin/</guid>
+      <guid>https://metalelf0.github.io/tags/mixin/</guid>
       <description></description>
     </item>
     <item>
       <title>Monkey-Patching</title>
-      <link>http://localhost:1313/tags/monkey-patching/</link>
+      <link>https://metalelf0.github.io/tags/monkey-patching/</link>
       <pubDate>Fri, 23 Apr 2010 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/monkey-patching/</guid>
+      <guid>https://metalelf0.github.io/tags/monkey-patching/</guid>
       <description></description>
     </item>
   </channel>

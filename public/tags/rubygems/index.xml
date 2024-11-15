@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rubygems on metalelf0.github.io</title>
-    <link>http://localhost:1313/tags/rubygems/</link>
+    <link>https://metalelf0.github.io/tags/rubygems/</link>
     <description>Recent content in Rubygems on metalelf0.github.io</description>
-    <generator>Hugo -- 0.138.0</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 18 Jan 2011 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/rubygems/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://metalelf0.github.io/tags/rubygems/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>invalid option:   with pg dir=/opt/PostgreSQL/9.0</title>
-      <link>http://localhost:1313/posts/old-website/2011-01-18-invalid-option---with-pg-diroptpostgresql90/</link>
+      <link>https://metalelf0.github.io/posts/old-website/2011-01-18-invalid-option---with-pg-diroptpostgresql90/</link>
       <pubDate>Tue, 18 Jan 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/old-website/2011-01-18-invalid-option---with-pg-diroptpostgresql90/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;d bet a lot of ruby devs actually found themselves stuck in this problem. You checkout a github repo, you run a bundle install and = duh = a gem cannot install because of a missing library.
-You&amp;rsquo;re sure you&amp;rsquo;ve already installed the library or dependency or whatever, but in a different path from the standard one (in this example I&amp;rsquo;m talking about PostgreSQL installed via the graphical installer instead of the ubuntu apt repo); so you issue the command&lt;/p&gt;</description>
+      <guid>https://metalelf0.github.io/posts/old-website/2011-01-18-invalid-option---with-pg-diroptpostgresql90/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;d bet a lot of ruby devs actually found themselves stuck in this problem. You checkout a github repo, you run a bundle install and = duh = a gem cannot install because of a missing library.&#xA;You&amp;rsquo;re sure you&amp;rsquo;ve already installed the library or dependency or whatever, but in a different path from the standard one (in this example I&amp;rsquo;m talking about PostgreSQL installed via the graphical installer instead of the ubuntu apt repo); so you issue the command&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

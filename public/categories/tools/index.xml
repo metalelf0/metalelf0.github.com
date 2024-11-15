@@ -1,34 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tools on metalelf0.github.io</title>
-    <link>http://localhost:1313/categories/tools/</link>
+    <link>https://metalelf0.github.io/categories/tools/</link>
     <description>Recent content in Tools on metalelf0.github.io</description>
-    <generator>Hugo -- 0.138.0</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 09 Aug 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/tools/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://metalelf0.github.io/categories/tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fluentd usage example with bash and ruby</title>
-      <link>http://localhost:1313/posts/old-website/2013-08-09-fluentd-usage-example-with-bash-and-ruby/</link>
+      <link>https://metalelf0.github.io/posts/old-website/2013-08-09-fluentd-usage-example-with-bash-and-ruby/</link>
       <pubDate>Fri, 09 Aug 2013 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/old-website/2013-08-09-fluentd-usage-example-with-bash-and-ruby/</guid>
-      <description>&lt;p&gt;&lt;img alt=&#34;fluentd logo&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/old-website/2013-08-09-fluentd-usage-example-with-bash-and-ruby/images/fluentd2.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://fluentd.org/&#34;&gt;Fluentd&lt;/a&gt; is an open source tool to collect events and
-logs. Its architecture allows to easily collect logs from different input
-sources and redirect them to different output sinks. Some input examples are
-HTTP, syslog, or apache logs, and some output sinks are files, mail, and
-databases (both RDBMS and NoSQL ones). Also, it allows to parse logs and to
-extract only the significative parts from each of them; saving this
-structured information on a DB allows much easier log searching and analysis.&lt;/p&gt;</description>
+      <guid>https://metalelf0.github.io/posts/old-website/2013-08-09-fluentd-usage-example-with-bash-and-ruby/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;images/fluentd2.png&#34; alt=&#34;fluentd logo&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://fluentd.org/&#34;&gt;Fluentd&lt;/a&gt; is an open source tool to collect events and&#xA;logs. Its architecture allows to easily collect logs from different input&#xA;sources and redirect them to different output sinks. Some input examples are&#xA;HTTP, syslog, or apache logs, and some output sinks are files, mail, and&#xA;databases (both RDBMS and NoSQL ones). Also, it allows to parse logs and to&#xA;extract only the significative parts from each of them; saving this&#xA;structured information on a DB allows much easier log searching and analysis.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The right colors for your VIM</title>
-      <link>http://localhost:1313/posts/old-website/2012-02-06-the-right-colors-for-your-vim/</link>
+      <link>https://metalelf0.github.io/posts/old-website/2012-02-06-the-right-colors-for-your-vim/</link>
       <pubDate>Mon, 06 Feb 2012 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/old-website/2012-02-06-the-right-colors-for-your-vim/</guid>
-      <description>&lt;p&gt;I have a lot of Vim colorschemes, and I like to change them very often, reflecting my mood. I needed a way to showcase them all and quickly pick one.&lt;/p&gt;
-&lt;p&gt;The original &lt;a href=&#34;https://code.google.com/p/vimcolorschemetest/&#34;&gt;Vim Color Scheme Test&lt;/a&gt; script by maverick.woo is written in Perl and the build works on Windows systems. I wanted to add some new features, and to test it with my own colorschemes, but as I&amp;rsquo;m not very confident with Perl, I preferred to start over with a new Ruby version instead of forking his project. Here&amp;rsquo;s my version (and here&amp;rsquo;s the &lt;a href=&#34;https://github.com/metalelf0/VimColorSchemeTest-Ruby&#34;&gt;github page&lt;/a&gt;):&lt;/p&gt;</description>
+      <guid>https://metalelf0.github.io/posts/old-website/2012-02-06-the-right-colors-for-your-vim/</guid>
+      <description>&lt;p&gt;I have a lot of Vim colorschemes, and I like to change them very often, reflecting my mood. I needed a way to showcase them all and quickly pick one.&lt;/p&gt;&#xA;&lt;p&gt;The original &lt;a href=&#34;https://code.google.com/p/vimcolorschemetest/&#34;&gt;Vim Color Scheme Test&lt;/a&gt; script by maverick.woo is written in Perl and the build works on Windows systems. I wanted to add some new features, and to test it with my own colorschemes, but as I&amp;rsquo;m not very confident with Perl, I preferred to start over with a new Ruby version instead of forking his project. Here&amp;rsquo;s my version (and here&amp;rsquo;s the &lt;a href=&#34;https://github.com/metalelf0/VimColorSchemeTest-Ruby&#34;&gt;github page&lt;/a&gt;):&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
