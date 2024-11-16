@@ -3,11 +3,10 @@ categories = ["tools"]
 date = "2012-02-06T00:00:00Z"
 tagline = "cause style matters"
 tags = ["vim", "colorschemes", "ruby"]
+title = "The right colors for your VIM"
 
 [theme]
 name = "journal"
-
-title = "The right colors for your VIM"
 +++
 
 
