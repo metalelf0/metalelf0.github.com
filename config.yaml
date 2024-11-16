@@ -4,7 +4,9 @@ languageCode: en-us
 title: metalelf0.github.io
 theme: PaperMod
 
-paginate: 5
+pagination:
+  pagerSize: 5
+
 minify:
   disableXML: true
   minifyOutput: true

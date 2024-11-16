@@ -6,8 +6,16 @@
     <description>Recent content on metalelf0.github.io</description>
     <generator>Hugo -- 0.138.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 19 Dec 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 16 Nov 2024 21:41:49 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Build a neovim menu without external dependencies</title>
+      <link>http://localhost:1313/posts/2024-11-15-build-a-neovim-menu/</link>
+      <pubDate>Sat, 16 Nov 2024 21:41:49 +0100</pubDate>
+      <guid>http://localhost:1313/posts/2024-11-15-build-a-neovim-menu/</guid>
+      <description>&lt;p&gt;Wow, it&amp;rsquo;s been quite a long time since my last post. I&amp;rsquo;m still a vim addict, but I moved to neovim in the recent years, and today I wanna share a quick trick that you might find useful.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m going to build a custom interactive menu with custom options. I&amp;rsquo;ll use it to access some files whose location I often forget, but you&amp;rsquo;ll see how easy it is to customize it to do anything you want. And the best part is, you don&amp;rsquo;t need any external plugin to use it :)&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Vim - Change Colorscheme Based on Iterm profile</title>
       <link>http://localhost:1313/posts/2016-12-19-change-vim-colorscheme-based-on-iterm/</link>
