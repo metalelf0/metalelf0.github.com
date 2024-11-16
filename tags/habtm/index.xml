@@ -10,9 +10,9 @@
     <atom:link href="https://metalelf0.github.io/tags/habtm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rails 3 scopes with HABTM (has and belongs to many) relations</title>
-      <link>https://metalelf0.github.io/posts/old-website/2011-01-28-rails-3-scopes-with-habtm-has-and-belongs-to-many-relations/</link>
+      <link>https://metalelf0.github.io/posts/2011-01-28-rails-3-scopes-with-habtm-has-and-belongs-to-many-relations/</link>
       <pubDate>Fri, 28 Jan 2011 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2011-01-28-rails-3-scopes-with-habtm-has-and-belongs-to-many-relations/</guid>
+      <guid>https://metalelf0.github.io/posts/2011-01-28-rails-3-scopes-with-habtm-has-and-belongs-to-many-relations/</guid>
       <description>&lt;p&gt;There are already many posts about this, but maybe this simple example will help you understand this subject even better.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# First model: tag.rb&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# note that pomodori is a custom plural for pomodoro&lt;/span&gt;

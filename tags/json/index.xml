@@ -10,10 +10,10 @@
     <atom:link href="https://metalelf0.github.io/tags/json/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fluentd usage example with bash and ruby</title>
-      <link>https://metalelf0.github.io/posts/old-website/2013-08-09-fluentd-usage-example-with-bash-and-ruby/</link>
+      <link>https://metalelf0.github.io/posts/2013-08-09-fluentd-usage-example-with-bash-and-ruby/</link>
       <pubDate>Fri, 09 Aug 2013 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2013-08-09-fluentd-usage-example-with-bash-and-ruby/</guid>
-      <description>&lt;p&gt;&lt;img alt=&#34;fluentd logo&#34; loading=&#34;lazy&#34; src=&#34;https://metalelf0.github.io/posts/old-website/2013-08-09-fluentd-usage-example-with-bash-and-ruby/images/fluentd2.png&#34;&gt;&lt;/p&gt;
+      <guid>https://metalelf0.github.io/posts/2013-08-09-fluentd-usage-example-with-bash-and-ruby/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;fluentd logo&#34; loading=&#34;lazy&#34; src=&#34;https://metalelf0.github.io/posts/2013-08-09-fluentd-usage-example-with-bash-and-ruby/images/fluentd2.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://fluentd.org/&#34;&gt;Fluentd&lt;/a&gt; is an open source tool to collect events and
 logs. Its architecture allows to easily collect logs from different input
 sources and redirect them to different output sinks. Some input examples are

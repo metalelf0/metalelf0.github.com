@@ -10,9 +10,9 @@
     <atom:link href="https://metalelf0.github.io/tags/ctags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Add bundle dir to your ctags</title>
-      <link>https://metalelf0.github.io/posts/old-website/2012-03-26-add-bundle-dir-to-your-ctags/</link>
+      <link>https://metalelf0.github.io/posts/2012-03-26-add-bundle-dir-to-your-ctags/</link>
       <pubDate>Mon, 26 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2012-03-26-add-bundle-dir-to-your-ctags/</guid>
+      <guid>https://metalelf0.github.io/posts/2012-03-26-add-bundle-dir-to-your-ctags/</guid>
       <description>&lt;p&gt;Ctags are a great way to improve navigation between large codebases.
 Used together with vim they allow to quickly jump to any method
 definition with just a keystroke - &lt;code&gt;C-]&lt;/code&gt;. Adding your bundle dir when

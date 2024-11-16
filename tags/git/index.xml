@@ -10,9 +10,9 @@
     <atom:link href="https://metalelf0.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Git: preview conflicts</title>
-      <link>https://metalelf0.github.io/posts/old-website/2014-07-12-git-preview-conflicts-without-touching-the-working-copy/</link>
+      <link>https://metalelf0.github.io/posts/2014-07-12-git-preview-conflicts-without-touching-the-working-copy/</link>
       <pubDate>Sat, 12 Jul 2014 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2014-07-12-git-preview-conflicts-without-touching-the-working-copy/</guid>
+      <guid>https://metalelf0.github.io/posts/2014-07-12-git-preview-conflicts-without-touching-the-working-copy/</guid>
       <description>&lt;p&gt;Hi everyone!&lt;/p&gt;
 &lt;p&gt;What we&amp;rsquo;re trying to tackle today is a very common problem, that I&amp;rsquo;m sure all of you encountered. Suppose you&amp;rsquo;re on your git feature branch, you want to merge it into another branch (being it master, staging, production, whatever) and you&amp;rsquo;re asking yourself: &lt;em&gt;will there be conflicts?&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;If you&amp;rsquo;re using Github, you can simply open the Pull Request page for your feature branch and look for the following box:&lt;/p&gt;</description>

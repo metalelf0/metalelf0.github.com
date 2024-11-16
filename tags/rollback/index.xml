@@ -10,9 +10,9 @@
     <atom:link href="https://metalelf0.github.io/tags/rollback/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Howto run a rake task in sandbox mode</title>
-      <link>https://metalelf0.github.io/posts/old-website/2011-03-10-howto-run-a-rake-task-in-sandbox-mode/</link>
+      <link>https://metalelf0.github.io/posts/2011-03-10-howto-run-a-rake-task-in-sandbox-mode/</link>
       <pubDate>Thu, 10 Mar 2011 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2011-03-10-howto-run-a-rake-task-in-sandbox-mode/</guid>
+      <guid>https://metalelf0.github.io/posts/2011-03-10-howto-run-a-rake-task-in-sandbox-mode/</guid>
       <description>&lt;p&gt;If you have a Rails rake task that somehow changes your DB data, but you want to be sure that the DB will be rolled back to its previous state after the rake task has completed, you can simply include this snippet right after your task definition:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ActiveRecord&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Base&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connection&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;increment_open_transactions
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ActiveRecord&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Base&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connection&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;begin_db_transaction

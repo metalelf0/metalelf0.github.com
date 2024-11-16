@@ -10,9 +10,9 @@
     <atom:link href="https://metalelf0.github.io/tags/hexagonal/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Command pattern in ruby and rails</title>
-      <link>https://metalelf0.github.io/posts/old-website/2016-05-02-command-pattern/</link>
+      <link>https://metalelf0.github.io/posts/2016-05-02-command-pattern/</link>
       <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2016-05-02-command-pattern/</guid>
+      <guid>https://metalelf0.github.io/posts/2016-05-02-command-pattern/</guid>
       <description>&lt;h3 id=&#34;the-problem&#34;&gt;The problem&lt;/h3&gt;
 &lt;p&gt;If you have a growing Rails application and you feel your models are getting too
 fat you might have a problem. We&amp;rsquo;ve all been educated with the &amp;ldquo;fat models, thin

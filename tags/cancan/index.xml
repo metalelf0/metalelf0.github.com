@@ -10,9 +10,9 @@
     <atom:link href="https://metalelf0.github.io/tags/cancan/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Howto share Spree authentication/authorization engine</title>
-      <link>https://metalelf0.github.io/posts/old-website/2012-03-02-howto-share-spree-authenticationauthorization-engine/</link>
+      <link>https://metalelf0.github.io/posts/2012-03-02-howto-share-spree-authenticationauthorization-engine/</link>
       <pubDate>Fri, 02 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2012-03-02-howto-share-spree-authenticationauthorization-engine/</guid>
+      <guid>https://metalelf0.github.io/posts/2012-03-02-howto-share-spree-authenticationauthorization-engine/</guid>
       <description>&lt;p&gt;In a project I&amp;rsquo;m working on I&amp;rsquo;m using spree as a mountable engine. The
 host application has its own administration area, and I wanted to share
 the spree authentication with my app.&lt;/p&gt;

@@ -10,9 +10,9 @@
     <atom:link href="https://metalelf0.github.io/tags/regexp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Vim regexp example: make a variable out of params</title>
-      <link>https://metalelf0.github.io/posts/old-website/2012-07-09-vim-regexp-example/</link>
+      <link>https://metalelf0.github.io/posts/2012-07-09-vim-regexp-example/</link>
       <pubDate>Mon, 09 Jul 2012 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2012-07-09-vim-regexp-example/</guid>
+      <guid>https://metalelf0.github.io/posts/2012-07-09-vim-regexp-example/</guid>
       <description>&lt;p&gt;Today I wrote a regexp to change &lt;code&gt;params[:page]&lt;/code&gt; into &lt;code&gt;page&lt;/code&gt;. Here you
 are:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;:&#39;&amp;lt;,&#39;&amp;gt;s/params\[:\(\p\{-}\)\]/\1/g

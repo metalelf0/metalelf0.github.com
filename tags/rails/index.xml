@@ -10,9 +10,9 @@
     <atom:link href="https://metalelf0.github.io/tags/rails/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mocked - a minitest pattern</title>
-      <link>https://metalelf0.github.io/posts/old-website/2016-05-11-mocked-a-minitest-pattern/</link>
+      <link>https://metalelf0.github.io/posts/2016-05-11-mocked-a-minitest-pattern/</link>
       <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2016-05-11-mocked-a-minitest-pattern/</guid>
+      <guid>https://metalelf0.github.io/posts/2016-05-11-mocked-a-minitest-pattern/</guid>
       <description>&lt;h3 id=&#34;minitest-is-good-for-mocking-right-well&#34;&gt;Minitest is good for mocking, right? Well&amp;hellip;&lt;/h3&gt;
 &lt;p&gt;Minitest is gaining a lot of popularity and can actually be a 100% replacement
 for RSpec. It&amp;rsquo;s a pure ruby testing framework, it&amp;rsquo;s fast, light weight, and it
@@ -22,9 +22,9 @@ initialize mocks and verify them manually after running the code under test.&lt;
     </item>
     <item>
       <title>Command pattern in ruby and rails</title>
-      <link>https://metalelf0.github.io/posts/old-website/2016-05-02-command-pattern/</link>
+      <link>https://metalelf0.github.io/posts/2016-05-02-command-pattern/</link>
       <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2016-05-02-command-pattern/</guid>
+      <guid>https://metalelf0.github.io/posts/2016-05-02-command-pattern/</guid>
       <description>&lt;h3 id=&#34;the-problem&#34;&gt;The problem&lt;/h3&gt;
 &lt;p&gt;If you have a growing Rails application and you feel your models are getting too
 fat you might have a problem. We&amp;rsquo;ve all been educated with the &amp;ldquo;fat models, thin
@@ -44,9 +44,9 @@ logic).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Null objects in Rails</title>
-      <link>https://metalelf0.github.io/posts/old-website/2013-12-23-null-objects-in-rails/</link>
+      <link>https://metalelf0.github.io/posts/2013-12-23-null-objects-in-rails/</link>
       <pubDate>Mon, 23 Dec 2013 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2013-12-23-null-objects-in-rails/</guid>
+      <guid>https://metalelf0.github.io/posts/2013-12-23-null-objects-in-rails/</guid>
       <description>&lt;h3 id=&#34;the-problem&#34;&gt;The problem&lt;/h3&gt;
 &lt;p&gt;Recently I&amp;rsquo;ve seen in a project I work on a lot of occurrences of this code:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; user&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;privacy &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; user&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;privacy&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;enables_page?(&lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -63,9 +63,9 @@ follow the &lt;strong&gt;Tell, don&amp;rsquo;t ask&lt;/strong&gt; principle.&lt;
     </item>
     <item>
       <title>Easily change the path for your Paperclip attachments</title>
-      <link>https://metalelf0.github.io/posts/old-website/2012-12-10-easily-change-the-path-for-your-paperclip-attachments/</link>
+      <link>https://metalelf0.github.io/posts/2012-12-10-easily-change-the-path-for-your-paperclip-attachments/</link>
       <pubDate>Mon, 10 Dec 2012 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2012-12-10-easily-change-the-path-for-your-paperclip-attachments/</guid>
+      <guid>https://metalelf0.github.io/posts/2012-12-10-easily-change-the-path-for-your-paperclip-attachments/</guid>
       <description>&lt;p&gt;Today after releasing an app to production environment I saw a couple of
 &lt;a href=&#34;https://github.com/thoughtbot/paperclip&#34;&gt;paperclip&lt;/a&gt; warnings like this
 in my production.log file:&lt;/p&gt;
@@ -78,9 +78,9 @@ attachment locations could lead to filename clashing.&lt;/p&gt;
     </item>
     <item>
       <title>Vim regexp example: make a variable out of params</title>
-      <link>https://metalelf0.github.io/posts/old-website/2012-07-09-vim-regexp-example/</link>
+      <link>https://metalelf0.github.io/posts/2012-07-09-vim-regexp-example/</link>
       <pubDate>Mon, 09 Jul 2012 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2012-07-09-vim-regexp-example/</guid>
+      <guid>https://metalelf0.github.io/posts/2012-07-09-vim-regexp-example/</guid>
       <description>&lt;p&gt;Today I wrote a regexp to change &lt;code&gt;params[:page]&lt;/code&gt; into &lt;code&gt;page&lt;/code&gt;. Here you
 are:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;:&#39;&amp;lt;,&#39;&amp;gt;s/params\[:\(\p\{-}\)\]/\1/g
@@ -101,9 +101,9 @@ is used to escape the &lt;code&gt;[&lt;/code&gt; character.&lt;/p&gt;</descripti
     </item>
     <item>
       <title>Add bundle dir to your ctags</title>
-      <link>https://metalelf0.github.io/posts/old-website/2012-03-26-add-bundle-dir-to-your-ctags/</link>
+      <link>https://metalelf0.github.io/posts/2012-03-26-add-bundle-dir-to-your-ctags/</link>
       <pubDate>Mon, 26 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2012-03-26-add-bundle-dir-to-your-ctags/</guid>
+      <guid>https://metalelf0.github.io/posts/2012-03-26-add-bundle-dir-to-your-ctags/</guid>
       <description>&lt;p&gt;Ctags are a great way to improve navigation between large codebases.
 Used together with vim they allow to quickly jump to any method
 definition with just a keystroke - &lt;code&gt;C-]&lt;/code&gt;. Adding your bundle dir when
@@ -118,9 +118,9 @@ so that running &lt;code&gt;ctags --version&lt;/code&gt; shows &lt;code&gt;Exube
     </item>
     <item>
       <title>Howto share Spree authentication/authorization engine</title>
-      <link>https://metalelf0.github.io/posts/old-website/2012-03-02-howto-share-spree-authenticationauthorization-engine/</link>
+      <link>https://metalelf0.github.io/posts/2012-03-02-howto-share-spree-authenticationauthorization-engine/</link>
       <pubDate>Fri, 02 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2012-03-02-howto-share-spree-authenticationauthorization-engine/</guid>
+      <guid>https://metalelf0.github.io/posts/2012-03-02-howto-share-spree-authenticationauthorization-engine/</guid>
       <description>&lt;p&gt;In a project I&amp;rsquo;m working on I&amp;rsquo;m using spree as a mountable engine. The
 host application has its own administration area, and I wanted to share
 the spree authentication with my app.&lt;/p&gt;
@@ -151,24 +151,24 @@ authorization.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Using virtual attributes for multi parameter form helpers in Rails</title>
-      <link>https://metalelf0.github.io/posts/old-website/2011-10-28-using-virtual-attributes-for-multi-parameter-form-helpers-in-rails/</link>
+      <link>https://metalelf0.github.io/posts/2011-10-28-using-virtual-attributes-for-multi-parameter-form-helpers-in-rails/</link>
       <pubDate>Fri, 28 Oct 2011 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2011-10-28-using-virtual-attributes-for-multi-parameter-form-helpers-in-rails/</guid>
+      <guid>https://metalelf0.github.io/posts/2011-10-28-using-virtual-attributes-for-multi-parameter-form-helpers-in-rails/</guid>
       <description>&lt;p&gt;In a Rails application I am working on, I needed to setup a form with a field with a non-standard behaviour. The field represents a &lt;code&gt;Date&lt;/code&gt; object, so the &lt;code&gt;date_select&lt;/code&gt; &lt;code&gt;FormHelper&lt;/code&gt; looked great; however, the date to display was not the actual date to be set on the database, but the day before. Changing all the data on the DB was a bit risky, so I had to stick with this requirement.
 I decided to use a virtual attribute to do this, as it seemed the most elegant solution, so I wrote this in my model:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Machinist vs Factory Girl: Machinist win!</title>
-      <link>https://metalelf0.github.io/posts/old-website/2011-06-19-machinist-vs-factory-girl-machinist-win/</link>
+      <link>https://metalelf0.github.io/posts/2011-06-19-machinist-vs-factory-girl-machinist-win/</link>
       <pubDate>Sun, 19 Jun 2011 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2011-06-19-machinist-vs-factory-girl-machinist-win/</guid>
+      <guid>https://metalelf0.github.io/posts/2011-06-19-machinist-vs-factory-girl-machinist-win/</guid>
       <description>&lt;p&gt;Today I decided to verify if &lt;a href=&#34;https://github.com/notahat/machinist&#34;&gt;Machinist&lt;/a&gt; could be a good replacement for &lt;a href=&#34;https://github.com/thoughtbot/factory_girl&#34;&gt;Factory Girl&lt;/a&gt;. In our project, we have a big problem with Factory Girl: even if you tell her not to hit the database, using the &lt;code&gt;Factory.build&lt;/code&gt; method, if an object has associations, these are saved on the DB. And this causes a huge slowdown in specs using factories. We&amp;rsquo;ve been using Factory Girl for nearly two years, and if we could find a way to stop him hitting the DB, we could really have a huge improvent in our test suite running time.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Howto run a rake task in sandbox mode</title>
-      <link>https://metalelf0.github.io/posts/old-website/2011-03-10-howto-run-a-rake-task-in-sandbox-mode/</link>
+      <link>https://metalelf0.github.io/posts/2011-03-10-howto-run-a-rake-task-in-sandbox-mode/</link>
       <pubDate>Thu, 10 Mar 2011 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2011-03-10-howto-run-a-rake-task-in-sandbox-mode/</guid>
+      <guid>https://metalelf0.github.io/posts/2011-03-10-howto-run-a-rake-task-in-sandbox-mode/</guid>
       <description>&lt;p&gt;If you have a Rails rake task that somehow changes your DB data, but you want to be sure that the DB will be rolled back to its previous state after the rake task has completed, you can simply include this snippet right after your task definition:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ActiveRecord&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Base&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connection&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;increment_open_transactions
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ActiveRecord&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Base&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connection&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;begin_db_transaction
@@ -180,9 +180,9 @@ I decided to use a virtual attribute to do this, as it seemed the most elegant s
     </item>
     <item>
       <title>Rails 3 scopes with HABTM (has and belongs to many) relations</title>
-      <link>https://metalelf0.github.io/posts/old-website/2011-01-28-rails-3-scopes-with-habtm-has-and-belongs-to-many-relations/</link>
+      <link>https://metalelf0.github.io/posts/2011-01-28-rails-3-scopes-with-habtm-has-and-belongs-to-many-relations/</link>
       <pubDate>Fri, 28 Jan 2011 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2011-01-28-rails-3-scopes-with-habtm-has-and-belongs-to-many-relations/</guid>
+      <guid>https://metalelf0.github.io/posts/2011-01-28-rails-3-scopes-with-habtm-has-and-belongs-to-many-relations/</guid>
       <description>&lt;p&gt;There are already many posts about this, but maybe this simple example will help you understand this subject even better.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# First model: tag.rb&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# note that pomodori is a custom plural for pomodoro&lt;/span&gt;
@@ -208,17 +208,17 @@ I decided to use a virtual attribute to do this, as it seemed the most elegant s
     </item>
     <item>
       <title>Format the results of a MySQL query like MySQL! In Rails!</title>
-      <link>https://metalelf0.github.io/posts/old-website/2010-09-30-format-the-results-of-a-mysql-query-like-mysql-in-rails/</link>
+      <link>https://metalelf0.github.io/posts/2010-09-30-format-the-results-of-a-mysql-query-like-mysql-in-rails/</link>
       <pubDate>Thu, 30 Sep 2010 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2010-09-30-format-the-results-of-a-mysql-query-like-mysql-in-rails/</guid>
+      <guid>https://metalelf0.github.io/posts/2010-09-30-format-the-results-of-a-mysql-query-like-mysql-in-rails/</guid>
       <description>&lt;p&gt;It may happen that you need to display the results of a MySQL query on a page. E.g., your customer asks you to add a report on a page, and you don&amp;rsquo;t want to build a custom template, but just write the query and see the results.&lt;/p&gt;
 &lt;p&gt;We can do this easily thanks to the terminal-table gem (see &lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;http://github.com/visionmedia/terminal-table&#34;&gt;http://github.com/visionmedia/terminal-table&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;). This gem allows printing an ASCII table, just like the one you see when you use MySQL from the terminal. Look at its page on GitHub to see how easy it is.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Vim for Rails Developers, by Ben Orenstein</title>
-      <link>https://metalelf0.github.io/posts/old-website/2010-07-02-screencast-review---vim-for-rails-developers-by-ben-orenstein/</link>
+      <link>https://metalelf0.github.io/posts/2010-07-02-screencast-review---vim-for-rails-developers-by-ben-orenstein/</link>
       <pubDate>Fri, 02 Jul 2010 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2010-07-02-screencast-review---vim-for-rails-developers-by-ben-orenstein/</guid>
+      <guid>https://metalelf0.github.io/posts/2010-07-02-screencast-review---vim-for-rails-developers-by-ben-orenstein/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.codeulatescreencasts.com&#34;&gt;Codeulate Screencasts&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;In the last months I&amp;rsquo;ve been working on a Rails project in an Agile team. I worked mostly on TextMate, and its speed is really amazing. It has a full set of features, with snippets, bundles, syntaxes and so on. It has many shortcuts, and apparently there&amp;rsquo;s no need to switch away from TextMate.&lt;/p&gt;
 &lt;p&gt;But, it has its drawbacks: it&amp;rsquo;s a Mac only application, so I can&amp;rsquo;t use it on my Linux box. Also, it&amp;rsquo;s a commercial application, and even if its cost is not too high, I don&amp;rsquo;t like to pay for software. Finally, it&amp;rsquo;s a GUI application, and it cannot be used over SSH to work on a production machine.&lt;/p&gt;</description>

@@ -10,9 +10,9 @@
     <atom:link href="https://metalelf0.github.io/tags/monkey-patching/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ruby Mixin and monkey patching examples</title>
-      <link>https://metalelf0.github.io/posts/old-website/2010-04-23-ruby-mixin-and-monkey-patching-examples/</link>
+      <link>https://metalelf0.github.io/posts/2010-04-23-ruby-mixin-and-monkey-patching-examples/</link>
       <pubDate>Fri, 23 Apr 2010 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2010-04-23-ruby-mixin-and-monkey-patching-examples/</guid>
+      <guid>https://metalelf0.github.io/posts/2010-04-23-ruby-mixin-and-monkey-patching-examples/</guid>
       <description>&lt;p&gt;Let&amp;rsquo;s explore a couple of solutions to dynamically add a &lt;code&gt;split_by_half&lt;/code&gt; behaviour to an array object. The first technique is the &lt;!-- raw HTML omitted --&gt;mixin&lt;!-- raw HTML omitted --&gt;: it allows to add the method to a single array instance. The second one is called &lt;!-- raw HTML omitted --&gt;monkey patching&lt;!-- raw HTML omitted --&gt;, and adds the method directly to the Array class, adding this behaviour to every array instance.&lt;/p&gt;</description>
     </item>
   </channel>
