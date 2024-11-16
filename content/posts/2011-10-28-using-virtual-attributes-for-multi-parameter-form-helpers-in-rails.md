@@ -50,4 +50,5 @@ The solution I found after some search was this one:
 ```
 
 Reference:
-<a href="http://gabeodess.heroku.com/posts/14">http://gabeodess.heroku.com/posts/14</a>
+
+- [http://gabeodess.heroku.com/posts/14](http://gabeodess.heroku.com/posts/14)
