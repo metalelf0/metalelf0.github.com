@@ -6,8 +6,22 @@
     <description>Recent content in Tags on metalelf0.github.io</description>
     <generator>Hugo -- 0.138.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 19 Dec 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 16 Nov 2024 21:41:49 +0100</lastBuildDate>
     <atom:link href="https://metalelf0.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lua</title>
+      <link>https://metalelf0.github.io/tags/lua/</link>
+      <pubDate>Sat, 16 Nov 2024 21:41:49 +0100</pubDate>
+      <guid>https://metalelf0.github.io/tags/lua/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Neovim</title>
+      <link>https://metalelf0.github.io/tags/neovim/</link>
+      <pubDate>Sat, 16 Nov 2024 21:41:49 +0100</pubDate>
+      <guid>https://metalelf0.github.io/tags/neovim/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Vim</title>
       <link>https://metalelf0.github.io/tags/vim/</link>
