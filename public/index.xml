@@ -1,158 +1,325 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>metalelf0.github.io</title>
-    <link>https://metalelf0.github.io/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on metalelf0.github.io</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- 0.138.0</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 19 Dec 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://metalelf0.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Vim - Change Colorscheme Based on Iterm profile</title>
-      <link>https://metalelf0.github.io/posts/old-website/change-vim-colorscheme-based-on-iterm/</link>
+      <link>http://localhost:1313/posts/2016-12-19-change-vim-colorscheme-based-on-iterm/</link>
       <pubDate>Mon, 19 Dec 2016 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/change-vim-colorscheme-based-on-iterm/</guid>
-      <description>&lt;p&gt;I like to change my (neo)vim colorscheme quite frequently, and when I do I want&#xA;it to match my iterm colors. Many colorscheme authors also provide an iterm&#xA;color palette, so you can import the &lt;code&gt;.itermcolors&lt;/code&gt; file, create a new iterm&#xA;profile with that palette, start a new session and you have the same vim&#xA;colorscheme in your iterm. But then, when you launch vim, you still have to&#xA;type &lt;code&gt;:colorscheme somecolor&lt;/code&gt;.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/2016-12-19-change-vim-colorscheme-based-on-iterm/</guid>
+      <description>&lt;p&gt;I like to change my (neo)vim colorscheme quite frequently, and when I do I want
+it to match my iterm colors. Many colorscheme authors also provide an iterm
+color palette, so you can import the &lt;code&gt;.itermcolors&lt;/code&gt; file, create a new iterm
+profile with that palette, start a new session and you have the same vim
+colorscheme in your iterm. But then, when you launch vim, you still have to
+type &lt;code&gt;:colorscheme somecolor&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Vim - sort ruby methods by name</title>
-      <link>https://metalelf0.github.io/posts/old-website/2016-07-29-vim-sort-ruby-methods-by-name/</link>
+      <link>http://localhost:1313/posts/2016-07-29-vim-sort-ruby-methods-by-name/</link>
       <pubDate>Fri, 29 Jul 2016 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2016-07-29-vim-sort-ruby-methods-by-name/</guid>
-      <description>&lt;p&gt;Yesterday I had to refactor a very large ruby class. It had a lot of methods&#xA;and, to make it cleaner, I decided to sort methods alphabetically.&lt;/p&gt;&#xA;&lt;p&gt;Is there a way to do this in vim? Of course there is, and it&amp;rsquo;s quite tricky -&#xA;so let&amp;rsquo;s see how we can do it.&lt;/p&gt;&#xA;&lt;p&gt;The basic idea is taken from&#xA;&lt;a href=&#34;https://wincent.com/wiki/Sorting_functions_by_name_in_Vim&#34;&gt;this post on wincent.com&lt;/a&gt;,&#xA;I just adapted it for ruby. All credits to this guy for his work :)&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/2016-07-29-vim-sort-ruby-methods-by-name/</guid>
+      <description>&lt;p&gt;Yesterday I had to refactor a very large ruby class. It had a lot of methods
+and, to make it cleaner, I decided to sort methods alphabetically.&lt;/p&gt;
+&lt;p&gt;Is there a way to do this in vim? Of course there is, and it&amp;rsquo;s quite tricky -
+so let&amp;rsquo;s see how we can do it.&lt;/p&gt;
+&lt;p&gt;The basic idea is taken from
+&lt;a href=&#34;https://wincent.com/wiki/Sorting_functions_by_name_in_Vim&#34;&gt;this post on wincent.com&lt;/a&gt;,
+I just adapted it for ruby. All credits to this guy for his work :)&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mocked - a minitest pattern</title>
-      <link>https://metalelf0.github.io/posts/old-website/2016-05-11-mocked-a-minitest-pattern/</link>
+      <link>http://localhost:1313/posts/2016-05-11-mocked-a-minitest-pattern/</link>
       <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2016-05-11-mocked-a-minitest-pattern/</guid>
-      <description>&lt;h3 id=&#34;minitest-is-good-for-mocking-right-well&#34;&gt;Minitest is good for mocking, right? Well&amp;hellip;&lt;/h3&gt;&#xA;&lt;p&gt;Minitest is gaining a lot of popularity and can actually be a 100% replacement&#xA;for RSpec. It&amp;rsquo;s a pure ruby testing framework, it&amp;rsquo;s fast, light weight, and it&#xA;supports both a test-unit like syntax and a spec engine with Rspec like syntax.&lt;/p&gt;&#xA;&lt;p&gt;Still, when it comes to mocking, it can be a little painful. You have to&#xA;initialize mocks and verify them manually after running the code under test.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/2016-05-11-mocked-a-minitest-pattern/</guid>
+      <description>&lt;h3 id=&#34;minitest-is-good-for-mocking-right-well&#34;&gt;Minitest is good for mocking, right? Well&amp;hellip;&lt;/h3&gt;
+&lt;p&gt;Minitest is gaining a lot of popularity and can actually be a 100% replacement
+for RSpec. It&amp;rsquo;s a pure ruby testing framework, it&amp;rsquo;s fast, light weight, and it
+supports both a test-unit like syntax and a spec engine with Rspec like syntax.&lt;/p&gt;
+&lt;p&gt;Still, when it comes to mocking, it can be a little painful. You have to
+initialize mocks and verify them manually after running the code under test.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Command pattern in ruby and rails</title>
-      <link>https://metalelf0.github.io/posts/old-website/2016-05-02-command-pattern/</link>
+      <link>http://localhost:1313/posts/2016-05-02-command-pattern/</link>
       <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2016-05-02-command-pattern/</guid>
-      <description>&lt;h3 id=&#34;the-problem&#34;&gt;The problem&lt;/h3&gt;&#xA;&lt;p&gt;If you have a growing Rails application and you feel your models are getting too&#xA;fat you might have a problem. We&amp;rsquo;ve all been educated with the &amp;ldquo;fat models, thin&#xA;controllers&amp;rdquo; dogma - but sometimes putting all the domain logic inside the&#xA;models has its downsides.&lt;/p&gt;&#xA;&lt;p&gt;As an example, the typical flow of an &lt;code&gt;ActiveRecord&lt;/code&gt; object through a Rails&#xA;request involves:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;fetching the object from the DB based on the params you receive (controller);&lt;/li&gt;&#xA;&lt;li&gt;doing something with the object inside the model (model);&lt;/li&gt;&#xA;&lt;li&gt;when something goes wrong, you set errors onto the model attributes (model);&lt;/li&gt;&#xA;&lt;li&gt;you finally return the object to the view, and present it accordingly (view).&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This is gonna tangle a lot of the domain logic to your model (scopes to&#xA;retrieve objects, validations, and in the worst case even some presentation&#xA;logic).&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/2016-05-02-command-pattern/</guid>
+      <description>&lt;h3 id=&#34;the-problem&#34;&gt;The problem&lt;/h3&gt;
+&lt;p&gt;If you have a growing Rails application and you feel your models are getting too
+fat you might have a problem. We&amp;rsquo;ve all been educated with the &amp;ldquo;fat models, thin
+controllers&amp;rdquo; dogma - but sometimes putting all the domain logic inside the
+models has its downsides.&lt;/p&gt;
+&lt;p&gt;As an example, the typical flow of an &lt;code&gt;ActiveRecord&lt;/code&gt; object through a Rails
+request involves:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;fetching the object from the DB based on the params you receive (controller);&lt;/li&gt;
+&lt;li&gt;doing something with the object inside the model (model);&lt;/li&gt;
+&lt;li&gt;when something goes wrong, you set errors onto the model attributes (model);&lt;/li&gt;
+&lt;li&gt;you finally return the object to the view, and present it accordingly (view).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is gonna tangle a lot of the domain logic to your model (scopes to
+retrieve objects, validations, and in the worst case even some presentation
+logic).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Git: preview conflicts</title>
-      <link>https://metalelf0.github.io/posts/old-website/2014-07-12-git-preview-conflicts-without-touching-the-working-copy/</link>
+      <link>http://localhost:1313/posts/2014-07-12-git-preview-conflicts-without-touching-the-working-copy/</link>
       <pubDate>Sat, 12 Jul 2014 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2014-07-12-git-preview-conflicts-without-touching-the-working-copy/</guid>
-      <description>&lt;p&gt;Hi everyone!&lt;/p&gt;&#xA;&lt;p&gt;What we&amp;rsquo;re trying to tackle today is a very common problem, that I&amp;rsquo;m sure all of you encountered. Suppose you&amp;rsquo;re on your git feature branch, you want to merge it into another branch (being it master, staging, production, whatever) and you&amp;rsquo;re asking yourself: &lt;em&gt;will there be conflicts?&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;If you&amp;rsquo;re using Github, you can simply open the Pull Request page for your feature branch and look for the following box:&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/2014-07-12-git-preview-conflicts-without-touching-the-working-copy/</guid>
+      <description>&lt;p&gt;Hi everyone!&lt;/p&gt;
+&lt;p&gt;What we&amp;rsquo;re trying to tackle today is a very common problem, that I&amp;rsquo;m sure all of you encountered. Suppose you&amp;rsquo;re on your git feature branch, you want to merge it into another branch (being it master, staging, production, whatever) and you&amp;rsquo;re asking yourself: &lt;em&gt;will there be conflicts?&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;If you&amp;rsquo;re using Github, you can simply open the Pull Request page for your feature branch and look for the following box:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Null objects in Rails</title>
-      <link>https://metalelf0.github.io/posts/old-website/2013-12-23-null-objects-in-rails/</link>
+      <link>http://localhost:1313/posts/2013-12-23-null-objects-in-rails/</link>
       <pubDate>Mon, 23 Dec 2013 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2013-12-23-null-objects-in-rails/</guid>
-      <description>&lt;h3 id=&#34;the-problem&#34;&gt;The problem&lt;/h3&gt;&#xA;&lt;p&gt;Recently I&amp;rsquo;ve seen in a project I work on a lot of occurrences of this code:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; user&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;privacy &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; user&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;privacy&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;enables_page?(&lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&#xA;&lt;p&gt;The first part of the condition above is a bad practice in object oriented&#xA;design. It forces collaborators of &lt;code&gt;user&lt;/code&gt; to know a part of its implementation&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;it could have a &lt;code&gt;privacy&lt;/code&gt; or it couldn&amp;rsquo;t.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;what-we-want&#34;&gt;What we want&lt;/h3&gt;&#xA;&lt;p&gt;Wouldn&amp;rsquo;t it be much better to just write this:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; user&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;privacy&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;enables_page?(&lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&#xA;&lt;p&gt;Hiding the responsibility inside the user class? It would be much cleaner and&#xA;follow the &lt;strong&gt;Tell, don&amp;rsquo;t ask&lt;/strong&gt; principle.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/2013-12-23-null-objects-in-rails/</guid>
+      <description>&lt;h3 id=&#34;the-problem&#34;&gt;The problem&lt;/h3&gt;
+&lt;p&gt;Recently I&amp;rsquo;ve seen in a project I work on a lot of occurrences of this code:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; user&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;privacy &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; user&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;privacy&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;enables_page?(&lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The first part of the condition above is a bad practice in object oriented
+design. It forces collaborators of &lt;code&gt;user&lt;/code&gt; to know a part of its implementation&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;it could have a &lt;code&gt;privacy&lt;/code&gt; or it couldn&amp;rsquo;t.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;what-we-want&#34;&gt;What we want&lt;/h3&gt;
+&lt;p&gt;Wouldn&amp;rsquo;t it be much better to just write this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; user&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;privacy&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;enables_page?(&lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Hiding the responsibility inside the user class? It would be much cleaner and
+follow the &lt;strong&gt;Tell, don&amp;rsquo;t ask&lt;/strong&gt; principle.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Fluentd usage example with bash and ruby</title>
-      <link>https://metalelf0.github.io/posts/old-website/2013-08-09-fluentd-usage-example-with-bash-and-ruby/</link>
+      <link>http://localhost:1313/posts/2013-08-09-fluentd-usage-example-with-bash-and-ruby/</link>
       <pubDate>Fri, 09 Aug 2013 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2013-08-09-fluentd-usage-example-with-bash-and-ruby/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;images/fluentd2.png&#34; alt=&#34;fluentd logo&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://fluentd.org/&#34;&gt;Fluentd&lt;/a&gt; is an open source tool to collect events and&#xA;logs. Its architecture allows to easily collect logs from different input&#xA;sources and redirect them to different output sinks. Some input examples are&#xA;HTTP, syslog, or apache logs, and some output sinks are files, mail, and&#xA;databases (both RDBMS and NoSQL ones). Also, it allows to parse logs and to&#xA;extract only the significative parts from each of them; saving this&#xA;structured information on a DB allows much easier log searching and analysis.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/2013-08-09-fluentd-usage-example-with-bash-and-ruby/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;fluentd logo&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/2013-08-09-fluentd-usage-example-with-bash-and-ruby/images/fluentd2.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://fluentd.org/&#34;&gt;Fluentd&lt;/a&gt; is an open source tool to collect events and
+logs. Its architecture allows to easily collect logs from different input
+sources and redirect them to different output sinks. Some input examples are
+HTTP, syslog, or apache logs, and some output sinks are files, mail, and
+databases (both RDBMS and NoSQL ones). Also, it allows to parse logs and to
+extract only the significative parts from each of them; saving this
+structured information on a DB allows much easier log searching and analysis.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Easily change the path for your Paperclip attachments</title>
-      <link>https://metalelf0.github.io/posts/old-website/2012-12-10-easily-change-the-path-for-your-paperclip-attachments/</link>
+      <link>http://localhost:1313/posts/2012-12-10-easily-change-the-path-for-your-paperclip-attachments/</link>
       <pubDate>Mon, 10 Dec 2012 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2012-12-10-easily-change-the-path-for-your-paperclip-attachments/</guid>
-      <description>&lt;p&gt;Today after releasing an app to production environment I saw a couple of&#xA;&lt;a href=&#34;https://github.com/thoughtbot/paperclip&#34;&gt;paperclip&lt;/a&gt; warnings like this&#xA;in my production.log file:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;[paperclip] Duplicate URL for round_image with /system/:attachment/:id/:style/:filename. This will clash with attachment defined in PageElements::FranchisingCarouselEntry class&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;This happens because I defined an attachment with the same name in two&#xA;different models, and the default strategy Paperclip uses to choose&#xA;attachment locations could lead to filename clashing.&lt;/p&gt;&#xA;&lt;p&gt;Here is a more detailed example:&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/2012-12-10-easily-change-the-path-for-your-paperclip-attachments/</guid>
+      <description>&lt;p&gt;Today after releasing an app to production environment I saw a couple of
+&lt;a href=&#34;https://github.com/thoughtbot/paperclip&#34;&gt;paperclip&lt;/a&gt; warnings like this
+in my production.log file:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[paperclip] Duplicate URL for round_image with /system/:attachment/:id/:style/:filename. This will clash with attachment defined in PageElements::FranchisingCarouselEntry class
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This happens because I defined an attachment with the same name in two
+different models, and the default strategy Paperclip uses to choose
+attachment locations could lead to filename clashing.&lt;/p&gt;
+&lt;p&gt;Here is a more detailed example:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Vim regexp example: make a variable out of params</title>
-      <link>https://metalelf0.github.io/posts/old-website/2012-07-09-vim-regexp-example/</link>
+      <link>http://localhost:1313/posts/2012-07-09-vim-regexp-example/</link>
       <pubDate>Mon, 09 Jul 2012 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2012-07-09-vim-regexp-example/</guid>
-      <description>&lt;p&gt;Today I wrote a regexp to change &lt;code&gt;params[:page]&lt;/code&gt; into &lt;code&gt;page&lt;/code&gt;. Here you&#xA;are:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;:&#39;&amp;lt;,&#39;&amp;gt;s/params\[:\(\p\{-}\)\]/\1/g&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s explain it briefly:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;the first part, &lt;code&gt;:&#39;&amp;lt;,&#39;&amp;gt;s/&lt;/code&gt;, is the vim command to substitute a pattern&#xA;(or a regexp) with another one. The &lt;code&gt;&amp;lt;,&#39;&amp;gt;&lt;/code&gt; part tells vim to operate&#xA;on the visually selected text.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;the second part is the trickiest one. Let&amp;rsquo;s see it part to part:&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;code&gt;params\[:&lt;/code&gt; is the first part of the string we want to match. the &lt;code&gt;\&lt;/code&gt;&#xA;is used to escape the &lt;code&gt;[&lt;/code&gt; character.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/2012-07-09-vim-regexp-example/</guid>
+      <description>&lt;p&gt;Today I wrote a regexp to change &lt;code&gt;params[:page]&lt;/code&gt; into &lt;code&gt;page&lt;/code&gt;. Here you
+are:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;:&#39;&amp;lt;,&#39;&amp;gt;s/params\[:\(\p\{-}\)\]/\1/g
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let&amp;rsquo;s explain it briefly:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;the first part, &lt;code&gt;:&#39;&amp;lt;,&#39;&amp;gt;s/&lt;/code&gt;, is the vim command to substitute a pattern
+(or a regexp) with another one. The &lt;code&gt;&amp;lt;,&#39;&amp;gt;&lt;/code&gt; part tells vim to operate
+on the visually selected text.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;the second part is the trickiest one. Let&amp;rsquo;s see it part to part:&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;params\[:&lt;/code&gt; is the first part of the string we want to match. the &lt;code&gt;\&lt;/code&gt;
+is used to escape the &lt;code&gt;[&lt;/code&gt; character.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Add bundle dir to your ctags</title>
-      <link>https://metalelf0.github.io/posts/old-website/2012-03-26-add-bundle-dir-to-your-ctags/</link>
+      <link>http://localhost:1313/posts/2012-03-26-add-bundle-dir-to-your-ctags/</link>
       <pubDate>Mon, 26 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2012-03-26-add-bundle-dir-to-your-ctags/</guid>
-      <description>&lt;p&gt;Ctags are a great way to improve navigation between large codebases.&#xA;Used together with vim they allow to quickly jump to any method&#xA;definition with just a keystroke - &lt;code&gt;C-]&lt;/code&gt;. Adding your bundle dir when&#xA;generating the tags file will allow jumping to the internals of the ruby&#xA;gems you are using. Let&amp;rsquo;s see how to do this.&lt;/p&gt;&#xA;&lt;p&gt;The setup needed is the following:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;install &lt;a href=&#34;http://http://ctags.sourceforge.net&#34;&gt;Exuberant Ctags&lt;/a&gt;. I&#xA;suggest using &lt;code&gt;brew install ctags&lt;/code&gt;, and remember to fix your &lt;code&gt;$PATH&lt;/code&gt;&#xA;so that running &lt;code&gt;ctags --version&lt;/code&gt; shows &lt;code&gt;Exuberant Ctags&lt;/code&gt;.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/2012-03-26-add-bundle-dir-to-your-ctags/</guid>
+      <description>&lt;p&gt;Ctags are a great way to improve navigation between large codebases.
+Used together with vim they allow to quickly jump to any method
+definition with just a keystroke - &lt;code&gt;C-]&lt;/code&gt;. Adding your bundle dir when
+generating the tags file will allow jumping to the internals of the ruby
+gems you are using. Let&amp;rsquo;s see how to do this.&lt;/p&gt;
+&lt;p&gt;The setup needed is the following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;install &lt;a href=&#34;http://http://ctags.sourceforge.net&#34;&gt;Exuberant Ctags&lt;/a&gt;. I
+suggest using &lt;code&gt;brew install ctags&lt;/code&gt;, and remember to fix your &lt;code&gt;$PATH&lt;/code&gt;
+so that running &lt;code&gt;ctags --version&lt;/code&gt; shows &lt;code&gt;Exuberant Ctags&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Howto share Spree authentication/authorization engine</title>
-      <link>https://metalelf0.github.io/posts/old-website/2012-03-02-howto-share-spree-authenticationauthorization-engine/</link>
+      <link>http://localhost:1313/posts/2012-03-02-howto-share-spree-authenticationauthorization-engine/</link>
       <pubDate>Fri, 02 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2012-03-02-howto-share-spree-authenticationauthorization-engine/</guid>
-      <description>&lt;p&gt;In a project I&amp;rsquo;m working on I&amp;rsquo;m using spree as a mountable engine. The&#xA;host application has its own administration area, and I wanted to share&#xA;the spree authentication with my app.&lt;/p&gt;&#xA;&lt;p&gt;Spree uses devise to handle authentication. The code which is&#xA;responsible for the authentication part of the app is in the auth module&#xA;of Spree.&lt;/p&gt;&#xA;&lt;p&gt;To share authentication with your application you have to:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;setup devise in your routes.rb file. I copied this code from the&#xA;routes.rb file included in the spree/auth module:&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;HostApplication&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Application&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;routes&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;draw &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  devise_for &lt;span style=&#34;color:#e6db74&#34;&gt;:user&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             &lt;span style=&#34;color:#e6db74&#34;&gt;:class_name&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Spree::User&amp;#39;&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             &lt;span style=&#34;color:#e6db74&#34;&gt;:controllers&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; { &lt;span style=&#34;color:#e6db74&#34;&gt;:sessions&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;spree/user_sessions&amp;#39;&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                               &lt;span style=&#34;color:#e6db74&#34;&gt;:registrations&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;spree/user_registrations&amp;#39;&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                               &lt;span style=&#34;color:#e6db74&#34;&gt;:passwords&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;spree/user_passwords&amp;#39;&lt;/span&gt; },&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             &lt;span style=&#34;color:#e6db74&#34;&gt;:skip&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:unlocks&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;:omniauth_callbacks&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             &lt;span style=&#34;color:#e6db74&#34;&gt;:path_names&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; { &lt;span style=&#34;color:#e6db74&#34;&gt;:sign_out&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;logout&amp;#39;&lt;/span&gt; }&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# ...&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;&#xA;&lt;li&gt;add &lt;code&gt;before_filter :authenticate_user!&lt;/code&gt; to the controller you want to&#xA;be protected.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This way you&amp;rsquo;re setup with authentication; it&amp;rsquo;s time to move on with&#xA;authorization.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/2012-03-02-howto-share-spree-authenticationauthorization-engine/</guid>
+      <description>&lt;p&gt;In a project I&amp;rsquo;m working on I&amp;rsquo;m using spree as a mountable engine. The
+host application has its own administration area, and I wanted to share
+the spree authentication with my app.&lt;/p&gt;
+&lt;p&gt;Spree uses devise to handle authentication. The code which is
+responsible for the authentication part of the app is in the auth module
+of Spree.&lt;/p&gt;
+&lt;p&gt;To share authentication with your application you have to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;setup devise in your routes.rb file. I copied this code from the
+routes.rb file included in the spree/auth module:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;HostApplication&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Application&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;routes&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;draw &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  devise_for &lt;span style=&#34;color:#e6db74&#34;&gt;:user&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             &lt;span style=&#34;color:#e6db74&#34;&gt;:class_name&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Spree::User&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             &lt;span style=&#34;color:#e6db74&#34;&gt;:controllers&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; { &lt;span style=&#34;color:#e6db74&#34;&gt;:sessions&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;spree/user_sessions&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                               &lt;span style=&#34;color:#e6db74&#34;&gt;:registrations&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;spree/user_registrations&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                               &lt;span style=&#34;color:#e6db74&#34;&gt;:passwords&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;spree/user_passwords&amp;#39;&lt;/span&gt; },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             &lt;span style=&#34;color:#e6db74&#34;&gt;:skip&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:unlocks&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;:omniauth_callbacks&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             &lt;span style=&#34;color:#e6db74&#34;&gt;:path_names&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; { &lt;span style=&#34;color:#e6db74&#34;&gt;:sign_out&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;logout&amp;#39;&lt;/span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# ...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;add &lt;code&gt;before_filter :authenticate_user!&lt;/code&gt; to the controller you want to
+be protected.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This way you&amp;rsquo;re setup with authentication; it&amp;rsquo;s time to move on with
+authorization.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>The right colors for your VIM</title>
-      <link>https://metalelf0.github.io/posts/old-website/2012-02-06-the-right-colors-for-your-vim/</link>
+      <title></title>
+      <link>http://localhost:1313/posts/2012-02-06-the-right-colors-for-your-vim/</link>
       <pubDate>Mon, 06 Feb 2012 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2012-02-06-the-right-colors-for-your-vim/</guid>
-      <description>&lt;p&gt;I have a lot of Vim colorschemes, and I like to change them very often, reflecting my mood. I needed a way to showcase them all and quickly pick one.&lt;/p&gt;&#xA;&lt;p&gt;The original &lt;a href=&#34;https://code.google.com/p/vimcolorschemetest/&#34;&gt;Vim Color Scheme Test&lt;/a&gt; script by maverick.woo is written in Perl and the build works on Windows systems. I wanted to add some new features, and to test it with my own colorschemes, but as I&amp;rsquo;m not very confident with Perl, I preferred to start over with a new Ruby version instead of forking his project. Here&amp;rsquo;s my version (and here&amp;rsquo;s the &lt;a href=&#34;https://github.com/metalelf0/VimColorSchemeTest-Ruby&#34;&gt;github page&lt;/a&gt;):&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/2012-02-06-the-right-colors-for-your-vim/</guid>
+      <description>&lt;p&gt;I have a lot of Vim colorschemes, and I like to change them very often, reflecting my mood. I needed a way to showcase them all and quickly pick one.&lt;/p&gt;
+&lt;p&gt;The original &lt;a href=&#34;https://code.google.com/p/vimcolorschemetest/&#34;&gt;Vim Color Scheme Test&lt;/a&gt; script by maverick.woo is written in Perl and the build works on Windows systems. I wanted to add some new features, and to test it with my own colorschemes, but as I&amp;rsquo;m not very confident with Perl, I preferred to start over with a new Ruby version instead of forking his project. Here&amp;rsquo;s my version (and here&amp;rsquo;s the &lt;a href=&#34;https://github.com/metalelf0/VimColorSchemeTest-Ruby&#34;&gt;github page&lt;/a&gt;):&lt;/p&gt;</description>
     </item>
     <item>
       <title>Using virtual attributes for multi parameter form helpers in Rails</title>
-      <link>https://metalelf0.github.io/posts/old-website/2011-10-28-using-virtual-attributes-for-multi-parameter-form-helpers-in-rails/</link>
+      <link>http://localhost:1313/posts/2011-10-28-using-virtual-attributes-for-multi-parameter-form-helpers-in-rails/</link>
       <pubDate>Fri, 28 Oct 2011 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2011-10-28-using-virtual-attributes-for-multi-parameter-form-helpers-in-rails/</guid>
-      <description>&lt;p&gt;In a Rails application I am working on, I needed to setup a form with a field with a non-standard behaviour. The field represents a &lt;code&gt;Date&lt;/code&gt; object, so the &lt;code&gt;date_select&lt;/code&gt; &lt;code&gt;FormHelper&lt;/code&gt; looked great; however, the date to display was not the actual date to be set on the database, but the day before. Changing all the data on the DB was a bit risky, so I had to stick with this requirement.&#xA;I decided to use a virtual attribute to do this, as it seemed the most elegant solution, so I wrote this in my model:&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/2011-10-28-using-virtual-attributes-for-multi-parameter-form-helpers-in-rails/</guid>
+      <description>&lt;p&gt;In a Rails application I am working on, I needed to setup a form with a field with a non-standard behaviour. The field represents a &lt;code&gt;Date&lt;/code&gt; object, so the &lt;code&gt;date_select&lt;/code&gt; &lt;code&gt;FormHelper&lt;/code&gt; looked great; however, the date to display was not the actual date to be set on the database, but the day before. Changing all the data on the DB was a bit risky, so I had to stick with this requirement.
+I decided to use a virtual attribute to do this, as it seemed the most elegant solution, so I wrote this in my model:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Machinist vs Factory Girl: Machinist win!</title>
-      <link>https://metalelf0.github.io/posts/old-website/2011-06-19-machinist-vs-factory-girl-machinist-win/</link>
+      <link>http://localhost:1313/posts/2011-06-19-machinist-vs-factory-girl-machinist-win/</link>
       <pubDate>Sun, 19 Jun 2011 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2011-06-19-machinist-vs-factory-girl-machinist-win/</guid>
+      <guid>http://localhost:1313/posts/2011-06-19-machinist-vs-factory-girl-machinist-win/</guid>
       <description>&lt;p&gt;Today I decided to verify if &lt;a href=&#34;https://github.com/notahat/machinist&#34;&gt;Machinist&lt;/a&gt; could be a good replacement for &lt;a href=&#34;https://github.com/thoughtbot/factory_girl&#34;&gt;Factory Girl&lt;/a&gt;. In our project, we have a big problem with Factory Girl: even if you tell her not to hit the database, using the &lt;code&gt;Factory.build&lt;/code&gt; method, if an object has associations, these are saved on the DB. And this causes a huge slowdown in specs using factories. We&amp;rsquo;ve been using Factory Girl for nearly two years, and if we could find a way to stop him hitting the DB, we could really have a huge improvent in our test suite running time.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Howto run a rake task in sandbox mode</title>
-      <link>https://metalelf0.github.io/posts/old-website/2011-03-10-howto-run-a-rake-task-in-sandbox-mode/</link>
+      <link>http://localhost:1313/posts/2011-03-10-howto-run-a-rake-task-in-sandbox-mode/</link>
       <pubDate>Thu, 10 Mar 2011 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2011-03-10-howto-run-a-rake-task-in-sandbox-mode/</guid>
-      <description>&lt;p&gt;If you have a Rails rake task that somehow changes your DB data, but you want to be sure that the DB will be rolled back to its previous state after the rake task has completed, you can simply include this snippet right after your task definition:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ActiveRecord&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Base&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connection&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;increment_open_transactions&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ActiveRecord&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Base&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connection&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;begin_db_transaction&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;at_exit &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#66d9ef&#34;&gt;ActiveRecord&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Base&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connection&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;rollback_db_transaction&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#66d9ef&#34;&gt;ActiveRecord&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Base&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connection&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decrement_open_transactions&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you wonder where is this code coming from, it&amp;rsquo;s directly from the rails console code.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/2011-03-10-howto-run-a-rake-task-in-sandbox-mode/</guid>
+      <description>&lt;p&gt;If you have a Rails rake task that somehow changes your DB data, but you want to be sure that the DB will be rolled back to its previous state after the rake task has completed, you can simply include this snippet right after your task definition:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ActiveRecord&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Base&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connection&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;increment_open_transactions
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ActiveRecord&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Base&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connection&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;begin_db_transaction
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;at_exit &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#66d9ef&#34;&gt;ActiveRecord&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Base&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connection&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;rollback_db_transaction
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#66d9ef&#34;&gt;ActiveRecord&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Base&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connection&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decrement_open_transactions
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you wonder where is this code coming from, it&amp;rsquo;s directly from the rails console code.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Rails 3 scopes with HABTM (has and belongs to many) relations</title>
-      <link>https://metalelf0.github.io/posts/old-website/2011-01-28-rails-3-scopes-with-habtm-has-and-belongs-to-many-relations/</link>
+      <link>http://localhost:1313/posts/2011-01-28-rails-3-scopes-with-habtm-has-and-belongs-to-many-relations/</link>
       <pubDate>Fri, 28 Jan 2011 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2011-01-28-rails-3-scopes-with-habtm-has-and-belongs-to-many-relations/</guid>
-      <description>&lt;p&gt;There are already many posts about this, but maybe this simple example will help you understand this subject even better.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# First model: tag.rb&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# note that pomodori is a custom plural for pomodoro&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Tag&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ActiveRecord&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Base&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  has_and_belongs_to_many &lt;span style=&#34;color:#e6db74&#34;&gt;:pomodori&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Second model: pomodoro.rb&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# here is how to define a Rails 3 scope through the join table:&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Pomodoro&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ActiveRecord&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Base&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  has_and_belongs_to_many &lt;span style=&#34;color:#e6db74&#34;&gt;:tags&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  scope &lt;span style=&#34;color:#e6db74&#34;&gt;:by_tag&lt;/span&gt;, lambda { &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;tag_text&lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     joins(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;join pomodori_tags, tags&amp;#34;&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     where(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;pomodori.id = pomodori_tags.pomodoro_id &#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;            AND pomodori_tags.tag_id = tags.id &#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;            AND tags.text = ?&amp;#39;&lt;/span&gt;, tag_text) &#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+      <guid>http://localhost:1313/posts/2011-01-28-rails-3-scopes-with-habtm-has-and-belongs-to-many-relations/</guid>
+      <description>&lt;p&gt;There are already many posts about this, but maybe this simple example will help you understand this subject even better.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# First model: tag.rb&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# note that pomodori is a custom plural for pomodoro&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Tag&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ActiveRecord&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Base&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  has_and_belongs_to_many &lt;span style=&#34;color:#e6db74&#34;&gt;:pomodori&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Second model: pomodoro.rb&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# here is how to define a Rails 3 scope through the join table:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Pomodoro&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ActiveRecord&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Base&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  has_and_belongs_to_many &lt;span style=&#34;color:#e6db74&#34;&gt;:tags&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  scope &lt;span style=&#34;color:#e6db74&#34;&gt;:by_tag&lt;/span&gt;, lambda { &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;tag_text&lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     joins(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;join pomodori_tags, tags&amp;#34;&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     where(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;pomodori.id = pomodori_tags.pomodoro_id 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;            AND pomodori_tags.tag_id = tags.id 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;            AND tags.text = ?&amp;#39;&lt;/span&gt;, tag_text) 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     <item>
       <title>invalid option:   with pg dir=/opt/PostgreSQL/9.0</title>
-      <link>https://metalelf0.github.io/posts/old-website/2011-01-18-invalid-option---with-pg-diroptpostgresql90/</link>
+      <link>http://localhost:1313/posts/2011-01-18-invalid-option---with-pg-diroptpostgresql90/</link>
       <pubDate>Tue, 18 Jan 2011 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2011-01-18-invalid-option---with-pg-diroptpostgresql90/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;d bet a lot of ruby devs actually found themselves stuck in this problem. You checkout a github repo, you run a bundle install and = duh = a gem cannot install because of a missing library.&#xA;You&amp;rsquo;re sure you&amp;rsquo;ve already installed the library or dependency or whatever, but in a different path from the standard one (in this example I&amp;rsquo;m talking about PostgreSQL installed via the graphical installer instead of the ubuntu apt repo); so you issue the command&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/2011-01-18-invalid-option---with-pg-diroptpostgresql90/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;d bet a lot of ruby devs actually found themselves stuck in this problem. You checkout a github repo, you run a bundle install and = duh = a gem cannot install because of a missing library.
+You&amp;rsquo;re sure you&amp;rsquo;ve already installed the library or dependency or whatever, but in a different path from the standard one (in this example I&amp;rsquo;m talking about PostgreSQL installed via the graphical installer instead of the ubuntu apt repo); so you issue the command&lt;/p&gt;</description>
     </item>
     <item>
       <title>Format the results of a MySQL query like MySQL! In Rails!</title>
-      <link>https://metalelf0.github.io/posts/old-website/2010-09-30-format-the-results-of-a-mysql-query-like-mysql-in-rails/</link>
+      <link>http://localhost:1313/posts/2010-09-30-format-the-results-of-a-mysql-query-like-mysql-in-rails/</link>
       <pubDate>Thu, 30 Sep 2010 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2010-09-30-format-the-results-of-a-mysql-query-like-mysql-in-rails/</guid>
-      <description>&lt;p&gt;It may happen that you need to display the results of a MySQL query on a page. E.g., your customer asks you to add a report on a page, and you don&amp;rsquo;t want to build a custom template, but just write the query and see the results.&lt;/p&gt;&#xA;&lt;p&gt;We can do this easily thanks to the terminal-table gem (see &lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;http://github.com/visionmedia/terminal-table&#34;&gt;http://github.com/visionmedia/terminal-table&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;). This gem allows printing an ASCII table, just like the one you see when you use MySQL from the terminal. Look at its page on GitHub to see how easy it is.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/2010-09-30-format-the-results-of-a-mysql-query-like-mysql-in-rails/</guid>
+      <description>&lt;p&gt;It may happen that you need to display the results of a MySQL query on a page. E.g., your customer asks you to add a report on a page, and you don&amp;rsquo;t want to build a custom template, but just write the query and see the results.&lt;/p&gt;
+&lt;p&gt;We can do this easily thanks to the terminal-table gem (see &lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;http://github.com/visionmedia/terminal-table&#34;&gt;http://github.com/visionmedia/terminal-table&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;). This gem allows printing an ASCII table, just like the one you see when you use MySQL from the terminal. Look at its page on GitHub to see how easy it is.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Vim for Rails Developers, by Ben Orenstein</title>
-      <link>https://metalelf0.github.io/posts/old-website/2010-07-02-screencast-review---vim-for-rails-developers-by-ben-orenstein/</link>
+      <link>http://localhost:1313/posts/2010-07-02-screencast-review---vim-for-rails-developers-by-ben-orenstein/</link>
       <pubDate>Fri, 02 Jul 2010 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2010-07-02-screencast-review---vim-for-rails-developers-by-ben-orenstein/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://www.codeulatescreencasts.com&#34;&gt;Codeulate Screencasts&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;In the last months I&amp;rsquo;ve been working on a Rails project in an Agile team. I worked mostly on TextMate, and its speed is really amazing. It has a full set of features, with snippets, bundles, syntaxes and so on. It has many shortcuts, and apparently there&amp;rsquo;s no need to switch away from TextMate.&lt;/p&gt;&#xA;&lt;p&gt;But, it has its drawbacks: it&amp;rsquo;s a Mac only application, so I can&amp;rsquo;t use it on my Linux box. Also, it&amp;rsquo;s a commercial application, and even if its cost is not too high, I don&amp;rsquo;t like to pay for software. Finally, it&amp;rsquo;s a GUI application, and it cannot be used over SSH to work on a production machine.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/2010-07-02-screencast-review---vim-for-rails-developers-by-ben-orenstein/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.codeulatescreencasts.com&#34;&gt;Codeulate Screencasts&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In the last months I&amp;rsquo;ve been working on a Rails project in an Agile team. I worked mostly on TextMate, and its speed is really amazing. It has a full set of features, with snippets, bundles, syntaxes and so on. It has many shortcuts, and apparently there&amp;rsquo;s no need to switch away from TextMate.&lt;/p&gt;
+&lt;p&gt;But, it has its drawbacks: it&amp;rsquo;s a Mac only application, so I can&amp;rsquo;t use it on my Linux box. Also, it&amp;rsquo;s a commercial application, and even if its cost is not too high, I don&amp;rsquo;t like to pay for software. Finally, it&amp;rsquo;s a GUI application, and it cannot be used over SSH to work on a production machine.&lt;/p&gt;</description>
     </item>
     <item>
       <title>TextMate Syntax Highlighting Howto: A simple todo list</title>
-      <link>https://metalelf0.github.io/posts/old-website/2010-05-14-textmate-syntax-highlighting-howto-a-simple-todo-list/</link>
+      <link>http://localhost:1313/posts/2010-05-14-textmate-syntax-highlighting-howto-a-simple-todo-list/</link>
       <pubDate>Fri, 14 May 2010 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2010-05-14-textmate-syntax-highlighting-howto-a-simple-todo-list/</guid>
-      <description>&lt;p&gt;Today I wanted to add a syntax highlight for my todo list favourite format to TextMate.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://3.bp.blogspot.com/_XPYUQVFU0pU/S-1AWa--6HI/AAAAAAAAEpg/2l_vtTV49Q4/s320/Schermata+2010-05-14+a+14.20.55.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Here&amp;rsquo;s how to do it. In TextMate, go to Bundles, then Bundles Editor, then Edit Languages&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;Click on the plus button in the lower left corner and choose &amp;ldquo;New Language&amp;rdquo;. Paste the following code in place of the example code provided.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{ &#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;scopeName = &amp;#39;todo&amp;#39;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;patterns = (&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;name = &amp;#39;todo.completed&amp;#39;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;match = &amp;#39;^\[X+\]&amp;#39;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    { &#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;name = &amp;#39;todo.in_progress&amp;#39;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;match = &amp;#39;^\[X*\.*\]&amp;#39;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;name = &amp;#39;todo.new&amp;#39;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;match = &amp;#39;^\[.+]&amp;#39;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;);&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This defines three patterns for each condition. They should be self-explanatory, I used only simple regexps here. Save your language definition, and it should appear in the languages combo of your Textmate.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/2010-05-14-textmate-syntax-highlighting-howto-a-simple-todo-list/</guid>
+      <description>&lt;p&gt;Today I wanted to add a syntax highlight for my todo list favourite format to TextMate.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;image&#34; loading=&#34;lazy&#34; src=&#34;http://3.bp.blogspot.com/_XPYUQVFU0pU/S-1AWa--6HI/AAAAAAAAEpg/2l_vtTV49Q4/s320/Schermata+2010-05-14+a+14.20.55.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s how to do it. In TextMate, go to Bundles, then Bundles Editor, then Edit Languages&amp;hellip;&lt;/p&gt;
+&lt;p&gt;Click on the plus button in the lower left corner and choose &amp;ldquo;New Language&amp;rdquo;. Paste the following code in place of the example code provided.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{ 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;scopeName = &amp;#39;todo&amp;#39;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;patterns = (&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;name = &amp;#39;todo.completed&amp;#39;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;match = &amp;#39;^\[X+\]&amp;#39;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    { 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;name = &amp;#39;todo.in_progress&amp;#39;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;match = &amp;#39;^\[X*\.*\]&amp;#39;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;name = &amp;#39;todo.new&amp;#39;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;match = &amp;#39;^\[.+]&amp;#39;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This defines three patterns for each condition. They should be self-explanatory, I used only simple regexps here. Save your language definition, and it should appear in the languages combo of your Textmate.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Ruby Mixin and monkey patching examples</title>
-      <link>https://metalelf0.github.io/posts/old-website/2010-04-23-ruby-mixin-and-monkey-patching-examples/</link>
+      <link>http://localhost:1313/posts/2010-04-23-ruby-mixin-and-monkey-patching-examples/</link>
       <pubDate>Fri, 23 Apr 2010 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/old-website/2010-04-23-ruby-mixin-and-monkey-patching-examples/</guid>
+      <guid>http://localhost:1313/posts/2010-04-23-ruby-mixin-and-monkey-patching-examples/</guid>
       <description>&lt;p&gt;Let&amp;rsquo;s explore a couple of solutions to dynamically add a &lt;code&gt;split_by_half&lt;/code&gt; behaviour to an array object. The first technique is the &lt;!-- raw HTML omitted --&gt;mixin&lt;!-- raw HTML omitted --&gt;: it allows to add the method to a single array instance. The second one is called &lt;!-- raw HTML omitted --&gt;monkey patching&lt;!-- raw HTML omitted --&gt;, and adds the method directly to the Array class, adding this behaviour to every array instance.&lt;/p&gt;</description>
     </item>
   </channel>
