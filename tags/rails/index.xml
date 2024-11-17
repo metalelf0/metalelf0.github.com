@@ -1,227 +1,169 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>Rails on metalelf0.github.io</title>
-    <link>https://metalelf0.github.io/tags/rails/</link>
-    <description>Recent content in Rails on metalelf0.github.io</description>
-    <generator>Hugo -- 0.138.0</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 11 May 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://metalelf0.github.io/tags/rails/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Mocked - a minitest pattern</title>
-      <link>https://metalelf0.github.io/posts/2016-05-11-mocked-a-minitest-pattern/</link>
-      <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/2016-05-11-mocked-a-minitest-pattern/</guid>
-      <description>&lt;h3 id=&#34;minitest-is-good-for-mocking-right-well&#34;&gt;Minitest is good for mocking, right? Well&amp;hellip;&lt;/h3&gt;
-&lt;p&gt;Minitest is gaining a lot of popularity and can actually be a 100% replacement
-for RSpec. It&amp;rsquo;s a pure ruby testing framework, it&amp;rsquo;s fast, light weight, and it
-supports both a test-unit like syntax and a spec engine with Rspec like syntax.&lt;/p&gt;
-&lt;p&gt;Still, when it comes to mocking, it can be a little painful. You have to
-initialize mocks and verify them manually after running the code under test.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Command pattern in ruby and rails</title>
-      <link>https://metalelf0.github.io/posts/2016-05-02-command-pattern/</link>
-      <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/2016-05-02-command-pattern/</guid>
-      <description>&lt;h3 id=&#34;the-problem&#34;&gt;The problem&lt;/h3&gt;
-&lt;p&gt;If you have a growing Rails application and you feel your models are getting too
-fat you might have a problem. We&amp;rsquo;ve all been educated with the &amp;ldquo;fat models, thin
-controllers&amp;rdquo; dogma - but sometimes putting all the domain logic inside the
-models has its downsides.&lt;/p&gt;
-&lt;p&gt;As an example, the typical flow of an &lt;code&gt;ActiveRecord&lt;/code&gt; object through a Rails
-request involves:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;fetching the object from the DB based on the params you receive (controller);&lt;/li&gt;
-&lt;li&gt;doing something with the object inside the model (model);&lt;/li&gt;
-&lt;li&gt;when something goes wrong, you set errors onto the model attributes (model);&lt;/li&gt;
-&lt;li&gt;you finally return the object to the view, and present it accordingly (view).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;This is gonna tangle a lot of the domain logic to your model (scopes to
-retrieve objects, validations, and in the worst case even some presentation
-logic).&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Null objects in Rails</title>
-      <link>https://metalelf0.github.io/posts/2013-12-23-null-objects-in-rails/</link>
-      <pubDate>Mon, 23 Dec 2013 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/2013-12-23-null-objects-in-rails/</guid>
-      <description>&lt;h3 id=&#34;the-problem&#34;&gt;The problem&lt;/h3&gt;
-&lt;p&gt;Recently I&amp;rsquo;ve seen in a project I work on a lot of occurrences of this code:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; user&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;privacy &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; user&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;privacy&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;enables_page?(&lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The first part of the condition above is a bad practice in object oriented
-design. It forces collaborators of &lt;code&gt;user&lt;/code&gt; to know a part of its implementation&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;it could have a &lt;code&gt;privacy&lt;/code&gt; or it couldn&amp;rsquo;t.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;what-we-want&#34;&gt;What we want&lt;/h3&gt;
-&lt;p&gt;Wouldn&amp;rsquo;t it be much better to just write this:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; user&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;privacy&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;enables_page?(&lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Hiding the responsibility inside the user class? It would be much cleaner and
-follow the &lt;strong&gt;Tell, don&amp;rsquo;t ask&lt;/strong&gt; principle.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Easily change the path for your Paperclip attachments</title>
-      <link>https://metalelf0.github.io/posts/2012-12-10-easily-change-the-path-for-your-paperclip-attachments/</link>
-      <pubDate>Mon, 10 Dec 2012 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/2012-12-10-easily-change-the-path-for-your-paperclip-attachments/</guid>
-      <description>&lt;p&gt;Today after releasing an app to production environment I saw a couple of
-&lt;a href=&#34;https://github.com/thoughtbot/paperclip&#34;&gt;paperclip&lt;/a&gt; warnings like this
-in my production.log file:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[paperclip] Duplicate URL for round_image with /system/:attachment/:id/:style/:filename. This will clash with attachment defined in PageElements::FranchisingCarouselEntry class
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This happens because I defined an attachment with the same name in two
-different models, and the default strategy Paperclip uses to choose
-attachment locations could lead to filename clashing.&lt;/p&gt;
-&lt;p&gt;Here is a more detailed example:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Vim regexp example: make a variable out of params</title>
-      <link>https://metalelf0.github.io/posts/2012-07-09-vim-regexp-example/</link>
-      <pubDate>Mon, 09 Jul 2012 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/2012-07-09-vim-regexp-example/</guid>
-      <description>&lt;p&gt;Today I wrote a regexp to change &lt;code&gt;params[:page]&lt;/code&gt; into &lt;code&gt;page&lt;/code&gt;. Here you
-are:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;:&#39;&amp;lt;,&#39;&amp;gt;s/params\[:\(\p\{-}\)\]/\1/g
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Let&amp;rsquo;s explain it briefly:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;the first part, &lt;code&gt;:&#39;&amp;lt;,&#39;&amp;gt;s/&lt;/code&gt;, is the vim command to substitute a pattern
-(or a regexp) with another one. The &lt;code&gt;&amp;lt;,&#39;&amp;gt;&lt;/code&gt; part tells vim to operate
-on the visually selected text.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;the second part is the trickiest one. Let&amp;rsquo;s see it part to part:&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;params\[:&lt;/code&gt; is the first part of the string we want to match. the &lt;code&gt;\&lt;/code&gt;
-is used to escape the &lt;code&gt;[&lt;/code&gt; character.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Add bundle dir to your ctags</title>
-      <link>https://metalelf0.github.io/posts/2012-03-26-add-bundle-dir-to-your-ctags/</link>
-      <pubDate>Mon, 26 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/2012-03-26-add-bundle-dir-to-your-ctags/</guid>
-      <description>&lt;p&gt;Ctags are a great way to improve navigation between large codebases.
-Used together with vim they allow to quickly jump to any method
-definition with just a keystroke - &lt;code&gt;C-]&lt;/code&gt;. Adding your bundle dir when
-generating the tags file will allow jumping to the internals of the ruby
-gems you are using. Let&amp;rsquo;s see how to do this.&lt;/p&gt;
-&lt;p&gt;The setup needed is the following:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;install &lt;a href=&#34;http://http://ctags.sourceforge.net&#34;&gt;Exuberant Ctags&lt;/a&gt;. I
-suggest using &lt;code&gt;brew install ctags&lt;/code&gt;, and remember to fix your &lt;code&gt;$PATH&lt;/code&gt;
-so that running &lt;code&gt;ctags --version&lt;/code&gt; shows &lt;code&gt;Exuberant Ctags&lt;/code&gt;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Howto share Spree authentication/authorization engine</title>
-      <link>https://metalelf0.github.io/posts/2012-03-02-howto-share-spree-authenticationauthorization-engine/</link>
-      <pubDate>Fri, 02 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/2012-03-02-howto-share-spree-authenticationauthorization-engine/</guid>
-      <description>&lt;p&gt;In a project I&amp;rsquo;m working on I&amp;rsquo;m using spree as a mountable engine. The
-host application has its own administration area, and I wanted to share
-the spree authentication with my app.&lt;/p&gt;
-&lt;p&gt;Spree uses devise to handle authentication. The code which is
-responsible for the authentication part of the app is in the auth module
-of Spree.&lt;/p&gt;
-&lt;p&gt;To share authentication with your application you have to:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;setup devise in your routes.rb file. I copied this code from the
-routes.rb file included in the spree/auth module:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;HostApplication&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Application&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;routes&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;draw &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  devise_for &lt;span style=&#34;color:#e6db74&#34;&gt;:user&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             &lt;span style=&#34;color:#e6db74&#34;&gt;:class_name&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Spree::User&amp;#39;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             &lt;span style=&#34;color:#e6db74&#34;&gt;:controllers&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; { &lt;span style=&#34;color:#e6db74&#34;&gt;:sessions&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;spree/user_sessions&amp;#39;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                               &lt;span style=&#34;color:#e6db74&#34;&gt;:registrations&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;spree/user_registrations&amp;#39;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                               &lt;span style=&#34;color:#e6db74&#34;&gt;:passwords&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;spree/user_passwords&amp;#39;&lt;/span&gt; },
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             &lt;span style=&#34;color:#e6db74&#34;&gt;:skip&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:unlocks&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;:omniauth_callbacks&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             &lt;span style=&#34;color:#e6db74&#34;&gt;:path_names&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; { &lt;span style=&#34;color:#e6db74&#34;&gt;:sign_out&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;logout&amp;#39;&lt;/span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# ...&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;add &lt;code&gt;before_filter :authenticate_user!&lt;/code&gt; to the controller you want to
-be protected.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;This way you&amp;rsquo;re setup with authentication; it&amp;rsquo;s time to move on with
-authorization.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Using virtual attributes for multi parameter form helpers in Rails</title>
-      <link>https://metalelf0.github.io/posts/2011-10-28-using-virtual-attributes-for-multi-parameter-form-helpers-in-rails/</link>
-      <pubDate>Fri, 28 Oct 2011 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/2011-10-28-using-virtual-attributes-for-multi-parameter-form-helpers-in-rails/</guid>
-      <description>&lt;p&gt;In a Rails application I am working on, I needed to setup a form with a field with a non-standard behaviour. The field represents a &lt;code&gt;Date&lt;/code&gt; object, so the &lt;code&gt;date_select&lt;/code&gt; &lt;code&gt;FormHelper&lt;/code&gt; looked great; however, the date to display was not the actual date to be set on the database, but the day before. Changing all the data on the DB was a bit risky, so I had to stick with this requirement.
-I decided to use a virtual attribute to do this, as it seemed the most elegant solution, so I wrote this in my model:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Machinist vs Factory Girl: Machinist win!</title>
-      <link>https://metalelf0.github.io/posts/2011-06-19-machinist-vs-factory-girl-machinist-win/</link>
-      <pubDate>Sun, 19 Jun 2011 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/2011-06-19-machinist-vs-factory-girl-machinist-win/</guid>
-      <description>&lt;p&gt;Today I decided to verify if &lt;a href=&#34;https://github.com/notahat/machinist&#34;&gt;Machinist&lt;/a&gt; could be a good replacement for &lt;a href=&#34;https://github.com/thoughtbot/factory_girl&#34;&gt;Factory Girl&lt;/a&gt;. In our project, we have a big problem with Factory Girl: even if you tell her not to hit the database, using the &lt;code&gt;Factory.build&lt;/code&gt; method, if an object has associations, these are saved on the DB. And this causes a huge slowdown in specs using factories. We&amp;rsquo;ve been using Factory Girl for nearly two years, and if we could find a way to stop him hitting the DB, we could really have a huge improvent in our test suite running time.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Howto run a rake task in sandbox mode</title>
-      <link>https://metalelf0.github.io/posts/2011-03-10-howto-run-a-rake-task-in-sandbox-mode/</link>
-      <pubDate>Thu, 10 Mar 2011 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/2011-03-10-howto-run-a-rake-task-in-sandbox-mode/</guid>
-      <description>&lt;p&gt;If you have a Rails rake task that somehow changes your DB data, but you want to be sure that the DB will be rolled back to its previous state after the rake task has completed, you can simply include this snippet right after your task definition:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ActiveRecord&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Base&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connection&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;increment_open_transactions
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ActiveRecord&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Base&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connection&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;begin_db_transaction
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;at_exit &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#66d9ef&#34;&gt;ActiveRecord&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Base&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connection&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;rollback_db_transaction
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#66d9ef&#34;&gt;ActiveRecord&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Base&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connection&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decrement_open_transactions
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you wonder where is this code coming from, it&amp;rsquo;s directly from the rails console code.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Rails 3 scopes with HABTM (has and belongs to many) relations</title>
-      <link>https://metalelf0.github.io/posts/2011-01-28-rails-3-scopes-with-habtm-has-and-belongs-to-many-relations/</link>
-      <pubDate>Fri, 28 Jan 2011 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/2011-01-28-rails-3-scopes-with-habtm-has-and-belongs-to-many-relations/</guid>
-      <description>&lt;p&gt;There are already many posts about this, but maybe this simple example will help you understand this subject even better.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# First model: tag.rb&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# note that pomodori is a custom plural for pomodoro&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Tag&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ActiveRecord&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Base&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  has_and_belongs_to_many &lt;span style=&#34;color:#e6db74&#34;&gt;:pomodori&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Second model: pomodoro.rb&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# here is how to define a Rails 3 scope through the join table:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Pomodoro&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ActiveRecord&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Base&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  has_and_belongs_to_many &lt;span style=&#34;color:#e6db74&#34;&gt;:tags&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  scope &lt;span style=&#34;color:#e6db74&#34;&gt;:by_tag&lt;/span&gt;, lambda { &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;tag_text&lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     joins(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;join pomodori_tags, tags&amp;#34;&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     where(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;pomodori.id = pomodori_tags.pomodoro_id 
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;            AND pomodori_tags.tag_id = tags.id 
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;            AND tags.text = ?&amp;#39;&lt;/span&gt;, tag_text) 
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-    </item>
-    <item>
-      <title>Format the results of a MySQL query like MySQL! In Rails!</title>
-      <link>https://metalelf0.github.io/posts/2010-09-30-format-the-results-of-a-mysql-query-like-mysql-in-rails/</link>
-      <pubDate>Thu, 30 Sep 2010 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/2010-09-30-format-the-results-of-a-mysql-query-like-mysql-in-rails/</guid>
-      <description>&lt;p&gt;It may happen that you need to display the results of a MySQL query on a page. E.g., your customer asks you to add a report on a page, and you don&amp;rsquo;t want to build a custom template, but just write the query and see the results.&lt;/p&gt;
-&lt;p&gt;We can do this easily thanks to the terminal-table gem (see &lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;http://github.com/visionmedia/terminal-table&#34;&gt;http://github.com/visionmedia/terminal-table&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;). This gem allows printing an ASCII table, just like the one you see when you use MySQL from the terminal. Look at its page on GitHub to see how easy it is.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Vim for Rails Developers, by Ben Orenstein</title>
-      <link>https://metalelf0.github.io/posts/2010-07-02-screencast-review---vim-for-rails-developers-by-ben-orenstein/</link>
-      <pubDate>Fri, 02 Jul 2010 00:00:00 +0000</pubDate>
-      <guid>https://metalelf0.github.io/posts/2010-07-02-screencast-review---vim-for-rails-developers-by-ben-orenstein/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://www.codeulatescreencasts.com&#34;&gt;Codeulate Screencasts&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;In the last months I&amp;rsquo;ve been working on a Rails project in an Agile team. I worked mostly on TextMate, and its speed is really amazing. It has a full set of features, with snippets, bundles, syntaxes and so on. It has many shortcuts, and apparently there&amp;rsquo;s no need to switch away from TextMate.&lt;/p&gt;
-&lt;p&gt;But, it has its drawbacks: it&amp;rsquo;s a Mac only application, so I can&amp;rsquo;t use it on my Linux box. Also, it&amp;rsquo;s a commercial application, and even if its cost is not too high, I don&amp;rsquo;t like to pay for software. Finally, it&amp;rsquo;s a GUI application, and it cannot be used over SSH to work on a production machine.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rails on metalelf0.github.io</title><link>https://metalelf0.github.io/tags/rails/</link><description>Recent content in Rails on metalelf0.github.io</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 11 May 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://metalelf0.github.io/tags/rails/index.xml" rel="self" type="application/rss+xml"/><item><title>Mocked - a minitest pattern</title><link>https://metalelf0.github.io/posts/2016-05-11-mocked-a-minitest-pattern/</link><pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate><guid>https://metalelf0.github.io/posts/2016-05-11-mocked-a-minitest-pattern/</guid><description>&lt;h3 id="minitest-is-good-for-mocking-right-well">
+ Minitest is good for mocking, right? Well&amp;hellip;
+ &lt;a class="heading-link" href="#minitest-is-good-for-mocking-right-well">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h3>
+&lt;p>Minitest is gaining a lot of popularity and can actually be a 100% replacement for RSpec. It&amp;rsquo;s a pure ruby testing framework, it&amp;rsquo;s fast, light weight, and it supports both a test-unit like syntax and a spec engine with Rspec like syntax.&lt;/p>
+&lt;p>Still, when it comes to mocking, it can be a little painful. You have to initialize mocks and verify them manually after running the code under test.&lt;/p></description></item><item><title>Command pattern in ruby and rails</title><link>https://metalelf0.github.io/posts/2016-05-02-command-pattern/</link><pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate><guid>https://metalelf0.github.io/posts/2016-05-02-command-pattern/</guid><description>&lt;h3 id="the-problem">
+ The problem
+ &lt;a class="heading-link" href="#the-problem">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h3>
+&lt;p>If you have a growing Rails application and you feel your models are getting too fat you might have a problem. We&amp;rsquo;ve all been educated with the &amp;ldquo;fat models, thin controllers&amp;rdquo; dogma - but sometimes putting all the domain logic inside the models has its downsides.&lt;/p>
+&lt;p>As an example, the typical flow of an &lt;code>ActiveRecord&lt;/code> object through a Rails request involves:&lt;/p></description></item><item><title>Null objects in Rails</title><link>https://metalelf0.github.io/posts/2013-12-23-null-objects-in-rails/</link><pubDate>Mon, 23 Dec 2013 00:00:00 +0000</pubDate><guid>https://metalelf0.github.io/posts/2013-12-23-null-objects-in-rails/</guid><description>&lt;h3 id="the-problem">
+ The problem
+ &lt;a class="heading-link" href="#the-problem">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h3>
+&lt;p>Recently I&amp;rsquo;ve seen in a project I work on a lot of occurrences of this code:&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#fff;font-weight:bold">if&lt;/span> user.privacy &amp;amp;&amp;amp; user.privacy.enables_page?(...)&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;p>The first part of the condition above is a bad practice in object oriented design. It forces collaborators of &lt;code>user&lt;/code> to know a part of its implementation - it could have a &lt;code>privacy&lt;/code> or it couldn&amp;rsquo;t.&lt;/p></description></item><item><title>Easily change the path for your Paperclip attachments</title><link>https://metalelf0.github.io/posts/2012-12-10-easily-change-the-path-for-your-paperclip-attachments/</link><pubDate>Mon, 10 Dec 2012 00:00:00 +0000</pubDate><guid>https://metalelf0.github.io/posts/2012-12-10-easily-change-the-path-for-your-paperclip-attachments/</guid><description>&lt;p>Today after releasing an app to production environment I saw a couple of &lt;a href="https://github.com/thoughtbot/paperclip" class="external-link" target="_blank" rel="noopener">paperclip&lt;/a> warnings like this in my production.log file:&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-txt" data-lang="txt">&lt;span style="display:flex;">&lt;span>[paperclip] Duplicate URL for round_image with 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/system/:attachment/:id/:style/:filename. This
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>will clash with attachment defined in
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>PageElements::FranchisingCarouselEntry class
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>This happens because I defined an attachment with the same name in two different models, and the default strategy Paperclip uses to choose attachment locations could lead to filename clashing.&lt;/p></description></item><item><title>Vim regexp example: make a variable out of params</title><link>https://metalelf0.github.io/posts/2012-07-09-vim-regexp-example/</link><pubDate>Mon, 09 Jul 2012 00:00:00 +0000</pubDate><guid>https://metalelf0.github.io/posts/2012-07-09-vim-regexp-example/</guid><description>&lt;p>Today I wrote a regexp to change &lt;code>params[:page]&lt;/code> into &lt;code>page&lt;/code>. Here you are:&lt;/p>
+&lt;pre>&lt;code>:'&amp;lt;,'&amp;gt;s/params\[:\(\p\{-}\)\]/\1/g
+&lt;/code>&lt;/pre>
+&lt;p>Let&amp;rsquo;s explain it briefly:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>the first part, &lt;code>:'&amp;lt;,'&amp;gt;s/&lt;/code>, is the vim command to substitute a pattern (or a regexp) with another one. The &lt;code>&amp;lt;,'&amp;gt;&lt;/code> part tells vim to operate on the visually selected text.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>the second part is the trickiest one. Let&amp;rsquo;s see it part to part:&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>params\[:&lt;/code> is the first part of the string we want to match. the &lt;code>\&lt;/code> is used to escape the &lt;code>[&lt;/code> character.&lt;/p></description></item><item><title>Add bundle dir to your ctags</title><link>https://metalelf0.github.io/posts/2012-03-26-add-bundle-dir-to-your-ctags/</link><pubDate>Mon, 26 Mar 2012 00:00:00 +0000</pubDate><guid>https://metalelf0.github.io/posts/2012-03-26-add-bundle-dir-to-your-ctags/</guid><description>&lt;p>Ctags are a great way to improve navigation between large codebases. Used together with vim they allow to quickly jump to any method definition with just a keystroke - &lt;code>C-]&lt;/code>. Adding your bundle dir when generating the tags file will allow jumping to the internals of the ruby gems you are using. Let&amp;rsquo;s see how to do this.&lt;/p>
+&lt;p>The setup needed is the following:&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>install &lt;a href="http://http://ctags.sourceforge.net" class="external-link" target="_blank" rel="noopener">Exuberant Ctags&lt;/a>. I suggest using &lt;code>brew install ctags&lt;/code>, and remember to fix your &lt;code>$PATH&lt;/code> so that running &lt;code>ctags --version&lt;/code> shows &lt;code>Exuberant Ctags&lt;/code>.&lt;/p></description></item><item><title>Howto share Spree authentication/authorization engine</title><link>https://metalelf0.github.io/posts/2012-03-02-howto-share-spree-authenticationauthorization-engine/</link><pubDate>Fri, 02 Mar 2012 00:00:00 +0000</pubDate><guid>https://metalelf0.github.io/posts/2012-03-02-howto-share-spree-authenticationauthorization-engine/</guid><description>&lt;p>In a project I&amp;rsquo;m working on I&amp;rsquo;m using spree as a mountable engine. The host application has its own administration area, and I wanted to share the spree authentication with my app.&lt;/p>
+&lt;p>Spree uses devise to handle authentication. The code which is responsible for the authentication part of the app is in the auth module of Spree.&lt;/p>
+&lt;p>To share authentication with your application you have to:&lt;/p>
+&lt;ul>
+&lt;li>setup devise in your routes.rb file. I copied this code from the routes.rb file included in the spree/auth module:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 5
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 6
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 7
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 8
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 9
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="display:flex;">&lt;span>HostApplication::Application.routes.draw &lt;span style="color:#fff;font-weight:bold">do&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> devise_for &lt;span style="color:#0ff;font-weight:bold">:user&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0ff;font-weight:bold">:class_name&lt;/span> =&amp;gt; &lt;span style="color:#0ff;font-weight:bold">&amp;#39;Spree::User&amp;#39;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0ff;font-weight:bold">:controllers&lt;/span> =&amp;gt; { &lt;span style="color:#0ff;font-weight:bold">:sessions&lt;/span> =&amp;gt; &lt;span style="color:#0ff;font-weight:bold">&amp;#39;spree/user_sessions&amp;#39;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0ff;font-weight:bold">:registrations&lt;/span> =&amp;gt; &lt;span style="color:#0ff;font-weight:bold">&amp;#39;spree/user_registrations&amp;#39;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0ff;font-weight:bold">:passwords&lt;/span> =&amp;gt; &lt;span style="color:#0ff;font-weight:bold">&amp;#39;spree/user_passwords&amp;#39;&lt;/span> },
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0ff;font-weight:bold">:skip&lt;/span> =&amp;gt; [&lt;span style="color:#0ff;font-weight:bold">:unlocks&lt;/span>, &lt;span style="color:#0ff;font-weight:bold">:omniauth_callbacks&lt;/span>],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0ff;font-weight:bold">:path_names&lt;/span> =&amp;gt; { &lt;span style="color:#0ff;font-weight:bold">:sign_out&lt;/span> =&amp;gt; &lt;span style="color:#0ff;font-weight:bold">&amp;#39;logout&amp;#39;&lt;/span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#007f7f"># ...&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#fff;font-weight:bold">end&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>add &lt;code>before_filter :authenticate_user!&lt;/code> to the controller you want to be protected.&lt;/li>
+&lt;/ul>
+&lt;p>This way you&amp;rsquo;re setup with authentication; it&amp;rsquo;s time to move on with authorization.&lt;/p></description></item><item><title>Using virtual attributes for multi parameter form helpers in Rails</title><link>https://metalelf0.github.io/posts/2011-10-28-using-virtual-attributes-for-multi-parameter-form-helpers-in-rails/</link><pubDate>Fri, 28 Oct 2011 00:00:00 +0000</pubDate><guid>https://metalelf0.github.io/posts/2011-10-28-using-virtual-attributes-for-multi-parameter-form-helpers-in-rails/</guid><description>&lt;p>In a Rails application I am working on, I needed to setup a form with a field with a non-standard behaviour. The field represents a &lt;code>Date&lt;/code> object, so the &lt;code>date_select&lt;/code> &lt;code>FormHelper&lt;/code> looked great; however, the date to display was not the actual date to be set on the database, but the day before. Changing all the data on the DB was a bit risky, so I had to stick with this requirement.
+I decided to use a virtual attribute to do this, as it seemed the most elegant solution, so I wrote this in my model:&lt;/p></description></item><item><title>Machinist vs Factory Girl: Machinist win!</title><link>https://metalelf0.github.io/posts/2011-06-19-machinist-vs-factory-girl-machinist-win/</link><pubDate>Sun, 19 Jun 2011 00:00:00 +0000</pubDate><guid>https://metalelf0.github.io/posts/2011-06-19-machinist-vs-factory-girl-machinist-win/</guid><description>&lt;p>Today I decided to verify if &lt;a href="https://github.com/notahat/machinist" class="external-link" target="_blank" rel="noopener">Machinist&lt;/a> could be a good replacement for &lt;a href="https://github.com/thoughtbot/factory_girl" class="external-link" target="_blank" rel="noopener">Factory Girl&lt;/a>. In our project, we have a big problem with Factory Girl: even if you tell her not to hit the database, using the &lt;code>Factory.build&lt;/code> method, if an object has associations, these are saved on the DB. And this causes a huge slowdown in specs using factories. We&amp;rsquo;ve been using Factory Girl for nearly two years, and if we could find a way to stop him hitting the DB, we could really have a huge improvent in our test suite running time.&lt;/p></description></item><item><title>Howto run a rake task in sandbox mode</title><link>https://metalelf0.github.io/posts/2011-03-10-howto-run-a-rake-task-in-sandbox-mode/</link><pubDate>Thu, 10 Mar 2011 00:00:00 +0000</pubDate><guid>https://metalelf0.github.io/posts/2011-03-10-howto-run-a-rake-task-in-sandbox-mode/</guid><description>&lt;p>If you have a Rails rake task that somehow changes your DB data, but you want to be sure that the DB will be rolled back to its previous state after the rake task has completed, you can simply include this snippet right after your task definition:&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">5
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="display:flex;">&lt;span>ActiveRecord::Base.connection.increment_open_transactions
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ActiveRecord::Base.connection.begin_db_transaction
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#fff;font-weight:bold">at_exit&lt;/span> &lt;span style="color:#fff;font-weight:bold">do&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ActiveRecord::Base.connection.rollback_db_transaction
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ActiveRecord::Base.connection.decrement_open_transactions
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#fff;font-weight:bold">end&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>If you wonder where is this code coming from, it&amp;rsquo;s directly from the rails console code.&lt;/p></description></item><item><title>Rails 3 scopes with HABTM (has and belongs to many) relations</title><link>https://metalelf0.github.io/posts/2011-01-28-rails-3-scopes-with-habtm-has-and-belongs-to-many-relations/</link><pubDate>Fri, 28 Jan 2011 00:00:00 +0000</pubDate><guid>https://metalelf0.github.io/posts/2011-01-28-rails-3-scopes-with-habtm-has-and-belongs-to-many-relations/</guid><description>&lt;p>There are already many posts about this, but maybe this simple example will help you understand this subject even better.&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 5
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 6
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 7
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 8
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 9
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">10
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">11
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">12
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">13
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">14
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">15
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">16
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">17
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">18
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">19
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">20
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#007f7f"># First model: tag.rb&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#007f7f"># note that pomodori is a custom plural for pomodoro&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#fff;font-weight:bold">class&lt;/span> Tag &amp;lt; ActiveRecord::Base
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> has_and_belongs_to_many &lt;span style="color:#0ff;font-weight:bold">:pomodori&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#fff;font-weight:bold">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#007f7f"># Second model: pomodoro.rb&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#007f7f"># here is how to define a Rails 3 scope through the join table:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#fff;font-weight:bold">class&lt;/span> Pomodoro &amp;lt; ActiveRecord::Base
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> has_and_belongs_to_many &lt;span style="color:#0ff;font-weight:bold">:tags&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> scope &lt;span style="color:#0ff;font-weight:bold">:by_tag&lt;/span>, &lt;span style="color:#fff;font-weight:bold">lambda&lt;/span> { |tag_text|
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> joins(&lt;span style="color:#0ff;font-weight:bold">&amp;#34;join pomodori_tags, tags&amp;#34;&lt;/span>).
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> where(&lt;span style="color:#0ff;font-weight:bold">&amp;#39;pomodori.id = pomodori_tags.pomodoro_id 
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#0ff;font-weight:bold"> AND pomodori_tags.tag_id = tags.id 
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#0ff;font-weight:bold"> AND tags.text = ?&amp;#39;&lt;/span>, tag_text) 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#fff;font-weight:bold">end&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Format the results of a MySQL query like MySQL! In Rails!</title><link>https://metalelf0.github.io/posts/2010-09-30-format-the-results-of-a-mysql-query-like-mysql-in-rails/</link><pubDate>Thu, 30 Sep 2010 00:00:00 +0000</pubDate><guid>https://metalelf0.github.io/posts/2010-09-30-format-the-results-of-a-mysql-query-like-mysql-in-rails/</guid><description>&lt;p>It may happen that you need to display the results of a MySQL query on a page. E.g., your customer asks you to add a report on a page, and you don&amp;rsquo;t want to build a custom template, but just write the query and see the results.&lt;/p>
+&lt;p>We can do this easily thanks to the terminal-table gem (see &lt;!-- raw HTML omitted -->&lt;a href="http://github.com/visionmedia/terminal-table" class="external-link" target="_blank" rel="noopener">http://github.com/visionmedia/terminal-table&lt;/a>&lt;!-- raw HTML omitted -->). This gem allows printing an ASCII table, just like the one you see when you use MySQL from the terminal. Look at its page on GitHub to see how easy it is.&lt;/p></description></item><item><title>Vim for Rails Developers, by Ben Orenstein</title><link>https://metalelf0.github.io/posts/2010-07-02-screencast-review---vim-for-rails-developers-by-ben-orenstein/</link><pubDate>Fri, 02 Jul 2010 00:00:00 +0000</pubDate><guid>https://metalelf0.github.io/posts/2010-07-02-screencast-review---vim-for-rails-developers-by-ben-orenstein/</guid><description>&lt;p>&lt;a href="http://www.codeulatescreencasts.com" class="external-link" target="_blank" rel="noopener">Codeulate Screencasts&lt;/a>&lt;/p>
+&lt;p>In the last months I&amp;rsquo;ve been working on a Rails project in an Agile team. I worked mostly on TextMate, and its speed is really amazing. It has a full set of features, with snippets, bundles, syntaxes and so on. It has many shortcuts, and apparently there&amp;rsquo;s no need to switch away from TextMate.&lt;/p>
+&lt;p>But, it has its drawbacks: it&amp;rsquo;s a Mac only application, so I can&amp;rsquo;t use it on my Linux box. Also, it&amp;rsquo;s a commercial application, and even if its cost is not too high, I don&amp;rsquo;t like to pay for software. Finally, it&amp;rsquo;s a GUI application, and it cannot be used over SSH to work on a production machine.&lt;/p></description></item></channel></rss>
