@@ -122,8 +122,8 @@ vim.keymap.set("n", "<leader>hL", function()
 end, { desc = "Quick menu" })
 ```
 
-Write this in any file, restart neovim and you will be ready to go!
+Put this in any neovim config file, restart neovim and you will be ready to go!
 
-I hope everything is clear, feel free to ask in the disqus comments below if you need any further info.
+I hope everything is clear, feel free to ask in the comments below if you need any further info.
 
 Thanks for your time!
