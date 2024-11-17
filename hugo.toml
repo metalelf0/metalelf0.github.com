@@ -76,3 +76,6 @@ disqusShortname = "metalelf0-github-io"
   [markup.highlight]
     noClasses = false
 
+[params.googleTagManager]
+  id = "G-JLL0M2ET40"
+
