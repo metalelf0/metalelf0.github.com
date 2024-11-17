@@ -160,7 +160,7 @@ Fluentd is an open source tool to collect events and logs. Its architecture allo
             </span>
             <span class="reading-time">
               <i class="fa-solid fa-clock" aria-hidden="true"></i>
-              5-minute read
+              4-minute read
             </span>
           </div>
           
@@ -273,33 +273,17 @@ Fluentd is an open source tool to collect events and logs. Its architecture allo
   </a>
 </h3>
 <p>Now, let&rsquo;s prepare a sample bash script to log things to <code>fluentd</code>. Open another terminal, create a bash script and paste the following content:</p>
-<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">10
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#0f0;font-weight:bold">#!/bin/sh
-</span></span></span><span style="display:flex;"><span><span style="color:#0f0;font-weight:bold"></span>
-</span></span><span style="display:flex;"><span>fluent_log(){
-</span></span><span style="display:flex;"><span>  <span style="color:#fff;font-weight:bold">local</span> project=<span style="color:#0ff;font-weight:bold">&#34;</span>$1<span style="color:#0ff;font-weight:bold">&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#fff;font-weight:bold">local</span> script_name=<span style="color:#0ff;font-weight:bold">&#34;</span>$2<span style="color:#0ff;font-weight:bold">&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#fff;font-weight:bold">local</span> message=<span style="color:#0ff;font-weight:bold">&#34;</span>$3<span style="color:#0ff;font-weight:bold">&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#fff;font-weight:bold">echo</span> <span style="color:#0ff;font-weight:bold">&#34;{\&#34;&#34;</span>project<span style="color:#0ff;font-weight:bold">\&#34;</span><span style="color:#0ff;font-weight:bold">&#34;:\&#34;&#34;</span>$project<span style="color:#0ff;font-weight:bold">&#34;\&#34;,\&#34;&#34;</span>script_name<span style="color:#0ff;font-weight:bold">\&#34;</span><span style="color:#0ff;font-weight:bold">&#34;:\&#34;&#34;</span>$script_name<span style="color:#0ff;font-weight:bold">&#34;\&#34;,\&#34;&#34;</span>message<span style="color:#0ff;font-weight:bold">\&#34;</span><span style="color:#0ff;font-weight:bold">&#34;:\&#34;&#34;</span>$message<span style="color:#0ff;font-weight:bold">\&#34;</span><span style="color:#0ff;font-weight:bold">&#34;}&#34;</span> | fluent-cat fluentd.test.log
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>fluent_log <span style="color:#0ff;font-weight:bold">&#34;Library&#34;</span> <span style="color:#0ff;font-weight:bold">&#34;Reload books&#34;</span> <span style="color:#0ff;font-weight:bold">&#34;Started&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>As you can see I created a wrapper function to make it easier to redirect logs to <code>fluentd</code>. Save the file, make it executable and run it. You should see output like this in your server:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl">fluent_log<span class="o">(){</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">local</span> <span class="nv">project</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">local</span> <span class="nv">script_name</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$2</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">local</span> <span class="nv">message</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$3</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;{\&#34;&#34;</span>project<span class="se">\&#34;</span><span class="s2">&#34;:\&#34;&#34;</span><span class="nv">$project</span><span class="s2">&#34;\&#34;,\&#34;&#34;</span>script_name<span class="se">\&#34;</span><span class="s2">&#34;:\&#34;&#34;</span><span class="nv">$script_name</span><span class="s2">&#34;\&#34;,\&#34;&#34;</span>message<span class="se">\&#34;</span><span class="s2">&#34;:\&#34;&#34;</span><span class="nv">$message</span><span class="se">\&#34;</span><span class="s2">&#34;}&#34;</span> <span class="p">|</span> fluent-cat fluentd.test.log
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">fluent_log <span class="s2">&#34;Library&#34;</span> <span class="s2">&#34;Reload books&#34;</span> <span class="s2">&#34;Started&#34;</span>
+</span></span></code></pre></div><p>As you can see I created a wrapper function to make it easier to redirect logs to <code>fluentd</code>. Save the file, make it executable and run it. You should see output like this in your server:</p>
 <pre><code>2013-08-09 17:01:06 +0200 [trace]: plugin/in_forward.rb:150:initialize: accepted fluent socket object_id=70144024060720
 2013-08-09 17:01:06 +0200 fluentd.test.log: {&quot;project&quot;:&quot;Library&quot;,&quot;script_name&quot;:&quot;Reload books&quot;,&quot;message&quot;:&quot;Started&quot;}
 2013-08-09 17:01:06 +0200 [trace]: plugin/in_forward.rb:191:on_close: closed fluent socket object_id=70144024060720
@@ -330,35 +314,18 @@ Fluentd is an open source tool to collect events and logs. Its architecture allo
 <pre><code>$ gem install fluent-logger
 </code></pre>
 <p>Then create a ruby script with the following content:</p>
-<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">11
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#007f7f">#!/usr/bin/env ruby</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">require</span> <span style="color:#0ff;font-weight:bold">&#39;rubygems&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">require</span> <span style="color:#0ff;font-weight:bold">&#39;fluent-logger&#39;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">def</span> fluent_log project, script_name, message
-</span></span><span style="display:flex;"><span>  Fluent::Logger::FluentLogger.open(<span style="color:#fff;font-weight:bold">nil</span>, <span style="color:#0ff;font-weight:bold">:host</span>=&gt;<span style="color:#0ff;font-weight:bold">&#39;localhost&#39;</span>, <span style="color:#0ff;font-weight:bold">:port</span>=&gt;<span style="color:#ff0;font-weight:bold">24224</span>)
-</span></span><span style="display:flex;"><span>  Fluent::Logger.post(<span style="color:#0ff;font-weight:bold">&#34;mongo.log&#34;</span>, {<span style="color:#0ff;font-weight:bold">:project</span> =&gt; project, <span style="color:#0ff;font-weight:bold">:script_name</span> =&gt; script_name, <span style="color:#0ff;font-weight:bold">:message</span> =&gt; message })
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">end</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>fluent_log <span style="color:#0ff;font-weight:bold">&#34;Library&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;Update books&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;Completed&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Run it, rerun the query in the MongoDB console, and a new entry should be present.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/env ruby</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">require</span> <span class="s1">&#39;fluent-logger&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">fluent_log</span> <span class="n">project</span><span class="p">,</span> <span class="n">script_name</span><span class="p">,</span> <span class="n">message</span>
+</span></span><span class="line"><span class="cl">  <span class="no">Fluent</span><span class="o">::</span><span class="no">Logger</span><span class="o">::</span><span class="no">FluentLogger</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="kp">nil</span><span class="p">,</span> <span class="ss">:host</span><span class="o">=&gt;</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="ss">:port</span><span class="o">=&gt;</span><span class="mi">24224</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="no">Fluent</span><span class="o">::</span><span class="no">Logger</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&#34;mongo.log&#34;</span><span class="p">,</span> <span class="p">{</span><span class="ss">:project</span> <span class="o">=&gt;</span> <span class="n">project</span><span class="p">,</span> <span class="ss">:script_name</span> <span class="o">=&gt;</span> <span class="n">script_name</span><span class="p">,</span> <span class="ss">:message</span> <span class="o">=&gt;</span> <span class="n">message</span> <span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">fluent_log</span> <span class="s2">&#34;Library&#34;</span><span class="p">,</span> <span class="s2">&#34;Update books&#34;</span><span class="p">,</span> <span class="s2">&#34;Completed&#34;</span>
+</span></span></code></pre></div><p>Run it, rerun the query in the MongoDB console, and a new entry should be present.</p>
 <pre><code>{ &quot;_id&quot; : ObjectId(&quot;5204dfee9f60b167da000005&quot;), &quot;project&quot; : &quot;Library&quot;, &quot;script_name&quot; : &quot;Reload books&quot;, &quot;message&quot; : &quot;Completed&quot;, &quot;time&quot; : ISODate(&quot;2013-08-09T12:46:32Z&quot;) }
 </code></pre>
 <h3 id="final-considerations">

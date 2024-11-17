@@ -213,194 +213,91 @@ Still, when it comes to mocking, it can be a little painful. You have to initial
 <p>Minitest is gaining a lot of popularity and can actually be a 100% replacement for RSpec. It&rsquo;s a pure ruby testing framework, it&rsquo;s fast, light weight, and it supports both a test-unit like syntax and a spec engine with Rspec like syntax.</p>
 <p>Still, when it comes to mocking, it can be a little painful. You have to initialize mocks and verify them manually after running the code under test.</p>
 <p>A typical unit test with mocks looks something like this:</p>
-<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">16
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">test</span> <span style="color:#0ff;font-weight:bold">&#39;a pause can be completed&#39;</span> <span style="color:#fff;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>  datetime_service = MiniTest::Mock.new
-</span></span><span style="display:flex;"><span>  pause            = MiniTest::Mock.new
-</span></span><span style="display:flex;"><span>  success          = MiniTest::Mock.new
-</span></span><span style="display:flex;"><span>  failure          = MiniTest::Mock.new
-</span></span><span style="display:flex;"><span>  now = DateTime.now
-</span></span><span style="display:flex;"><span>  datetime_service.expect(<span style="color:#0ff;font-weight:bold">:datetime_now</span>, now)
-</span></span><span style="display:flex;"><span>  pause.expect(<span style="color:#0ff;font-weight:bold">:completed_at</span>, <span style="color:#fff;font-weight:bold">nil</span>)
-</span></span><span style="display:flex;"><span>  pause.expect(<span style="color:#0ff;font-weight:bold">:update_attributes</span>, <span style="color:#fff;font-weight:bold">true</span>, [<span style="color:#0ff;font-weight:bold">completed_at</span>: now])
-</span></span><span style="display:flex;"><span>  success.expect(<span style="color:#0ff;font-weight:bold">:call</span>, <span style="color:#fff;font-weight:bold">true</span>, [<span style="color:#0ff;font-weight:bold">&#34;Pause completed&#34;</span>, pause])
-</span></span><span style="display:flex;"><span>  UseCases::Pauses::Complete.new.run(pause, datetime_service, success, failure)
-</span></span><span style="display:flex;"><span>  datetime_service.verify
-</span></span><span style="display:flex;"><span>  failure.verify
-</span></span><span style="display:flex;"><span>  success.verify
-</span></span><span style="display:flex;"><span>  pause.verify
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">end</span></span></span></code></pre></td></tr></table>
-</div>
-</div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="nb">test</span> <span class="s1">&#39;a pause can be completed&#39;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">  <span class="n">datetime_service</span> <span class="o">=</span> <span class="no">MiniTest</span><span class="o">::</span><span class="no">Mock</span><span class="o">.</span><span class="n">new</span>
+</span></span><span class="line"><span class="cl">  <span class="n">pause</span>            <span class="o">=</span> <span class="no">MiniTest</span><span class="o">::</span><span class="no">Mock</span><span class="o">.</span><span class="n">new</span>
+</span></span><span class="line"><span class="cl">  <span class="n">success</span>          <span class="o">=</span> <span class="no">MiniTest</span><span class="o">::</span><span class="no">Mock</span><span class="o">.</span><span class="n">new</span>
+</span></span><span class="line"><span class="cl">  <span class="n">failure</span>          <span class="o">=</span> <span class="no">MiniTest</span><span class="o">::</span><span class="no">Mock</span><span class="o">.</span><span class="n">new</span>
+</span></span><span class="line"><span class="cl">  <span class="n">now</span> <span class="o">=</span> <span class="no">DateTime</span><span class="o">.</span><span class="n">now</span>
+</span></span><span class="line"><span class="cl">  <span class="n">datetime_service</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="ss">:datetime_now</span><span class="p">,</span> <span class="n">now</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">pause</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="ss">:completed_at</span><span class="p">,</span> <span class="kp">nil</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">pause</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="ss">:update_attributes</span><span class="p">,</span> <span class="kp">true</span><span class="p">,</span> <span class="o">[</span><span class="ss">completed_at</span><span class="p">:</span> <span class="n">now</span><span class="o">]</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">success</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="ss">:call</span><span class="p">,</span> <span class="kp">true</span><span class="p">,</span> <span class="o">[</span><span class="s2">&#34;Pause completed&#34;</span><span class="p">,</span> <span class="n">pause</span><span class="o">]</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="no">UseCases</span><span class="o">::</span><span class="no">Pauses</span><span class="o">::</span><span class="no">Complete</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">pause</span><span class="p">,</span> <span class="n">datetime_service</span><span class="p">,</span> <span class="n">success</span><span class="p">,</span> <span class="n">failure</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">datetime_service</span><span class="o">.</span><span class="n">verify</span>
+</span></span><span class="line"><span class="cl">  <span class="n">failure</span><span class="o">.</span><span class="n">verify</span>
+</span></span><span class="line"><span class="cl">  <span class="n">success</span><span class="o">.</span><span class="n">verify</span>
+</span></span><span class="line"><span class="cl">  <span class="n">pause</span><span class="o">.</span><span class="n">verify</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span></span></span></code></pre></div>
 <p>What I don&rsquo;t like in the code above is the verbosity in the setup (and verification) of mock objects. I&rsquo;m relying quite heavily on mocks, as I don&rsquo;t want to pass real objects to my unit tests, and this kind of repetition is not good.</p>
 <p>Also I want to have a way to distinguish mock objects from &ldquo;real&rdquo; objects. This could help seeing if there is too much &ldquo;real&rdquo; stuff inside the test, or if I&rsquo;m correctly mocking all the dependencies and collaborators of the method under test.</p>
 <p>What I came up with is <code>Mocked</code>, a small module to streamline these operations.</p>
-<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">24
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">25
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">26
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">27
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">28
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">29
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">30
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">31
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">32
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">33
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">34
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">35
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#007f7f"># test/utils/mocked.rb</span>
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">module</span> Mocked
-</span></span><span style="display:flex;"><span>  <span style="color:#fff;font-weight:bold">def</span> add_mocks(*names)
-</span></span><span style="display:flex;"><span>    names.each { |<span style="color:#fff;font-weight:bold">name</span>| add_mock(<span style="color:#fff;font-weight:bold">name</span>) }
-</span></span><span style="display:flex;"><span>  <span style="color:#fff;font-weight:bold">end</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#fff;font-weight:bold">def</span> add_mock(<span style="color:#fff;font-weight:bold">name</span>)
-</span></span><span style="display:flex;"><span>    @mocks[<span style="color:#fff;font-weight:bold">name</span>] = MiniTest::Mock.new
-</span></span><span style="display:flex;"><span>  <span style="color:#fff;font-weight:bold">end</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#fff;font-weight:bold">def</span> mocked(<span style="color:#fff;font-weight:bold">name</span>)
-</span></span><span style="display:flex;"><span>    @mocks[<span style="color:#fff;font-weight:bold">name</span>]
-</span></span><span style="display:flex;"><span>  <span style="color:#fff;font-weight:bold">end</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#fff;font-weight:bold">def</span> verify_mocks
-</span></span><span style="display:flex;"><span>    @mocks.each <span style="color:#fff;font-weight:bold">do</span> |_, mock|
-</span></span><span style="display:flex;"><span>      mock.verify
-</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">end</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#fff;font-weight:bold">end</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#fff;font-weight:bold">def</span> setup_mocks
-</span></span><span style="display:flex;"><span>    @mocks = Hash.new
-</span></span><span style="display:flex;"><span>  <span style="color:#fff;font-weight:bold">end</span>
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">end</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#007f7f"># test/test_helper.rb</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#007f7f">#...</span>
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">require</span> <span style="color:#0ff;font-weight:bold">&#39;utils/mocked&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#007f7f"># ...</span>
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">class</span> ActiveSupport::TestCase
-</span></span><span style="display:flex;"><span>  <span style="color:#fff;font-weight:bold">include</span> Mocked
-</span></span><span style="display:flex;"><span>  setup <span style="color:#0ff;font-weight:bold">:setup_mocks</span>
-</span></span><span style="display:flex;"><span>  teardown <span style="color:#0ff;font-weight:bold">:verify_mocks</span>
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">end</span></span></span></code></pre></td></tr></table>
-</div>
-</div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="c1"># test/utils/mocked.rb</span>
+</span></span><span class="line"><span class="cl"><span class="k">module</span> <span class="nn">Mocked</span>
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">add_mocks</span><span class="p">(</span><span class="o">*</span><span class="n">names</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">names</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span> <span class="n">add_mock</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">add_mock</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="vi">@mocks</span><span class="o">[</span><span class="nb">name</span><span class="o">]</span> <span class="o">=</span> <span class="no">MiniTest</span><span class="o">::</span><span class="no">Mock</span><span class="o">.</span><span class="n">new</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">mocked</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="vi">@mocks</span><span class="o">[</span><span class="nb">name</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">verify_mocks</span>
+</span></span><span class="line"><span class="cl">    <span class="vi">@mocks</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">_</span><span class="p">,</span> <span class="n">mock</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">      <span class="n">mock</span><span class="o">.</span><span class="n">verify</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">setup_mocks</span>
+</span></span><span class="line"><span class="cl">    <span class="vi">@mocks</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># test/test_helper.rb</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#...</span>
+</span></span><span class="line"><span class="cl"><span class="nb">require</span> <span class="s1">&#39;utils/mocked&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ...</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ActiveSupport</span><span class="o">::</span><span class="no">TestCase</span>
+</span></span><span class="line"><span class="cl">  <span class="kp">include</span> <span class="no">Mocked</span>
+</span></span><span class="line"><span class="cl">  <span class="n">setup</span> <span class="ss">:setup_mocks</span>
+</span></span><span class="line"><span class="cl">  <span class="n">teardown</span> <span class="ss">:verify_mocks</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span></span></span></code></pre></div>
 <p>We are just keeping an hash of mock objects, and verifying them on teardown of the test; we are also giving a <code>mocked(mock_name)</code> accessor to retrieve mock objects.</p>
 <p>With this we can rewrite the test above like this:</p>
-<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">14
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">test</span> <span style="color:#0ff;font-weight:bold">&#39;a pause can be completed&#39;</span> <span style="color:#fff;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>  add_mocks(<span style="color:#0ff;font-weight:bold">:datetime_service</span>, <span style="color:#0ff;font-weight:bold">:pause</span>, <span style="color:#0ff;font-weight:bold">:success</span>, <span style="color:#0ff;font-weight:bold">:failure</span>)
-</span></span><span style="display:flex;"><span>  now = DateTime.now
-</span></span><span style="display:flex;"><span>  mocked(<span style="color:#0ff;font-weight:bold">:datetime_service</span>).expect(<span style="color:#0ff;font-weight:bold">:datetime_now</span>, now)
-</span></span><span style="display:flex;"><span>  mocked(<span style="color:#0ff;font-weight:bold">:pause</span>).expect(<span style="color:#0ff;font-weight:bold">:completed_at</span>, <span style="color:#fff;font-weight:bold">nil</span>)
-</span></span><span style="display:flex;"><span>  mocked(<span style="color:#0ff;font-weight:bold">:pause</span>).expect(<span style="color:#0ff;font-weight:bold">:update_attributes</span>, <span style="color:#fff;font-weight:bold">true</span>, [<span style="color:#0ff;font-weight:bold">completed_at</span>: now])
-</span></span><span style="display:flex;"><span>  mocked(<span style="color:#0ff;font-weight:bold">:success</span>).expect(<span style="color:#0ff;font-weight:bold">:call</span>, <span style="color:#fff;font-weight:bold">true</span>, [<span style="color:#0ff;font-weight:bold">&#34;Pause completed&#34;</span>, mocked(<span style="color:#0ff;font-weight:bold">:pause</span>)])
-</span></span><span style="display:flex;"><span>  UseCases::Pauses::Complete.new.run(
-</span></span><span style="display:flex;"><span>    mocked(<span style="color:#0ff;font-weight:bold">:pause</span>),
-</span></span><span style="display:flex;"><span>    mocked(<span style="color:#0ff;font-weight:bold">:datetime_service</span>),
-</span></span><span style="display:flex;"><span>    mocked(<span style="color:#0ff;font-weight:bold">:success</span>),
-</span></span><span style="display:flex;"><span>    mocked(<span style="color:#0ff;font-weight:bold">:failure</span>)
-</span></span><span style="display:flex;"><span>  )
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">end</span></span></span></code></pre></td></tr></table>
-</div>
-</div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="nb">test</span> <span class="s1">&#39;a pause can be completed&#39;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">  <span class="n">add_mocks</span><span class="p">(</span><span class="ss">:datetime_service</span><span class="p">,</span> <span class="ss">:pause</span><span class="p">,</span> <span class="ss">:success</span><span class="p">,</span> <span class="ss">:failure</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">now</span> <span class="o">=</span> <span class="no">DateTime</span><span class="o">.</span><span class="n">now</span>
+</span></span><span class="line"><span class="cl">  <span class="n">mocked</span><span class="p">(</span><span class="ss">:datetime_service</span><span class="p">)</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="ss">:datetime_now</span><span class="p">,</span> <span class="n">now</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">mocked</span><span class="p">(</span><span class="ss">:pause</span><span class="p">)</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="ss">:completed_at</span><span class="p">,</span> <span class="kp">nil</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">mocked</span><span class="p">(</span><span class="ss">:pause</span><span class="p">)</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="ss">:update_attributes</span><span class="p">,</span> <span class="kp">true</span><span class="p">,</span> <span class="o">[</span><span class="ss">completed_at</span><span class="p">:</span> <span class="n">now</span><span class="o">]</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">mocked</span><span class="p">(</span><span class="ss">:success</span><span class="p">)</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="ss">:call</span><span class="p">,</span> <span class="kp">true</span><span class="p">,</span> <span class="o">[</span><span class="s2">&#34;Pause completed&#34;</span><span class="p">,</span> <span class="n">mocked</span><span class="p">(</span><span class="ss">:pause</span><span class="p">)</span><span class="o">]</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="no">UseCases</span><span class="o">::</span><span class="no">Pauses</span><span class="o">::</span><span class="no">Complete</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mocked</span><span class="p">(</span><span class="ss">:pause</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mocked</span><span class="p">(</span><span class="ss">:datetime_service</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mocked</span><span class="p">(</span><span class="ss">:success</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mocked</span><span class="p">(</span><span class="ss">:failure</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span></span></span></code></pre></div>
 <p>The code looks better IMHO, and I like that if I decided - i.e. - to replace the <code>pause</code> mock with a real object it would read like:</p>
-<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">14
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">test</span> <span style="color:#0ff;font-weight:bold">&#39;a pause can be completed&#39;</span> <span style="color:#fff;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>  add_mocks(<span style="color:#0ff;font-weight:bold">:datetime_service</span>, <span style="color:#0ff;font-weight:bold">:success</span>, <span style="color:#0ff;font-weight:bold">:failure</span>)
-</span></span><span style="display:flex;"><span>  now = DateTime.now
-</span></span><span style="display:flex;"><span>  mocked(<span style="color:#0ff;font-weight:bold">:datetime_service</span>).expect(<span style="color:#0ff;font-weight:bold">:datetime_now</span>, now)
-</span></span><span style="display:flex;"><span>  pause = FactoryGirl.create(<span style="color:#0ff;font-weight:bold">:pause</span>, <span style="color:#0ff;font-weight:bold">completed_at</span>: <span style="color:#fff;font-weight:bold">nil</span>)
-</span></span><span style="display:flex;"><span>  mocked(<span style="color:#0ff;font-weight:bold">:success</span>).expect(<span style="color:#0ff;font-weight:bold">:call</span>, <span style="color:#fff;font-weight:bold">true</span>, [<span style="color:#0ff;font-weight:bold">&#34;Pause completed&#34;</span>, pause])
-</span></span><span style="display:flex;"><span>  UseCases::Pauses::Complete.new.run(
-</span></span><span style="display:flex;"><span>    pause,
-</span></span><span style="display:flex;"><span>    mocked(<span style="color:#0ff;font-weight:bold">:datetime_service</span>),
-</span></span><span style="display:flex;"><span>    mocked(<span style="color:#0ff;font-weight:bold">:success</span>),
-</span></span><span style="display:flex;"><span>    mocked(<span style="color:#0ff;font-weight:bold">:failure</span>)
-</span></span><span style="display:flex;"><span>  )
-</span></span><span style="display:flex;"><span>  assert_equal now, pause.completed_at
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">end</span></span></span></code></pre></td></tr></table>
-</div>
-</div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="nb">test</span> <span class="s1">&#39;a pause can be completed&#39;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">  <span class="n">add_mocks</span><span class="p">(</span><span class="ss">:datetime_service</span><span class="p">,</span> <span class="ss">:success</span><span class="p">,</span> <span class="ss">:failure</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">now</span> <span class="o">=</span> <span class="no">DateTime</span><span class="o">.</span><span class="n">now</span>
+</span></span><span class="line"><span class="cl">  <span class="n">mocked</span><span class="p">(</span><span class="ss">:datetime_service</span><span class="p">)</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="ss">:datetime_now</span><span class="p">,</span> <span class="n">now</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">pause</span> <span class="o">=</span> <span class="no">FactoryGirl</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:pause</span><span class="p">,</span> <span class="ss">completed_at</span><span class="p">:</span> <span class="kp">nil</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">mocked</span><span class="p">(</span><span class="ss">:success</span><span class="p">)</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="ss">:call</span><span class="p">,</span> <span class="kp">true</span><span class="p">,</span> <span class="o">[</span><span class="s2">&#34;Pause completed&#34;</span><span class="p">,</span> <span class="n">pause</span><span class="o">]</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="no">UseCases</span><span class="o">::</span><span class="no">Pauses</span><span class="o">::</span><span class="no">Complete</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pause</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mocked</span><span class="p">(</span><span class="ss">:datetime_service</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mocked</span><span class="p">(</span><span class="ss">:success</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mocked</span><span class="p">(</span><span class="ss">:failure</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">assert_equal</span> <span class="n">now</span><span class="p">,</span> <span class="n">pause</span><span class="o">.</span><span class="n">completed_at</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span></span></span></code></pre></div>
 <p>Here you can clearly see at a first glance that the only real object is <code>pause</code>, whereas other objects are all mocked. It also really helps when refactoring tests.</p>
 <p>What do you think about this? Would you like to be built into a gem, do you have any suggestions or criticism on this? Let me know and have a great day!</p>
 

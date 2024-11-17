@@ -186,75 +186,33 @@ If you’re using Github, you can simply open the Pull Request page for your fea
 <p>This is informing you there will be no conflicts and a merge will run smooth.</p>
 <p>But what could you do if you didn&rsquo;t use Github, or you were just too lazy to open it? Creating a new branch just to do the merge is a solution, but I was pretty sure git had something better to offer <code>;)</code></p>
 <p>The best solution I found <a href="http://stackoverflow.com/questions/501407/is-there-a-git-merge-dry-run-option"  class="external-link" target="_blank" rel="noopener">here on StackOverflow</a> is this: create the following git aliases in your <code>~/.gitconfig</code> file:</p>
-<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">8
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[alias]
-</span></span><span style="display:flex;"><span>  # check how the merge of dev into master will go:
-</span></span><span style="display:flex;"><span>  # git dry dev master
-</span></span><span style="display:flex;"><span>  dry = &#34;!f() { git merge-tree `git merge-base $2 $1` $2 $1; }; f&#34;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  # see if there will be any conflicts merging dev into master:
-</span></span><span style="display:flex;"><span>  # git conflicts dev master
-</span></span><span style="display:flex;"><span>  conflicts = &#34;!f() { git merge-tree `git merge-base $2 $1` $2 $1 | grep -A3 &#39;changed in both&#39;; }; f&#34;</span></span></code></pre></td></tr></table>
-</div>
-</div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[alias]
+</span></span><span class="line"><span class="cl">  # check how the merge of dev into master will go:
+</span></span><span class="line"><span class="cl">  # git dry dev master
+</span></span><span class="line"><span class="cl">  dry = &#34;!f() { git merge-tree `git merge-base $2 $1` $2 $1; }; f&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  # see if there will be any conflicts merging dev into master:
+</span></span><span class="line"><span class="cl">  # git conflicts dev master
+</span></span><span class="line"><span class="cl">  conflicts = &#34;!f() { git merge-tree `git merge-base $2 $1` $2 $1 | grep -A3 &#39;changed in both&#39;; }; f&#34;</span></span></code></pre></div>
 <p>The first command will show the changelog for the merge of your feature branch into master:</p>
-<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">11
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>╰─$ git dry feature_two staging
-</span></span><span style="display:flex;"><span>changed in both
-</span></span><span style="display:flex;"><span>  base   100644 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 first_file
-</span></span><span style="display:flex;"><span>  our    100644 deba01fc8d98200761c46eb139f11ac244cf6eb5 first_file
-</span></span><span style="display:flex;"><span>  their  100644 dc1ff7f95ac4812480edad5ec13d4c1a20066377 first_file
-</span></span><span style="display:flex;"><span>@@ -1 +1,5 @@
-</span></span><span style="display:flex;"><span>+&lt;&lt;&lt;&lt;&lt;&lt;&lt; .our
-</span></span><span style="display:flex;"><span> something
-</span></span><span style="display:flex;"><span>+=======
-</span></span><span style="display:flex;"><span>well, something else?
-</span></span><span style="display:flex;"><span>+&gt;&gt;&gt;&gt;&gt;&gt;&gt; .their</span></span></code></pre></td></tr></table>
-</div>
-</div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">╰─$ git dry feature_two staging
+</span></span><span class="line"><span class="cl">changed in both
+</span></span><span class="line"><span class="cl">  base   100644 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 first_file
+</span></span><span class="line"><span class="cl">  our    100644 deba01fc8d98200761c46eb139f11ac244cf6eb5 first_file
+</span></span><span class="line"><span class="cl">  their  100644 dc1ff7f95ac4812480edad5ec13d4c1a20066377 first_file
+</span></span><span class="line"><span class="cl">@@ -1 +1,5 @@
+</span></span><span class="line"><span class="cl">+&lt;&lt;&lt;&lt;&lt;&lt;&lt; .our
+</span></span><span class="line"><span class="cl"> something
+</span></span><span class="line"><span class="cl">+=======
+</span></span><span class="line"><span class="cl">well, something else?
+</span></span><span class="line"><span class="cl">+&gt;&gt;&gt;&gt;&gt;&gt;&gt; .their</span></span></code></pre></div>
 <p>This is showing us there will be a conflict when trying to merge the <code>feature_two</code> branch into <code>staging</code>: the file <code>first_file</code> is changed in both the branches, and this will generate a conflict.</p>
 <p>The second command is just a shorthand that will limit the output to the lines related to the changed files, without the full changelog.</p>
-<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">5
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>╰─$ git conflicts feature_two staging
-</span></span><span style="display:flex;"><span>changed in both
-</span></span><span style="display:flex;"><span>  base   100644 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 first_file
-</span></span><span style="display:flex;"><span>  our    100644 deba01fc8d98200761c46eb139f11ac244cf6eb5 first_file
-</span></span><span style="display:flex;"><span>  their  100644 dc1ff7f95ac4812480edad5ec13d4c1a20066377 first_file</span></span></code></pre></td></tr></table>
-</div>
-</div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">╰─$ git conflicts feature_two staging
+</span></span><span class="line"><span class="cl">changed in both
+</span></span><span class="line"><span class="cl">  base   100644 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 first_file
+</span></span><span class="line"><span class="cl">  our    100644 deba01fc8d98200761c46eb139f11ac244cf6eb5 first_file
+</span></span><span class="line"><span class="cl">  their  100644 dc1ff7f95ac4812480edad5ec13d4c1a20066377 first_file</span></span></code></pre></div>
 <p>I hope you found this interesting, feel free to comment if you think it&rsquo;s still improvable!</p>
 
       </div>

@@ -17,27 +17,6 @@
 
 Here&rsquo;s how to do it. In TextMate, go to Bundles, then Bundles Editor, then Edit Languages&hellip;
 Click on the plus button in the lower left corner and choose &ldquo;New Language&rdquo;. Paste the following code in place of the example code provided.
-
-
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-
-
 { 
   scopeName = &#39;todo&#39;;
   patterns = (
@@ -55,8 +34,6 @@ Click on the plus button in the lower left corner and choose &ldquo;New Language
     },
   );
 }
-
-
 This defines three patterns for each condition. They should be self-explanatory, I used only simple regexps here. Save your language definition, and it should appear in the languages combo of your Textmate.">
 <meta name="keywords" content="blog,developer,personal">
 
@@ -67,7 +44,7 @@ This defines three patterns for each condition. They should be self-explanatory,
   <meta name="twitter:description" content="Today I wanted to add a syntax highlight for my todo list favourite format to TextMate.
 Here’s how to do it. In TextMate, go to Bundles, then Bundles Editor, then Edit Languages…
 Click on the plus button in the lower left corner and choose “New Language”. Paste the following code in place of the example code provided.
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 { scopeName = &#39;todo&#39;; patterns = ( { name = &#39;todo.completed&#39;; match = &#39;^\[X&#43;\]&#39;; }, { name = &#39;todo.in_progress&#39;; match = &#39;^\[X*\.*\]&#39;; }, { name = &#39;todo.new&#39;; match = &#39;^\[.&#43;]&#39;; }, ); } This defines three patterns for each condition. They should be self-explanatory, I used only simple regexps here. Save your language definition, and it should appear in the languages combo of your Textmate.">
+{ scopeName = &#39;todo&#39;; patterns = ( { name = &#39;todo.completed&#39;; match = &#39;^\[X&#43;\]&#39;; }, { name = &#39;todo.in_progress&#39;; match = &#39;^\[X*\.*\]&#39;; }, { name = &#39;todo.new&#39;; match = &#39;^\[.&#43;]&#39;; }, ); } This defines three patterns for each condition. They should be self-explanatory, I used only simple regexps here. Save your language definition, and it should appear in the languages combo of your Textmate.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2010-05-14-textmate-syntax-highlighting-howto-a-simple-todo-list/">
   <meta property="og:site_name" content="metalelf0.github.io">
@@ -75,7 +52,7 @@ Click on the plus button in the lower left corner and choose “New Language”.
   <meta property="og:description" content="Today I wanted to add a syntax highlight for my todo list favourite format to TextMate.
 Here’s how to do it. In TextMate, go to Bundles, then Bundles Editor, then Edit Languages…
 Click on the plus button in the lower left corner and choose “New Language”. Paste the following code in place of the example code provided.
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 { scopeName = &#39;todo&#39;; patterns = ( { name = &#39;todo.completed&#39;; match = &#39;^\[X&#43;\]&#39;; }, { name = &#39;todo.in_progress&#39;; match = &#39;^\[X*\.*\]&#39;; }, { name = &#39;todo.new&#39;; match = &#39;^\[.&#43;]&#39;; }, ); } This defines three patterns for each condition. They should be self-explanatory, I used only simple regexps here. Save your language definition, and it should appear in the languages combo of your Textmate.">
+{ scopeName = &#39;todo&#39;; patterns = ( { name = &#39;todo.completed&#39;; match = &#39;^\[X&#43;\]&#39;; }, { name = &#39;todo.in_progress&#39;; match = &#39;^\[X*\.*\]&#39;; }, { name = &#39;todo.new&#39;; match = &#39;^\[.&#43;]&#39;; }, ); } This defines three patterns for each condition. They should be self-explanatory, I used only simple regexps here. Save your language definition, and it should appear in the languages combo of your Textmate.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -242,47 +219,24 @@ Click on the plus button in the lower left corner and choose “New Language”.
 <p><img src="http://3.bp.blogspot.com/_XPYUQVFU0pU/S-1AWa--6HI/AAAAAAAAEpg/2l_vtTV49Q4/s320/Schermata+2010-05-14+a+14.20.55.png" alt="image"></p>
 <p>Here&rsquo;s how to do it. In TextMate, go to Bundles, then Bundles Editor, then Edit Languages&hellip;</p>
 <p>Click on the plus button in the lower left corner and choose &ldquo;New Language&rdquo;. Paste the following code in place of the example code provided.</p>
-<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">17
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span>{ 
-</span></span><span style="display:flex;"><span>  scopeName = &#39;todo&#39;;
-</span></span><span style="display:flex;"><span>  patterns = (
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>      name = &#39;todo.completed&#39;;
-</span></span><span style="display:flex;"><span>      match = &#39;^\[X+\]&#39;;
-</span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>    { 
-</span></span><span style="display:flex;"><span>      name = &#39;todo.in_progress&#39;;
-</span></span><span style="display:flex;"><span>      match = &#39;^\[X*\.*\]&#39;;
-</span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>      name = &#39;todo.new&#39;;
-</span></span><span style="display:flex;"><span>      match = &#39;^\[.+]&#39;;
-</span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>  );
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>This defines three patterns for each condition. They should be self-explanatory, I used only simple regexps here. Save your language definition, and it should appear in the languages combo of your Textmate.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl">{<span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">scopeName = &#39;todo&#39;;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">patterns = (</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>{<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">name = &#39;todo.completed&#39;;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">match = &#39;^\[X+\]&#39;;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>}<span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>{<span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">name = &#39;todo.in_progress&#39;;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">match = &#39;^\[X*\.*\]&#39;;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>}<span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>{<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">name = &#39;todo.new&#39;;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">match = &#39;^\[.+]&#39;;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>}<span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>}<span class="w">
+</span></span></span></code></pre></div><p>This defines three patterns for each condition. They should be self-explanatory, I used only simple regexps here. Save your language definition, and it should appear in the languages combo of your Textmate.</p>
 <p>To complete syntax highlighting, you also have to add the colors to your current textmate theme. In the application menu, go to Textmate, then Preferences, then Fonts &amp; Colors. For each pattern name, click the plus button and create a new element. It must have the pattern name as scope selector. Choose colors as you like.</p>
 <p><img src="http://2.bp.blogspot.com/_XPYUQVFU0pU/S-1CFirQNjI/AAAAAAAAEpw/RjteBwVjrgo/s320/Schermata+2010-05-14+a+14.28.17.png" alt="image"></p>
 <p>References:</p>

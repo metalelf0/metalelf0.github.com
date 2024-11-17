@@ -73,17 +73,5 @@ disqusShortname = "metalelf0-github-io"
 
 [markup]
   [markup.highlight]
-    anchorLineNos = false
-    codeFences = true
-    guessSyntax = false
-    hl_Lines = ''
-    hl_inline = false
-    lineAnchors = ''
-    lineNoStart = 1
-    lineNos = true
-    lineNumbersInTable = true
-    noClasses = true
-    noHl = false
-    style = 'swapoff'
-    tabWidth = 4
+    noClasses = false
 

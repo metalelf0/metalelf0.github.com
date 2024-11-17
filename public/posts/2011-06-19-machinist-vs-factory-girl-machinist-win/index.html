@@ -200,102 +200,47 @@
         
         <p>Today I decided to verify if <a href="https://github.com/notahat/machinist"  class="external-link" target="_blank" rel="noopener">Machinist</a> could be a good replacement for <a href="https://github.com/thoughtbot/factory_girl"  class="external-link" target="_blank" rel="noopener">Factory Girl</a>. In our project, we have a big problem with Factory Girl: even if you tell her not to hit the database, using the <code>Factory.build</code> method, if an object has associations, these are saved on the DB. And this causes a huge slowdown in specs using factories. We&rsquo;ve been using Factory Girl for nearly two years, and if we could find a way to stop him hitting the DB, we could really have a huge improvent in our test suite running time.</p>
 <p>To verify if Machinist could perform better, I set up a basic rails app. Look at this example:</p>
-<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">17
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#007f7f"># person.rb</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  validates_presence_of <span style="color:#0ff;font-weight:bold">:address</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#007f7f"># person_factory.rb</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  Factory.define <span style="color:#0ff;font-weight:bold">:person</span> <span style="color:#fff;font-weight:bold">do</span> |<span style="color:#fff;font-weight:bold">p</span>|
-</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">p</span>.name   <span style="color:#0ff;font-weight:bold">&#39;John&#39;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">p</span>.surname <span style="color:#0ff;font-weight:bold">&#39;Doe&#39;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">p</span>.association <span style="color:#0ff;font-weight:bold">:address</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#fff;font-weight:bold">end</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#007f7f"># person_spec.rb</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>it <span style="color:#0ff;font-weight:bold">&#34;builds a valid person with factory girl&#34;</span> <span style="color:#fff;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>  Factory.build(<span style="color:#0ff;font-weight:bold">:person</span>).should be_valid
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">end</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>If you run <code>tail -f log/test.log</code> and you run this spec, you&rsquo;ll see something like this:</p>
-<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">3
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>  AREL (0.5ms)  INSERT INTO &#34;addresses&#34; (&#34;country&#34;, &#34;planet&#34;, &#34;created_at&#34;,
-</span></span><span style="display:flex;"><span>&#34;updated_at&#34;) VALUES (&#39;Italy&#39;, &#39;Earth&#39;, &#39;2011-06-18 16:45:00.268423&#39;,
-</span></span><span style="display:flex;"><span>&#39;2011-06-18 16:45:00.268423&#39;)
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>The <code>Factory.build</code> method has to save dependencies on the DB to set the foreign keys on the objects and validate them.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="c1"># person.rb</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">validates_presence_of</span> <span class="ss">:address</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># person_factory.rb</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="no">Factory</span><span class="o">.</span><span class="n">define</span> <span class="ss">:person</span> <span class="k">do</span> <span class="o">|</span><span class="nb">p</span><span class="o">|</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">p</span><span class="o">.</span><span class="n">name</span>   <span class="s1">&#39;John&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">p</span><span class="o">.</span><span class="n">surname</span> <span class="s1">&#39;Doe&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">p</span><span class="o">.</span><span class="n">association</span> <span class="ss">:address</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># person_spec.rb</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">it</span> <span class="s2">&#34;builds a valid person with factory girl&#34;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">  <span class="no">Factory</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="ss">:person</span><span class="p">)</span><span class="o">.</span><span class="n">should</span> <span class="n">be_valid</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><p>If you run <code>tail -f log/test.log</code> and you run this spec, you&rsquo;ll see something like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">  AREL (0.5ms)  INSERT INTO &#34;addresses&#34; (&#34;country&#34;, &#34;planet&#34;, &#34;created_at&#34;,
+</span></span><span class="line"><span class="cl">&#34;updated_at&#34;) VALUES (&#39;Italy&#39;, &#39;Earth&#39;, &#39;2011-06-18 16:45:00.268423&#39;,
+</span></span><span class="line"><span class="cl">&#39;2011-06-18 16:45:00.268423&#39;)
+</span></span></code></pre></div><p>The <code>Factory.build</code> method has to save dependencies on the DB to set the foreign keys on the objects and validate them.</p>
 <p>Let&rsquo;s try with machinist:</p>
-<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">17
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#007f7f"># person.rb</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  validates_presence_of <span style="color:#0ff;font-weight:bold">:address</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#007f7f"># blueprints.rb</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  Person.blueprint <span style="color:#fff;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">name</span>     { <span style="color:#0ff;font-weight:bold">&#34;John&#34;</span>       }
-</span></span><span style="display:flex;"><span>    surname  { <span style="color:#0ff;font-weight:bold">&#34;Doe&#34;</span>        }
-</span></span><span style="display:flex;"><span>    address  { Address.make }
-</span></span><span style="display:flex;"><span>  <span style="color:#fff;font-weight:bold">end</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#007f7f"># person_spec.rb</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>it <span style="color:#0ff;font-weight:bold">&#34;builds a valid person with machinist&#34;</span> <span style="color:#fff;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>  Person.make.should be_valid
-</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">end</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>This time, running tail on the test.log file and running the spec, doesn&rsquo;t shown any DB hit, and of yeah, we have a green test.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="c1"># person.rb</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">validates_presence_of</span> <span class="ss">:address</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># blueprints.rb</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="no">Person</span><span class="o">.</span><span class="n">blueprint</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">name</span>     <span class="p">{</span> <span class="s2">&#34;John&#34;</span>       <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">surname</span>  <span class="p">{</span> <span class="s2">&#34;Doe&#34;</span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">address</span>  <span class="p">{</span> <span class="no">Address</span><span class="o">.</span><span class="n">make</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># person_spec.rb</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">it</span> <span class="s2">&#34;builds a valid person with machinist&#34;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">  <span class="no">Person</span><span class="o">.</span><span class="n">make</span><span class="o">.</span><span class="n">should</span> <span class="n">be_valid</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><p>This time, running tail on the test.log file and running the spec, doesn&rsquo;t shown any DB hit, and of yeah, we have a green test.</p>
 <p>I verified this also by putting a <code>debugger</code> line after the validation and inspecting the DB from within the debugger after the validation has run - with FactoryGirl, it revealed an <code>Address</code> object saved on the DB, while with Mechanist it didn&rsquo;t.</p>
 <p>I still haven&rsquo;t looked inside machinist to show how it handles this, but I&rsquo;ll do it soon, so stay tuned!</p>
 
