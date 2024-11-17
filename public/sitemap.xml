@@ -262,5 +262,9 @@
   </url><url>
     <loc>http://localhost:1313/posts/2010-04-23-ruby-mixin-and-monkey-patching-examples/</loc>
     <lastmod>2010-04-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/authors/</loc>
+  </url><url>
+    <loc>http://localhost:1313/series/</loc>
   </url>
 </urlset>

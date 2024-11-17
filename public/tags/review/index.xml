@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Review on metalelf0.github.io</title>
     <link>http://localhost:1313/tags/review/</link>
     <description>Recent content in Review on metalelf0.github.io</description>
-    <generator>Hugo -- 0.138.0</generator>
-    <language>en-us</language>
+    <generator>Hugo</generator>
+    <language>en</language>
     <lastBuildDate>Fri, 02 Jul 2010 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/review/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -13,9 +13,7 @@
       <link>http://localhost:1313/posts/2010-07-02-screencast-review---vim-for-rails-developers-by-ben-orenstein/</link>
       <pubDate>Fri, 02 Jul 2010 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/2010-07-02-screencast-review---vim-for-rails-developers-by-ben-orenstein/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://www.codeulatescreencasts.com&#34;&gt;Codeulate Screencasts&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;In the last months I&amp;rsquo;ve been working on a Rails project in an Agile team. I worked mostly on TextMate, and its speed is really amazing. It has a full set of features, with snippets, bundles, syntaxes and so on. It has many shortcuts, and apparently there&amp;rsquo;s no need to switch away from TextMate.&lt;/p&gt;
-&lt;p&gt;But, it has its drawbacks: it&amp;rsquo;s a Mac only application, so I can&amp;rsquo;t use it on my Linux box. Also, it&amp;rsquo;s a commercial application, and even if its cost is not too high, I don&amp;rsquo;t like to pay for software. Finally, it&amp;rsquo;s a GUI application, and it cannot be used over SSH to work on a production machine.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.codeulatescreencasts.com&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Codeulate Screencasts&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;In the last months I&amp;rsquo;ve been working on a Rails project in an Agile team. I worked mostly on TextMate, and its speed is really amazing. It has a full set of features, with snippets, bundles, syntaxes and so on. It has many shortcuts, and apparently there&amp;rsquo;s no need to switch away from TextMate.&lt;/p&gt;&#xA;&lt;p&gt;But, it has its drawbacks: it&amp;rsquo;s a Mac only application, so I can&amp;rsquo;t use it on my Linux box. Also, it&amp;rsquo;s a commercial application, and even if its cost is not too high, I don&amp;rsquo;t like to pay for software. Finally, it&amp;rsquo;s a GUI application, and it cannot be used over SSH to work on a production machine.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

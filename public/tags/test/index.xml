@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Test on metalelf0.github.io</title>
     <link>http://localhost:1313/tags/test/</link>
     <description>Recent content in Test on metalelf0.github.io</description>
-    <generator>Hugo -- 0.138.0</generator>
-    <language>en-us</language>
+    <generator>Hugo</generator>
+    <language>en</language>
     <lastBuildDate>Wed, 11 May 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/test/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -13,19 +13,14 @@
       <link>http://localhost:1313/posts/2016-05-11-mocked-a-minitest-pattern/</link>
       <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/2016-05-11-mocked-a-minitest-pattern/</guid>
-      <description>&lt;h3 id=&#34;minitest-is-good-for-mocking-right-well&#34;&gt;Minitest is good for mocking, right? Well&amp;hellip;&lt;/h3&gt;
-&lt;p&gt;Minitest is gaining a lot of popularity and can actually be a 100% replacement
-for RSpec. It&amp;rsquo;s a pure ruby testing framework, it&amp;rsquo;s fast, light weight, and it
-supports both a test-unit like syntax and a spec engine with Rspec like syntax.&lt;/p&gt;
-&lt;p&gt;Still, when it comes to mocking, it can be a little painful. You have to
-initialize mocks and verify them manually after running the code under test.&lt;/p&gt;</description>
+      <description>&lt;h3 id=&#34;minitest-is-good-for-mocking-right-well&#34;&gt;&#xA;  Minitest is good for mocking, right? Well&amp;hellip;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#minitest-is-good-for-mocking-right-well&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;Minitest is gaining a lot of popularity and can actually be a 100% replacement for RSpec. It&amp;rsquo;s a pure ruby testing framework, it&amp;rsquo;s fast, light weight, and it supports both a test-unit like syntax and a spec engine with Rspec like syntax.&lt;/p&gt;&#xA;&lt;p&gt;Still, when it comes to mocking, it can be a little painful. You have to initialize mocks and verify them manually after running the code under test.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Machinist vs Factory Girl: Machinist win!</title>
       <link>http://localhost:1313/posts/2011-06-19-machinist-vs-factory-girl-machinist-win/</link>
       <pubDate>Sun, 19 Jun 2011 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/2011-06-19-machinist-vs-factory-girl-machinist-win/</guid>
-      <description>&lt;p&gt;Today I decided to verify if &lt;a href=&#34;https://github.com/notahat/machinist&#34;&gt;Machinist&lt;/a&gt; could be a good replacement for &lt;a href=&#34;https://github.com/thoughtbot/factory_girl&#34;&gt;Factory Girl&lt;/a&gt;. In our project, we have a big problem with Factory Girl: even if you tell her not to hit the database, using the &lt;code&gt;Factory.build&lt;/code&gt; method, if an object has associations, these are saved on the DB. And this causes a huge slowdown in specs using factories. We&amp;rsquo;ve been using Factory Girl for nearly two years, and if we could find a way to stop him hitting the DB, we could really have a huge improvent in our test suite running time.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Today I decided to verify if &lt;a href=&#34;https://github.com/notahat/machinist&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Machinist&lt;/a&gt; could be a good replacement for &lt;a href=&#34;https://github.com/thoughtbot/factory_girl&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Factory Girl&lt;/a&gt;. In our project, we have a big problem with Factory Girl: even if you tell her not to hit the database, using the &lt;code&gt;Factory.build&lt;/code&gt; method, if an object has associations, these are saved on the DB. And this causes a huge slowdown in specs using factories. We&amp;rsquo;ve been using Factory Girl for nearly two years, and if we could find a way to stop him hitting the DB, we could really have a huge improvent in our test suite running time.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

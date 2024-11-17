@@ -17,12 +17,9 @@ title: Mocked - a minitest pattern
 
 ### Minitest is good for mocking, right? Well...
 
-Minitest is gaining a lot of popularity and can actually be a 100% replacement
-for RSpec. It's a pure ruby testing framework, it's fast, light weight, and it
-supports both a test-unit like syntax and a spec engine with Rspec like syntax.
+Minitest is gaining a lot of popularity and can actually be a 100% replacement for RSpec. It's a pure ruby testing framework, it's fast, light weight, and it supports both a test-unit like syntax and a spec engine with Rspec like syntax.
 
-Still, when it comes to mocking, it can be a little painful. You have to
-initialize mocks and verify them manually after running the code under test.
+Still, when it comes to mocking, it can be a little painful. You have to initialize mocks and verify them manually after running the code under test.
 
 A typical unit test with mocks looks something like this:
 
@@ -45,15 +42,9 @@ test 'a pause can be completed' do
 end
 {{< / highlight >}}
 
-What I don't like in the code above is the verbosity in the setup (and
-verification) of mock objects. I'm relying quite heavily on mocks, as I don't
-want to pass real objects to my unit tests, and this kind of repetition is not
-good.
+What I don't like in the code above is the verbosity in the setup (and verification) of mock objects. I'm relying quite heavily on mocks, as I don't want to pass real objects to my unit tests, and this kind of repetition is not good.
 
-Also I want to have a way to distinguish mock objects from "real" objects.
-This could help seeing if there is too much "real" stuff inside the test, or if
-I'm correctly mocking all the dependencies and collaborators of the method under
-test.
+Also I want to have a way to distinguish mock objects from "real" objects. This could help seeing if there is too much "real" stuff inside the test, or if I'm correctly mocking all the dependencies and collaborators of the method under test.
 
 What I came up with is `Mocked`, a small module to streamline these operations.
 
@@ -95,9 +86,7 @@ class ActiveSupport::TestCase
 end
 {{< / highlight >}}
 
-We are just keeping an hash of mock objects, and verifying them on teardown of
-the test; we are also giving a `mocked(mock_name)` accessor to retrieve mock
-objects.
+We are just keeping an hash of mock objects, and verifying them on teardown of the test; we are also giving a `mocked(mock_name)` accessor to retrieve mock objects.
 
 With this we can rewrite the test above like this:
 
@@ -118,8 +107,7 @@ test 'a pause can be completed' do
 end
 {{< / highlight >}}
 
-The code looks better IMHO, and I like that if I decided - i.e. - to replace
-the `pause` mock with a real object it would read like:
+The code looks better IMHO, and I like that if I decided - i.e. - to replace the `pause` mock with a real object it would read like:
 
 {{< highlight ruby >}}
 test 'a pause can be completed' do
@@ -138,9 +126,6 @@ test 'a pause can be completed' do
 end
 {{< / highlight >}}
 
-Here you can clearly see at a first glance that the only real object is `pause`,
-whereas other objects are all mocked. It also really helps when refactoring
-tests.
+Here you can clearly see at a first glance that the only real object is `pause`, whereas other objects are all mocked. It also really helps when refactoring tests.
 
-What do you think about this? Would you like to be built into a gem, do you have
-any suggestions or criticism on this? Let me know and have a great day!
+What do you think about this? Would you like to be built into a gem, do you have any suggestions or criticism on this? Let me know and have a great day!

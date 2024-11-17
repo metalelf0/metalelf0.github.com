@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lua on metalelf0.github.io</title>
     <link>http://localhost:1313/tags/lua/</link>
     <description>Recent content in Lua on metalelf0.github.io</description>
-    <generator>Hugo -- 0.138.0</generator>
-    <language>en-us</language>
+    <generator>Hugo</generator>
+    <language>en</language>
     <lastBuildDate>Sat, 16 Nov 2024 21:41:49 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/lua/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -13,7 +13,7 @@
       <link>http://localhost:1313/posts/2024-11-15-build-a-neovim-menu/</link>
       <pubDate>Sat, 16 Nov 2024 21:41:49 +0100</pubDate>
       <guid>http://localhost:1313/posts/2024-11-15-build-a-neovim-menu/</guid>
-      <description></description>
+      <description>&lt;p&gt;Wow, it&amp;rsquo;s been quite a long time since my last post. I&amp;rsquo;m still a vim addict, but I moved to neovim in the recent years, and today I wanna share a quick trick that you might find useful.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m going to build a custom interactive menu with custom options. I&amp;rsquo;ll use it to access some files whose location I often forget, but you&amp;rsquo;ll see how easy it is to customize it to do anything you want. And the best part is, you don&amp;rsquo;t need any external plugin to use it :)&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

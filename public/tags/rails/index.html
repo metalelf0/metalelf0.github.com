@@ -1,23 +1,281 @@
-<!doctype html><html lang=en dir=auto><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Rails | metalelf0.github.io</title>
-<meta name=keywords content><meta name=description content="Andrea Schiavini is a ruby developer based in Milan, Italy"><meta name=author content="metalelf0"><link rel=canonical href=http://localhost:1313/tags/rails/><link crossorigin=anonymous href=/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css integrity="sha256-1vzSCk+4bvpN+sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as=style><link rel=icon href=http://localhost:1313/%3Clink%20/%20abs%20url%3E><link rel=icon type=image/png sizes=16x16 href=http://localhost:1313/%3Clink%20/%20abs%20url%3E><link rel=icon type=image/png sizes=32x32 href=http://localhost:1313/%3Clink%20/%20abs%20url%3E><link rel=apple-touch-icon href=http://localhost:1313/%3Clink%20/%20abs%20url%3E><link rel=mask-icon href=http://localhost:1313/%3Clink%20/%20abs%20url%3E><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate type=application/rss+xml href=http://localhost:1313/tags/rails/index.xml><link rel=alternate hreflang=en href=http://localhost:1313/tags/rails/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:url" content="http://localhost:1313/tags/rails/"><meta property="og:site_name" content="metalelf0.github.io"><meta property="og:title" content="Rails"><meta property="og:description" content="Andrea Schiavini is a ruby developer based in Milan, Italy"><meta property="og:locale" content="en-us"><meta property="og:type" content="website"><meta name=twitter:card content="summary"><meta name=twitter:title content="Rails"><meta name=twitter:description content="Andrea Schiavini is a ruby developer based in Milan, Italy"></head><body class=list id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=http://localhost:1313/ accesskey=h title="metalelf0.github.io (Alt + H)">metalelf0.github.io</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu></ul></nav></header><main class=main><header class=page-header><div class=breadcrumbs><a href=http://localhost:1313/>Home</a>&nbsp;»&nbsp;<a href=http://localhost:1313/tags/>Tags</a></div><h1>Rails</h1></header><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>Mocked - a minitest pattern</h2></header><div class=entry-content><p>Minitest is good for mocking, right? Well… Minitest is gaining a lot of popularity and can actually be a 100% replacement for RSpec. It’s a pure ruby testing framework, it’s fast, light weight, and it supports both a test-unit like syntax and a spec engine with Rspec like syntax.
-Still, when it comes to mocking, it can be a little painful. You have to initialize mocks and verify them manually after running the code under test.
-...</p></div><footer class=entry-footer><span title='2016-05-11 00:00:00 +0000 UTC'>May 11, 2016</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;metalelf0</footer><a class=entry-link aria-label="post link to Mocked - a minitest pattern" href=http://localhost:1313/posts/2016-05-11-mocked-a-minitest-pattern/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>Command pattern in ruby and rails</h2></header><div class=entry-content><p>The problem If you have a growing Rails application and you feel your models are getting too fat you might have a problem. We’ve all been educated with the “fat models, thin controllers” dogma - but sometimes putting all the domain logic inside the models has its downsides.
-As an example, the typical flow of an ActiveRecord object through a Rails request involves:
-fetching the object from the DB based on the params you receive (controller); doing something with the object inside the model (model); when something goes wrong, you set errors onto the model attributes (model); you finally return the object to the view, and present it accordingly (view). This is gonna tangle a lot of the domain logic to your model (scopes to retrieve objects, validations, and in the worst case even some presentation logic).
-...</p></div><footer class=entry-footer><span title='2016-05-02 00:00:00 +0000 UTC'>May 2, 2016</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;metalelf0</footer><a class=entry-link aria-label="post link to Command pattern in ruby and rails" href=http://localhost:1313/posts/2016-05-02-command-pattern/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>Null objects in Rails</h2></header><div class=entry-content><p>The problem Recently I’ve seen in a project I work on a lot of occurrences of this code:
-if user.privacy && user.privacy.enables_page?(...) The first part of the condition above is a bad practice in object oriented design. It forces collaborators of user to know a part of its implementation
-it could have a privacy or it couldn’t. What we want Wouldn’t it be much better to just write this:
-if user.privacy.enables_page?(...) Hiding the responsibility inside the user class? It would be much cleaner and follow the Tell, don’t ask principle.
-...</p></div><footer class=entry-footer><span title='2013-12-23 00:00:00 +0000 UTC'>December 23, 2013</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;metalelf0</footer><a class=entry-link aria-label="post link to Null objects in Rails" href=http://localhost:1313/posts/2013-12-23-null-objects-in-rails/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>Easily change the path for your Paperclip attachments</h2></header><div class=entry-content><p>Today after releasing an app to production environment I saw a couple of paperclip warnings like this in my production.log file:
-[paperclip] Duplicate URL for round_image with /system/:attachment/:id/:style/:filename. This will clash with attachment defined in PageElements::FranchisingCarouselEntry class This happens because I defined an attachment with the same name in two different models, and the default strategy Paperclip uses to choose attachment locations could lead to filename clashing.
-Here is a more detailed example:
-...</p></div><footer class=entry-footer><span title='2012-12-10 00:00:00 +0000 UTC'>December 10, 2012</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;metalelf0</footer><a class=entry-link aria-label="post link to Easily change the path for your Paperclip attachments" href=http://localhost:1313/posts/2012-12-10-easily-change-the-path-for-your-paperclip-attachments/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>Vim regexp example: make a variable out of params</h2></header><div class=entry-content><p>Today I wrote a regexp to change params[:page] into page. Here you are:
-:'&lt;,'>s/params\[:\(\p\{-}\)\]/\1/g Let’s explain it briefly:
-the first part, :'&lt;,'>s/, is the vim command to substitute a pattern (or a regexp) with another one. The &lt;,'> part tells vim to operate on the visually selected text.
-the second part is the trickiest one. Let’s see it part to part:
-params\[: is the first part of the string we want to match. the \ is used to escape the [ character.
-...</p></div><footer class=entry-footer><span title='2012-07-09 00:00:00 +0000 UTC'>July 9, 2012</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;metalelf0</footer><a class=entry-link aria-label="post link to Vim regexp example: make a variable out of params" href=http://localhost:1313/posts/2012-07-09-vim-regexp-example/></a></article><footer class=page-footer><nav class=pagination><a class=next href=http://localhost:1313/tags/rails/page/2/>Next&nbsp;&nbsp;»</a></nav></footer></main><footer class=footer><span>&copy; 2024 <a href=http://localhost:1313/>metalelf0.github.io</a></span> ·
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
-</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>Tag: Rails · metalelf0.github.io</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="metalelf0">
+<meta name="description" content="metalelf0 personal website">
+<meta name="keywords" content="blog,developer,personal">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Rails">
+  <meta name="twitter:description" content="metalelf0 personal website">
+
+<meta property="og:url" content="http://localhost:1313/tags/rails/">
+  <meta property="og:site_name" content="metalelf0.github.io">
+  <meta property="og:title" content="Rails">
+  <meta property="og:description" content="metalelf0 personal website">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="website">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tags/rails/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link rel="alternate" type="application/rss+xml" href="/tags/rails/index.xml" title="metalelf0.github.io" />
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      metalelf0.github.io
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container list">
+  <header>
+    <h1 class="title">
+      <a class="title-link" href="http://localhost:1313/tags/rails/">Tag: Rails</a>
+    </h1>
+  </header>
+  
+  <ul>
+    
+    <li>
+      <span class="date">May 11, 2016</span>
+      <a class="title" href="/posts/2016-05-11-mocked-a-minitest-pattern/">Mocked - a minitest pattern</a>
+    </li>
+    
+    <li>
+      <span class="date">May 2, 2016</span>
+      <a class="title" href="/posts/2016-05-02-command-pattern/">Command pattern in ruby and rails</a>
+    </li>
+    
+    <li>
+      <span class="date">December 23, 2013</span>
+      <a class="title" href="/posts/2013-12-23-null-objects-in-rails/">Null objects in Rails</a>
+    </li>
+    
+    <li>
+      <span class="date">December 10, 2012</span>
+      <a class="title" href="/posts/2012-12-10-easily-change-the-path-for-your-paperclip-attachments/">Easily change the path for your Paperclip attachments</a>
+    </li>
+    
+    <li>
+      <span class="date">July 9, 2012</span>
+      <a class="title" href="/posts/2012-07-09-vim-regexp-example/">Vim regexp example: make a variable out of params</a>
+    </li>
+    
+    <li>
+      <span class="date">March 26, 2012</span>
+      <a class="title" href="/posts/2012-03-26-add-bundle-dir-to-your-ctags/">Add bundle dir to your ctags</a>
+    </li>
+    
+    <li>
+      <span class="date">March 2, 2012</span>
+      <a class="title" href="/posts/2012-03-02-howto-share-spree-authenticationauthorization-engine/">Howto share Spree authentication/authorization engine</a>
+    </li>
+    
+    <li>
+      <span class="date">October 28, 2011</span>
+      <a class="title" href="/posts/2011-10-28-using-virtual-attributes-for-multi-parameter-form-helpers-in-rails/">Using virtual attributes for multi parameter form helpers in Rails</a>
+    </li>
+    
+    <li>
+      <span class="date">June 19, 2011</span>
+      <a class="title" href="/posts/2011-06-19-machinist-vs-factory-girl-machinist-win/">Machinist vs Factory Girl: Machinist win!</a>
+    </li>
+    
+    <li>
+      <span class="date">March 10, 2011</span>
+      <a class="title" href="/posts/2011-03-10-howto-run-a-rake-task-in-sandbox-mode/">Howto run a rake task in sandbox mode</a>
+    </li>
+    
+    <li>
+      <span class="date">January 28, 2011</span>
+      <a class="title" href="/posts/2011-01-28-rails-3-scopes-with-habtm-has-and-belongs-to-many-relations/">Rails 3 scopes with HABTM (has and belongs to many) relations</a>
+    </li>
+    
+    <li>
+      <span class="date">September 30, 2010</span>
+      <a class="title" href="/posts/2010-09-30-format-the-results-of-a-mysql-query-like-mysql-in-rails/">Format the results of a MySQL query like MySQL! In Rails!</a>
+    </li>
+    
+    <li>
+      <span class="date">July 2, 2010</span>
+      <a class="title" href="/posts/2010-07-02-screencast-review---vim-for-rails-developers-by-ben-orenstein/">Vim for Rails Developers, by Ben Orenstein</a>
+    </li>
+    
+  </ul>
+  
+
+
+
+
+
+
+</section>
+
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2010 -
+    
+    2024
+     metalelf0 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

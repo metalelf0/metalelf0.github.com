@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Colorschemes on metalelf0.github.io</title>
     <link>http://localhost:1313/tags/colorschemes/</link>
     <description>Recent content in Colorschemes on metalelf0.github.io</description>
-    <generator>Hugo -- 0.138.0</generator>
-    <language>en-us</language>
+    <generator>Hugo</generator>
+    <language>en</language>
     <lastBuildDate>Mon, 06 Feb 2012 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/colorschemes/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -13,8 +13,7 @@
       <link>http://localhost:1313/posts/2012-02-06-the-right-colors-for-your-vim/</link>
       <pubDate>Mon, 06 Feb 2012 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/2012-02-06-the-right-colors-for-your-vim/</guid>
-      <description>&lt;p&gt;I have a lot of Vim colorschemes, and I like to change them very often, reflecting my mood. I needed a way to showcase them all and quickly pick one.&lt;/p&gt;
-&lt;p&gt;The original &lt;a href=&#34;https://code.google.com/p/vimcolorschemetest/&#34;&gt;Vim Color Scheme Test&lt;/a&gt; script by maverick.woo is written in Perl and the build works on Windows systems. I wanted to add some new features, and to test it with my own colorschemes, but as I&amp;rsquo;m not very confident with Perl, I preferred to start over with a new Ruby version instead of forking his project. Here&amp;rsquo;s my version (and here&amp;rsquo;s the &lt;a href=&#34;https://github.com/metalelf0/VimColorSchemeTest-Ruby&#34;&gt;github page&lt;/a&gt;):&lt;/p&gt;</description>
+      <description>&lt;p&gt;I have a lot of Vim colorschemes, and I like to change them very often, reflecting my mood. I needed a way to showcase them all and quickly pick one.&lt;/p&gt;&#xA;&lt;p&gt;The original &lt;a href=&#34;https://code.google.com/p/vimcolorschemetest/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Vim Color Scheme Test&lt;/a&gt; script by maverick.woo is written in Perl and the build works on Windows systems. I wanted to add some new features, and to test it with my own colorschemes, but as I&amp;rsquo;m not very confident with Perl, I preferred to start over with a new Ruby version instead of forking his project. Here&amp;rsquo;s my version (and here&amp;rsquo;s the &lt;a href=&#34;https://github.com/metalelf0/VimColorSchemeTest-Ruby&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;github page&lt;/a&gt;):&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
