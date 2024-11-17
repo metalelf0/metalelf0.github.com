@@ -204,11 +204,21 @@ I decided to use a virtual attribute to do this, as it seemed the most elegant s
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>And this in my view:</p>
-<pre tabindex="0"><code class="language-erb" data-lang="erb">  &lt;p&gt;
-    &lt;%= f.label :expire_date %&gt;
-    &lt;%= f.date_select :expire_date_minus_one_day %&gt;
-  &lt;/p&gt;
-</code></pre><p>However, trying to send this data to the controller resulted in a &ldquo;1 error(s) on assignment of multiparameter attributes&rdquo; error.</p>
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>  &lt;<span style="font-weight:bold">p</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#f00">&lt;</span>%= f.label :expire_date %&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#f00">&lt;</span>%= f.date_select :expire_date_minus_one_day %&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="font-weight:bold">p</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>However, trying to send this data to the controller resulted in a &ldquo;1 error(s) on assignment of multiparameter attributes&rdquo; error.</p>
 <p>The solution I found after some search was this one:</p>
 <div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -222,10 +232,10 @@ I decided to use a virtual attribute to do this, as it seemed the most elegant s
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#007f7f"># user_subscription.rb</span>
 </span></span><span style="display:flex;"><span>  composed_of <span style="color:#0ff;font-weight:bold">:expire_date_minus_one_day</span>,
-</span></span><span style="display:flex;"><span>              <span style="color:#0ff;font-weight:bold">:class_name</span> =&gt; <span style="color:#0ff;font-weight:bold">&#39;Date&#39;</span>,
-</span></span><span style="display:flex;"><span>              <span style="color:#0ff;font-weight:bold">:mapping</span> =&gt; <span style="color:#0ff;font-weight:bold">%w(Date to_s)</span>,
-</span></span><span style="display:flex;"><span>              <span style="color:#0ff;font-weight:bold">:constructor</span> =&gt; Proc.new{ |item| item },
-</span></span><span style="display:flex;"><span>              <span style="color:#0ff;font-weight:bold">:converter</span> =&gt; Proc.new{ |item| item }
+</span></span><span style="display:flex;"><span>    <span style="color:#0ff;font-weight:bold">:class_name</span> =&gt; <span style="color:#0ff;font-weight:bold">&#39;Date&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#0ff;font-weight:bold">:mapping</span> =&gt; <span style="color:#0ff;font-weight:bold">%w(Date to_s)</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#0ff;font-weight:bold">:constructor</span> =&gt; Proc.new{ |item| item },
+</span></span><span style="display:flex;"><span>    <span style="color:#0ff;font-weight:bold">:converter</span> =&gt; Proc.new{ |item| item }
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Reference:</p>

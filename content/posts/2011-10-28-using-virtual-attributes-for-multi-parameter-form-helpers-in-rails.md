@@ -29,7 +29,7 @@ end
 
 And this in my view:
 
-```erb
+```html
   <p>
     <%= f.label :expire_date %>
     <%= f.date_select :expire_date_minus_one_day %>
@@ -43,10 +43,10 @@ The solution I found after some search was this one:
 ```ruby
 # user_subscription.rb
   composed_of :expire_date_minus_one_day,
-              :class_name => 'Date',
-              :mapping => %w(Date to_s),
-              :constructor => Proc.new{ |item| item },
-              :converter => Proc.new{ |item| item }
+    :class_name => 'Date',
+    :mapping => %w(Date to_s),
+    :constructor => Proc.new{ |item| item },
+    :converter => Proc.new{ |item| item }
 ```
 
 Reference:

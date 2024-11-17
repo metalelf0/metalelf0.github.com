@@ -13,16 +13,11 @@
 
 
 <meta name="author" content="metalelf0">
-<meta name="description" content="In a project I&rsquo;m working on I&rsquo;m using spree as a mountable engine. The
-host application has its own administration area, and I wanted to share
-the spree authentication with my app.
-Spree uses devise to handle authentication. The code which is
-responsible for the authentication part of the app is in the auth module
-of Spree.
+<meta name="description" content="In a project I&rsquo;m working on I&rsquo;m using spree as a mountable engine. The host application has its own administration area, and I wanted to share the spree authentication with my app.
+Spree uses devise to handle authentication. The code which is responsible for the authentication part of the app is in the auth module of Spree.
 To share authentication with your application you have to:
 
-setup devise in your routes.rb file. I copied this code from the
-routes.rb file included in the spree/auth module:
+setup devise in your routes.rb file. I copied this code from the routes.rb file included in the spree/auth module:
 
 
 
@@ -40,22 +35,20 @@ routes.rb file included in the spree/auth module:
 
 HostApplication::Application.routes.draw do
   devise_for :user,
-             :class_name =&gt; &#39;Spree::User&#39;,
-             :controllers =&gt; { :sessions =&gt; &#39;spree/user_sessions&#39;,
-                               :registrations =&gt; &#39;spree/user_registrations&#39;,
-                               :passwords =&gt; &#39;spree/user_passwords&#39; },
-             :skip =&gt; [:unlocks, :omniauth_callbacks],
-             :path_names =&gt; { :sign_out =&gt; &#39;logout&#39; }
+     :class_name =&gt; &#39;Spree::User&#39;,
+     :controllers =&gt; { :sessions =&gt; &#39;spree/user_sessions&#39;,
+                       :registrations =&gt; &#39;spree/user_registrations&#39;,
+                       :passwords =&gt; &#39;spree/user_passwords&#39; },
+     :skip =&gt; [:unlocks, :omniauth_callbacks],
+     :path_names =&gt; { :sign_out =&gt; &#39;logout&#39; }
   # ...
 end
 
 
 
-add before_filter :authenticate_user! to the controller you want to
-be protected.
+add before_filter :authenticate_user! to the controller you want to be protected.
 
-This way you&rsquo;re setup with authentication; it&rsquo;s time to move on with
-authorization.">
+This way you&rsquo;re setup with authentication; it&rsquo;s time to move on with authorization.">
 <meta name="keywords" content="blog,developer,personal">
 
 
@@ -241,16 +234,11 @@ setup devise in your routes.rb file. I copied this code from the routes.rb file 
 
       <div class="post-content">
         
-        <p>In a project I&rsquo;m working on I&rsquo;m using spree as a mountable engine. The
-host application has its own administration area, and I wanted to share
-the spree authentication with my app.</p>
-<p>Spree uses devise to handle authentication. The code which is
-responsible for the authentication part of the app is in the auth module
-of Spree.</p>
+        <p>In a project I&rsquo;m working on I&rsquo;m using spree as a mountable engine. The host application has its own administration area, and I wanted to share the spree authentication with my app.</p>
+<p>Spree uses devise to handle authentication. The code which is responsible for the authentication part of the app is in the auth module of Spree.</p>
 <p>To share authentication with your application you have to:</p>
 <ul>
-<li>setup devise in your routes.rb file. I copied this code from the
-routes.rb file included in the spree/auth module:</li>
+<li>setup devise in your routes.rb file. I copied this code from the routes.rb file included in the spree/auth module:</li>
 </ul>
 <div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -268,29 +256,26 @@ routes.rb file included in the spree/auth module:</li>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>HostApplication::Application.routes.draw <span style="color:#fff;font-weight:bold">do</span>
 </span></span><span style="display:flex;"><span>  devise_for <span style="color:#0ff;font-weight:bold">:user</span>,
-</span></span><span style="display:flex;"><span>             <span style="color:#0ff;font-weight:bold">:class_name</span> =&gt; <span style="color:#0ff;font-weight:bold">&#39;Spree::User&#39;</span>,
-</span></span><span style="display:flex;"><span>             <span style="color:#0ff;font-weight:bold">:controllers</span> =&gt; { <span style="color:#0ff;font-weight:bold">:sessions</span> =&gt; <span style="color:#0ff;font-weight:bold">&#39;spree/user_sessions&#39;</span>,
-</span></span><span style="display:flex;"><span>                               <span style="color:#0ff;font-weight:bold">:registrations</span> =&gt; <span style="color:#0ff;font-weight:bold">&#39;spree/user_registrations&#39;</span>,
-</span></span><span style="display:flex;"><span>                               <span style="color:#0ff;font-weight:bold">:passwords</span> =&gt; <span style="color:#0ff;font-weight:bold">&#39;spree/user_passwords&#39;</span> },
-</span></span><span style="display:flex;"><span>             <span style="color:#0ff;font-weight:bold">:skip</span> =&gt; [<span style="color:#0ff;font-weight:bold">:unlocks</span>, <span style="color:#0ff;font-weight:bold">:omniauth_callbacks</span>],
-</span></span><span style="display:flex;"><span>             <span style="color:#0ff;font-weight:bold">:path_names</span> =&gt; { <span style="color:#0ff;font-weight:bold">:sign_out</span> =&gt; <span style="color:#0ff;font-weight:bold">&#39;logout&#39;</span> }
+</span></span><span style="display:flex;"><span>     <span style="color:#0ff;font-weight:bold">:class_name</span> =&gt; <span style="color:#0ff;font-weight:bold">&#39;Spree::User&#39;</span>,
+</span></span><span style="display:flex;"><span>     <span style="color:#0ff;font-weight:bold">:controllers</span> =&gt; { <span style="color:#0ff;font-weight:bold">:sessions</span> =&gt; <span style="color:#0ff;font-weight:bold">&#39;spree/user_sessions&#39;</span>,
+</span></span><span style="display:flex;"><span>                       <span style="color:#0ff;font-weight:bold">:registrations</span> =&gt; <span style="color:#0ff;font-weight:bold">&#39;spree/user_registrations&#39;</span>,
+</span></span><span style="display:flex;"><span>                       <span style="color:#0ff;font-weight:bold">:passwords</span> =&gt; <span style="color:#0ff;font-weight:bold">&#39;spree/user_passwords&#39;</span> },
+</span></span><span style="display:flex;"><span>     <span style="color:#0ff;font-weight:bold">:skip</span> =&gt; [<span style="color:#0ff;font-weight:bold">:unlocks</span>, <span style="color:#0ff;font-weight:bold">:omniauth_callbacks</span>],
+</span></span><span style="display:flex;"><span>     <span style="color:#0ff;font-weight:bold">:path_names</span> =&gt; { <span style="color:#0ff;font-weight:bold">:sign_out</span> =&gt; <span style="color:#0ff;font-weight:bold">&#39;logout&#39;</span> }
 </span></span><span style="display:flex;"><span>  <span style="color:#007f7f"># ...</span>
 </span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">end</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
-<li>add <code>before_filter :authenticate_user!</code> to the controller you want to
-be protected.</li>
+<li>add <code>before_filter :authenticate_user!</code> to the controller you want to be protected.</li>
 </ul>
-<p>This way you&rsquo;re setup with authentication; it&rsquo;s time to move on with
-authorization.</p>
+<p>This way you&rsquo;re setup with authentication; it&rsquo;s time to move on with authorization.</p>
 <ul>
 <li>
 <p>add <code>load_and_authorize_resource!</code> to the controller you want to be protected.</p>
 </li>
 <li>
-<p>register new abilities to the Spree CanCan configuration using the
-<code>register_ability</code> method. Here is an example:</p>
+<p>register new abilities to the Spree CanCan configuration using the <code>register_ability</code> method. Here is an example:</p>
 </li>
 </ul>
 <div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
@@ -312,7 +297,6 @@ authorization.</p>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">15
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">16
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">18
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#007f7f"># create a file in config/initializers, e.g. add_abilities_to_spree.rb,</span>
@@ -331,13 +315,11 @@ authorization.</p>
 </span></span><span style="display:flex;"><span>      can manage, <span style="color:#0ff;font-weight:bold">:host_app_cool_pages</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#fff;font-weight:bold">end</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#fff;font-weight:bold">end</span>
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">end</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
-<li>add to your <code>application_controller.rb</code> file the code needed to handle
-authorization exceptions:</li>
+<li>add to your <code>application_controller.rb</code> file the code needed to handle authorization exceptions:</li>
 </ul>
 <div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">

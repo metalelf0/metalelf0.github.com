@@ -42,7 +42,7 @@ end
 
 If you run `tail -f log/test.log` and you run this spec, you'll see something like this:
 
-```log
+```txt
   AREL (0.5ms)  INSERT INTO "addresses" ("country", "planet", "created_at",
 "updated_at") VALUES ('Italy', 'Earth', '2011-06-18 16:45:00.268423',
 '2011-06-18 16:45:00.268423')
@@ -52,7 +52,7 @@ The `Factory.build` method has to save dependencies on the DB to set the foreign
 
 Let's try with machinist:
 
-```
+```ruby
 # person.rb
 
   validates_presence_of :address
