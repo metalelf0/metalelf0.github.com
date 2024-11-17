@@ -14,12 +14,13 @@
  &lt;/a>
 &lt;/h3>
 &lt;p>Recently I&amp;rsquo;ve seen in a project I work on a lot of occurrences of this code:&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#fff;font-weight:bold">if&lt;/span> user.privacy &amp;amp;&amp;amp; user.privacy.enables_page?(...)&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>
-&lt;p>The first part of the condition above is a bad practice in object oriented design. It forces collaborators of &lt;code>user&lt;/code> to know a part of its implementation - it could have a &lt;code>privacy&lt;/code> or it couldn&amp;rsquo;t.&lt;/p></description></item></channel></rss>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ruby" data-lang="ruby">&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="n">user&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">privacy&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="n">user&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">privacy&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">enables_page?&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">...&lt;/span>&lt;span class="p">)&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;p>The first part of the condition above is a bad practice in object oriented design. It forces collaborators of &lt;code>user&lt;/code> to know a part of its implementation - it could have a &lt;code>privacy&lt;/code> or it couldn&amp;rsquo;t.&lt;/p>
+&lt;h3 id="what-we-want">
+ What we want
+ &lt;a class="heading-link" href="#what-we-want">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h3>
+&lt;p>Wouldn&amp;rsquo;t it be much better to just write this:&lt;/p></description></item></channel></rss>

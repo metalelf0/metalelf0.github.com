@@ -24,31 +24,23 @@
  &lt;/a>
 &lt;/h3>
 &lt;p>Recently I&amp;rsquo;ve seen in a project I work on a lot of occurrences of this code:&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#fff;font-weight:bold">if&lt;/span> user.privacy &amp;amp;&amp;amp; user.privacy.enables_page?(...)&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>
-&lt;p>The first part of the condition above is a bad practice in object oriented design. It forces collaborators of &lt;code>user&lt;/code> to know a part of its implementation - it could have a &lt;code>privacy&lt;/code> or it couldn&amp;rsquo;t.&lt;/p></description></item><item><title>Fluentd usage example with bash and ruby</title><link>https://metalelf0.github.io/posts/2013-08-09-fluentd-usage-example-with-bash-and-ruby/</link><pubDate>Fri, 09 Aug 2013 00:00:00 +0000</pubDate><guid>https://metalelf0.github.io/posts/2013-08-09-fluentd-usage-example-with-bash-and-ruby/</guid><description>&lt;p>&lt;img src="images/fluentd2.png" alt="fluentd logo">&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ruby" data-lang="ruby">&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="n">user&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">privacy&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="n">user&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">privacy&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">enables_page?&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">...&lt;/span>&lt;span class="p">)&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;p>The first part of the condition above is a bad practice in object oriented design. It forces collaborators of &lt;code>user&lt;/code> to know a part of its implementation - it could have a &lt;code>privacy&lt;/code> or it couldn&amp;rsquo;t.&lt;/p>
+&lt;h3 id="what-we-want">
+ What we want
+ &lt;a class="heading-link" href="#what-we-want">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h3>
+&lt;p>Wouldn&amp;rsquo;t it be much better to just write this:&lt;/p></description></item><item><title>Fluentd usage example with bash and ruby</title><link>https://metalelf0.github.io/posts/2013-08-09-fluentd-usage-example-with-bash-and-ruby/</link><pubDate>Fri, 09 Aug 2013 00:00:00 +0000</pubDate><guid>https://metalelf0.github.io/posts/2013-08-09-fluentd-usage-example-with-bash-and-ruby/</guid><description>&lt;p>&lt;img src="images/fluentd2.png" alt="fluentd logo">&lt;/p>
 &lt;p>&lt;a href="http://fluentd.org/" class="external-link" target="_blank" rel="noopener">Fluentd&lt;/a> is an open source tool to collect events and logs. Its architecture allows to easily collect logs from different input sources and redirect them to different output sinks. Some input examples are HTTP, syslog, or apache logs, and some output sinks are files, mail, and databases (both RDBMS and NoSQL ones). Also, it allows to parse logs and to extract only the significative parts from each of them; saving this structured information on a DB allows much easier log searching and analysis.&lt;/p></description></item><item><title>Easily change the path for your Paperclip attachments</title><link>https://metalelf0.github.io/posts/2012-12-10-easily-change-the-path-for-your-paperclip-attachments/</link><pubDate>Mon, 10 Dec 2012 00:00:00 +0000</pubDate><guid>https://metalelf0.github.io/posts/2012-12-10-easily-change-the-path-for-your-paperclip-attachments/</guid><description>&lt;p>Today after releasing an app to production environment I saw a couple of &lt;a href="https://github.com/thoughtbot/paperclip" class="external-link" target="_blank" rel="noopener">paperclip&lt;/a> warnings like this in my production.log file:&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">4
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-txt" data-lang="txt">&lt;span style="display:flex;">&lt;span>[paperclip] Duplicate URL for round_image with 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/system/:attachment/:id/:style/:filename. This
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>will clash with attachment defined in
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>PageElements::FranchisingCarouselEntry class
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>This happens because I defined an attachment with the same name in two different models, and the default strategy Paperclip uses to choose attachment locations could lead to filename clashing.&lt;/p></description></item><item><title>Vim regexp example: make a variable out of params</title><link>https://metalelf0.github.io/posts/2012-07-09-vim-regexp-example/</link><pubDate>Mon, 09 Jul 2012 00:00:00 +0000</pubDate><guid>https://metalelf0.github.io/posts/2012-07-09-vim-regexp-example/</guid><description>&lt;p>Today I wrote a regexp to change &lt;code>params[:page]&lt;/code> into &lt;code>page&lt;/code>. Here you are:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="cl">[paperclip] Duplicate URL for round_image with 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/system/:attachment/:id/:style/:filename. This
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">will clash with attachment defined in
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">PageElements::FranchisingCarouselEntry class
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This happens because I defined an attachment with the same name in two different models, and the default strategy Paperclip uses to choose attachment locations could lead to filename clashing.&lt;/p>
+&lt;p>Here is a more detailed example:&lt;/p></description></item><item><title>Vim regexp example: make a variable out of params</title><link>https://metalelf0.github.io/posts/2012-07-09-vim-regexp-example/</link><pubDate>Mon, 09 Jul 2012 00:00:00 +0000</pubDate><guid>https://metalelf0.github.io/posts/2012-07-09-vim-regexp-example/</guid><description>&lt;p>Today I wrote a regexp to change &lt;code>params[:page]&lt;/code> into &lt;code>page&lt;/code>. Here you are:&lt;/p>
 &lt;pre>&lt;code>:'&amp;lt;,'&amp;gt;s/params\[:\(\p\{-}\)\]/\1/g
 &lt;/code>&lt;/pre>
 &lt;p>Let&amp;rsquo;s explain it briefly:&lt;/p>
@@ -70,33 +62,17 @@
 &lt;ul>
 &lt;li>setup devise in your routes.rb file. I copied this code from the routes.rb file included in the spree/auth module:&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 4
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 5
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 6
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 7
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 8
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272"> 9
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">10
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="display:flex;">&lt;span>HostApplication::Application.routes.draw &lt;span style="color:#fff;font-weight:bold">do&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> devise_for &lt;span style="color:#0ff;font-weight:bold">:user&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0ff;font-weight:bold">:class_name&lt;/span> =&amp;gt; &lt;span style="color:#0ff;font-weight:bold">&amp;#39;Spree::User&amp;#39;&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0ff;font-weight:bold">:controllers&lt;/span> =&amp;gt; { &lt;span style="color:#0ff;font-weight:bold">:sessions&lt;/span> =&amp;gt; &lt;span style="color:#0ff;font-weight:bold">&amp;#39;spree/user_sessions&amp;#39;&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0ff;font-weight:bold">:registrations&lt;/span> =&amp;gt; &lt;span style="color:#0ff;font-weight:bold">&amp;#39;spree/user_registrations&amp;#39;&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0ff;font-weight:bold">:passwords&lt;/span> =&amp;gt; &lt;span style="color:#0ff;font-weight:bold">&amp;#39;spree/user_passwords&amp;#39;&lt;/span> },
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0ff;font-weight:bold">:skip&lt;/span> =&amp;gt; [&lt;span style="color:#0ff;font-weight:bold">:unlocks&lt;/span>, &lt;span style="color:#0ff;font-weight:bold">:omniauth_callbacks&lt;/span>],
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0ff;font-weight:bold">:path_names&lt;/span> =&amp;gt; { &lt;span style="color:#0ff;font-weight:bold">:sign_out&lt;/span> =&amp;gt; &lt;span style="color:#0ff;font-weight:bold">&amp;#39;logout&amp;#39;&lt;/span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#007f7f"># ...&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#fff;font-weight:bold">end&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ruby" data-lang="ruby">&lt;span class="line">&lt;span class="cl">&lt;span class="no">HostApplication&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="no">Application&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">routes&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">draw&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">devise_for&lt;/span> &lt;span class="ss">:user&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="ss">:class_name&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="s1">&amp;#39;Spree::User&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="ss">:controllers&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="ss">:sessions&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="s1">&amp;#39;spree/user_sessions&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="ss">:registrations&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="s1">&amp;#39;spree/user_registrations&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="ss">:passwords&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="s1">&amp;#39;spree/user_passwords&amp;#39;&lt;/span> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="ss">:skip&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="o">[&lt;/span>&lt;span class="ss">:unlocks&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="ss">:omniauth_callbacks&lt;/span>&lt;span class="o">]&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="ss">:path_names&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="ss">:sign_out&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="s1">&amp;#39;logout&amp;#39;&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># ...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>add &lt;code>before_filter :authenticate_user!&lt;/code> to the controller you want to be protected.&lt;/li>
 &lt;/ul>
 &lt;p>This way you&amp;rsquo;re setup with authentication; it&amp;rsquo;s time to move on with authorization.&lt;/p></description></item><item><title>The right colors for your VIM</title><link>https://metalelf0.github.io/posts/2012-02-06-the-right-colors-for-your-vim/</link><pubDate>Mon, 06 Feb 2012 00:00:00 +0000</pubDate><guid>https://metalelf0.github.io/posts/2012-02-06-the-right-colors-for-your-vim/</guid><description>&lt;p>I have a lot of Vim colorschemes, and I like to change them very often, reflecting my mood. I needed a way to showcase them all and quickly pick one.&lt;/p>

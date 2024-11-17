@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rake on metalelf0.github.io</title><link>https://metalelf0.github.io/tags/rake/</link><description>Recent content in Rake on metalelf0.github.io</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 10 Mar 2011 00:00:00 +0000</lastBuildDate><atom:link href="https://metalelf0.github.io/tags/rake/index.xml" rel="self" type="application/rss+xml"/><item><title>Howto run a rake task in sandbox mode</title><link>https://metalelf0.github.io/posts/2011-03-10-howto-run-a-rake-task-in-sandbox-mode/</link><pubDate>Thu, 10 Mar 2011 00:00:00 +0000</pubDate><guid>https://metalelf0.github.io/posts/2011-03-10-howto-run-a-rake-task-in-sandbox-mode/</guid><description>&lt;p>If you have a Rails rake task that somehow changes your DB data, but you want to be sure that the DB will be rolled back to its previous state after the rake task has completed, you can simply include this snippet right after your task definition:&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">4
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">5
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">6
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="display:flex;">&lt;span>ActiveRecord::Base.connection.increment_open_transactions
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ActiveRecord::Base.connection.begin_db_transaction
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#fff;font-weight:bold">at_exit&lt;/span> &lt;span style="color:#fff;font-weight:bold">do&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ActiveRecord::Base.connection.rollback_db_transaction
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ActiveRecord::Base.connection.decrement_open_transactions
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#fff;font-weight:bold">end&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>If you wonder where is this code coming from, it&amp;rsquo;s directly from the rails console code.&lt;/p></description></item></channel></rss>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ruby" data-lang="ruby">&lt;span class="line">&lt;span class="cl">&lt;span class="no">ActiveRecord&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="no">Base&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">connection&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">increment_open_transactions&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="no">ActiveRecord&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="no">Base&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">connection&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">begin_db_transaction&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">at_exit&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="no">ActiveRecord&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="no">Base&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">connection&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">rollback_db_transaction&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="no">ActiveRecord&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="no">Base&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">connection&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">decrement_open_transactions&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>If you wonder where is this code coming from, it&amp;rsquo;s directly from the rails console code.&lt;/p></description></item></channel></rss>
