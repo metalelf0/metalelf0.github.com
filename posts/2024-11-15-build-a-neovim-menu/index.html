@@ -13,15 +13,42 @@ I&rsquo;m going to build a custom interactive menu with custom options. I&rsquo;
 </span></span><span style=display:flex><span>	description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34; Edit neovim config&#34;</span>,
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>M.commands.EditBatConfig <span style=color:#f92672>=</span> { command <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;:e ~/.config/bat/config&#34;</span>, description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;🦇 Edit bat config&#34;</span> }
-</span></span><span style=display:flex><span>M.commands.EditInbox <span style=color:#f92672>=</span> { command <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;:e ~/iCloud-Obsidian/work/inbox.md&#34;</span>, description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;📥 Inbox&#34;</span> }
-</span></span><span style=display:flex><span>M.commands.EditKittyConfig <span style=color:#f92672>=</span> { command <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;:e ~/.config/kitty/kitty.conf&#34;</span>, description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;🐱 Edit kitty config&#34;</span> }
+</span></span><span style=display:flex><span>M.commands.EditBatConfig <span style=color:#f92672>=</span> { 
+</span></span><span style=display:flex><span>  command <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;:e ~/.config/bat/config&#34;</span>,
+</span></span><span style=display:flex><span>  description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;🦇 Edit bat config&#34;</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>M.commands.EditInbox <span style=color:#f92672>=</span> { 
+</span></span><span style=display:flex><span>  command <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;:e ~/iCloud-Obsidian/work/inbox.md&#34;</span>,
+</span></span><span style=display:flex><span>  description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;📥 Inbox&#34;</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>M.commands.EditKittyConfig <span style=color:#f92672>=</span> { 
+</span></span><span style=display:flex><span>  command <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;:e ~/.config/kitty/kitty.conf&#34;</span>,
+</span></span><span style=display:flex><span>  description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;🐱 Edit kitty config&#34;</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>M.commands.EditLazygitConfig <span style=color:#f92672>=</span>
-</span></span><span style=display:flex><span>	{ command <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;:e ~/Library/Application Support/lazygit/config.yml&#34;</span>, description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;🔱 Edit lazygit config&#34;</span> }
+</span></span><span style=display:flex><span>	{ 
+</span></span><span style=display:flex><span>  command <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;:e ~/Library/Application Support/lazygit/config.yml&#34;</span>,
+</span></span><span style=display:flex><span>  description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;🔱 Edit lazygit config&#34;</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>M.commands.EditWeztermConfig <span style=color:#f92672>=</span>
-</span></span><span style=display:flex><span>	{ command <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;:e ~/.config/wezterm/wezterm.lua&#34;</span>, description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;🔧 Edit Wezterm config&#34;</span> }
-</span></span><span style=display:flex><span>M.commands.EditGhosttyConfig <span style=color:#f92672>=</span> { command <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;:e ~/.config/ghostty/config&#34;</span>, description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;👻 Edit Ghostty config&#34;</span> }
-</span></span><span style=display:flex><span>M.commands.SourceCurrentLuaFile <span style=color:#f92672>=</span> { command <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;:luafile %&#34;</span>, description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;🏄 Lua: source current file&#34;</span> }
+</span></span><span style=display:flex><span>	{ 
+</span></span><span style=display:flex><span>  command <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;:e ~/.config/wezterm/wezterm.lua&#34;</span>,
+</span></span><span style=display:flex><span>  description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;🔧 Edit Wezterm config&#34;</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>M.commands.EditGhosttyConfig <span style=color:#f92672>=</span> { 
+</span></span><span style=display:flex><span>  command <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;:e ~/.config/ghostty/config&#34;</span>,
+</span></span><span style=display:flex><span>  description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;👻 Edit Ghostty config&#34;</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>M.commands.SourceCurrentLuaFile <span style=color:#f92672>=</span> { 
+</span></span><span style=display:flex><span>  command <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;:luafile %&#34;</span>,
+</span></span><span style=display:flex><span>  description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;🏄 Lua: source current file&#34;</span>
+</span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>M.run <span style=color:#f92672>=</span> <span style=color:#66d9ef>function</span>()
 </span></span><span style=display:flex><span>	vim.ui.select(vim.tbl_keys(M.commands), {
