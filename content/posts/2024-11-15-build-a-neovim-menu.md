@@ -29,15 +29,42 @@ M.commands.EditNeovimConfig = {
 	description = " Edit neovim config",
 }
 
-M.commands.EditBatConfig = { command = ":e ~/.config/bat/config", description = "🦇 Edit bat config" }
-M.commands.EditInbox = { command = ":e ~/iCloud-Obsidian/work/inbox.md", description = "📥 Inbox" }
-M.commands.EditKittyConfig = { command = ":e ~/.config/kitty/kitty.conf", description = "🐱 Edit kitty config" }
+M.commands.EditBatConfig = { 
+  command = ":e ~/.config/bat/config",
+  description = "🦇 Edit bat config"
+}
+
+M.commands.EditInbox = { 
+  command = ":e ~/iCloud-Obsidian/work/inbox.md",
+  description = "📥 Inbox"
+}
+
+M.commands.EditKittyConfig = { 
+  command = ":e ~/.config/kitty/kitty.conf",
+  description = "🐱 Edit kitty config"
+}
+
 M.commands.EditLazygitConfig =
-	{ command = ":e ~/Library/Application Support/lazygit/config.yml", description = "🔱 Edit lazygit config" }
+	{ 
+  command = ":e ~/Library/Application Support/lazygit/config.yml",
+  description = "🔱 Edit lazygit config"
+}
+
 M.commands.EditWeztermConfig =
-	{ command = ":e ~/.config/wezterm/wezterm.lua", description = "🔧 Edit Wezterm config" }
-M.commands.EditGhosttyConfig = { command = ":e ~/.config/ghostty/config", description = "👻 Edit Ghostty config" }
-M.commands.SourceCurrentLuaFile = { command = ":luafile %", description = "🏄 Lua: source current file" }
+	{ 
+  command = ":e ~/.config/wezterm/wezterm.lua",
+  description = "🔧 Edit Wezterm config"
+}
+
+M.commands.EditGhosttyConfig = { 
+  command = ":e ~/.config/ghostty/config",
+  description = "👻 Edit Ghostty config"
+}
+
+M.commands.SourceCurrentLuaFile = { 
+  command = ":luafile %",
+  description = "🏄 Lua: source current file"
+}
 
 M.run = function()
 	vim.ui.select(vim.tbl_keys(M.commands), {
