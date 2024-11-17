@@ -3,6 +3,7 @@ title = "metalelf0.github.io"
 theme = "hugo-coder"
 languagecode = "en"
 defaultcontentlanguage = "en"
+enableRobotsTXT = true
 
 paginate = 20
 
