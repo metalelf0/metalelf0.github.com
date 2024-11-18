@@ -1,5 +1,5 @@
 baseurl = "https://metalelf0.github.io"
-title = "metalelf0.github.io"
+title = "andreaschiavini.com"
 theme = "hugo-coder"
 languagecode = "en"
 defaultcontentlanguage = "en"
@@ -19,9 +19,9 @@ disqusShortname = "metalelf0-github-io"
   avatarurl = "/metalelf0.jpg"
   #gravatar = "john.doe@example.com"
 
-  faviconSVG = "/img/favicon.svg"
-  favicon_32 = "/img/favicon-32x32.png"
-  favicon_16 = "/img/favicon-16x16.png"
+  faviconSVG = "/favicon.svg"
+  favicon_32 = "/favicon-32x32.png"
+  favicon_16 = "/favicon-16x16.png"
 
   since = 2010
 
