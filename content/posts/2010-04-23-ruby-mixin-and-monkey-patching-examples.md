@@ -15,7 +15,7 @@ title: Ruby Mixin and monkey patching examples
 ---
 
 
-Let's explore a couple of solutions to dynamically add a `split_by_half` behaviour to an array object. The first technique is the <a href="http://en.wikipedia.org/wiki/Mixin">mixin</a>: it allows to add the method to a single array instance. The second one is called <a href="http://en.wikipedia.org/wiki/Monkey_patch">monkey patching</a>, and adds the method directly to the Array class, adding this behaviour to every array instance.
+Let's explore a couple of solutions to dynamically add a `split_by_half` behaviour to an array object. The first technique is the [mixin](http://en.wikipedia.org/wiki/Mixin): it allows to add the method to a single array instance. The second one is called [monkey patching](http://en.wikipedia.org/wiki/Monkey_patch), and adds the method directly to the Array class, adding this behaviour to every array instance.
 
 ```ruby
 ######### MIXIN

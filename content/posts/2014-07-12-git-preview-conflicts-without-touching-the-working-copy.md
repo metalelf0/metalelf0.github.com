@@ -17,7 +17,7 @@ What we're trying to tackle today is a very common problem, that I'm sure all of
 
 If you're using Github, you can simply open the Pull Request page for your feature branch and look for the following box:
 
-<img src="https://raw.githubusercontent.com/metalelf0/metalelf0.github.com/master/images/github-safe-merge.png">
+![github-safe-merge](https://raw.githubusercontent.com/metalelf0/metalelf0.github.com/master/images/github-safe-merge.png)
 
 This is informing you there will be no conflicts and a merge will run smooth.
 

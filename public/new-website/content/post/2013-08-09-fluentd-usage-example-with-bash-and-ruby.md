@@ -15,8 +15,11 @@ theme:
 title: Fluentd usage example with bash and ruby
 ---
 
+{{ $image := .Resources.GetRemote "https://raw.github.com/fluent/website/master/logos/fluentd2.png" }}
+{{ with $image }}
+  <img alt="fluentd-logo" class="fluentd-example" src="{{ .RelPermalink }}">
+{{ end }}
 
-<img class="fluentd-example" src="https://raw.github.com/fluent/website/master/logos/fluentd2.png" alt="fluentd-logo"/>
 
 [Fluentd](http://fluentd.org/) is an open source tool to collect events and
 logs. Its architecture allows to easily collect logs from different input
@@ -26,7 +29,10 @@ databases (both RDBMS and NoSQL ones). Also, it allows to parse logs and to
 extract only the significative parts from each of them; saving this
 structured information on a DB allows much easier log searching and analysis.
 
-<img class="fluentd-example" src="http://docs.fluentd.org/images/apache-to-mongodb.png" alt="fluentd-example"/>
+{{ $image := .Resources.GetRemote "http://docs.fluentd.org/images/apache-to-mongodb.png" }}
+{{ with $image }}
+  <img alt="fluentd-example" class="fluentd-example" src="{{ .RelPermalink }}">
+{{ end }}
 
 The fluentd architecture can be extended with ruby plugins to support input
 sources and output destinations; for the scope of this example, we will use:

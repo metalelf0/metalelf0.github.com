@@ -76,7 +76,7 @@
       <link>http://localhost:1313/posts/2010-09-30-format-the-results-of-a-mysql-query-like-mysql-in-rails/</link>
       <pubDate>Thu, 30 Sep 2010 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/2010-09-30-format-the-results-of-a-mysql-query-like-mysql-in-rails/</guid>
-      <description>&lt;p&gt;It may happen that you need to display the results of a MySQL query on a page. E.g., your customer asks you to add a report on a page, and you don&amp;rsquo;t want to build a custom template, but just write the query and see the results.&lt;/p&gt;&#xA;&lt;p&gt;We can do this easily thanks to the terminal-table gem (see &lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;http://github.com/visionmedia/terminal-table&#34;&gt;http://github.com/visionmedia/terminal-table&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;). This gem allows printing an ASCII table, just like the one you see when you use MySQL from the terminal. Look at its page on GitHub to see how easy it is.&lt;/p&gt;</description>
+      <description>&lt;p&gt;It may happen that you need to display the results of a MySQL query on a page. E.g., your customer asks you to add a report on a page, and you don&amp;rsquo;t want to build a custom template, but just write the query and see the results.&lt;/p&gt;&#xA;&lt;p&gt;We can do this easily thanks to the terminal-table gem (see &lt;a href=&#34;http://github.com/visionmedia/terminal-table&#34;&gt;http://github.com/visionmedia/terminal-table&lt;/a&gt;. This gem allows printing an ASCII table, just like the one you see when you use MySQL from the terminal. Look at its page on GitHub to see how easy it is.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
