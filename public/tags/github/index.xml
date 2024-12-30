@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Github on andreaschiavini.com</title>
+    <link>http://localhost:1313/tags/github/</link>
+    <description>Recent content in Github on andreaschiavini.com</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 30 Dec 2024 10:00:00 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The github pages DNS takeover incident</title>
+      <link>http://localhost:1313/posts/2024-12-30-github-pages-dns-takeover/</link>
+      <pubDate>Mon, 30 Dec 2024 10:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/posts/2024-12-30-github-pages-dns-takeover/</guid>
+      <description>&lt;p&gt;This website, &lt;code&gt;andreaschiavini.com&lt;/code&gt;, is hosted on GitHub Pages. The domain is registered on Namecheap, and the integration was done following instructions &lt;a href=&#34;https://gist.github.com/plembo/84f80c920bb5ac6f19e53fe6f8db1ff7&#34;&gt;on this gist&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Last week, I received an email from Google saying that some users had been added as property owners of my Google Search Console property. This raised an eyebrow, and I checked my website. Instead of my website, it showed some sort of slot machine scam website.&lt;/p&gt;&#xA;&lt;p&gt;The first thing I checked was my DNS settings. They were correct, and checking via &lt;code&gt;dig&lt;/code&gt; apparently reported no issue:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

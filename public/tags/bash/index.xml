@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Bash on metalelf0.github.io</title>
+    <title>Bash on andreaschiavini.com</title>
     <link>http://localhost:1313/tags/bash/</link>
-    <description>Recent content in Bash on metalelf0.github.io</description>
+    <description>Recent content in Bash on andreaschiavini.com</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Fri, 09 Aug 2013 00:00:00 +0000</lastBuildDate>
@@ -13,7 +13,7 @@
       <link>http://localhost:1313/posts/2013-08-09-fluentd-usage-example-with-bash-and-ruby/</link>
       <pubDate>Fri, 09 Aug 2013 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/2013-08-09-fluentd-usage-example-with-bash-and-ruby/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;images/fluentd2.png&#34; alt=&#34;fluentd logo&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://fluentd.org/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Fluentd&lt;/a&gt; is an open source tool to collect events and logs. Its architecture allows to easily collect logs from different input sources and redirect them to different output sinks. Some input examples are HTTP, syslog, or apache logs, and some output sinks are files, mail, and databases (both RDBMS and NoSQL ones). Also, it allows to parse logs and to extract only the significative parts from each of them; saving this structured information on a DB allows much easier log searching and analysis.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;img src=&#34;images/fluentd2.png&#34; alt=&#34;fluentd logo&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://fluentd.org/&#34;&gt;Fluentd&lt;/a&gt; is an open source tool to collect events and logs. Its architecture allows to easily collect logs from different input sources and redirect them to different output sinks. Some input examples are HTTP, syslog, or apache logs, and some output sinks are files, mail, and databases (both RDBMS and NoSQL ones). Also, it allows to parse logs and to extract only the significative parts from each of them; saving this structured information on a DB allows much easier log searching and analysis.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

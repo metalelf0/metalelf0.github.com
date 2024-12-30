@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Authors on metalelf0.github.io</title>
+    <title>Authors on andreaschiavini.com</title>
     <link>http://localhost:1313/authors/</link>
-    <description>Recent content in Authors on metalelf0.github.io</description>
+    <description>Recent content in Authors on andreaschiavini.com</description>
     <generator>Hugo</generator>
     <language>en</language>
     <atom:link href="http://localhost:1313/authors/index.xml" rel="self" type="application/rss+xml" />

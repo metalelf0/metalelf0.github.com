@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Db on metalelf0.github.io</title>
+    <title>Db on andreaschiavini.com</title>
     <link>http://localhost:1313/tags/db/</link>
-    <description>Recent content in Db on metalelf0.github.io</description>
+    <description>Recent content in Db on andreaschiavini.com</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sun, 19 Jun 2011 00:00:00 +0000</lastBuildDate>
@@ -13,7 +13,7 @@
       <link>http://localhost:1313/posts/2011-06-19-machinist-vs-factory-girl-machinist-win/</link>
       <pubDate>Sun, 19 Jun 2011 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/2011-06-19-machinist-vs-factory-girl-machinist-win/</guid>
-      <description>&lt;p&gt;Today I decided to verify if &lt;a href=&#34;https://github.com/notahat/machinist&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Machinist&lt;/a&gt; could be a good replacement for &lt;a href=&#34;https://github.com/thoughtbot/factory_girl&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Factory Girl&lt;/a&gt;. In our project, we have a big problem with Factory Girl: even if you tell her not to hit the database, using the &lt;code&gt;Factory.build&lt;/code&gt; method, if an object has associations, these are saved on the DB. And this causes a huge slowdown in specs using factories. We&amp;rsquo;ve been using Factory Girl for nearly two years, and if we could find a way to stop him hitting the DB, we could really have a huge improvent in our test suite running time.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Today I decided to verify if &lt;a href=&#34;https://github.com/notahat/machinist&#34;&gt;Machinist&lt;/a&gt; could be a good replacement for &lt;a href=&#34;https://github.com/thoughtbot/factory_girl&#34;&gt;Factory Girl&lt;/a&gt;. In our project, we have a big problem with Factory Girl: even if you tell her not to hit the database, using the &lt;code&gt;Factory.build&lt;/code&gt; method, if an object has associations, these are saved on the DB. And this causes a huge slowdown in specs using factories. We&amp;rsquo;ve been using Factory Girl for nearly two years, and if we could find a way to stop him hitting the DB, we could really have a huge improvent in our test suite running time.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Howto run a rake task in sandbox mode</title>

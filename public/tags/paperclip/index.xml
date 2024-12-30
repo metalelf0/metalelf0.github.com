@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Paperclip on metalelf0.github.io</title>
+    <title>Paperclip on andreaschiavini.com</title>
     <link>http://localhost:1313/tags/paperclip/</link>
-    <description>Recent content in Paperclip on metalelf0.github.io</description>
+    <description>Recent content in Paperclip on andreaschiavini.com</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Mon, 10 Dec 2012 00:00:00 +0000</lastBuildDate>
@@ -13,7 +13,7 @@
       <link>http://localhost:1313/posts/2012-12-10-easily-change-the-path-for-your-paperclip-attachments/</link>
       <pubDate>Mon, 10 Dec 2012 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/2012-12-10-easily-change-the-path-for-your-paperclip-attachments/</guid>
-      <description>&lt;p&gt;Today after releasing an app to production environment I saw a couple of &lt;a href=&#34;https://github.com/thoughtbot/paperclip&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;paperclip&lt;/a&gt; warnings like this in my production.log file:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[paperclip] Duplicate URL for round_image with &#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/system/:attachment/:id/:style/:filename. This&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;will clash with attachment defined in&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PageElements::FranchisingCarouselEntry class&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This happens because I defined an attachment with the same name in two different models, and the default strategy Paperclip uses to choose attachment locations could lead to filename clashing.&lt;/p&gt;&#xA;&lt;p&gt;Here is a more detailed example:&lt;/p&gt;</description>
+      <description>&lt;p&gt;Today after releasing an app to production environment I saw a couple of &lt;a href=&#34;https://github.com/thoughtbot/paperclip&#34;&gt;paperclip&lt;/a&gt; warnings like this in my production.log file:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[paperclip] Duplicate URL for round_image with &#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/system/:attachment/:id/:style/:filename. This&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;will clash with attachment defined in&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PageElements::FranchisingCarouselEntry class&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This happens because I defined an attachment with the same name in two different models, and the default strategy Paperclip uses to choose attachment locations could lead to filename clashing.&lt;/p&gt;&#xA;&lt;p&gt;Here is a more detailed example:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

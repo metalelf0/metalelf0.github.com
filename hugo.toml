@@ -5,7 +5,8 @@ languagecode = "en"
 defaultcontentlanguage = "en"
 enableRobotsTXT = true
 
-paginate = 20
+[pagination]
+pagerSize = 20
 
 [services]
 [services.disqus]

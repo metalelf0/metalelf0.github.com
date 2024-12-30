@@ -1,13 +1,34 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on metalelf0.github.io</title>
+    <title>Tags on andreaschiavini.com</title>
     <link>http://localhost:1313/tags/</link>
-    <description>Recent content in Tags on metalelf0.github.io</description>
+    <description>Recent content in Tags on andreaschiavini.com</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 16 Nov 2024 21:41:49 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 30 Dec 2024 10:00:00 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dns</title>
+      <link>http://localhost:1313/tags/dns/</link>
+      <pubDate>Mon, 30 Dec 2024 10:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/tags/dns/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Github</title>
+      <link>http://localhost:1313/tags/github/</link>
+      <pubDate>Mon, 30 Dec 2024 10:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/tags/github/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Security</title>
+      <link>http://localhost:1313/tags/security/</link>
+      <pubDate>Mon, 30 Dec 2024 10:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/tags/security/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Lua</title>
       <link>http://localhost:1313/tags/lua/</link>
