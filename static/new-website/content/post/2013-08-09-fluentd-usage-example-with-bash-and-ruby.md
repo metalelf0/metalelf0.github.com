@@ -10,8 +10,6 @@ tags:
 - fluentd
 - bash
 - shell
-theme:
-  name: journal
 title: Fluentd usage example with bash and ruby
 ---
 
@@ -46,11 +44,15 @@ sources and output destinations; for the scope of this example, we will use:
 The first thing to do is installing the fluentd server. You can easily do this
 via rubygems (beware it requires at least ruby 1.9.2):
 
-    $ gem install fluentd
+```sh
+$ gem install fluentd
+```
 
 When you're done you can create a setup file:
 
+```sh
     $ fluentd -s ~/.fluentd
+```
 
 This will create the file `~/.fluentd/fluent.conf` and setup the `~/.fluent/plugins` folder.
 
@@ -74,7 +76,9 @@ above to be installed, but we'll talk about this later.
 Let's start the server and keep it running in foreground, to easily see
 incoming messages:
 
+```sh
     $ fluentd -c ~/.fluent/fluent.conf
+```
 
 ### Logging from bash to STDOUT
 
@@ -87,9 +91,11 @@ As you can see I created a wrapper function to make it easier to redirect logs
 to `fluentd`. Save the file, make it executable and run it. You should see output
 like this in your server:
 
-    2013-08-09 17:01:06 +0200 [trace]: plugin/in_forward.rb:150:initialize: accepted fluent socket object_id=70144024060720
-    2013-08-09 17:01:06 +0200 fluentd.test.log: {"project":"Library","script_name":"Reload books","message":"Started"}
-    2013-08-09 17:01:06 +0200 [trace]: plugin/in_forward.rb:191:on_close: closed fluent socket object_id=70144024060720
+```txt
+2013-08-09 17:01:06 +0200 [trace]: plugin/in_forward.rb:150:initialize: accepted fluent socket object_id=70144024060720
+2013-08-09 17:01:06 +0200 fluentd.test.log: {"project":"Library","script_name":"Reload books","message":"Started"}
+2013-08-09 17:01:06 +0200 [trace]: plugin/in_forward.rb:191:on_close: closed fluent socket object_id=70144024060720
+```
 
 This is telling us that `fluentd` is accepting input from the `fluent-cat` command
 and it is redirecting it to standard output, according to the first rule.
@@ -104,18 +110,24 @@ Now, in the previous bash script, change the target of `fluent-cat` from
 `fluentd.test.log` to `mongo.log`. Save it, run it again, and type this in your
 MongoDB console:
 
+```mongo
     $ db.test.find()
+```
 
 This time you should see an entry in the `test` collection:
 
-    { "_id" : ObjectId("5204dfee9f60b167da000004"), "project" : "Library", "script_name" : "Reload books", "message" : "Started", "time" : ISODate("2013-08-09T12:26:22Z") }
+```txt
+{ "_id" : ObjectId("5204dfee9f60b167da000004"), "project" : "Library", "script_name" : "Reload books", "message" : "Started", "time" : ISODate("2013-08-09T12:26:22Z") }
+```
 
 ### Logging from bash to MongoDB
 
 Let's see how to achieve the same result in a ruby script. Install the fluent-logger
 rubygem with 
 
-    $ gem install fluent-logger
+```sh
+$ gem install fluent-logger
+```
 
 Then create a ruby script with the following content:
 
@@ -124,7 +136,9 @@ Then create a ruby script with the following content:
 Run it, rerun the query in the MongoDB console, and a new entry should be present.
 
 
-    { "_id" : ObjectId("5204dfee9f60b167da000005"), "project" : "Library", "script_name" : "Reload books", "message" : "Completed", "time" : ISODate("2013-08-09T12:46:32Z") }
+```txt
+{ "_id" : ObjectId("5204dfee9f60b167da000005"), "project" : "Library", "script_name" : "Reload books", "message" : "Completed", "time" : ISODate("2013-08-09T12:46:32Z") }
+```
 
 ### Final considerations
 
@@ -134,9 +148,9 @@ database. You can make elaborate statistics, build charts, and do everything you
 want with it. According to the `fluentd` website, its simple architecture allows
 it to run with very good performances:
 
-    "Fluentd’s performance has been proven in the field: its largest user
-    currently collects logs from 5000+ servers, 5 TB of daily data, handling
-    50,000 msgs/sec at peak time."
+>    "Fluentd’s performance has been proven in the field: its largest user
+>    currently collects logs from 5000+ servers, 5 TB of daily data, handling
+>    50,000 msgs/sec at peak time."
 
 So, I hope this post helped you to understand what this tool is about. I
 suggest you to check out the [fluentd
