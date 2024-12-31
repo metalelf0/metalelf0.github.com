@@ -1,0 +1,49 @@
+#  The contact options.
+
+- type: github
+  icon: "fab fa-github"
+
+- type: twitter
+  icon: "fa-brands fa-x-twitter"
+
+- type: email
+  icon: "fas fa-envelope"
+  noblank: true # open link in current tab
+
+- type: rss
+  icon: "fas fa-rss"
+  noblank: true
+# Uncomment and complete the url below to enable more contact options
+#
+# - type: mastodon
+#   icon: 'fab fa-mastodon'   # icons powered by <https://fontawesome.com/>
+#   url:  ''                  # Fill with your Mastodon account page, rel="me" will be applied for verification
+#
+- type: linkedin
+  icon: "fab fa-linkedin" # icons powered by <https://fontawesome.com/>
+  noblank: true
+  url: "https://www.linkedin.com/in/metalelf0"
+
+- type: stack-overflow
+  icon: "fab fa-stack-overflow"
+  noblank: true
+  url: "https://stackoverflow.com/users/165339/metalelf0"
+
+- type: flickr
+  icon: "fab fa-flickr"
+  noblank: true
+  url: "https://flickr.com/metalelf0"
+
+- type: reddit
+  icon: "fa-brands fa-reddit"
+  noblank: true
+  url: "https://www.reddit.com/user/metalelf0/" # Fill with your Reddit profile link
+
+#
+# - type: bluesky
+#   icon: 'fa-brands fa-bluesky'
+#   url: ''                   # Fill with your Bluesky profile link
+##
+# - type: threads
+#   icon: 'fa-brands fa-threads'
+#   url: ''                   # Fill with your Threads profile link
