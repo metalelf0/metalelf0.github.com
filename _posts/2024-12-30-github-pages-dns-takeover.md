@@ -2,12 +2,12 @@
 title: "The github pages DNS takeover incident"
 date: 2024-12-30T10:00:00+01:00
 categories:
-- posts
-- technical
+  - posts
+  - technical
 tags:
-- github
-- dns
-- security
+  - github
+  - dns
+  - security
 ---
 
 This website, `andreaschiavini.com`, is hosted on GitHub Pages. The domain is registered on Namecheap, and the integration was done following instructions [on this gist](https://gist.github.com/plembo/84f80c920bb5ac6f19e53fe6f8db1ff7).
@@ -45,10 +45,10 @@ When we register a custom domain for a Google Pages website, we are advised to v
 
 I did this the first time I set up the integration, but I carelessly removed the TXT record afterwards. This exposed my domain to be added by a malicious user and bound to another GitHub Pages website.
 
-The important bit to notice here is how GitHub handles adding custom domains, which was not entirely clear to me:
-
-- when you *add a custom domain*, GitHub just checks that the domain DNS records are set up correctly to point to the GitHub IPs (A records);
-- when you *validate a domain*, GitHub checks for the presence of the TXT record and verifies its content.
+> The important bit to notice here is how GitHub handles adding custom domains, which was not entirely clear to me:
+> - when you _add a custom domain_, GitHub just checks that the domain DNS records are set up correctly to point to the GitHub IPs (A records);
+> - when you _validate a domain_, GitHub checks for the presence of the TXT record and verifies its content.
+{: .prompt-tip }
 
 So, after removing the TXT record by accident, all the attacker could do was add the domain to their GitHub repo, but they clearly couldn't validate it (they would have needed access to my Namecheap account for that).
 
