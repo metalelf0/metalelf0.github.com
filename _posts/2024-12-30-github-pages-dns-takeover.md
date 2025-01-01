@@ -49,7 +49,7 @@ I did this the first time I set up the integration, but I carelessly removed the
 >
 > - when you _add a custom domain_, GitHub just checks that the domain DNS records are set up correctly to point to the GitHub IPs (A records);
 > - when you _validate a domain_, GitHub checks for the presence of the TXT record and verifies its content.
->   {: .prompt-tip }
+{: .prompt-tip }
 
 So, after removing the TXT record by accident, all the attacker could do was add the domain to their GitHub repo, but they clearly couldn't validate it (they would have needed access to my Namecheap account for that).
 
