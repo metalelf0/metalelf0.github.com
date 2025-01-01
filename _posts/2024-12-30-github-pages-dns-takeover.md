@@ -33,7 +33,7 @@ metalelf0.github.io.    856     IN      A       185.199.108.153
 
 After a quick check with the support folks from namecheap, which excluded any DNS issue, I switched to the github side.
 
-My website is a static blog built using hugo and deployed via github actions. Considering I'm using a custom theme, I suspected something might have happened on the javascript side, e.g. some external javascript that was included by the theme and accidentally got hacked to perform a redirect. However, inspecting the site loading reported that the first call (the `GET /` call) was already returning the scam website, so before any javascript was loaded and executed.
+My website is a static blog built using ~~hugo~~ jekyll and deployed via github actions. Considering I'm using a custom theme, I suspected something might have happened on the javascript side, e.g. some external javascript that was included by the theme and accidentally got hacked to perform a redirect. However, inspecting the site loading reported that the first call (the `GET /` call) was already returning the scam website, so before any javascript was loaded and executed.
 
 Github actions also weren't ran since the last deploy, that happened more than a month ago, so I excluded them from my analysis.
 
@@ -46,9 +46,10 @@ When we register a custom domain for a Google Pages website, we are advised to v
 I did this the first time I set up the integration, but I carelessly removed the TXT record afterwards. This exposed my domain to be added by a malicious user and bound to another GitHub Pages website.
 
 > The important bit to notice here is how GitHub handles adding custom domains, which was not entirely clear to me:
+>
 > - when you _add a custom domain_, GitHub just checks that the domain DNS records are set up correctly to point to the GitHub IPs (A records);
 > - when you _validate a domain_, GitHub checks for the presence of the TXT record and verifies its content.
-{: .prompt-tip }
+>   {: .prompt-tip }
 
 So, after removing the TXT record by accident, all the attacker could do was add the domain to their GitHub repo, but they clearly couldn't validate it (they would have needed access to my Namecheap account for that).
 
