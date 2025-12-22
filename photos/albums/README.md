@@ -1,43 +1,52 @@
-# Photo Albums
+# Photo Albums Source
 
-This directory contains your photo albums. Each album should be in its own subdirectory.
+This folder contains the hi-res source photos for your photo albums.
 
-## Creating a New Album
+**⚠️ This folder is gitignored and will NOT be pushed to GitHub.**
 
-1. Create a new directory with the format: `YYYY-MM-DD-album-name`
-   - Example: `2025-12-12-paris` or `2025-10-10-italy`
-   - The date is optional, but recommended for proper sorting
+## Workflow
 
-2. Add your image files (JPG, JPEG, PNG, GIF, WEBP) to this directory
+### Adding New Photos
 
-3. Jekyll will automatically:
-   - Generate an album page at `/photos/album-name/`
-   - Create pagination if you have more than 20 photos
-   - Add the album to the main photos listing page
-   - Use the first photo as the album thumbnail
+1. Create a new album folder with the format: `YYYY-MM-DD-album-name`
+   ```
+   photos/albums/2025-12-25-christmas/
+   ```
 
-## Album Title Generation
+2. Add your hi-res photos to the folder
 
-Album titles are automatically generated from the folder name:
-- `2025-12-12-paris` → "Paris"
-- `2025-10-10-northern-italy` → "Northern Italy"
-- The date will be displayed separately as "December 12, 2025"
+3. Build the site locally:
+   ```bash
+   bundle exec jekyll build
+   ```
 
-## Example Structure
+4. The build process will:
+   - Back up hi-res photos to `hi-res-photos/` (also gitignored)
+   - Create resized versions (1920px max) in `photos/resized/`
+   - Copy resized versions to your git repo
 
-```
-photos/albums/
-├── 2025-12-12-paris/
-│   ├── IMG_001.jpg
-│   ├── IMG_002.jpg
-│   └── IMG_003.jpg
-├── 2025-10-10-italy/
-│   ├── photo1.jpg
-│   ├── photo2.jpg
-│   └── photo3.jpg
-└── 2024-07-04-summer/
-    ├── beach1.jpg
-    └── beach2.jpg
-```
+5. Commit and push the resized photos:
+   ```bash
+   git add photos/resized/
+   git commit -m "Add new photo album"
+   git push
+   ```
 
-After adding photos, rebuild your Jekyll site to see the changes.
+### What Gets Committed to Git
+
+- ✅ `photos/resized/` - Only resized, optimized photos (~10MB per album)
+- ❌ `photos/albums/` - Hi-res source photos (gitignored)
+- ❌ `hi-res-photos/` - Local backup (gitignored)
+
+### GitHub Pages Deployment
+
+When GitHub Pages builds your site:
+- It uses the pre-generated resized photos from `photos/resized/`
+- No hi-res processing happens on GitHub
+- Albums display correctly without the source files
+
+## File Sizes
+
+- Hi-res sources: ~298MB per album
+- Resized (committed): ~10MB per album
+- **97% size reduction!**

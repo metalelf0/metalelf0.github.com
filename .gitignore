@@ -1,3 +1,9 @@
+# Jekyll build output (should not be committed)
+_site
+
 # Hi-res photo folders (should not be in git repo)
 photos/albums
 hi-res-photos
+
+# But DO commit the resized photos that will be served
+!photos/resized

@@ -3,12 +3,13 @@ require 'fileutils'
 
 module Jekyll
   class PhotoAlbum
-    attr_reader :name, :path, :date, :title, :slug, :photos
+    attr_reader :name, :path, :date, :title, :slug, :photos, :from_resized
 
-    def initialize(site, album_path)
+    def initialize(site, album_path, from_resized: false)
       @site = site
       @path = album_path
       @name = File.basename(album_path)
+      @from_resized = from_resized
 
       # Parse date and title from folder name (e.g., "2025-12-12-paris")
       if @name =~ /^(\d{4})-(\d{2})-(\d{2})-(.+)$/
@@ -26,20 +27,44 @@ module Jekyll
 
     def load_photos
       image_extensions = %w[.jpg .jpeg .png .gif .webp]
-      Dir.glob(File.join(@path, '*')).select do |file|
-        File.file?(file) && image_extensions.include?(File.extname(file).downcase)
-      end.sort.map do |file|
-        filename = File.basename(file)
-        resized_url = "/photos/resized/#{@name}/#{URI.encode_www_form_component(filename)}"
 
-        {
-          'path' => file.sub(@site.source, ''),
-          'filename' => filename,
-          'url' => resized_url,          # Resized version for display
-          'original_url' => resized_url,  # Also use resized version for lightbox (hi-res never served)
-          'resized_url' => resized_url,
-          'source_path' => file
-        }
+      if @from_resized
+        # Load from pre-generated resized folder (GitHub Pages scenario)
+        resized_path = File.join(@site.source, 'photos', 'resized', @name)
+        return [] unless Dir.exist?(resized_path)
+
+        Dir.glob(File.join(resized_path, '*')).select do |file|
+          File.file?(file) && image_extensions.include?(File.extname(file).downcase)
+        end.sort.map do |file|
+          filename = File.basename(file)
+          resized_url = "/photos/resized/#{@name}/#{URI.encode_www_form_component(filename)}"
+
+          {
+            'path' => file.sub(@site.source, ''),
+            'filename' => filename,
+            'url' => resized_url,
+            'original_url' => resized_url,
+            'resized_url' => resized_url,
+            'source_path' => nil  # No source path when reading from resized
+          }
+        end
+      else
+        # Load from hi-res albums folder (local development scenario)
+        Dir.glob(File.join(@path, '*')).select do |file|
+          File.file?(file) && image_extensions.include?(File.extname(file).downcase)
+        end.sort.map do |file|
+          filename = File.basename(file)
+          resized_url = "/photos/resized/#{@name}/#{URI.encode_www_form_component(filename)}"
+
+          {
+            'path' => file.sub(@site.source, ''),
+            'filename' => filename,
+            'url' => resized_url,
+            'original_url' => resized_url,
+            'resized_url' => resized_url,
+            'source_path' => file
+          }
+        end
       end
     end
 
@@ -105,17 +130,37 @@ module Jekyll
 
     def generate(site)
       albums_path = File.join(site.source, 'photos', 'albums')
-      return unless Dir.exist?(albums_path)
+      resized_path = File.join(site.source, 'photos', 'resized')
 
       albums = []
+      use_resized = false
 
-      Dir.glob(File.join(albums_path, '*')).select { |f| File.directory?(f) }.each do |album_path|
-        album = PhotoAlbum.new(site, album_path)
-        next if album.photo_count.zero?
+      # Check if we should read from albums (local) or resized (GitHub Pages)
+      if Dir.exist?(albums_path)
+        # Local development: process from hi-res albums
+        Jekyll.logger.info "Photo Albums:", "Processing from hi-res albums folder"
+        Dir.glob(File.join(albums_path, '*')).select { |f| File.directory?(f) }.each do |album_path|
+          album = PhotoAlbum.new(site, album_path, from_resized: false)
+          next if album.photo_count.zero?
+          albums << album
+        end
+      elsif Dir.exist?(resized_path)
+        # GitHub Pages: use pre-generated resized photos
+        Jekyll.logger.info "Photo Albums:", "Using pre-generated resized photos"
+        use_resized = true
+        Dir.glob(File.join(resized_path, '*')).select { |f| File.directory?(f) }.each do |album_path|
+          album = PhotoAlbum.new(site, album_path, from_resized: true)
+          next if album.photo_count.zero?
+          albums << album
+        end
+      else
+        # No albums or resized folder found
+        Jekyll.logger.warn "Photo Albums:", "No albums or resized photos found"
+        return
+      end
 
-        albums << album
-
-        # Generate pages for this album with pagination
+      # Generate pages for each album with pagination
+      albums.each do |album|
         photos_per_page = 20
         total_pages = (album.photo_count.to_f / photos_per_page).ceil
 
@@ -130,8 +175,8 @@ module Jekyll
       # Make albums available to the photos listing page
       site.data['photo_albums'] = albums.map(&:to_liquid)
 
-      # Store albums for post-write hook
-      site.config['photo_albums_data'] = albums
+      # Store albums for post-write hook (only if processing from source)
+      site.config['photo_albums_data'] = use_resized ? [] : albums
     end
   end
 
@@ -142,12 +187,13 @@ module Jekyll
     albums.each do |album|
       album.photos.each do |photo|
         source_path = photo['source_path']
+        next unless source_path  # Skip if no source (already using resized)
+
+        filename = File.basename(source_path)
 
         # 1. Backup hi-res photo to hi-res-photos/ folder at root
         hires_backup_dir = File.join(site.source, 'hi-res-photos', album.name)
         FileUtils.mkdir_p(hires_backup_dir)
-
-        filename = File.basename(source_path)
         hires_backup_path = File.join(hires_backup_dir, filename)
 
         # Copy hi-res photo to backup folder if it doesn't exist or is older
@@ -156,14 +202,18 @@ module Jekyll
           Jekyll.logger.info "Backed up hi-res:", "#{filename}"
         end
 
-        # 2. Create resized version for the website
-        resized_dir = File.join(site.dest, 'photos', 'resized', album.name)
-        FileUtils.mkdir_p(resized_dir)
+        # 2. Create resized version for _site
+        resized_dir_site = File.join(site.dest, 'photos', 'resized', album.name)
+        FileUtils.mkdir_p(resized_dir_site)
+        resized_path_site = File.join(resized_dir_site, filename)
 
-        resized_path = File.join(resized_dir, filename)
+        # 3. Also create resized version in source (for git commit)
+        resized_dir_source = File.join(site.source, 'photos', 'resized', album.name)
+        FileUtils.mkdir_p(resized_dir_source)
+        resized_path_source = File.join(resized_dir_source, filename)
 
         # Only resize if needed
-        if !File.exist?(resized_path) || File.mtime(source_path) > File.mtime(resized_path)
+        if !File.exist?(resized_path_site) || File.mtime(source_path) > File.mtime(resized_path_site)
           begin
             image = MiniMagick::Image.open(source_path)
 
@@ -177,13 +227,19 @@ module Jekyll
             # Set quality to 85 for good balance between size and quality
             image.quality "85"
 
-            image.write(resized_path)
+            # Write to both _site and source
+            image.write(resized_path_site)
+            image.write(resized_path_source)
             Jekyll.logger.info "Resized:", "#{filename}"
           rescue => e
             Jekyll.logger.warn "Photo resize error:", "#{filename}: #{e.message}"
             # If resize fails, copy the original
-            FileUtils.cp(source_path, resized_path)
+            FileUtils.cp(source_path, resized_path_site)
+            FileUtils.cp(source_path, resized_path_source)
           end
+        elsif !File.exist?(resized_path_source)
+          # Resized version exists in _site but not in source, copy it
+          FileUtils.cp(resized_path_site, resized_path_source)
         end
       end
     end
