@@ -129,28 +129,29 @@ layout: default
 <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/zoom/lg-zoom.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/thumbnail/lg-thumbnail.min.js"></script>
 
+<!-- compress_html ignore -->
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    $('#lightgallery').justifiedGallery({
-      rowHeight: 200,
-      maxRowHeight: 300,
-      lastRow: 'nojustify',
-      margins: 5,
-      captions: false
-    }).on('jg.complete', function () {
-      // Initialize lightGallery after justifiedGallery is complete
-      lightGallery(document.getElementById('lightgallery'), {
-        selector: 'a',
-        plugins: [lgZoom, lgThumbnail],
-        speed: 500,
-        download: true,
-        counter: true,
-        thumbnail: true,
-        animateThumb: true,
-        showThumbByDefault: true,
-        subHtmlSelectorRelative: false,
-        getCaptionFromTitleOrAlt: false
-      });
+document.addEventListener('DOMContentLoaded', function() {
+  $('#lightgallery').justifiedGallery({
+    rowHeight: 200,
+    maxRowHeight: 300,
+    lastRow: 'nojustify',
+    margins: 5,
+    captions: false
+  }).on('jg.complete', function() {
+    lightGallery(document.getElementById('lightgallery'), {
+      selector: 'a',
+      plugins: [lgZoom, lgThumbnail],
+      speed: 500,
+      download: true,
+      counter: true,
+      thumbnail: true,
+      animateThumb: true,
+      showThumbByDefault: true,
+      subHtmlSelectorRelative: false,
+      getCaptionFromTitleOrAlt: false
     });
   });
+});
 </script>
+<!-- /compress_html -->
