@@ -132,6 +132,12 @@ module Jekyll
       albums_path = File.join(site.source, 'photos', 'albums')
       resized_path = File.join(site.source, 'photos', 'resized')
 
+      Jekyll.logger.info "Photo Albums:", "site.source = #{site.source}"
+      Jekyll.logger.info "Photo Albums:", "Checking albums_path = #{albums_path}"
+      Jekyll.logger.info "Photo Albums:", "albums_path exists? #{Dir.exist?(albums_path)}"
+      Jekyll.logger.info "Photo Albums:", "Checking resized_path = #{resized_path}"
+      Jekyll.logger.info "Photo Albums:", "resized_path exists? #{Dir.exist?(resized_path)}"
+
       albums = []
       use_resized = false
 
@@ -177,6 +183,8 @@ module Jekyll
       site.data['photo_albums'] = albums_data
 
       Jekyll.logger.info "Photo Albums:", "Found #{albums.length} album(s)"
+      Jekyll.logger.info "Photo Albums:", "Setting site.data['photo_albums'] with #{albums_data.length} items"
+      Jekyll.logger.info "Photo Albums:", "site.data['photo_albums'] = #{site.data['photo_albums'].inspect}"
       Jekyll.logger.info "Photo Albums:", "Albums data: #{albums_data.inspect}"
 
       # Store albums for post-write hook (only if processing from source)
