@@ -81,7 +81,7 @@ module Jekyll
         'name' => @name,
         'title' => @title,
         'slug' => @slug,
-        'date' => @date,
+        'date' => @date ? @date.to_s : nil,
         'path' => @path.sub(@site.source, ''),
         'photos' => @photos,
         'photo_count' => photo_count,
@@ -173,7 +173,11 @@ module Jekyll
       albums.sort_by! { |a| a.date || Date.new(1970, 1, 1) }.reverse!
 
       # Make albums available to the photos listing page
-      site.data['photo_albums'] = albums.map(&:to_liquid)
+      albums_data = albums.map(&:to_liquid)
+      site.data['photo_albums'] = albums_data
+
+      Jekyll.logger.info "Photo Albums:", "Found #{albums.length} album(s)"
+      Jekyll.logger.info "Photo Albums:", "Albums data: #{albums_data.inspect}"
 
       # Store albums for post-write hook (only if processing from source)
       site.config['photo_albums_data'] = use_resized ? [] : albums
