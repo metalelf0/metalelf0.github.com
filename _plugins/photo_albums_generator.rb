@@ -141,20 +141,27 @@ module Jekyll
       albums = []
       use_resized = false
 
-      # Check if we should read from albums (local) or resized (GitHub Pages)
-      if Dir.exist?(albums_path)
+      # Check which folder actually has album subdirectories
+      albums_folders = Dir.exist?(albums_path) ? Dir.glob(File.join(albums_path, '*')).select { |f| File.directory?(f) } : []
+      resized_folders = Dir.exist?(resized_path) ? Dir.glob(File.join(resized_path, '*')).select { |f| File.directory?(f) } : []
+
+      Jekyll.logger.info "Photo Albums:", "Found #{albums_folders.length} folders in albums path"
+      Jekyll.logger.info "Photo Albums:", "Found #{resized_folders.length} folders in resized path"
+
+      # Prefer albums (local development) if it has content, otherwise use resized (GitHub Pages)
+      if albums_folders.any?
         # Local development: process from hi-res albums
         Jekyll.logger.info "Photo Albums:", "Processing from hi-res albums folder"
-        Dir.glob(File.join(albums_path, '*')).select { |f| File.directory?(f) }.each do |album_path|
+        albums_folders.each do |album_path|
           album = PhotoAlbum.new(site, album_path, from_resized: false)
           next if album.photo_count.zero?
           albums << album
         end
-      elsif Dir.exist?(resized_path)
+      elsif resized_folders.any?
         # GitHub Pages: use pre-generated resized photos
         Jekyll.logger.info "Photo Albums:", "Using pre-generated resized photos"
         use_resized = true
-        Dir.glob(File.join(resized_path, '*')).select { |f| File.directory?(f) }.each do |album_path|
+        resized_folders.each do |album_path|
           album = PhotoAlbum.new(site, album_path, from_resized: true)
           next if album.photo_count.zero?
           albums << album
