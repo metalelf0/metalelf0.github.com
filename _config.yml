@@ -206,6 +206,10 @@ compress_html:
   ignore:
     envs: [development]
 
+# Keep static files in _site during build
+keep_files:
+  - photos/resized
+
 exclude:
   - "*.gem"
   - "*.gemspec"
