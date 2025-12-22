@@ -1,0 +1,156 @@
+---
+layout: default
+---
+
+{% include lang.html %}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lightgallery-bundle.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lg-zoom.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lg-thumbnail.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css">
+
+<style>
+  /* Remove all link styling and effects from gallery images */
+  .justified-gallery a {
+    text-decoration: none;
+    border: none !important;
+    border-bottom: none !important;
+  }
+
+  .justified-gallery a:hover {
+    border: none !important;
+    border-bottom: none !important;
+  }
+
+  .justified-gallery img {
+    border: none !important;
+    border-bottom: none !important;
+    display: block;
+  }
+
+  .justified-gallery img:hover {
+    border: none !important;
+    border-bottom: none !important;
+  }
+
+  /* Override any Chirpy theme link borders */
+  #lightgallery a,
+  #lightgallery a:hover,
+  #lightgallery a:focus {
+    border-bottom: none !important;
+    text-decoration: none !important;
+  }
+</style>
+
+<article class="px-1">
+  <nav aria-label="breadcrumb" class="mb-3">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{{ '/photos/' | relative_url }}">My photos</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{ page.album.title }}</li>
+    </ol>
+  </nav>
+
+  <h1 class="dynamic-title">{{ page.album.title }}</h1>
+
+  {% if page.album.date %}
+    <p class="text-muted mb-4">
+      <i class="fas fa-calendar"></i> {{ page.album.date | date: "%B %d, %Y" }}
+      <span class="ms-3"><i class="fas fa-images"></i> {{ page.album.photo_count }} photo{% if page.album.photo_count != 1 %}s{% endif %}</span>
+    </p>
+  {% endif %}
+
+  <div class="content">
+    <div id="lightgallery" class="justified-gallery">
+      {% for photo in page.photos %}
+        <a href="{{ photo.original_url | relative_url }}" data-src="{{ photo.original_url | relative_url }}">
+          <img src="{{ photo.url | relative_url }}"
+               alt="">
+        </a>
+      {% endfor %}
+    </div>
+
+    {% if page.total_pages > 1 %}
+      <nav aria-label="Album pagination" class="mt-5">
+        <ul class="pagination justify-content-center">
+          {% if page.has_prev %}
+            <li class="page-item">
+              <a class="page-link" href="{{ page.prev_url | relative_url }}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+          {% else %}
+            <li class="page-item disabled">
+              <span class="page-link">&laquo;</span>
+            </li>
+          {% endif %}
+
+          {% for i in (1..page.total_pages) %}
+            {% if i == page.page_num %}
+              <li class="page-item active">
+                <span class="page-link">{{ i }}</span>
+              </li>
+            {% else %}
+              {% if i == 1 %}
+                <li class="page-item">
+                  <a class="page-link" href="{{ page.album.url | relative_url }}">{{ i }}</a>
+                </li>
+              {% else %}
+                <li class="page-item">
+                  <a class="page-link" href="{{ page.album.url | replace: '/', '' | prepend: '/photos/' | append: '/page/' | append: i | append: '/' | relative_url }}">{{ i }}</a>
+                </li>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+
+          {% if page.has_next %}
+            <li class="page-item">
+              <a class="page-link" href="{{ page.next_url | relative_url }}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          {% else %}
+            <li class="page-item disabled">
+              <span class="page-link">&raquo;</span>
+            </li>
+          {% endif %}
+        </ul>
+      </nav>
+
+      <p class="text-center text-muted">
+        Page {{ page.page_num }} of {{ page.total_pages }}
+      </p>
+    {% endif %}
+  </div>
+</article>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/zoom/lg-zoom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/thumbnail/lg-thumbnail.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    $('#lightgallery').justifiedGallery({
+      rowHeight: 200,
+      maxRowHeight: 300,
+      lastRow: 'nojustify',
+      margins: 5,
+      captions: false
+    }).on('jg.complete', function () {
+      // Initialize lightGallery after justifiedGallery is complete
+      lightGallery(document.getElementById('lightgallery'), {
+        selector: 'a',
+        plugins: [lgZoom, lgThumbnail],
+        speed: 500,
+        download: true,
+        counter: true,
+        thumbnail: true,
+        animateThumb: true,
+        showThumbByDefault: true,
+        subHtmlSelectorRelative: false,
+        getCaptionFromTitleOrAlt: false
+      });
+    });
+  });
+</script>
