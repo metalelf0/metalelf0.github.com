@@ -106,7 +106,7 @@ module Jekyll
       end
 
       self.process(@name)
-      self.read_yaml(File.join(@base, '_layouts'), 'album.html')
+      self.read_yaml(File.join(@base, '_layouts'), 'album_standalone.html')
 
       photos_per_page = 20
       start_idx = (page_num - 1) * photos_per_page
@@ -132,21 +132,12 @@ module Jekyll
       albums_path = File.join(site.source, 'photos', 'albums')
       resized_path = File.join(site.source, 'photos', 'resized')
 
-      Jekyll.logger.info "Photo Albums:", "site.source = #{site.source}"
-      Jekyll.logger.info "Photo Albums:", "Checking albums_path = #{albums_path}"
-      Jekyll.logger.info "Photo Albums:", "albums_path exists? #{Dir.exist?(albums_path)}"
-      Jekyll.logger.info "Photo Albums:", "Checking resized_path = #{resized_path}"
-      Jekyll.logger.info "Photo Albums:", "resized_path exists? #{Dir.exist?(resized_path)}"
-
       albums = []
       use_resized = false
 
       # Check which folder actually has album subdirectories
       albums_folders = Dir.exist?(albums_path) ? Dir.glob(File.join(albums_path, '*')).select { |f| File.directory?(f) } : []
       resized_folders = Dir.exist?(resized_path) ? Dir.glob(File.join(resized_path, '*')).select { |f| File.directory?(f) } : []
-
-      Jekyll.logger.info "Photo Albums:", "Found #{albums_folders.length} folders in albums path"
-      Jekyll.logger.info "Photo Albums:", "Found #{resized_folders.length} folders in resized path"
 
       # Prefer albums (local development) if it has content, otherwise use resized (GitHub Pages)
       if albums_folders.any?
@@ -190,9 +181,6 @@ module Jekyll
       site.data['photo_albums'] = albums_data
 
       Jekyll.logger.info "Photo Albums:", "Found #{albums.length} album(s)"
-      Jekyll.logger.info "Photo Albums:", "Setting site.data['photo_albums'] with #{albums_data.length} items"
-      Jekyll.logger.info "Photo Albums:", "site.data['photo_albums'] = #{site.data['photo_albums'].inspect}"
-      Jekyll.logger.info "Photo Albums:", "Albums data: #{albums_data.inspect}"
 
       # Store albums for post-write hook (only if processing from source)
       site.config['photo_albums_data'] = use_resized ? [] : albums

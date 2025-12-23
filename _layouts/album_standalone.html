@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.album.title }} | {{ site.title }}</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/assets/img/favicons/favicon.ico">
+
+  <!-- Gallery CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lightgallery-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lg-zoom.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lg-thumbnail.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .header a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+
+    .header a:hover {
+      opacity: 0.7;
+    }
+
+    .header .title {
+      margin-left: 30px;
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 400;
+    }
+
+    /* Content */
+    .content {
+      margin-top: 60px;
+      padding: 30px 20px;
+      max-width: 100%;
+    }
+
+    .album-info {
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 20px;
+    }
+
+    .album-info h1 {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .album-info .meta {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 14px;
+    }
+
+    /* Gallery */
+    .justified-gallery {
+      margin: 0 auto;
+      max-width: 1800px;
+    }
+
+    .justified-gallery a {
+      text-decoration: none;
+      border: none !important;
+      display: inline-block;
+    }
+
+    .justified-gallery img {
+      border: none !important;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .justified-gallery a:hover img {
+      transform: scale(1.02);
+    }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin: 40px 0;
+      list-style: none;
+    }
+
+    .pagination a,
+    .pagination span {
+      display: inline-block;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .pagination a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .pagination .active {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .pagination .disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    /* LightGallery overrides */
+    .lg-backdrop {
+      background-color: rgba(0, 0, 0, 0.95);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <a href="/">← Home</a>
+    <span class="title">{{ page.album.title }}</span>
+  </header>
+
+  <!-- Content -->
+  <div class="content">
+    <div class="album-info">
+      <h1>{{ page.album.title }}</h1>
+      {% if page.album.date %}
+        <div class="meta">
+          {{ page.album.date | date: "%B %d, %Y" }} • {{ page.album.photo_count }} photo{% if page.album.photo_count != 1 %}s{% endif %}
+        </div>
+      {% endif %}
+    </div>
+
+    <div id="lightgallery" class="justified-gallery">
+      {% for photo in page.photos %}
+        <a href="{{ photo.original_url | relative_url }}" data-src="{{ photo.original_url | relative_url }}">
+          <img src="{{ photo.url | relative_url }}" alt="">
+        </a>
+      {% endfor %}
+    </div>
+
+    {% if page.total_pages > 1 %}
+      <nav aria-label="Album pagination">
+        <ul class="pagination">
+          {% if page.has_prev %}
+            <li><a href="{{ page.prev_url | relative_url }}">← Previous</a></li>
+          {% else %}
+            <li><span class="disabled">← Previous</span></li>
+          {% endif %}
+
+          {% for i in (1..page.total_pages) %}
+            {% if i == page.page_num %}
+              <li><span class="active">{{ i }}</span></li>
+            {% else %}
+              {% if i == 1 %}
+                <li><a href="{{ page.album.url | relative_url }}">{{ i }}</a></li>
+              {% else %}
+                <li><a href="{{ page.album.url | replace: '/', '' | prepend: '/photos/' | append: '/page/' | append: i | append: '/' | relative_url }}">{{ i }}</a></li>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+
+          {% if page.has_next %}
+            <li><a href="{{ page.next_url | relative_url }}">Next →</a></li>
+          {% else %}
+            <li><span class="disabled">Next →</span></li>
+          {% endif %}
+        </ul>
+      </nav>
+    {% endif %}
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/zoom/lg-zoom.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/thumbnail/lg-thumbnail.min.js"></script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    $('#lightgallery').justifiedGallery({
+      rowHeight: 250,
+      maxRowHeight: 400,
+      lastRow: 'nojustify',
+      margins: 8,
+      captions: false
+    }).on('jg.complete', function() {
+      lightGallery(document.getElementById('lightgallery'), {
+        selector: 'a',
+        plugins: [lgZoom, lgThumbnail],
+        speed: 500,
+        download: true,
+        counter: true,
+        thumbnail: true,
+        animateThumb: true,
+        showThumbByDefault: true,
+        subHtmlSelectorRelative: false,
+        getCaptionFromTitleOrAlt: false
+      });
+    });
+  });
+  </script>
+</body>
+</html>
