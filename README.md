@@ -29,6 +29,61 @@ latest version of the **Chirpy** theme and the [CD][CD] workflow to here, so tha
 
 Check out the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy/wiki).
 
+## Photo Albums
+
+This site includes a custom photo albums system that generates beautiful photo galleries with pagination and automatic image resizing.
+
+### Adding a New Album
+
+Albums are configured in `_data/photo_albums.yml`. To add a new album:
+
+1. **Place your photos** in a folder under `photos/albums/` (e.g., `photos/albums/2025-12-12-paris/`)
+
+2. **Add album configuration** to `_data/photo_albums.yml`:
+
+```yaml
+albums:
+  - title: "Paris in Winter"
+    slug: "paris"
+    position: 1
+    images_path: "photos/albums/2025-12-12-paris"
+    date: "2025-12-12"
+```
+
+### Configuration Fields
+
+- **title**: Display name for the album (shown in the gallery listing)
+- **slug**: URL-friendly identifier (creates `/photos/[slug]/` pages)
+- **position**: Sorting order (lower numbers appear first)
+- **images_path**: Relative path from site root to your images folder
+  - Can point to `photos/albums/` (local dev) or `photos/resized/` (production)
+  - The plugin automatically detects which folder contains images
+- **date**: (Optional) Date in YYYY-MM-DD format for display purposes
+
+### Build Process
+
+When you build the site:
+
+1. The plugin reads album definitions from `_data/photo_albums.yml`
+2. Photos are automatically resized to 1920px (max dimension) at 85% quality
+3. Resized images are saved to `photos/resized/[slug]/`
+4. Original hi-res photos are backed up to `hi-res-photos/` (gitignored)
+5. Album pages are generated with pagination (20 photos per page)
+6. URLs use clean slugs: `/photos/paris/` instead of `/photos/2025-12-12-paris/`
+
+### Image Requirements
+
+- Supported formats: JPG, JPEG, PNG, GIF, WebP
+- Images are automatically sorted by filename
+- Original images can be any size (will be resized automatically)
+
+### Backward Compatibility
+
+If `_data/photo_albums.yml` doesn't exist, the plugin falls back to folder-based discovery:
+- Scans `photos/albums/` or `photos/resized/` directories
+- Parses dates and titles from folder names (e.g., `2025-12-12-paris`)
+- Sorts albums by date (newest first)
+
 ## Contributing
 
 This repository is automatically updated with new releases from the theme repository. If you encounter any issues or want to contribute to its improvement, please visit the [theme repository][chirpy] to provide feedback.

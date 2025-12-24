@@ -38,19 +38,31 @@ module Jekyll
       # Use @path (set by either initialize or init_from_config) for loading files
       return [] unless Dir.exist?(@path)
 
-      Dir.glob(File.join(@path, '*')).select do |file|
+      files = Dir.glob(File.join(@path, '*')).select do |file|
         File.file?(file) && image_extensions.include?(File.extname(file).downcase)
-      end.sort.map do |file|
-        filename = File.basename(file)
+      end.sort
 
-        # Determine URL path: use actual folder name when loading from resized,
-        # use slug when loading from albums (will be resized with slug-based path)
-        url_folder = @from_resized ? File.basename(@path) : @name
-        resized_url = "/photos/resized/#{url_folder}/#{URI.encode_www_form_component(filename)}"
+      files.each_with_index.map do |file, index|
+        original_filename = File.basename(file)
+        extension = File.extname(original_filename)
+
+        # For albums from source, use sequential filenames; for resized, keep original
+        if @from_resized
+          # Already resized - keep existing filename
+          output_filename = original_filename
+          url_folder = File.basename(@path)
+        else
+          # Will be resized - use sequential filename
+          output_filename = "%03d#{extension}" % (index + 1)
+          url_folder = @name
+        end
+
+        resized_url = "/photos/resized/#{url_folder}/#{output_filename}"
 
         {
           'path' => file.sub(@site.source, ''),
-          'filename' => filename,
+          'filename' => output_filename,
+          'original_filename' => original_filename,
           'url' => resized_url,
           'original_url' => resized_url,
           'resized_url' => resized_url,
@@ -204,9 +216,10 @@ module Jekyll
       site.data['photo_albums'] = albums.map(&:to_liquid)
       Jekyll.logger.info "Photo Albums:", "Found #{albums.length} album(s)"
 
-      # Store for post-write hook
-      use_resized = albums.any? { |a| a.from_resized }
-      site.config['photo_albums_data'] = use_resized ? [] : albums
+      # Store albums that need processing for post-write hook (only those not from_resized)
+      albums_to_process = albums.reject { |a| a.from_resized }
+      site.config['photo_albums_data'] = albums_to_process
+      Jekyll.logger.info "Photo Albums:", "#{albums_to_process.length} album(s) will be processed for resizing"
     end
 
     private
@@ -294,32 +307,33 @@ module Jekyll
         source_path = photo['source_path']
         next unless source_path  # Skip if no source (already using resized)
 
-        filename = File.basename(source_path)
+        original_filename = File.basename(source_path)
+        sequential_filename = photo['filename']  # 001.jpg, 002.jpg, etc.
 
         # For config-based albums, album.name is the slug
         # Extract actual folder name from path for hi-res backup
         source_folder_name = File.basename(File.dirname(source_path))
 
-        # 1. Backup hi-res photo to hi-res-photos/ folder at root using actual folder name
+        # 1. Backup hi-res photo to hi-res-photos/ folder using original filename
         hires_backup_dir = File.join(site.source, 'hi-res-photos', source_folder_name)
         FileUtils.mkdir_p(hires_backup_dir)
-        hires_backup_path = File.join(hires_backup_dir, filename)
+        hires_backup_path = File.join(hires_backup_dir, original_filename)
 
         # Copy hi-res photo to backup folder if it doesn't exist or is older
         if !File.exist?(hires_backup_path) || File.mtime(source_path) > File.mtime(hires_backup_path)
           FileUtils.cp(source_path, hires_backup_path)
-          Jekyll.logger.info "Backed up hi-res:", "#{filename}"
+          Jekyll.logger.info "Backed up hi-res:", "#{original_filename}"
         end
 
-        # 2. Create resized version for _site using slug-based path (album.name)
+        # 2. Create resized version for _site using sequential filename
         resized_dir_site = File.join(site.dest, 'photos', 'resized', album.name)
         FileUtils.mkdir_p(resized_dir_site)
-        resized_path_site = File.join(resized_dir_site, filename)
+        resized_path_site = File.join(resized_dir_site, sequential_filename)
 
-        # 3. Also create resized version in source (for git commit)
+        # 3. Also create resized version in source (for git commit) using sequential filename
         resized_dir_source = File.join(site.source, 'photos', 'resized', album.name)
         FileUtils.mkdir_p(resized_dir_source)
-        resized_path_source = File.join(resized_dir_source, filename)
+        resized_path_source = File.join(resized_dir_source, sequential_filename)
 
         # Only resize if needed
         if !File.exist?(resized_path_site) || File.mtime(source_path) > File.mtime(resized_path_site)
@@ -336,12 +350,12 @@ module Jekyll
             # Set quality to 85 for good balance between size and quality
             image.quality "85"
 
-            # Write to both _site and source
+            # Write to both _site and source using sequential filename
             image.write(resized_path_site)
             image.write(resized_path_source)
-            Jekyll.logger.info "Resized:", "#{filename}"
+            Jekyll.logger.info "Resized:", "#{original_filename} -> #{sequential_filename}"
           rescue => e
-            Jekyll.logger.warn "Photo resize error:", "#{filename}: #{e.message}"
+            Jekyll.logger.warn "Photo resize error:", "#{original_filename}: #{e.message}"
             # If resize fails, copy the original
             FileUtils.cp(source_path, resized_path_site)
             FileUtils.cp(source_path, resized_path_source)

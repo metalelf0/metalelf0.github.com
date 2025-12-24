@@ -15,3 +15,33 @@ albums:
     position: 1
     images_path: "photos/albums/2025-12-12-paris"
     date: "2025-12-12"
+  - title: "Prato Valentino, summer 2021"
+    slug: "prato-valentino-summer-2021"
+    position: 2
+    images_path: "photos/albums/2021-08-08-prato-valentino"
+    date: "2021-08-08"
+  - title: "Prato Valentino, summer 2020"
+    slug: "prato-valentino-summer-2020"
+    position: 3
+    images_path: "photos/albums/2020-06-03-prato-valentino"
+    date: "2021-08-08"
+  - title: "Liverpool, Jan 2020"
+    slug: "liverpool-2020"
+    position: 4
+    images_path: "photos/albums/2020-01-22-liverpool"
+    date: "2020-01-22"
+  - title: "Scotland, summer 2018"
+    slug: "scotland-summer-2018"
+    position: 5
+    images_path: "photos/albums/2018-08-22-scotland"
+    date: "2018-08-22"
+  - title: "A day at the sea"
+    slug: "a-day-at-the-sea"
+    position: 6
+    images_path: "photos/albums/2018-06-25-a-day-at-the-sea"
+    date: "2018-06-25"
+  - title: "Various"
+    slug: "various"
+    position: 7
+    images_path: "photos/albums/2021-06-07-various"
+    date: "2021-06-07"
