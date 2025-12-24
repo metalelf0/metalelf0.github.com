@@ -24,6 +24,12 @@ layout: default
     overflow: hidden;
   }
 
+  .photo-album-card .album-cover-link {
+    display: block;
+    text-decoration: none;
+    border: none;
+  }
+
   .photo-album-card img {
     height: 250px;
     object-fit: cover;
@@ -78,24 +84,46 @@ layout: default
     albumCards.forEach(function(card) {
       const albumUrl = card.getAttribute('data-album-url');
 
-      // Remove any auto-generated lightbox links around thumbnails
-      const thumbnail = card.querySelector('.album-thumbnail');
-      if (thumbnail) {
-        const img = thumbnail.querySelector('img');
-        if (img && img.parentElement.tagName === 'A' && img.parentElement.classList.contains('popup')) {
-          const anchor = img.parentElement;
-          anchor.parentElement.insertBefore(img, anchor);
-          anchor.remove();
-        }
+      // Handle clicks on the album cover link
+      const coverLink = card.querySelector('.album-cover-link');
+      if (coverLink) {
+        coverLink.addEventListener('click', function(e) {
+          // Prevent any lightbox or other handlers
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation();
+
+          // Navigate to album
+          window.location.href = albumUrl;
+        }, true); // Use capture phase to run before other handlers
       }
 
-      // Make entire card clickable except for the button link
+      // Prevent popup links inside the cover from opening lightbox
+      const thumbnail = card.querySelector('.album-thumbnail');
+      if (thumbnail) {
+        thumbnail.addEventListener('click', function(e) {
+          // If clicking on a popup link inside thumbnail, prevent it
+          const popupLink = e.target.closest('a.popup');
+          if (popupLink) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+
+            // Navigate to album instead
+            window.location.href = albumUrl;
+          }
+        }, true);
+      }
+
+      // Make entire card clickable except for links
       card.addEventListener('click', function(e) {
-        // If clicking on a link (like the View Album button), let it handle navigation
-        if (e.target.tagName === 'A' || e.target.closest('a')) {
+        // If clicking on the View Album button, let it handle navigation
+        const viewButton = e.target.closest('.btn');
+        if (viewButton) {
           return;
         }
-        // Otherwise, navigate to the album page
+
+        // If clicking anywhere else on the card, navigate to album
         if (albumUrl) {
           window.location.href = albumUrl;
         }
@@ -115,7 +143,9 @@ layout: default
             <div class="photo-album-card" data-album-url="{{ album.url | relative_url }}">
               {% if album.thumbnail_url %}
                 <div class="album-thumbnail">
-                  <img src="{{ album.thumbnail_url | relative_url }}" alt="{{ album.title }}" class="no-shimmer">
+                  <a href="{{ album.url | relative_url }}" class="album-cover-link">
+                    <img src="{{ album.thumbnail_url | relative_url }}" alt="{{ album.title }}" class="no-shimmer">
+                  </a>
                 </div>
               {% endif %}
               <div class="card-body">
