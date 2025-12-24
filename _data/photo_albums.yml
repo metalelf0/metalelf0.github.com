@@ -8,40 +8,49 @@
 #                Can point to either photos/albums/ (local dev) or photos/resized/ (production)
 #                The plugin will automatically detect which folder has images
 # - date: (optional) Date string in YYYY-MM-DD format for display purposes
+# - cover_image: (optional) Filename of the photo to use as album cover (e.g., "005.jpg")
+#                If not specified, the first photo will be used
 
 albums:
   - title: "Paris in Winter"
     slug: "paris"
     position: 1
     images_path: "photos/albums/2025-12-12-paris"
+    cover_image: "R0002027.jpg"
     date: "2025-12-12"
   - title: "Prato Valentino, summer 2021"
     slug: "prato-valentino-summer-2021"
     position: 2
     images_path: "photos/albums/2021-08-08-prato-valentino"
+    cover_image: "005.jpg"
     date: "2021-08-08"
   - title: "Prato Valentino, summer 2020"
     slug: "prato-valentino-summer-2020"
     position: 3
     images_path: "photos/albums/2020-06-03-prato-valentino"
+    cover_image: "011.jpg"
     date: "2021-08-08"
   - title: "Liverpool, Jan 2020"
     slug: "liverpool-2020"
     position: 4
     images_path: "photos/albums/2020-01-22-liverpool"
     date: "2020-01-22"
+    cover_image: "010.jpg"
   - title: "Scotland, summer 2018"
     slug: "scotland-summer-2018"
     position: 5
     images_path: "photos/albums/2018-08-22-scotland"
+    cover_image: "001.jpg"
     date: "2018-08-22"
   - title: "A day at the sea"
     slug: "a-day-at-the-sea"
     position: 6
     images_path: "photos/albums/2018-06-25-a-day-at-the-sea"
+    cover: "013.jpg"
     date: "2018-06-25"
   - title: "Various"
     slug: "various"
     position: 7
     images_path: "photos/albums/2021-06-07-various"
+    cover_image: "001.jpg"
     date: "2021-06-07"

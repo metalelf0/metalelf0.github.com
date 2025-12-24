@@ -59,6 +59,9 @@ albums:
   - Can point to `photos/albums/` (local dev) or `photos/resized/` (production)
   - The plugin automatically detects which folder contains images
 - **date**: (Optional) Date in YYYY-MM-DD format for display purposes
+- **cover_image**: (Optional) Filename of the photo to use as album cover
+  - Example: `"005.jpg"` to use the 5th photo as the cover
+  - If not specified, the first photo will be used as the cover
 
 ### Build Process
 

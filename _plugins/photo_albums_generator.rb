@@ -76,6 +76,13 @@ module Jekyll
     end
 
     def thumbnail_url
+      # Use specified cover image if available, otherwise use first photo
+      if @cover_image
+        cover_photo = @photos.find { |photo| photo['filename'] == @cover_image }
+        return cover_photo['resized_url'] if cover_photo
+        Jekyll.logger.warn "Photo Albums:", "Cover image '#{@cover_image}' not found in album '#{@title}', using first photo"
+      end
+
       @photos.first ? @photos.first['resized_url'] : nil
     end
 
@@ -101,6 +108,7 @@ module Jekyll
       @slug = config['slug']
       @date = config['date'] ? Date.parse(config['date']) : nil
       @name = @slug  # Critical: use slug as name for URL generation
+      @cover_image = config['cover_image']  # Optional: specific photo to use as cover
 
       # Detect actual images path (handle both albums/ and resized/ locations)
       images_path = config['images_path']
