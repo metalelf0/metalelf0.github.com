@@ -1,0 +1,17 @@
+# Photo Albums Configuration
+#
+# Define your photo albums here. Each album should have:
+# - title: Display name for the album
+# - slug: URL-friendly identifier (used in /photos/[slug]/)
+# - position: Integer for sorting (lower numbers appear first in the listing)
+# - images_path: Relative path from site root to the folder containing images
+#                Can point to either photos/albums/ (local dev) or photos/resized/ (production)
+#                The plugin will automatically detect which folder has images
+# - date: (optional) Date string in YYYY-MM-DD format for display purposes
+
+albums:
+  - title: "Paris in Winter"
+    slug: "paris"
+    position: 1
+    images_path: "photos/albums/2025-12-12-paris"
+    date: "2025-12-12"
