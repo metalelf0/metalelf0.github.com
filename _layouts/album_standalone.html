@@ -190,7 +190,7 @@
               {% if i == 1 %}
                 <li><a href="{{ page.album.url | relative_url }}">{{ i }}</a></li>
               {% else %}
-                <li><a href="{{ page.album.url | replace: '/', '' | prepend: '/photos/' | append: '/page/' | append: i | append: '/' | relative_url }}">{{ i }}</a></li>
+                <li><a href="{{ page.album.url | append: 'page/' | append: i | append: '/' | relative_url }}">{{ i }}</a></li>
               {% endif %}
             {% endif %}
           {% endfor %}
