@@ -104,13 +104,13 @@ module Jekyll
 
       # Detect actual images path (handle both albums/ and resized/ locations)
       images_path = config['images_path']
-      @path, @from_resized = detect_images_path(site, images_path)
+      @path, @from_resized = detect_images_path(site, images_path, @slug)
       @photos = load_photos
     end
 
     private
 
-    def detect_images_path(site, configured_path)
+    def detect_images_path(site, configured_path, slug = nil)
       full_path = File.join(site.source, configured_path)
 
       # Try configured path first
@@ -135,6 +135,16 @@ module Jekyll
           from_resized = alternate_path.include?('/resized/')
           Jekyll.logger.debug "Photo Albums:", "Using alternate path: #{alternate_path}"
           return [full_alternate, from_resized]
+        end
+      end
+
+      # Try slug-based resized path (for GitHub Pages deployment)
+      if slug
+        slug_based_path = "photos/resized/#{slug}"
+        full_slug_path = File.join(site.source, slug_based_path)
+        if Dir.exist?(full_slug_path) && has_images?(full_slug_path)
+          Jekyll.logger.info "Photo Albums:", "Using slug-based resized path: #{slug_based_path}"
+          return [full_slug_path, true]
         end
       end
 
