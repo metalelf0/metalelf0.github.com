@@ -35,10 +35,10 @@ layout: default
     left: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.7);
-    padding: 1.25rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.25rem;
   }
 
   .album-overlay .album-title {
@@ -54,23 +54,6 @@ layout: default
     font-size: 0.875rem;
     margin: 0;
     text-align: left;
-  }
-
-  .album-overlay .btn-view {
-    background: white;
-    color: black;
-    border: none;
-    border-radius: 0;
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    text-align: center;
-    margin-top: 0.5rem;
-    cursor: pointer;
-  }
-
-  .album-overlay .btn-view:hover {
-    background: #f0f0f0;
   }
 </style>
 
@@ -106,7 +89,6 @@ layout: default
               <div class="album-overlay">
                 <h5 class="album-title">{{ album.title }}</h5>
                 <p class="photo-count">{{ album.photo_count }} photo{% if album.photo_count != 1 %}s{% endif %}</p>
-                <button class="btn-view">View album</button>
               </div>
             </div>
           </div>
