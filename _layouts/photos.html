@@ -18,58 +18,16 @@ layout: default
     cursor: pointer;
   }
 
-  /* No hover effects or shimmer on images */
+  /* Album thumbnail using background-image to avoid lightbox */
   .photo-album-card .album-thumbnail {
     position: relative;
     overflow: hidden;
     cursor: pointer;
-  }
-
-  /* Transparent clickable overlay to intercept all clicks */
-  .photo-album-card .album-thumbnail::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 9999;
-    cursor: pointer;
-    background: transparent;
-  }
-
-  /* Disable all links inside album thumbnails */
-  .photo-album-card .album-thumbnail a {
-    pointer-events: none !important;
-  }
-
-  .photo-album-card img {
     height: 250px;
-    object-fit: cover;
-    display: block;
     width: 100%;
-    pointer-events: none !important;
-  }
-
-  /* Override Chirpy theme's shimmer effect - use stronger selectors */
-  .photo-album-card .album-thumbnail img,
-  .photo-album-card .album-thumbnail a img,
-  .photo-album-card img.no-shimmer {
-    transition: none !important;
-    transform: none !important;
-    animation: none !important;
-  }
-
-  .photo-album-card .album-thumbnail img:hover,
-  .photo-album-card .album-thumbnail a img:hover,
-  .photo-album-card img.no-shimmer:hover {
-    transform: none !important;
-    animation: none !important;
-  }
-
-  /* Disable shimmer class specifically in album cards */
-  .photo-album-card .shimmer {
-    animation: none !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   .photo-album-card .card-body {
@@ -96,9 +54,21 @@ layout: default
 
     albumCards.forEach(function(card) {
       const albumUrl = card.getAttribute('data-album-url');
+      const thumbnail = card.querySelector('.album-thumbnail');
 
-      // Single click handler on the entire card
-      // The CSS ::after overlay on thumbnails intercepts clicks before lightbox can trigger
+      // Set thumbnail background image to avoid theme wrapping it in lightbox link
+      if (thumbnail) {
+        const thumbnailUrl = thumbnail.getAttribute('data-thumbnail-url');
+        const thumbnailAlt = thumbnail.getAttribute('data-thumbnail-alt');
+
+        if (thumbnailUrl) {
+          thumbnail.style.backgroundImage = 'url(' + thumbnailUrl + ')';
+          thumbnail.setAttribute('role', 'img');
+          thumbnail.setAttribute('aria-label', thumbnailAlt);
+        }
+      }
+
+      // Click handler on the entire card
       card.addEventListener('click', function(e) {
         // Don't interfere with View Album button
         if (e.target.closest('.btn')) {
@@ -124,8 +94,8 @@ layout: default
           <div class="col-md-6 col-lg-4 mb-4">
             <div class="photo-album-card" data-album-url="{{ album.url | relative_url }}">
               {% if album.thumbnail_url %}
-                <div class="album-thumbnail" data-no-lightbox="true">
-                  <img src="{{ album.thumbnail_url | relative_url }}" alt="{{ album.title }}" class="no-shimmer album-cover-image">
+                <div class="album-thumbnail" data-thumbnail-url="{{ album.thumbnail_url | relative_url }}" data-thumbnail-alt="{{ album.title }}">
+                  <!-- Image will be added via JavaScript as background to prevent theme lightbox -->
                 </div>
               {% endif %}
               <div class="card-body">
