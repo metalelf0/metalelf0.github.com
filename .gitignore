@@ -8,3 +8,4 @@ hi-res-photos
 # But DO commit the resized photos that will be served
 !photos/resized
 photos/albums_backup
+*.DS_Store
