@@ -84,7 +84,7 @@ layout: default
           <div class="col-md-6 col-lg-4 mb-4">
             <div class="photo-album-card" data-album-url="{{ album.url | relative_url }}">
               {% if album.thumbnail_url %}
-                <img src="{{ album.thumbnail_url | relative_url }}" alt="{{ album.title }}" class="album-cover-image no-shimmer">
+                <a href="{{ album.url | relative_url }}"><img src="{{ album.thumbnail_url | relative_url }}" alt="{{ album.title }}" class="album-cover-image no-shimmer"></a>
               {% endif %}
               <div class="album-overlay">
                 <h5 class="album-title">{{ album.title }}</h5>
