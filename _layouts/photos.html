@@ -24,12 +24,6 @@ layout: default
     overflow: hidden;
   }
 
-  .photo-album-card .album-cover-link {
-    display: block;
-    text-decoration: none;
-    border: none;
-  }
-
   .photo-album-card img {
     height: 250px;
     object-fit: cover;
@@ -79,55 +73,61 @@ layout: default
 <script>
   // Make album cards clickable and prevent lightbox
   document.addEventListener('DOMContentLoaded', function() {
-    const albumCards = document.querySelectorAll('.photo-album-card');
+    // Function to remove popup links from album thumbnails
+    function removePopupLinks() {
+      document.querySelectorAll('.photo-album-card .album-thumbnail a.popup').forEach(function(popupLink) {
+        const img = popupLink.querySelector('img');
+        if (img) {
+          // Replace the popup link with just the image
+          popupLink.parentNode.insertBefore(img, popupLink);
+          popupLink.remove();
+        }
+      });
+    }
 
+    // Remove popup links immediately
+    removePopupLinks();
+
+    // Watch for theme adding popup links dynamically
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.addedNodes.length) {
+          removePopupLinks();
+        }
+      });
+    });
+
+    // Observe the entire photos container for changes
+    const photosContainer = document.querySelector('.photo-album-card');
+    if (photosContainer) {
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+    }
+
+    // Make cards clickable
+    const albumCards = document.querySelectorAll('.photo-album-card');
     albumCards.forEach(function(card) {
       const albumUrl = card.getAttribute('data-album-url');
 
-      // Handle clicks on the album cover link
-      const coverLink = card.querySelector('.album-cover-link');
-      if (coverLink) {
-        coverLink.addEventListener('click', function(e) {
-          // Prevent any lightbox or other handlers
-          e.preventDefault();
-          e.stopPropagation();
-          e.stopImmediatePropagation();
-
-          // Navigate to album
-          window.location.href = albumUrl;
-        }, true); // Use capture phase to run before other handlers
-      }
-
-      // Prevent popup links inside the cover from opening lightbox
-      const thumbnail = card.querySelector('.album-thumbnail');
-      if (thumbnail) {
-        thumbnail.addEventListener('click', function(e) {
-          // If clicking on a popup link inside thumbnail, prevent it
-          const popupLink = e.target.closest('a.popup');
-          if (popupLink) {
-            e.preventDefault();
-            e.stopPropagation();
-            e.stopImmediatePropagation();
-
-            // Navigate to album instead
-            window.location.href = albumUrl;
-          }
-        }, true);
-      }
-
-      // Make entire card clickable except for links
+      // Intercept all clicks in capture phase
       card.addEventListener('click', function(e) {
-        // If clicking on the View Album button, let it handle navigation
+        // Check if clicking on the View Album button - allow normal behavior
         const viewButton = e.target.closest('.btn');
         if (viewButton) {
           return;
         }
 
-        // If clicking anywhere else on the card, navigate to album
+        // For any other click, prevent default and navigate to album
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+
         if (albumUrl) {
           window.location.href = albumUrl;
         }
-      });
+      }, true); // Use capture phase to intercept before any other handlers
     });
   });
 </script>
@@ -142,10 +142,8 @@ layout: default
           <div class="col-md-6 col-lg-4 mb-4">
             <div class="photo-album-card" data-album-url="{{ album.url | relative_url }}">
               {% if album.thumbnail_url %}
-                <div class="album-thumbnail">
-                  <a href="{{ album.url | relative_url }}" class="album-cover-link">
-                    <img src="{{ album.thumbnail_url | relative_url }}" alt="{{ album.title }}" class="no-shimmer">
-                  </a>
+                <div class="album-thumbnail" data-no-lightbox="true">
+                  <img src="{{ album.thumbnail_url | relative_url }}" alt="{{ album.title }}" class="no-shimmer album-cover-image">
                 </div>
               {% endif %}
               <div class="card-body">
