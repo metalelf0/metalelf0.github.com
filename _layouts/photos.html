@@ -5,68 +5,72 @@ layout: default
 {% include lang.html %}
 
 <style>
-  /* Theme-aware card styling */
+  /* Square card with image overlay */
   .photo-album-card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--card-border-color);
-    border-radius: 0.375rem;
-    overflow: hidden;
-  }
-
-  /* Make entire card clickable */
-  .photo-album-card {
-    cursor: pointer;
-  }
-
-  /* No hover effects or shimmer on images */
-  .photo-album-card .album-thumbnail {
     position: relative;
     overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 1 / 1;
+    width: 100%;
   }
 
   .photo-album-card img {
-    height: 250px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     display: block;
-    width: 100%;
-    cursor: pointer;
   }
 
-  /* Override Chirpy theme's shimmer effect - use stronger selectors */
-  .photo-album-card .album-thumbnail img,
-  .photo-album-card .album-thumbnail a img,
-  .photo-album-card img.no-shimmer {
+  /* Override Chirpy theme's effects */
+  .photo-album-card img {
     transition: none !important;
     transform: none !important;
     animation: none !important;
   }
 
-  .photo-album-card .album-thumbnail img:hover,
-  .photo-album-card .album-thumbnail a img:hover,
-  .photo-album-card img.no-shimmer:hover {
-    transform: none !important;
-    animation: none !important;
+  /* Dark overlay at bottom */
+  .album-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
-  /* Disable shimmer class specifically in album cards */
-  .photo-album-card .shimmer {
-    animation: none !important;
+  .album-overlay .album-title {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+    text-align: left;
   }
 
-  .photo-album-card .card-body {
-    padding: 1rem;
+  .album-overlay .photo-count {
+    color: white;
+    font-size: 0.875rem;
+    margin: 0;
+    text-align: left;
   }
 
-  /* Light mode */
-  [data-mode="light"] .photo-album-card {
-    --card-bg: #ffffff;
-    --card-border-color: #dee2e6;
+  .album-overlay .btn-view {
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 0;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 0.5rem;
+    cursor: pointer;
   }
 
-  /* Dark mode */
-  [data-mode="dark"] .photo-album-card {
-    --card-bg: #1e1e1e;
-    --card-border-color: #3d3d3d;
+  .album-overlay .btn-view:hover {
+    background: #f0f0f0;
   }
 </style>
 
@@ -78,13 +82,7 @@ layout: default
     albumCards.forEach(function(card) {
       const albumUrl = card.getAttribute('data-album-url');
 
-      // Make entire card clickable except for the button link
-      card.addEventListener('click', function(e) {
-        // If clicking on a link (like the View Album button), let it handle navigation
-        if (e.target.tagName === 'A' || e.target.closest('a')) {
-          return;
-        }
-        // Otherwise, navigate to the album page
+      card.addEventListener('click', function() {
         if (albumUrl) {
           window.location.href = albumUrl;
         }
@@ -103,21 +101,12 @@ layout: default
           <div class="col-md-6 col-lg-4 mb-4">
             <div class="photo-album-card" data-album-url="{{ album.url | relative_url }}">
               {% if album.thumbnail_url %}
-                <div class="album-thumbnail">
-                  <img src="{{ album.thumbnail_url | relative_url }}" alt="{{ album.title }}" class="album-cover-image no-shimmer">
-                </div>
+                <img src="{{ album.thumbnail_url | relative_url }}" alt="{{ album.title }}" class="album-cover-image no-shimmer">
               {% endif %}
-              <div class="card-body">
-                <h5 class="card-title">{{ album.title }}</h5>
-                {% if album.date %}
-                  <p class="card-text text-muted">
-                    <small>{{ album.date | date: "%B %d, %Y" }}</small>
-                  </p>
-                {% endif %}
-                <p class="card-text">
-                  <i class="fas fa-images"></i> {{ album.photo_count }} photo{% if album.photo_count != 1 %}s{% endif %}
-                </p>
-                <a href="{{ album.url | relative_url }}" class="btn btn-primary btn-sm">View Album</a>
+              <div class="album-overlay">
+                <h5 class="album-title">{{ album.title }}</h5>
+                <p class="photo-count">{{ album.photo_count }} photo{% if album.photo_count != 1 %}s{% endif %}</p>
+                <button class="btn-view">View album</button>
               </div>
             </div>
           </div>
