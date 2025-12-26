@@ -22,6 +22,25 @@ layout: default
   .photo-album-card .album-thumbnail {
     position: relative;
     overflow: hidden;
+    cursor: pointer;
+  }
+
+  /* Transparent clickable overlay to intercept all clicks */
+  .photo-album-card .album-thumbnail::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    cursor: pointer;
+    background: transparent;
+  }
+
+  /* Disable all links inside album thumbnails */
+  .photo-album-card .album-thumbnail a {
+    pointer-events: none !important;
   }
 
   .photo-album-card img {
@@ -29,7 +48,7 @@ layout: default
     object-fit: cover;
     display: block;
     width: 100%;
-    cursor: pointer;
+    pointer-events: none !important;
   }
 
   /* Override Chirpy theme's shimmer effect - use stronger selectors */
@@ -73,61 +92,24 @@ layout: default
 <script>
   // Make album cards clickable and prevent lightbox
   document.addEventListener('DOMContentLoaded', function() {
-    // Function to remove popup links from album thumbnails
-    function removePopupLinks() {
-      document.querySelectorAll('.photo-album-card .album-thumbnail a.popup').forEach(function(popupLink) {
-        const img = popupLink.querySelector('img');
-        if (img) {
-          // Replace the popup link with just the image
-          popupLink.parentNode.insertBefore(img, popupLink);
-          popupLink.remove();
-        }
-      });
-    }
-
-    // Remove popup links immediately
-    removePopupLinks();
-
-    // Watch for theme adding popup links dynamically
-    const observer = new MutationObserver(function(mutations) {
-      mutations.forEach(function(mutation) {
-        if (mutation.addedNodes.length) {
-          removePopupLinks();
-        }
-      });
-    });
-
-    // Observe the entire photos container for changes
-    const photosContainer = document.querySelector('.photo-album-card');
-    if (photosContainer) {
-      observer.observe(document.body, {
-        childList: true,
-        subtree: true
-      });
-    }
-
-    // Make cards clickable
     const albumCards = document.querySelectorAll('.photo-album-card');
+
     albumCards.forEach(function(card) {
       const albumUrl = card.getAttribute('data-album-url');
 
-      // Intercept all clicks in capture phase
+      // Single click handler on the entire card
+      // The CSS ::after overlay on thumbnails intercepts clicks before lightbox can trigger
       card.addEventListener('click', function(e) {
-        // Check if clicking on the View Album button - allow normal behavior
-        const viewButton = e.target.closest('.btn');
-        if (viewButton) {
+        // Don't interfere with View Album button
+        if (e.target.closest('.btn')) {
           return;
         }
 
-        // For any other click, prevent default and navigate to album
-        e.preventDefault();
-        e.stopPropagation();
-        e.stopImmediatePropagation();
-
+        // Navigate to album
         if (albumUrl) {
           window.location.href = albumUrl;
         }
-      }, true); // Use capture phase to intercept before any other handlers
+      });
     });
   });
 </script>
