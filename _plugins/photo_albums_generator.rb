@@ -52,8 +52,8 @@ module Jekyll
           output_filename = original_filename
           url_folder = File.basename(@path)
         else
-          # Will be resized - use sequential filename
-          output_filename = "%03d#{extension}" % (index + 1)
+          # Will be resized - use sequential filename with lowercase extension
+          output_filename = "%03d#{extension.downcase}" % (index + 1)
           url_folder = @name
         end
 
@@ -352,6 +352,15 @@ module Jekyll
         resized_dir_source = File.join(site.source, 'photos', 'resized', album.name)
         FileUtils.mkdir_p(resized_dir_source)
         resized_path_source = File.join(resized_dir_source, sequential_filename)
+
+        # Delete any existing files with different case extensions (macOS case-insensitive FS issue)
+        [resized_path_site, resized_path_source].each do |path|
+          dir = File.dirname(path)
+          basename_no_ext = File.basename(path, '.*')
+          Dir.glob(File.join(dir, "#{basename_no_ext}.*")).each do |existing|
+            File.delete(existing) if File.basename(existing) != File.basename(path)
+          end
+        end
 
         # Only resize if needed
         if !File.exist?(resized_path_site) || File.mtime(source_path) > File.mtime(resized_path_site)
