@@ -14,11 +14,25 @@ layout: default
     width: 100%;
   }
 
+  /* Ensure anchor fills the card */
+  .photo-album-card > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
   .photo-album-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
   /* Override Chirpy theme's effects */
