@@ -1,5 +1,6 @@
 require 'mini_magick'
 require 'fileutils'
+require 'digest'
 
 module Jekyll
   class PhotoAlbum
@@ -392,6 +393,66 @@ module Jekyll
           FileUtils.cp(resized_path_site, resized_path_source)
         end
       end
+    end
+
+    # Detect duplicate images across all galleries by SHA1 checksum
+    Jekyll.logger.info "Photo Albums:", "Checking for duplicate images..."
+    detect_duplicate_images(site, albums)
+  end
+
+  # Helper method to detect duplicate images across galleries
+  def self.detect_duplicate_images(site, albums)
+    # Map of SHA1 -> array of {album_title, filename, path}
+    checksums = Hash.new { |h, k| h[k] = [] }
+
+    albums.each do |album|
+      album.photos.each do |photo|
+        # Get the actual image file path
+        source_path = photo['source_path']
+
+        # If source_path is not available, try to get the path from resized folder
+        if !source_path || !File.exist?(source_path)
+          # Try resized folder in source
+          resized_path = File.join(site.source, 'photos', 'resized', album.name, photo['filename'])
+          if File.exist?(resized_path)
+            source_path = resized_path
+          else
+            # Try _site folder
+            site_path = File.join(site.dest, 'photos', 'resized', album.name, photo['filename'])
+            source_path = site_path if File.exist?(site_path)
+          end
+        end
+
+        next unless source_path && File.exist?(source_path)
+
+        begin
+          # Calculate SHA1 checksum
+          sha1 = Digest::SHA1.file(source_path).hexdigest
+
+          checksums[sha1] << {
+            album_title: album.title,
+            filename: photo['filename'],
+            path: source_path
+          }
+        rescue => e
+          Jekyll.logger.debug "Photo Albums:", "Could not calculate checksum for #{photo['filename']}: #{e.message}"
+        end
+      end
+    end
+
+    # Find and report duplicates
+    duplicates = checksums.select { |_, images| images.length > 1 }
+
+    if duplicates.any?
+      Jekyll.logger.warn "Photo Albums:", "Found #{duplicates.length} duplicate image(s):"
+      duplicates.each do |sha1, images|
+        Jekyll.logger.warn "", "Image with SHA1 #{sha1} is present in:"
+        images.each do |img|
+          Jekyll.logger.warn "", "  - gallery '#{img[:album_title]}' as #{img[:filename]}"
+        end
+      end
+    else
+      Jekyll.logger.info "Photo Albums:", "No duplicate images found"
     end
   end
 end
